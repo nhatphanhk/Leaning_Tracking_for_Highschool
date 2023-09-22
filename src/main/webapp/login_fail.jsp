@@ -51,10 +51,12 @@
                                 placeholder="Tên đăng nhập"
                             />
                         </div>
-                        <div class="input-group mb-3 m-lg-4">
+                         <div class="input-group mb-3 m-lg-4">
                             <input
                                 type="password"
+                                value="FakePSW"
                                 class="form-control"
+                                id="myInput"
                                 placeholder="Mật khẩu"
                             />
                         </div>
@@ -62,9 +64,8 @@
                             <input
                                 class="form-check-input"
                                 type="checkbox"
-                                value=""
-                                id="invalidCheck"
-                                required
+                                onclick="myFunction()"
+                                
                             />
                             <label
                                 class="form-check-lab333el bs-light"
@@ -137,6 +138,16 @@
                 </div>
             </div>
         </div>
+            <script>
+            function myFunction() {
+                var x = document.getElementById("myInput");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+        </script>
         <script>
             var myModal = new bootstrap.Modal(
                 document.getElementById("myModal"),
