@@ -82,10 +82,10 @@
                               alt=""
                             />
                             <h1 class="mb-4 text-color-gray fw-bolder">
-                              Hà Trọng Tấn
+                               ${student.lastName} ${student.firstName}
                             </h1>
                             <h3 class="mb-4 text-color-gray fw-bold">
-                              Lớp 10A3
+                              Lớp ${student.className}
                             </h3>
                           </div>
                         </div>
@@ -93,7 +93,7 @@
                           <div class="card-body text-center student-list-info">
                             <ul class="list-info mt-4">
                                 <li class="info-href-contain h3 ms-3 mb-4">
-                                    <a href="studentProfile.html" class="text-color-gray">
+                                    <a href="studentprofile?email=${student.email}" class="text-color-gray">
                                         <i class="fa-solid fa-user me-3"></i>
                                         <span>HỒ SƠ HỌC SINH</span>
                                     </a>

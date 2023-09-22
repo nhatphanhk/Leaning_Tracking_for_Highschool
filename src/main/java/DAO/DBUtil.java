@@ -20,9 +20,9 @@ public class DBUtil {
         Connection conn = null;
         try {
 
-            String dbURL = "jdbc:sqlserver://DESKTOP-5A91TRU;databaseName=swp_minicapstone;encrypt=true;trustServerCertificate=true;";
+            String dbURL = "jdbc:sqlserver://Admin\\TAMPHUC;databaseName=swp_minicapstone;encrypt=true;trustServerCertificate=true;";
             String user = "sa";
-            String pass = "123";
+            String pass = "phucdubai123";
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             conn = DriverManager.getConnection(dbURL, user, pass);
             //System.out.println("Connect to DB successfully");

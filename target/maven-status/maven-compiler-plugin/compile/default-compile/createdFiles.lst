@@ -1,1 +1,4 @@
+Model\Student.class
+Model\Account.class
+DAO\Dao.class
 DAO\DBUtil.class

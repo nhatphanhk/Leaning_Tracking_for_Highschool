@@ -37,12 +37,17 @@
                         />
                         <h3>SSMS</h3>
                     </div>
-                    <form action="#">
+                    <form action="login" method="Post">
+                        
+                        <div class="text-danger text-center mb-3">
+                            <h5>${msg}</h5>
+                        </div>
                         <div class="input-group mb-3 m-lg-4">
                             <input
                                 type="text"
                                 class="form-control"
                                 placeholder="Tên đăng nhập"
+                                name="email"
                             />
                         </div>
                         <div class="input-group mb-3 m-lg-4">
@@ -50,6 +55,7 @@
                                 type="password"
                                 class="form-control"
                                 placeholder="Mật khẩu"
+                                name="password"
                             />
                         </div>
                         <div class="form-check col-12 col-lg-5 float-end">
@@ -69,7 +75,7 @@
                         </div>
                         <br />
                         <div class="d-grid m-3">
-                            <button type="button" class="btn btn-primary">
+                            <button type="submit" class="btn btn-primary">
                                 Đăng nhập
                             </button>
                         </div>
