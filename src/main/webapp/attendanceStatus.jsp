@@ -127,18 +127,18 @@
                     </div>
 
                     <div class="col">
-                      <table class="table table-bordered">
+                      <table class="table table-bordered text-center ">
                         <thead>
                           <tr>
-                            <th class="col-1 text-center" scope="col" rowspan="2">STT</th>
-                            <th class="col-1 text-center" scope="col" rowspan="2">Ngày</th>
-                            <th class="col-2 text-center"  scope="col" colspan="2">Phép</th>
-                            <th class="col-3 text-center" scope="col" rowspan="2">Nội Dung
+                            <th class="col-1" scope="col" rowspan="2">STT</th>
+                            <th class="col-1" scope="col" rowspan="2">Ngày</th>
+                            <th class="col-2" scope="col" colspan="2">Phép</th>
+                            <th class="col-3" scope="col" rowspan="2">Nội Dung
                             </th>
                           </tr>
                           <tr>
-                            <th class="text-center" scope="col">Có</th>
-                            <th class="text-center" scope="col" rowspan="2">Không</th>
+                              <th class="col-1" scope="col">Có</th>
+                              <th class="col-1" scope="col">Không</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -159,8 +159,8 @@
                           <tr>
                             <th scope="row">3</th>
                             <td>20/10/2023</td>
-                            <td><i class="fa-solid fa-check"></i></td>
                             <td></td>
+                            <td><i class="fa-solid fa-check"></i></td>
                             <td></td>
                           </tr>
                         </tbody>

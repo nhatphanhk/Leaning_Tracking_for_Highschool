@@ -377,3 +377,7 @@ list-style-type: none;
     display: inline-flex;
     font-size: 40px;
 }
+
+.mh-0{
+    max-height: 0px;
+}

@@ -89,29 +89,24 @@
                       </div>
                     </div>
                   </div>
-
-                  <div class="row px-5 mx-5 my-5 ">
+                  <div class="row px-5 mx-5 my-5 pt-5 ">
                     <div class="col-2">
                       <h1 class="mb-4 text-secondary fw-bolder">
                         Kí túc xá
                       </h1>
                     </div>
                     <div class="col-5">
-                      <div class="dropdown mt-5 w-50">
-                        <div class="drop-down--header" onclick="toggleMenu2()">
-                          <span class="drop-down--title">Khoản Phí</span>
-                          <i class="fa-solid fa-caret-down dropdown--icon"></i>
-                        </div>
+                      <div class="dropdown w-50">
                           <div class="drop-down--content" id="subMenu2">
-                            <ul class="drop-down-link">
-                              <li><a href="#">4 giường - 2 000 000</a></li>
-                              <li><a href="#">2 giường - 3 000 000</a></li>
-                            </ul>
+                            <select id="application" class="fs-3">
+                              <option value="Đơn xin nghỉ học">4 giường - 2 000 000</option>
+                              <option value="Đơn rút hồ sơ">2 giường - 3 000 000</option>
+                            </select>
                           </div>
                       </div>
                     </div>
                   </div>
-
+                 
                   <div class="row px-5 mx-5 my-5">
                     <div class="col-2">
                       <h1 class="mb-4 text-secondary fw-bolder">

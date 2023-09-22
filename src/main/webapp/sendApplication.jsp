@@ -84,16 +84,12 @@
                       </h1>
                     </div>
                     <div class="col-5">
-                      <div class="dropdown mt-5 w-50">
-                        <div class="drop-down--header" onclick="toggleMenu2()">
-                          <span class="drop-down--title">Chọn Loại Đơn</span>
-                          <i class="fa-solid fa-caret-down dropdown--icon"></i>
-                        </div>
+                      <div class="dropdown w-50">
                           <div class="drop-down--content" id="subMenu2">
-                            <ul class="drop-down-link">
-                              <li><a href="#">Đơn xin nghỉ học</a></li>
-                              <li><a href="#">Đơn rút hồ sơ</a></li>
-                            </ul>
+                            <select id="application" class="fs-3">
+                              <option value="Đơn xin nghỉ học">Đơn xin nghỉ học</option>
+                              <option value="Đơn rút hồ sơ">Đơn rút hồ sơ</option>
+                            </select>
                           </div>
                       </div>
                     </div>

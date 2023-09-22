@@ -174,12 +174,19 @@
 
 .drop-down--content{
     position: relative;
+    max-height: 60px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+
+.drop-down-content{
+    position: relative;
     max-height: 0px;
     overflow: hidden;
     transition: max-height 0.5s;
 }
 
-.drop-down--content.open-menu{
+.drop-down-content.open-menu{
     max-height: 60px;
 }
 
