@@ -28,7 +28,7 @@
     <div class="header">
       <div class="grid h-100">
         <nav class="navbar navbar-light h-100">
-          <a class="navbar-brand navbar-logo h-100" href="studentHomePage.html">
+            <a class="navbar-brand navbar-logo h-100" href="teacherHomePage.jsp">
             <img src="./assets/imgs/logoPng.png" class="d-inline-block align-top h-100" alt="" />
             <p>Sổ liên lạc điện tử</p>
           </a>
@@ -44,7 +44,7 @@
       <div class="box-section w-50 mt-lg-5">
         <div class="app-home__heading">
           <div class="header-name">
-            <a href="#"><i class="fa-solid fa-arrow-left me-3"></i></a>
+              <a href="teacherHomePage.jsp"><i class="fa-solid fa-arrow-left me-3"></i></a>
             Hòm Thư
           </div>
         </div>

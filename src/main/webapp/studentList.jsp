@@ -27,7 +27,7 @@
           <nav class="navbar navbar-light h-100">
             <a
               class="navbar-brand navbar-logo h-100"
-              href="studentHomePage.html"
+              href="teacherHomePage.jsp"
             >
               <img
                 src="./assets/imgs/logoPng.png"
@@ -59,7 +59,7 @@
                 <div class="box-section">
                   <div class="app-home__heading">
                     <div class="header-name">
-                      <a href="studentHomePage.html">
+                        <a href="teacherHomePage.jsp">
                         <i class="fa-solid fa-arrow-left"></i>
                       </a>
                       Danh sách học sinh

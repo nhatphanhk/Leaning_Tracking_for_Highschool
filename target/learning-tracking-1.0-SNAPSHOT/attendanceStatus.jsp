@@ -34,7 +34,7 @@
           <nav class="navbar navbar-light h-100">
             <a
               class="navbar-brand navbar-logo h-100"
-              href="studentHomePage.html"
+              href="studentHomePage.jsp"
             >
               <img
                 src="./assets/imgs/logoPng.png"
@@ -85,7 +85,7 @@
                               <span class="drop-down--title">Lớp 10</span>
                               <i class="fa-solid fa-caret-down dropdown--icon"></i>
                             </div>
-                              <div class="drop-down--content" id="subMenu1">
+                              <div class="drop-down-content" id="subMenu1">
                                 <ul class="drop-down-link">
                                   <li><a href="#">Kỳ 1</a></li>
                                   <li><a href="#">Kỳ 2</a></li>
@@ -100,7 +100,7 @@
                               <span class="drop-down--title">Lớp 10</span>
                               <i class="fa-solid fa-caret-down dropdown--icon"></i>
                             </div>
-                              <div class="drop-down--content" id="subMenu2">
+                              <div class="drop-down-content" id="subMenu2">
                                 <ul class="drop-down-link">
                                   <li><a href="#">Kỳ 1</a></li>
                                   <li><a href="#">Kỳ 2</a></li>
@@ -114,7 +114,7 @@
                             <span class="drop-down--title">Lớp 10</span>
                             <i class="fa-solid fa-caret-down dropdown--icon"></i>
                           </div>
-                            <div class="drop-down--content" id="subMenu3">
+                            <div class="drop-down-content" id="subMenu3">
                               <ul class="drop-down-link">
                                 <li><a href="#">Kỳ 1</a></li>
                                 <li><a href="#">Kỳ 2</a></li>
