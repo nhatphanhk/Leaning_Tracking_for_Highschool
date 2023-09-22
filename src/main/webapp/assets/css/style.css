@@ -77,7 +77,7 @@
 }
 
 .info-container .img-account-profile {
-    height: 80px;
+    height: 200px;
     border: 3px solid #ccc;
 }
 
@@ -359,6 +359,18 @@
 .timet-nav__item-content li:hover {
     background-color: #ccc;
     cursor: pointer;
+}
+
+/* Mark-teacher */
+.nav-list-horizontal {
+list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.nav-list-horizontal li {
+    float: right;
 }
 
 .notifi-icon{
