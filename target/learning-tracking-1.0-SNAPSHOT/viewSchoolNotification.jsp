@@ -34,7 +34,7 @@
           <nav class="navbar navbar-light h-100">
             <a
               class="navbar-brand navbar-logo h-100"
-              href="studentHomePage.html"
+              href="studentHomePage.jsp"
             >
               <img
                 src="./assets/imgs/logoPng.png"
@@ -65,7 +65,7 @@
                 <div class="box-section">
                   <div class="app-home__heading">
                     <div class="header-name">
-                      <i class="fa-solid fa-arrow-left pe-2 ps-2"></i>
+                        <a href="studentHomePage.jsp"><i class="fa-solid fa-arrow-left pe-2 ps-2"></i></a>
                       Các Thông Báo Từ Trường
                     </div>
                   </div>

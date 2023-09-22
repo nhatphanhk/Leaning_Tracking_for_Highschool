@@ -1,9 +1,4 @@
-<%-- 
-    Document   : login
-    Created on : Sep 22, 2023, 10:02:14 AM
-    Author     : htk09
---%>
-
+<%-- Document : login Created on : Sep 22, 2023, 10:02:14 AM Author : htk09 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +48,9 @@
                         <div class="input-group mb-3 m-lg-4">
                             <input
                                 type="password"
+                                value="FakePSW"
                                 class="form-control"
+                                id="myInput"
                                 placeholder="Mật khẩu"
                                 name="password"
                             />
@@ -62,7 +59,7 @@
                             <input
                                 class="form-check-input"
                                 type="checkbox"
-                                value=""
+                                onclick="myFunction()"
                                 id="invalidCheck"
                                 required
                             />
@@ -86,6 +83,15 @@
                 </div>
             </div>
         </div>
+        <script>
+            function myFunction() {
+                var x = document.getElementById("myInput");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+        </script>
     </body>
 </html>
-

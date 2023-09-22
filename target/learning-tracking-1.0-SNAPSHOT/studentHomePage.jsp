@@ -34,7 +34,7 @@
           <nav class="navbar navbar-light h-100">
             <a
               class="navbar-brand navbar-logo h-100"
-              href="studentHomePage.html"
+              href="studentHomePage.jsp"
             >
               <img
                 src="./assets/imgs/logoPng.png"
@@ -93,25 +93,29 @@
                           <div class="card-body text-center student-list-info">
                             <ul class="list-info mt-4">
                                 <li class="info-href-contain h3 ms-3 mb-4">
+<<<<<<< HEAD
                                     <a href="studentprofile?email=${student.email}" class="text-color-gray">
+=======
+                                    <a href="studentProfile.jsp" class="text-color-gray">
+>>>>>>> f07c42c92cf9d285482309ae3a19817032190faa
                                         <i class="fa-solid fa-user me-3"></i>
                                         <span>HỒ SƠ HỌC SINH</span>
                                     </a>
                                 </li>
                                 <li class="info-href-contain h3 ms-3 mb-4">
-                                    <a href="studentMarkReport.html" class="text-color-gray">
+                                    <a href="studentMarkReport.jsp" class="text-color-gray">
                                         <i class="fa-solid fa-book me-3"></i>
                                     <span>QUÁ TRÌNH HỌC TẬP</span>
                                     </a>
                                 </li>
                                 <li class="info-href-contain h3 ms-3 mb-4">
-                                    <a href="" class="text-color-gray">
+                                    <a href="#" class="text-color-gray">
                                         <i class="fa-solid fa-award me-3"></i>
                                         <span>KHEN THƯỞNG, KỶ LUẬT</span>
                                     </a>
                                 </li>
                                 <li class="info-href-contain h3 ms-3 mb-4">
-                                    <a href="" class="text-color-gray">
+                                    <a href="attendanceStatus.jsp" class="text-color-gray">
                                         <i class="fa-solid fa-triangle-exclamation me-3"></i>
                                         <span>VI PHẠM, NGHỈ HỌC</span>
                                     </a>
@@ -144,7 +148,7 @@
                         </div>
                       </div>
                       <div class="timetable-href">
-                        <a href="studentTimetable.html" class="text-color-gray fw-bold">Xem</a>
+                          <a href="studentTimetable.jsp" class="text-color-gray fw-bold">Xem</a>
                       </div>
                     </div>
                   </div>
@@ -159,7 +163,7 @@
                         </div>
                       </div>
                       <div class="timetable-href">
-                        <a href="" class="text-color-gray fw-bold">Xem</a>
+                          <a href="teacherList.jsp" class="text-color-gray fw-bold">Xem</a>
                       </div>
                     </div>
                   </div>
@@ -175,20 +179,22 @@
                       </div>
                       <div class="registration-container">
                         <div class="applicate-container">
-                          <a href="sendApplication.html">
+                            <a href="sendApplication.jsp">
                           <button type="button" class="btn btn-me applicate-btn">
                             <i class="ps-3 pe-3 fa-solid fa-paper-plane"></i>
                             Gửi đơn
                           </button>
                         </a>
-                          <button type="button" class="btn btn-me applicate-view">Đơn đã gửi</button>
+                            <a href="applicationHistory.jsp"><button type="button" class="btn btn-me applicate-view">Đơn đã gửi</button></a>
                         </div>
                         <div class="mt-3 paid-items-container">
-                          <button type="button" class="btn btn-me paid-item-btn">
+                            <a href="payFee.jsp">
+                                <button type="button" class="btn btn-me paid-item-btn">
                             <i class="ps-3 pe-3 fa-solid fa-money-bill-wave"></i>
                             Chọn các khoản nộp
                           </button>
-                          <button type="button" class="btn btn-me paid-item-view">Lịch sử giao dịch</button>
+                            </a>
+                            <a href="feeHistory.jsp"><button type="button" class="btn btn-me paid-item-view">Lịch sử giao dịch</button></a>
                         </div>
                       </div>
                     </div>
@@ -200,11 +206,13 @@
               <div class="col">
                 <div class="box-section">
                   <div class="app-home__heading">
-                    <div class="header-name">
+                      <a href="viewSchoolNotification.jsp" style="text-decoration: none">
+                          <div class="header-name">
                       <i class="fa-solid fa-envelope pe-2 ps-2"></i>
                       <span class="header-notice">2</span>
                       Thông báo từ nhà trường
                     </div>
+                      </a>
                   </div>
                   <div class="notification-list">
                     <div class="notificaiton-item p-4">
@@ -229,7 +237,7 @@
                       <div class="ps-3 pt-2 notifi-short-content">Chuẩn bị thi rồi các em chăm chỉ học nhé</div>
                     </div>
                     <div class="text-center view-all">
-                      <a href="" class="text-color-gray">Xem tất cả</a>
+                        <a href="viewSchoolNotification.jsp" class="text-color-gray">Xem tất cả</a>
                     </div>
                   </div>
                 </div>
@@ -237,11 +245,13 @@
               <div class="col">
                 <div class="box-section">
                   <div class="app-home__heading">
-                    <div class="header-name">
+                      <a href="viewTeacherNotification.jsp" style="text-decoration: none">
+                          <div class="header-name">
                       <i class="fa-solid fa-bell pe-2 ps-2"></i>
                       <span class="header-notice">4</span>
                       Thông báo từ giáo viên
                     </div>
+                      </a>
                   </div>
                   <div class="notification-list">
                     <div class="notificaiton-item p-4">
@@ -273,7 +283,7 @@
                       <div class="ps-3 pt-2 notifi-short-content">Chuẩn bị thi rồi các em chăm chỉ học nhé</div>
                     </div>
                     <div class="text-center view-all">
-                      <a href="" class="text-color-gray">Xem tất cả</a>
+                        <a href="viewSchoolNotification.jsp" class="text-color-gray">Xem tất cả</a>
                     </div>
                   </div>
                 </div>
