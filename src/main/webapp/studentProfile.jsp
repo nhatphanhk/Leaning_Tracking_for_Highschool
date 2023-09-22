@@ -80,7 +80,7 @@
                               <div class="card-body text-center student-profile__avatar">
                                 <img
                                   class="img-account-profile rounded-circle mb-4 mt-4"
-                                  src="./assets/imgs/hih.jfif"
+                                  src="./assets/imgs/user.png"
                                   alt=""
                                 />
                               </div>
@@ -145,12 +145,11 @@
                         <li class="general-info-item fs-20 mb-2 fw-bold">Số điện thoại: 0123456789</li>
                         <li class="general-info-item fs-20 mb-2 fw-bold">Email: email@example.com</li>
                       </ul>
-<!--                      <div class="update-info-btn m-5">
+                      <div class="update-info-btn m-5">
                         <button class="btn btn-me update-btn">
-                          <i class="fa-solid fa-pen-to-square ms-2 me-3"></i>
-                          Chỉnh sửa thông tin
+                          Logout
                         </button>
-                      </div>-->
+                      </div>
                     </div>
                     <div class="tab-pane">
                       <div class="col-3 m-2">

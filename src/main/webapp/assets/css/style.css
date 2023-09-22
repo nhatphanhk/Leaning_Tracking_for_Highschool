@@ -78,7 +78,6 @@
 
 .info-container .img-account-profile {
     height: 200px;
-    border: 3px solid #ccc;
 }
 
 .student-list-info .list-info {
@@ -103,7 +102,6 @@
 
 .info-container .img-teacher-profile {
     height: 80px;
-    border: 3px solid #ccc;
 }
 
 .timetable-href {
@@ -287,7 +285,7 @@
 
 }
 
-.update-info-btn .update-btn,
+
 .change-password-btn .change-btn{
     font-size: 20px;
     border: 1px solid #ccc;
@@ -297,11 +295,23 @@
     background-color: #ccc;
 }
 
-.update-info-btn .update-btn:hover,
+.update-info-btn .update-btn {
+    font-size: 20px;
+    text-align: center;
+    font-weight: 500;
+    transition: fadeIn ease-in .5s;
+    background-color: red;
+    color: #fff;
+}
+
 .change-password-btn .change-btn:hover {
     background-color: var(--primary-color);
     color: #fff;
     box-shadow: 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.update-info-btn .update-btn:hover {
+    opacity: 0.7;
 }
 
 .change-password-container input {
