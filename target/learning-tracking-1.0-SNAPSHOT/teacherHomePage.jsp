@@ -194,11 +194,13 @@
                       </div>
                       <div class="registration-container">
                         <div class="applicate-container">
+                             <a href="teacherSendApplication.jsp">
                           <button type="button" class="btn btn-me applicate-btn">
-                            <i class="ps-3 pe-3 w1 fa-solid fa-envelope"></i>
-                            Hòm Thư
+                             <i class="ps-3 pe-3 w1 fa-solid fa-envelope"></i>
+                            Gửi thông báo
                           </button>
-                            <A href="approveApplication.jsp"> <button type="button" class="btn btn-me applicate-view">Tất cả thư</button></A>
+                                 </a>
+                            <A href="teacherBox.jsp"> <button type="button" class="btn btn-me applicate-view">Tất cả thư</button></A>
                         </div>
                       </div>
                     </div>

@@ -145,12 +145,12 @@
                         <li class="general-info-item fs-20 mb-2 fw-bold">Số điện thoại: 0123456789</li>
                         <li class="general-info-item fs-20 mb-2 fw-bold">Email: email@example.com</li>
                       </ul>
-                      <div class="update-info-btn m-5">
+<!--                      <div class="update-info-btn m-5">
                         <button class="btn btn-me update-btn">
                           <i class="fa-solid fa-pen-to-square ms-2 me-3"></i>
                           Chỉnh sửa thông tin
                         </button>
-                      </div>
+                      </div>-->
                     </div>
                     <div class="tab-pane">
                       <div class="col-3 m-2">

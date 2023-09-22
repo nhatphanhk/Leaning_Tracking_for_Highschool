@@ -38,7 +38,7 @@
                     <nav class="navbar navbar-light h-100">
                         <a
                             class="navbar-brand navbar-logo h-100"
-                            href="studentHomePage.jsp"
+                            href="teacherHomePage.jsp"
                         >
                             <img
                                 src="./assets/imgs/logoPng.png"
@@ -72,7 +72,7 @@
                                             <a href="studentHomePage.jsp">
                                                 <i class="fa-solid fa-arrow-left pe-2 ps-2"></i>
                                             </a>
-                                            Các Thông Báo Từ Trường
+                                            Danh sách đơn
                                         </div>
                                     </div>
 

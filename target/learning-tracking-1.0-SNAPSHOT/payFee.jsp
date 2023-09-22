@@ -89,7 +89,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="row px-5 mx-5 my-5 pt-5 ">
+<!--                  <div class="row px-5 mx-5 my-5 pt-5 ">
                     <div class="col-2">
                       <h1 class="mb-4 text-secondary fw-bolder">
                         Kí túc xá
@@ -105,7 +105,7 @@
                           </div>
                       </div>
                     </div>
-                  </div>
+                  </div>-->
                  
                   <div class="row px-5 mx-5 my-5">
                     <div class="col-2">
