@@ -15,6 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet" />
+  
   <link rel="stylesheet" href="./assets/css/teacher-base.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
@@ -55,7 +56,8 @@
             <div class="grid-item">Nội Dung</div>
             <div class="grid-item">Ngày Gửi</div>
           </div>
-          <a href="#" class="grid-container">
+          <a href="#" class="grid-container" data-bs-toggle="modal"
+                                                data-bs-target="#myModal">
             <div class="grid-item">1</div>
             <div class="grid-item">Hà Trọng Tấn</div>
             <div class="grid-item">Thư xin vắng học buổi thứ 3 ngày 23/2/2019</div>
@@ -91,6 +93,98 @@
         </div>
       </div>
     </div>
+       <!-- The Modal -->
+        <div class="modal" id="myModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h2 class="modal-title" style="color: #2fb5fa">
+                            Approve
+                        </h2>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                        ></button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <form>
+							<div class="form-row mt-3 mb-3 pb-3 pt-3">
+								<dl class="row">
+									<dt class="col-12 col-sm-2 pb-4"><h3>Người gửi :</h3> </dt>
+									<dd class="col-12 col-sm-8">
+										
+										<input
+											type="text"
+											class="form-control"
+											id="from"
+											name="from"
+											
+										/>
+										
+									</dd>
+									<hr />
+									<dt class="col-12 col-sm-2 pb-4"><h3>Người nhận :</h3></dt>
+									<dd class="col-12 col-sm-8">
+										<input
+											type="text"
+											class="form-control"
+											id="date"
+											name="date"
+											
+										/>
+									</dd>
+									<hr>
+									<dt class="col-12 col-sm-2 pb-4">
+										<h3>Title :</h3>
+									</dt>
+									<dd class="col-12 col-sm-8">
+										<input
+											type="text"
+											class="form-control"
+											id="title"
+											name="title"
+											
+										/>
+									</dd>
+									<h3>Nội dung</h3>
+									<input
+											type="text"
+											class="form-control"
+											id="content"
+											name="content"
+											
+										>
+								</dl>
+								
+							</div>
+						</form>
+                    </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button
+                                type="button"
+                                class="btn btn-success"
+                                data-bs-dismiss="modal"
+                            >
+                                <h3>Accept</h3>
+                            </button>
+                            <button
+                                type="button"
+                                class="btn btn-danger"
+                                data-bs-dismiss="modal"
+                            >
+                                <h3>Reject</h3>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
   </div>
   <script src="https://kit.fontawesome.com/5dd1c416dc.js" crossorigin="anonymous"></script>
 </body>
