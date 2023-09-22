@@ -60,8 +60,8 @@
                                 class="form-check-input"
                                 type="checkbox"
                                 onclick="myFunction()"
-                                id="invalidCheck"
-                                required
+                                
+                                
                             />
                             <label
                                 class="form-check-label bs-light"

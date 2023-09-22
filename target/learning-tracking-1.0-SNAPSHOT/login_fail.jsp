@@ -65,8 +65,7 @@
                                 class="form-check-input"
                                 type="checkbox"
                                 onclick="myFunction()"
-                                id="invalidCheck"
-                                required
+                                
                             />
                             <label
                                 class="form-check-lab333el bs-light"
