@@ -47,11 +47,12 @@ public class DBUtil {
 
     public static void main(String[] args) throws SQLException {
         
-        System.out.println("This is to test if we can connect to SQLServer");
+        System.out.println("test if we can connect to SQLServer");
         Connection conn = makeConnection();
         DatabaseMetaData dm = (DatabaseMetaData) conn.getMetaData();
         System.out.println("Driver name: " + dm.getDriverName());
         System.out.println("Driver version: " + dm.getDriverVersion());
         closeConnection(conn);
+
     }
 }
