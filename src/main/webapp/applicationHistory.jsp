@@ -24,7 +24,7 @@
       crossorigin="anonymous"
     />
     
-    <link rel="stylesheet" href="./assets/css/style-attendanceStatu--student.css" />
+    <link rel="stylesheet" href="./assets/css/sendApplication.css" />
     <title>MS</title>
   </head>
   <body>

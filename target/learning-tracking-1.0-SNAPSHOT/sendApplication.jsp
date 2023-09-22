@@ -24,7 +24,7 @@
       crossorigin="anonymous"
     />
     
-    <link rel="stylesheet" href="./assets/css/style-attendanceStatu--student.css" />
+    <link rel="stylesheet" href="./assets/css/sendApplication.css" />
     <title>MS</title>
   </head>
   <body>
@@ -71,13 +71,14 @@
                     </div>
                   </div>
                   
-                  <div class="row py-5 px-5 mx-5 my-5">
+                    <form>
+                        <div class="row py-5 px-5 mx-5 mt-5">
                     <h1 class="mb-4 text-secondary fw-bolder">
                       Gửi đơn cho thầy cô giáo chủ nhiệm
                     </h1>
                   </div>
 
-                  <div class="row px-5 mx-5 my-5 ">
+                  <div class="row px-5 mx-5 mb-5 pb-5 ">
                     <div class="col-2">
                       <h1 class="mb-4 text-secondary fw-bolder">
                         Loại đơn
@@ -101,7 +102,7 @@
                         Mục đích
                       </h1>
                     </div>
-                    <div class="col-7">
+                    <div class="col-9">
                       <div class="form-group">
                         <textarea class="form-control-lg w-100
                         h-100" id="exampleFormControlTextarea1" rows="3"></textarea>
@@ -124,9 +125,11 @@
                       </form>
                     </div>
                   </div>
-                  <div class="row px-5 mx-5 pt-5">
+                  <div class="row px-5 mx-5 pt-5 pb-5">
+                      <div class="col-10"></div>
                     <button type="button" class="btn btn-primary col-1 fs-3">Submit</button>
                   </div>
+                    </form>
                   
                 </div>
               </div>
