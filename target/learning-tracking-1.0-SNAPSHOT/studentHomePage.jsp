@@ -93,11 +93,8 @@
                           <div class="card-body text-center student-list-info">
                             <ul class="list-info mt-4">
                                 <li class="info-href-contain h3 ms-3 mb-4">
-<<<<<<< HEAD
                                     <a href="studentprofile?email=${student.email}" class="text-color-gray">
-=======
-                                    <a href="studentProfile.jsp" class="text-color-gray">
->>>>>>> f07c42c92cf9d285482309ae3a19817032190faa
+                           
                                         <i class="fa-solid fa-user me-3"></i>
                                         <span>HỒ SƠ HỌC SINH</span>
                                     </a>
@@ -121,14 +118,14 @@
                                     </a>
                                 </li>
                             </ul>
-                            <img
+<!--                            <img
                               class="img-teacher-profile rounded-circle mb-4 mt-4"
                               src="./assets/imgs/user.png"
                               alt=""
                             />
                             <h3 class="mb-4 text-color-gray fw-bolder">
                               GVCN. Phan Hoàng Nhật
-                            </h3>
+                            </h3>-->
                           </div>
                         </div>
                       </div>

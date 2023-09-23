@@ -48,7 +48,6 @@
                         <div class="input-group mb-3 m-lg-4">
                             <input
                                 type="password"
-                                value="FakePSW"
                                 class="form-control"
                                 id="myInput"
                                 placeholder="Mật khẩu"

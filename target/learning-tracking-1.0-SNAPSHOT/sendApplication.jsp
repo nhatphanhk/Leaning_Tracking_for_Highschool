@@ -110,7 +110,7 @@
                     </div>
                   </div>
 
-                  <div class="row px-5 mx-5">
+<!--                  <div class="row px-5 mx-5">
                     <div class="col-2">
                       <h1 class="mb-4 text-secondary fw-bolder">
                         Tải Đơn
@@ -124,7 +124,7 @@
                         </div>
                       </form>
                     </div>
-                  </div>
+                  </div>-->
                   <div class="row px-5 mx-5 pt-5 pb-5">
                       <div class="col-10"></div>
                     <button type="button" class="btn btn-primary col-1 fs-3">Submit</button>

@@ -1,14 +1,6 @@
-<<<<<<< HEAD
-E:\OnSchool\FALL_2023_FPT\swp-sofDevPro\Project\Learning-Tracking\src\main\java\DAO\DBUtil.java
-=======
-<<<<<<< HEAD
-C:\Users\Admin\Desktop\semester_5\swp\Learning-Tracking\src\main\java\DAO\DBUtil.java
-C:\Users\Admin\Desktop\semester_5\swp\Learning-Tracking\src\main\java\DAO\Dao.java
-C:\Users\Admin\Desktop\semester_5\swp\Learning-Tracking\src\main\java\Controller\StudentProfileController.java
-C:\Users\Admin\Desktop\semester_5\swp\Learning-Tracking\src\main\java\Model\Student.java
-C:\Users\Admin\Desktop\semester_5\swp\Learning-Tracking\src\main\java\Controller\LoginController.java
-C:\Users\Admin\Desktop\semester_5\swp\Learning-Tracking\src\main\java\Model\Account.java
-=======
-D:\Java-space-1\Learning-Tracking\src\main\java\DAO\DBUtil.java
->>>>>>> f07c42c92cf9d285482309ae3a19817032190faa
->>>>>>> b6e2cbc00a6e12ec9cc24c3eb1c6cf3339a277b3
+/Users/tramy/Documents/Project/Learning-Tracking/src/main/java/Controller/LoginController.java
+/Users/tramy/Documents/Project/Learning-Tracking/src/main/java/Model/Student.java
+/Users/tramy/Documents/Project/Learning-Tracking/src/main/java/Model/Account.java
+/Users/tramy/Documents/Project/Learning-Tracking/src/main/java/DAO/Dao.java
+/Users/tramy/Documents/Project/Learning-Tracking/src/main/java/DAO/DBUtil.java
+/Users/tramy/Documents/Project/Learning-Tracking/src/main/java/Controller/StudentProfileController.java
