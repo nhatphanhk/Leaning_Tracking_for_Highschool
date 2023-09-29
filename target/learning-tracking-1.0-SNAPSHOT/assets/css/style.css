@@ -39,6 +39,19 @@
     margin-bottom: 0;
 }
 
+.nav-dropdown-setting {
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    width: 40px;
+    height: 40px;
+}
+
+.nav-dropdown-setting button,
+.nav-dropdown-setting li {
+    font-size: 16px;
+}
+
 /* Body Style  */
 .app-container {
     background-color: var(--primary-color);
@@ -61,7 +74,7 @@
     position: relative;
 }
 
-.app-home__heading .header-name a {
+.app-home__heading .header-name > a {
     font-size: 20px;
     margin-right: 10px;
     font-weight: bold;
@@ -390,4 +403,30 @@ list-style-type: none;
 
 .mh-0{
     max-height: 0px;
+}
+
+.search-btn-contain {
+    position: absolute;
+    top: 7px;
+    right: 12px;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+}
+
+.search-btn-contain > a {
+    padding: 0 10px;
+}
+
+.submit-modal-btn {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    
+}
+
+.input-mark-student {
+    width: 50px;
+    outline: none;
+    text-align: center;
 }

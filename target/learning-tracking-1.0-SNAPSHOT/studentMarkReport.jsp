@@ -28,34 +28,8 @@
   </head>
   <body>
     <div class="app">
-      <div class="header">
-        <div class="grid h-100">
-          <nav class="navbar navbar-light h-100">
-            <a
-              class="navbar-brand navbar-logo h-100"
-              href="studentHomePage.jsp"
-            >
-              <img
-                src="./assets/imgs/logoPng.png"
-                class="d-inline-block align-top h-100"
-                alt=""
-              />
-              <p>Sổ liên lạc điện tử</p>
-            </a>
-
-            <div class="navbar-school">
-              <img
-                src="./assets/imgs/highSchool.png"
-                width="30"
-                height="30"
-                class="d-inline-block align-top"
-                alt=""
-              />
-              <p>FPT High School</p>
-            </div>
-          </nav>
-        </div>
-      </div>
+      <!-- header  -->
+            <%@ include file="./includes/header.jsp" %>
 
       <div class="app-container">
         <div class="grid d-grid">
@@ -75,48 +49,7 @@
                   <div class="app-home__body">
                     <div class="p-5 info-container">
                         <div class="row">
-                            <div class="col-4">
-                                <div class="box-section">
-                                    <div class="timetable-navigation p-5">
-                                        <div class="timetable-navigation__heading fw-bold">
-                                            Lớp
-                                        </div>
-                                        <div class="timet-nav__list mt-4">
-                                            <div class="timet-nav__item mb-4">
-                                                <div class="timet-nav__item-main drop-down-me">
-                                                    <span class="timet-nav__item-name ms-3">10</span>
-                                                    <i class="fa-solid fa-caret-left me-3 drop-down-icon"></i>
-                                                </div>
-                                                <ul class="timet-nav__item-content">
-                                                    <li>Kỳ 1</li>
-                                                    <li>Kỳ 2</li>
-                                                </ul>
-                                            </div>
-                                            <div class="timet-nav__item mb-4">
-                                              <div class="timet-nav__item-main drop-down-me">
-                                                  <span class="timet-nav__item-name ms-3">11</span>
-                                                  <i class="fa-solid fa-caret-left me-3 drop-down-icon"></i>
-                                              </div>
-                                              <ul class="timet-nav__item-content">
-                                                  <li>Kỳ 1</li>
-                                                  <li>Kỳ 2</li>
-                                              </ul>
-                                          </div>
-                                          <div class="timet-nav__item mb-4">
-                                            <div class="timet-nav__item-main drop-down-me">
-                                                <span class="timet-nav__item-name ms-3">12</span>
-                                                <i class="fa-solid fa-caret-left me-3 drop-down-icon"></i>
-                                            </div>
-                                            <ul class="timet-nav__item-content">
-                                                <li>Kỳ 1</li>
-                                                <li>Kỳ 2</li>
-                                            </ul>
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-8">
+                            <div class="col">
                                 <div class="box-section">
                                     <!-- Timetable details  -->
                                     <table class="table table-bordered">
@@ -171,15 +104,7 @@
       </div>
     </div>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
-      integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://kit.fontawesome.com/5dd1c416dc.js"
-      crossorigin="anonymous"
-    ></script>
+    <%@ include file="./includes/linkJS.jsp" %>
     <script src="./assets/js/mycode.js"></script>
     </script>
   </body>

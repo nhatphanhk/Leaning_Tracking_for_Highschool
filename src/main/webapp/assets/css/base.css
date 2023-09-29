@@ -96,6 +96,12 @@ html {
     font-size: 16px;
 }
 
+/*position*/
+fl-r {
+    float: right;
+}
+
+
 /* table style  */
 thead th, td {
     text-align: center;

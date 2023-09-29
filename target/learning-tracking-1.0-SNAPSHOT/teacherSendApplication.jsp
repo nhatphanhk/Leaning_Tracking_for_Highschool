@@ -18,28 +18,16 @@
   <link rel="stylesheet" href="./assets/css/teacher-base.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>-->
+  <link rel="stylesheet" href="./assets/css/style.css" />
   <link rel="stylesheet" href="./assets/css/teacher-style.css" />
   <title>MS</title>
 </head>
 
 <body>
   <div class="app">
-    <div class="header">
-      <div class="grid h-100">
-        <nav class="navbar navbar-light h-100">
-            <a class="navbar-brand navbar-logo h-100" href="teacherHomePage.jsp">
-            <img src="./assets/imgs/logoPng.png" class="d-inline-block align-top h-100" alt="" />
-            <p>Sổ liên lạc điện tử</p>
-          </a>
-
-          <div class="navbar-school">
-            <img src="./assets/imgs/highSchool.png" width="30" height="30" class="d-inline-block align-top" alt="" />
-            <p>FPT High School</p>
-          </div>
-        </nav>
-      </div>
-    </div>
+    <!-- header  -->
+            <%@ include file="./includes/header.jsp" %>
     <div class="app-container d-flex justify-content-center">
       <div class="box-section w-50 mt-lg-5">
         <div class="app-home__heading">
@@ -73,10 +61,7 @@
       </div>
     </div>
   </div>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
-  integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
-  crossorigin="anonymous"></script> -->
-  <script src="https://kit.fontawesome.com/5dd1c416dc.js" crossorigin="anonymous"></script>
+  <%@ include file="./includes/linkJS.jsp" %>
 </body>
 
 </html>
