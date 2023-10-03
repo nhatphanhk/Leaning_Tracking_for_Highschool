@@ -1,6 +1,11 @@
-E:\OnSchool\FALL_2023_FPT\swp-sofDevPro\Project\Front-end Project\Learning-Tracking\src\main\java\Controller\StudentProfileController.java
-E:\OnSchool\FALL_2023_FPT\swp-sofDevPro\Project\Front-end Project\Learning-Tracking\src\main\java\DAO\Dao.java
-E:\OnSchool\FALL_2023_FPT\swp-sofDevPro\Project\Front-end Project\Learning-Tracking\src\main\java\Controller\LoginController.java
-E:\OnSchool\FALL_2023_FPT\swp-sofDevPro\Project\Front-end Project\Learning-Tracking\src\main\java\Model\Student.java
-E:\OnSchool\FALL_2023_FPT\swp-sofDevPro\Project\Front-end Project\Learning-Tracking\src\main\java\Model\Account.java
-E:\OnSchool\FALL_2023_FPT\swp-sofDevPro\Project\Front-end Project\Learning-Tracking\src\main\java\DAO\DBUtil.java
+/Users/tramy/Documents/Project/Learning-Tracking/src/main/java/Controller/StudentList.java
+/Users/tramy/Documents/Project/Learning-Tracking/src/main/java/Controller/LoginController.java
+/Users/tramy/Documents/Project/Learning-Tracking/src/main/java/Model/Notification.java
+/Users/tramy/Documents/Project/Learning-Tracking/src/main/java/Model/Student.java
+/Users/tramy/Documents/Project/Learning-Tracking/src/main/java/Controller/SendApplication.java
+/Users/tramy/Documents/Project/Learning-Tracking/src/main/java/Model/Account.java
+/Users/tramy/Documents/Project/Learning-Tracking/src/main/java/DAO/Dao.java
+/Users/tramy/Documents/Project/Learning-Tracking/src/main/java/DAO/DBUtil.java
+/Users/tramy/Documents/Project/Learning-Tracking/src/main/java/Controller/StudentProfileController.java
+/Users/tramy/Documents/Project/Learning-Tracking/src/main/java/Model/Teacher.java
+/Users/tramy/Documents/Project/Learning-Tracking/src/main/java/Controller/NotificationFromTeacher.java

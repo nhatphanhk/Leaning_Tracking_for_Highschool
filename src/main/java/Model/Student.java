@@ -37,6 +37,20 @@ public class Student {
         this.className = className;
     }
 
+    public Student(String studentid, String lastName, String firstName, String email, String address, String phoneNumber, int classid, boolean gender, Date dob) {
+        this.studentid = studentid;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.email = email;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.classid = classid;
+        this.gender = gender;
+        this.dob = dob;
+    }
+    
+    
+
     
     public String getStudentid() {
         return studentid;

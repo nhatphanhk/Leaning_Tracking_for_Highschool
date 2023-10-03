@@ -1,6 +1,10 @@
-Model\Account.class
-Controller\LoginController.class
-Controller\StudentProfileController.class
-DAO\Dao.class
-DAO\DBUtil.class
-Model\Student.class
+DAO/Dao.class
+Controller/StudentList.class
+Model/Account.class
+Controller/StudentProfileController.class
+Controller/SendApplication.class
+DAO/DBUtil.class
+Model/Student.class
+Model/Notification.class
+Controller/NotificationFromTeacher.class
+Controller/LoginController.class

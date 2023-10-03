@@ -6,12 +6,15 @@ package DAO;
 
 
 import Model.Account;
+import Model.Notification;
 import Model.Student;
+import Model.Teacher;
 import java.io.Serializable;
 import java.sql.Connection;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -22,13 +25,15 @@ import java.util.logging.Logger;
  *
  * @author Admin
  */
+
+
 public class Dao implements Serializable{
     private Connection conn=DBUtil.makeConnection();
     //PreparedStatement pr =null;
     //ResultSet rs = null;
     private static Dao instance;
     
-     private Dao() {
+     public Dao() {
     }
 
     public static Dao getInstance() {
@@ -37,6 +42,99 @@ public class Dao implements Serializable{
             instance = new Dao();
         }
         return instance;
+    }
+    
+    private static final String SELECT_ALL_STUDENT = "SELECT * FROM student WHERE classid = ?";
+    private static final String SELECT_ALL_NOTI_TEACHER = "SELECT * FROM [dbo].[notification] WHERE categoryid = ?";
+    private static final String SELECT_TEACHER_BY_ID = "SELECT firstname, lastname FROM [dbo].[teacher] WHERE teacherid = ?";
+
+    public Teacher selectTeacherById(String teacherid) {
+    PreparedStatement stm;
+    ResultSet rs;
+    Teacher teacher = null;
+
+    try {
+        String sql = SELECT_TEACHER_BY_ID;
+        stm = conn.prepareStatement(sql);
+        stm.setString(1, teacherid);
+
+        rs = stm.executeQuery();
+        if (rs.next()) {
+            teacher = new Teacher(
+                    rs.getString("firstname"),
+                    rs.getString("lastname")
+            );
+        }
+    } catch (Exception ex) {
+        Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return teacher;
+}
+
+    public List<Notification> selectAllNotiTeacher(String categoryid) {
+        
+        PreparedStatement stm;
+        ResultSet rs;
+
+        List<Notification> noti = new ArrayList<>();
+        try {
+            
+            String sql = SELECT_ALL_NOTI_TEACHER;
+            stm = conn.prepareStatement(sql);
+            stm.setString(1,categoryid);
+            
+            
+            rs = stm.executeQuery();
+            while (rs.next()) {                
+                Teacher teacher = selectTeacherById(rs.getString(7));
+                noti.add(new Notification(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),                      
+                        rs.getDate(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getString(7),
+                        teacher
+                ));
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return noti;
+    }
+    
+    public List<Student> selectAllStudent(String classid) {
+        
+        PreparedStatement stm;
+        ResultSet rs;
+
+        List<Student> st = new ArrayList<>();
+        try {
+            
+            String sql = SELECT_ALL_STUDENT;
+            stm = conn.prepareStatement(sql);
+            stm.setString(1,classid);
+            
+            
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                st.add(new Student(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getInt(7),
+                        rs.getBoolean(8),
+                        rs.getDate(9)
+                ));
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return st;
     }
     
     public List<Account> getAll() {
@@ -118,7 +216,7 @@ public class Dao implements Serializable{
     }
     
     
-    
+  
     
         
         public static void main(String[] args) {

@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +25,6 @@
         <div class="app">
             <!-- header  -->
             <%@ include file="./includes/header.jsp" %>
-
             <div class="app-container">
                 <div class="grid d-grid">
                     <div class="section-m1">
@@ -37,138 +37,105 @@
                                                 <i class="fa-solid fa-arrow-left"></i>
                                             </a>
                                             Danh sách học sinh
-                                            <div class="search-btn-contain">
-                                                <a
-                                                    role="button"
-                                                    class="btn btn-block nav-link"
-                                                    data-bs-toggle="modal" 
-                                                    data-bs-target="#infoModal"
-                                                    >Tìm kiếm</a>
+                                            <form action="student-list" method="get">
+                                                <div class="search">
+                                                    <div class="search-btn-contain">
+                                                        <select id="classid" name="classid" class="form-select" aria-label="Default select example" onchange="changeClassName()">
+                                                            <option selected>Chọn Lớp</option>
+                                                            <option value="1">10A1</option>
+                                                            <option value="2">10A2</option>
+                                                            <option value="3">10A3</option>
+                                                            <option value="4">11A1</option>
+                                                            <option value="5">11A2</option>
+                                                            <option value="6">11A3</option>
+                                                            <option value="7">12A1</option>
+                                                            <option value="8">12A2</option>
+                                                            <option value="9">12A3</option>                                                            
+                                                        </select>                                   
+                                                    </div>
+                                                    <button type="submit" class="btn btn-block submit-modal-btn">
+                                                        Tìm kiếm
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                        <div class="app-home__body">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <!-- Student List details  -->
+                                                    <table class="table table-bordered table-striped">
+                                                        <thead class="background-primary">
+                                                            <tr class="text-color-white">
+                                                                <th>STT</th>
+                                                                <th>Mã học sinh</th>
+                                                                <th>Họ và Tên</th>                                                            
+                                                                <th>Giới tính</th>
+                                                                <th>Email</th>
+                                                                <th>Ngày sinh</th>
+                                                                <th>Số điện thoại</th>
+                                                                <th>Địa chỉ</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <c:forEach items="${students}" var="x" varStatus="status">
+                                                                <tr>
+                                                                    <td>${status.index+1}</td>
+                                                                    <td>${x.studentid}</td>
+                                                                    <td>${x.lastName} ${x.firstName}</td>
+                                                                    <td>
+                                                                        <c:choose>
+                                                                            <c:when test="${x.gender}">
+                                                                                Nam
+                                                                            </c:when>
+                                                                            <c:otherwise>
+                                                                                Nữ
+                                                                            </c:otherwise>
+                                                                        </c:choose>
+                                                                    </td>
+                                                                    <td>${x.email}</td>
+                                                                    <td>${x.dob}</td>
+                                                                    <td>${x.phoneNumber}</td>
+                                                                    <td>${x.address}</td>
+                                                                </tr>  
+                                                            </c:forEach>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div class="app-home__body">
-                                        <div class="row">
-                                            <div class="col">
-                                                <!-- Student List details  -->
-                                                <table class="table table-bordered table-striped">
-                                                    <thead class="background-primary">
-                                                        <tr class="text-color-white">
-                                                            <th>STT</th>
-                                                            <th>Mã học sinh</th>
-                                                            <th>Họ và Tên</th>
-                                                            <th>Giới tính</th>
-                                                            <th>Ngày sinh</th>
-                                                            <th>Số điện thoại</th>
-                                                            <th>Địa chỉ</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>1</td>
-                                                            <td>DE170068</td>
-                                                            <td>Hà Trọng Tấn</td>
-                                                            <td>Nam</td>
-                                                            <td>1/1/2007</td>
-                                                            <td>0123456789</td>
-                                                            <td>86 Land, FPT Arena</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>1</td>
-                                                            <td>DE170068</td>
-                                                            <td>Hà Trọng Tấn</td>
-                                                            <td>Nam</td>
-                                                            <td>1/1/2007</td>
-                                                            <td>0123456789</td>
-                                                            <td>86 Land, FPT Arena</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>1</td>
-                                                            <td>DE170068</td>
-                                                            <td>Hà Trọng Tấn</td>
-                                                            <td>Nam</td>
-                                                            <td>1/1/2007</td>
-                                                            <td>0123456789</td>
-                                                            <td>86 Land, FPT Arena</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>1</td>
-                                                            <td>DE170068</td>
-                                                            <td>Hà Trọng Tấn</td>
-                                                            <td>Nam</td>
-                                                            <td>1/1/2007</td>
-                                                            <td>0123456789</td>
-                                                            <td>86 Land, FPT Arena</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        
-        <!--Modal-->
-        <div id="infoModal" class="modal fade" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <!-- Modal content-->
-                      <div class="modal-content">
-                        <div class="modal-header background-primary text-color-white">
-                          <h4 class="modal-title">Thông tin tìm kiếm</h4>
-                          <button type="button" class="btn-close text-color-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body p-4">
-                          <form action="">
-                            <div class="row mb-5">
-                                <div class="col-6">
-                                  <label class="col-3 col-form-label"
-                                    >Khối</label
-                                  >
-                                  <div class="col-8 d-flex justify-content-around">
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option value="10">Khối 10</option>
-                                        <option value="11">Khối 11</option>
-                                        <option value="12">Khối 12</option>
-                                      </select>
-                                  </div>
-                                </div>
-                                <div class="col-6">
-                                    <label class="col-3 col-form-label"
-                                      >Lớp</label
-                                    >
-                                    <div class="col-8 d-flex justify-content-around">
-                                      <select class="form-select" aria-label="Default select example">
-                                          <option value="A3">Lớp A3</option>
-                                          <option value="A4">Lớp A4</option>
-                                          <option value="A5">Lớp A5</option>
-                                        </select>
-                                    </div>
-                                  </div>
+            </div>            
 
-                            </div>
-              
-                            <div class="form-group row">
-                              <div class="col-12">
-                                <button type="submit" class="btn btn-block submit-modal-btn">
-                                  Tìm kiếm
-                                </button>
-                              </div>
-                            </div>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+            <%@ include file="./includes/linkJS.jsp" %>
+            <script src="./assets/js/mycode.js"></script>
+            <script>
+                                                            function changeClassName() {
+                                                                var select = document.getElementById('classid');
+                                                                var selectedValue = select.options[select.selectedIndex].value;
+                                                                var selectedText = select.options[select.selectedIndex].text;
+                                                                console.log(selectedValue);
+                                                                console.log(selectedText);
+                                                                select.options[0].text = selectedText;
 
-        <%@ include file="./includes/linkJS.jsp" %>
-        <script src="./assets/js/mycode.js"></script>
-    </script>
-</body>
+                                                                // Lưu giá trị đã chọn vào sessionStorage
+                                                                sessionStorage.setItem('selectedClassId', selectedValue);
+
+                                                            }
+                                                            // Khi trang tải xong, lấy giá trị đã chọn từ sessionStorage và đặt nó cho thẻ select
+                                                            window.onload = function () {
+                                                                var selectedClassId = sessionStorage.getItem('selectedClassId');
+                                                                if (selectedClassId) {
+                                                                    document.getElementById('classid').value = selectedClassId;
+                                                                }
+                                                            }
+
+            </script>
+    </body>
 </html>

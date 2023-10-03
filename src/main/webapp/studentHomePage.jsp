@@ -3,7 +3,8 @@
     Created on : Sep 22, 2023, 10:03:10 AM
     Author     : htk09
 --%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -224,37 +225,27 @@
                                         </a>
                                     </div>
                                     <div class="notification-list">
-                                        <div class="notificaiton-item p-4">
-                                            <div class="notifi-heading">
-                                                <div class="notifi-header">Loa Loa Loa</div>
-                                                <div class="notifi-date">17/7/2023</div>
+                                        <c:forEach var="notification" items="${notifications}">
+                                            <div class="row m">
+                                                <div class="notification-list">
+                                                    <a href="notificationDetail.jsp?notificationId=${notification.notificationId}">
+                                                        <div class="notificaiton-item p-4">
+                                                            <div class="notifi-heading">
+                                                                <div class="notifi-header fs-1">${notification.title}</div>
+                                                                <div class="notifi-date fs-3">${notification.date}</div>
+                                                            </div>
+                                                            <div class="ps-3 pt-2 notifi-short-content fs-3 ">
+                                                                ${fn:substring(notification.content, 0, 100)} <!-- Hiển thị 100 ký tự đầu tiên -->
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
                                             </div>
-                                            <div class="ps-3 pt-2 notifi-short-content">Nay cô bận các em nghỉ nhé</div>
-                                        </div>
-                                        <div class="notificaiton-item p-4">
-                                            <div class="notifi-heading">
-                                                <div class="notifi-header">Loa Loa Loa</div>
-                                                <div class="notifi-date">17/7/2023</div>
-                                            </div>
-                                            <div class="ps-3 pt-2 notifi-short-content">Nay cô bận các em nghỉ nhé</div>
-                                        </div>
-                                        <div class="notificaiton-item p-4">
-                                            <div class="notifi-heading">
-                                                <div class="notifi-header">Thông báo lịch thi cuối kỳ</div>
-                                                <div class="notifi-date">17/7/2023</div>
-                                            </div>
-                                            <div class="ps-3 pt-2 notifi-short-content">Chuẩn bị thi rồi các em chăm chỉ học nhé</div>
-                                        </div>
-                                        <div class="notificaiton-item p-4">
-                                            <div class="notifi-heading">
-                                                <div class="notifi-header">Thông báo lịch thi cuối kỳ</div>
-                                                <div class="notifi-date">17/7/2023</div>
-                                            </div>
-                                            <div class="ps-3 pt-2 notifi-short-content">Chuẩn bị thi rồi các em chăm chỉ học nhé</div>
-                                        </div>
-                                        <div class="text-center view-all">
-                                            <a href="viewSchoolNotification.jsp" class="text-color-gray">Xem tất cả</a>
-                                        </div>
+                                        </c:forEach>
+                                        <c:forEach var="notification" items="${notifications}">
+                                            <!-- Hiển thị thông báo -->
+                                            <a href="viewTeacherNotification.jsp?notificationId=${notification.notificationId}">Xem thêm</a>
+                                        </c:forEach>
                                     </div>
                                 </div>
                             </div>

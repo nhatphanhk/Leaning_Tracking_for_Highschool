@@ -72,7 +72,7 @@
                                     </a>
                                 </li>
                                 <li class="info-href-contain h3 ms-3 mb-4">
-                                    <a href="studentList.jsp" class="text-color-gray">
+                                    <a href="student-list" class="text-color-gray">
                                         <i class="fa-solid fa-bars me-3"></i>
                                     <span>DANH SÁCH HỌC SINH</span>
                                     </a>
@@ -115,7 +115,7 @@
                   </div>
                 </div>
 
-                <div class="col mt-4">
+<!--                <div class="col mt-4">
                   <div class="box-section">
                     <div class="app-home__heading">
                         <a href="viewTeacherNotification.jsp" style="text-decoration: none">
@@ -153,7 +153,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div>-->
               </div>
             </div>
             <div class="row mt-4">
@@ -168,7 +168,7 @@
                       </div>
                       <div class="registration-container">
                         <div class="applicate-container">
-                             <a href="teacherSendApplication.jsp">
+                             <a href="teacherSendNotification.jsp">
                           <button type="button" class="btn btn-me applicate-btn">
                              <i class="ps-3 pe-3 w1 fa-solid fa-envelope"></i>
                             Gửi thông báo
