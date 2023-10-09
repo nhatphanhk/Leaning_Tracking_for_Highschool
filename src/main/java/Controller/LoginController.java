@@ -67,7 +67,7 @@ public class LoginController extends HttpServlet {
            Student student = dao.getAStudentByEmail(email);
            request.setAttribute("student", student);
            
-           request.getRequestDispatcher("studentHomePage.jsp").forward(request, response);
+           response.sendRedirect("studentHomePage.jsp");
        }else{
            if(email.startsWith("teacher")){
                response.sendRedirect("teacherHomePage.jsp");
