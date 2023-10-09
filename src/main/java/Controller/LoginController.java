@@ -8,6 +8,7 @@ package Controller;
 import DAO.Dao;
 import Model.Account;
 import Model.Student;
+import Model.Teacher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -44,6 +45,7 @@ public class LoginController extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         }
+            
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -57,7 +59,24 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        request.getRequestDispatcher("login.jsp").forward(request, response);
+       String email= request.getParameter("email");
+       if(email.isEmpty()){
+           response.sendRedirect("login.jsp");
+       }
+       if(email.startsWith("student")){
+           Dao dao = Dao.getInstance();
+           Student student = dao.getAStudentByEmail(email);
+           //request.setAttribute("student", student);
+           //request.getRequestDispatcher("studentHomePage.jsp").forward(request, response);
+           response.sendRedirect("studentHomePage.jsp");
+       }else{
+           if(email.startsWith("teacher")){
+               response.sendRedirect("teacherHomePage.jsp");
+           }
+       }
+           
+       
+        
     } 
 
     /** 
@@ -88,16 +107,20 @@ public class LoginController extends HttpServlet {
             int role = acc.getRoleid();
             switch(role){
             
-            case 1: session.setAttribute("accountstudent", acc);
+            case 1: 
+            session.setAttribute("account", acc);
             Student st = dao.getAStudentByEmail(email);
-            request.setAttribute("student", st);
-            request.getRequestDispatcher("studentHomePage.jsp").forward(request, response);
+            session.setAttribute("student", st);
+            //request.getRequestDispatcher("studentHomePage.jsp").forward(request, response);
+            response.sendRedirect("studentHomePage.jsp");
             break;
+            
             case 2: 
-                session.setAttribute("accountstudent", acc);
-            //Student st = dao.getAStudentByEmail(email);
-            //request.setAttribute("student", st);
-            request.getRequestDispatcher("teacherHomePage.jsp").forward(request, response);
+            session.setAttribute("account", acc);
+            Teacher tc = dao.getATeacherByEmail(email);
+            session.setAttribute("teacher", tc);
+            //request.getRequestDispatcher("teacherHomePage.jsp").forward(request, response);
+            response.sendRedirect("teacherHomePage.jsp");
             break;
             
         }

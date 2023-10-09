@@ -55,13 +55,14 @@ public class StudentProfileController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        String email = request.getParameter("email");
-        
-        Dao dao = Dao.getInstance();
-        Student st = dao.getAStudentByEmail(email);
-        
-        request.setAttribute("student", st);
-        request.getRequestDispatcher("studentProfile.jsp").forward(request, response);
+//        String email = request.getParameter("email");
+//        
+//        Dao dao = Dao.getInstance();
+//        Student st = dao.getAStudentByEmail(email);
+//        
+//        request.setAttribute("student", st);
+//        request.getRequestDispatcher("studentProfile.jsp").forward(request, response);
+          response.sendRedirect("studentProfile.jsp");
     } 
 
     /** 
