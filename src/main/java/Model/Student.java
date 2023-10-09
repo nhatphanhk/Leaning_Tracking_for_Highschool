@@ -21,20 +21,10 @@ public class Student {
     private boolean gender;
     private Date dob;
     private String className;
+    private int semester;
+    private int year;
+    
     public Student() {
-    }
-
-    public Student(String studentid, String lastName, String firstName, String email, String address, String phoneNumber, int classid, boolean gender, Date dob,String className) {
-        this.studentid = studentid;
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.email = email;
-        this.address = address;
-        this.phoneNumber = phoneNumber;
-        this.classid = classid;
-        this.gender = gender;
-        this.dob = dob;
-        this.className = className;
     }
 
     public Student(String studentid, String lastName, String firstName, String email, String address, String phoneNumber, int classid, boolean gender, Date dob) {
@@ -48,8 +38,33 @@ public class Student {
         this.gender = gender;
         this.dob = dob;
     }
-    
-    
+
+    public Student(String studentid, String lastName, String firstName, String email, String address, String phoneNumber, boolean gender, Date dob,String className, int semester,int year) {
+        this.studentid = studentid;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.email = email;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.gender = gender;
+        this.dob = dob;
+        this.className = className;
+        this.semester = semester;
+        this.year = year;
+    }
+
+    public Student(String studentid, String lastName, String firstName, String email, String address, String phoneNumber, int classid, boolean gender, Date dob, String className) {
+        this.studentid = studentid;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.email = email;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.classid = classid;
+        this.gender = gender;
+        this.dob = dob;
+        this.className = className;
+    }
 
     
     public String getStudentid() {
@@ -132,14 +147,26 @@ public class Student {
         this.className = className;
     }
 
+    public int getSemester() {
+        return semester;
+    }
+
+    public void setSemester(int semester) {
+        this.semester = semester;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
     @Override
     public String toString() {
-        return "Student{" + "studentid=" + studentid + ", lastName=" + lastName + ", firstName=" + firstName + ", email=" + email + ", address=" + address + ", phoneNumber=" + phoneNumber + ", classid=" + classid + ", gender=" + gender + ", dob=" + dob + ", className=" + className + '}';
+        return "Student{" + "studentid=" + studentid + ", lastName=" + lastName + ", firstName=" + firstName + ", email=" + email + ", address=" + address + ", phoneNumber=" + phoneNumber + ", gender=" + gender + ", dob=" + dob + ", className=" + className + ", semester=" + semester + ", year=" + year + '}';
     }
-    
 
-    
-    
-    
     
 }

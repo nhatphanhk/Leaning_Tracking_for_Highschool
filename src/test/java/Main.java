@@ -24,18 +24,18 @@ public class Main {
 //        }
 //
         Dao notiDAO = new Dao();
-        List<Notification> notis = notiDAO.selectAllNotiTeacher("2");
+        List<Notification> notis = notiDAO.selectAllNotiSchool("1");
         
-        for (Notification noti : notis) {
-            Teacher teacher = noti.getTeacher();
-            if (teacher != null) {
-                System.out.println("Notification ID: " + noti.getNotificationId());
-                System.out.println("Teacher Name: " + teacher.getFirstName() + " " + teacher.getLastName());
-            }
-        }
 //        for (Notification noti : notis) {
-//            System.out.println(noti);
+//            Teacher teacher = noti.getTeacher();
+//            if (teacher != null) {
+//                System.out.println("Notification ID: " + noti.getNotificationId());
+//                System.out.println("Teacher Name: " + teacher.getFirstName() + " " + teacher.getLastName());
+//            }
 //        }
+        for (Notification noti : notis) {
+            System.out.println(noti);
+        }
 
         
 

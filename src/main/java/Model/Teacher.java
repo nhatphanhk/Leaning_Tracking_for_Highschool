@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Other/File.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Model;
 
@@ -8,23 +8,39 @@ import java.sql.Date;
 
 /**
  *
- * @author tramy
+ * @author Admin
  */
 public class Teacher {
-
-    private String teacherid;
-    private String lastName;
-    private String firstName;
+    private String teacherid; 
+    private String lastname;
+    private String firstname;
+    private String major;
     private String email;
     private String address;
     private String phoneNumber;
-    private String major;
-    private boolean gender;
     private Date dob;
+    private boolean  gender;
 
-    public Teacher(String lastName, String firstName) {
-        this.lastName = lastName;
-        this.firstName = firstName;
+    public Teacher() {
+    }
+
+    public Teacher(String lastname, String firstname) {
+        this.lastname = lastname;
+        this.firstname = firstname;
+    }
+
+    
+    
+    public Teacher(String teacherid, String lastname, String firstname, String major, String email, String address, String phoneNumber, Date dob, boolean gender) {
+        this.teacherid = teacherid;
+        this.lastname = lastname;
+        this.firstname = firstname;
+        this.major = major;
+        this.email = email;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.dob = dob;
+        this.gender = gender;
     }
 
     public String getTeacherid() {
@@ -35,20 +51,28 @@ public class Teacher {
         this.teacherid = teacherid;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getMajor() {
+        return major;
+    }
+
+    public void setMajor(String major) {
+        this.major = major;
     }
 
     public String getEmail() {
@@ -75,12 +99,12 @@ public class Teacher {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getMajor() {
-        return major;
+    public Date getDob() {
+        return dob;
     }
 
-    public void setMajor(String major) {
-        this.major = major;
+    public void setDob(Date dob) {
+        this.dob = dob;
     }
 
     public boolean isGender() {
@@ -91,16 +115,10 @@ public class Teacher {
         this.gender = gender;
     }
 
-    public Date getDob() {
-        return dob;
+    @Override
+    public String toString() {
+        return "Teacher{" + "teacherid=" + teacherid + ", lastname=" + lastname + ", firstname=" + firstname + ", major=" + major + ", email=" + email + ", address=" + address + ", phoneNumber=" + phoneNumber + ", dob=" + dob + ", gender=" + gender + '}';
     }
-
-    public void setDob(Date dob) {
-        this.dob = dob;
-    }
-    public String getFullName() {
-        return "GV: " + firstName + " " + lastName;
-    }
-       
+    
     
 }

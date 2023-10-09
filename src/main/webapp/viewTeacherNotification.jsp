@@ -52,8 +52,10 @@
                                                         <div class="notifi-date fs-3">${x.date}</div>
                                                     </div>
                                                     <div class="d-flex">
-                                                        <div class="ps-3 pt-2 notifi-short-content fs-3 ">${x.shortContent}</div>
-                                                        <div class="ms-auto ps-3 pt-2 notifi-teacher-name fs-3">${x.teacher.fullName}</div>
+                                                        <p class="ps-3 pt-2 notifi-short-content fs-3 " style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap; max-width: 500px">
+                                                            ${x.content}
+                                                        </p>
+                                                        <div class="ms-auto ps-3 pt-2 notifi-teacher-name fs-3">${x.teacher.firstname} ${x.teacher.lastname}</div>
                                                     </div>
                                                 </div>
                                             </c:forEach>

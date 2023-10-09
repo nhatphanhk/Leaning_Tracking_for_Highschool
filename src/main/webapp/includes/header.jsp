@@ -4,7 +4,7 @@
         <nav class="navbar navbar-light h-100">
             <a
                 class="navbar-brand navbar-logo h-100"
-                href="studentHomePage.jsp"
+                href="login?email=${sessionScope.account.email}"
                 >
                 <img
                     src="./assets/imgs/logoPng.png"
@@ -35,9 +35,13 @@
             aria-expanded="false"
             ></button>
         <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Change Password</a></li>
+            <li><a class="dropdown-item" href="changePassword.jsp">Đổi mật khẩu</a></li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" href="#">Logout</a></li>
+
+            
+
+            <li><a class="dropdown-item" href="logout">Đăng xuất</a></li>
+
         </ul>
     </div>
 </div>

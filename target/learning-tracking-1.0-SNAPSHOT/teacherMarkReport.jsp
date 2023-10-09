@@ -56,32 +56,40 @@
                                     </div>
                                     <div class="app-home__body">
                                         <div class="row">
-                                            <div class="col ">
-                                                <!-- Student List details  -->
-                                                <table class="table table-bordered table-striped">
-                                                    <thead class="background-primary">
-                                                        <tr class="text-color-white">
-                                                            <th class="align-middle">STT</th>
-                                                            <th class="align-middle">Mã học sinh</th>
-                                                            <th class="align-middle">Họ và Tên</th>
-                                                            <th class="align-middle">KTTX</th>
-                                                            <th class="align-middle">KTGK</th>
-                                                            <th class="align-middle">KTCK</th>
-                                                            <th class="align-middle">TBM HK</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>1</td>
-                                                            <td>DE170068</td>
-                                                            <td>Hà Trọng Tấn</td>
-                                                            <td><input class="input-mark-student" type="number" value="8"/></td>
-                                                            <td><input class="input-mark-student" type="number"/></td>
-                                                            <td><input class="input-mark-student" type="number"/></td>
-                                                            <td></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                                            <div class="col">
+                                                <form>
+                                                    <!-- Student List details  -->
+                                                    <table class="table table-bordered table-striped">
+                                                        <thead class="background-primary">
+                                                            <tr class="text-color-white">
+                                                                <th class="align-middle">STT</th>
+                                                                <th class="align-middle">Mã học sinh</th>
+                                                                <th class="align-middle">Họ và Tên</th>
+                                                                <th class="align-middle">KTTX</th>
+                                                                <th class="align-middle">KTGK</th>
+                                                                <th class="align-middle">KTCK</th>
+                                                                <th class="align-middle">TBM HK</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>DE170068</td>
+                                                                <td>Hà Trọng Tấn</td>
+                                                                <td><input class="input-mark-student" type="number" value="8"/></td>
+                                                                <td><input class="input-mark-student" type="number"/></td>
+                                                                <td><input class="input-mark-student" type="number"/></td>
+                                                                <td></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <div class="change-password-btn m-4">
+                                                        <button class="btn btn-me change-btn">
+                                                            <i class="fa-solid fa-circle-check ms-2 me-3"></i>
+                                                            Xác nhận
+                                                        </button>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>

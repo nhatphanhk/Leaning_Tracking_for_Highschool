@@ -4,6 +4,7 @@
     Author     : htk09
 --%>
 
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +25,6 @@
             crossorigin="anonymous"
             />
         <link rel="stylesheet" href="./assets/css/style.css" />
-        <link rel="stylesheet" href="./assets/css/style-attendanceStatu--student.css" />
         <title>MS</title>
     </head>
     <body>
@@ -46,29 +46,17 @@
 
                                     <div class="row m">
                                         <div class="notification-list">
+                                            <c:forEach var="x" items="${notification}">
                                                 <div class="notificaiton-item p-4">
                                                     <div class="notifi-heading">
-                                                        <div class="notifi-header fs-1">Thông báo lịch thi cuối kỳ</div>
-                                                        <div class="notifi-date fs-3">17/7/2023</div>
+                                                        <div class="notifi-header fs-1">${x.title}</div>
+                                                        <div class="notifi-date fs-3">${x.date}</div>
                                                     </div>
-                                                    <div class="ps-3 pt-2 notifi-short-content fs-3 ">Chuẩn bị thi rồi các em chăm chỉ học nhé</div>
-                                                </div>
-                                                <div class="notificaiton-item p-4">
-                                                    <div class="notifi-heading">
-                                                        <div class="notifi-header fs-1">Thông báo lịch thi cuối kỳ</div>
-                                                        <div class="notifi-date fs-3">17/7/2023</div>
+                                                    <div class="ps-3 pt-2 notifi-short-content fs-3 " style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap; max-width: 500px">
+                                                        ${x.content}
                                                     </div>
-                                                    <div class="ps-3 pt-2 notifi-short-content fs-3 ">Chuẩn bị thi rồi các em chăm chỉ học nhé</div>
                                                 </div>
-                                            
-                                                <div class="notificaiton-item p-4">
-                                                    <div class="notifi-heading">
-                                                        <div class="notifi-header fs-1">Thông báo lịch thi cuối kỳ</div>
-                                                        <div class="notifi-date fs-3">17/7/2023</div>
-                                                    </div>
-                                                    <div class="ps-3 pt-2 notifi-short-content fs-3 ">Chuẩn bị thi rồi các em chăm chỉ học nhé</div>
-                                                </div>
-                                            
+                                            </c:forEach>
                                         </div>
                                     </div>
                                 </div>

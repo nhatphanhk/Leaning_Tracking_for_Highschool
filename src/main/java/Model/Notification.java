@@ -45,14 +45,6 @@ public class Notification {
         this.teacher = teacher;
     }
 
-    public String getShortContent() {
-        int maxLength = 50; // Đặt độ dài tối đa của nội dung rút gọn
-        if (content.length() <= maxLength) {
-            return content;
-        } else {
-            return content.substring(0, maxLength) + "...";
-        }
-    }
 
     public Teacher getTeacher() {
         return teacher;
@@ -116,7 +108,9 @@ public class Notification {
 
     @Override
     public String toString() {
-        return "Notification{" + "notificationId=" + notificationId + ", title=" + title + ", content=" + content + ", date=" + date + ", categoryId=" + categoryId + ", classid=" + classid + ", teacherid=" + teacherid + ", teachername=" + teacher + '}';
+        return "Notification{" + "notificationId=" + notificationId + ", title=" + title + ", content=" + content + ", date=" + date + ", classid=" + classid + ", teacher=" + teacher + '}';
     }
+
+    
 
 }

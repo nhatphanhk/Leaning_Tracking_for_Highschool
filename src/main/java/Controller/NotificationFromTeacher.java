@@ -60,9 +60,10 @@ public class NotificationFromTeacher extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        String categoryid = request.getParameter("categoryid");
+        int classid = Integer.parseInt(request.getParameter("classid"));
+        
         Dao notiDAO = new Dao();
-        List<Notification> notis = notiDAO.selectAllNotiTeacher("2");
+        List<Notification> notis = notiDAO.selectAllNotiTeacher("2", classid);
         request.setAttribute("notifications", notis);
         RequestDispatcher dispatcher = request.getRequestDispatcher("viewTeacherNotification.jsp");
         dispatcher.forward(request, response);       
