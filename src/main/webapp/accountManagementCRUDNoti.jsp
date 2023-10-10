@@ -29,7 +29,7 @@
     <body>
         <div class="app">
             <!-- header  -->
-            <%--<%@ include file="./includes/headerAccountManagement.jsp" %>--%>
+            <%@ include file="./includes/headerAccountManagement.jsp" %>
 
             <div class="app-container m-0">
                 <div class="grid d-grid">
@@ -47,18 +47,17 @@
                                     </div>
 
                                     <div class="app-home__body">
-                                        <form action="sendNotificationFromSchool" method="post">
+                                        <form action="">
                                             <div class="row fs-2 p-3">
                                                 <div class="col-1 p-3" style="border-right: solid 1px">
                                                Tiêu Đề
                                                 </div>
-                                                <input name="title" class="col w-100 p-3 border-0" type="text" placeholder="Tiêu Đề" style="outline: none"/>
+                                                <input class="col w-100 p-3 border-0" type="text" placeholder="Tiêu Đề" style="outline: none"/>
                                             </div>
-                                            
-                                            <textarea name="content" class=" w-100 p-3 fs-2" type="text" placeholder="Nội dung" style="outline: none; height: 500px; border-right: 0; border-left: 0"></textarea>
+                                            <textarea class=" w-100 p-3 fs-2" type="text" placeholder="Nội dung" style="outline: none; height: 500px; border-right: 0; border-left: 0"></textarea>
                                             <div class="row px-5 mx-5 pt-3 pb-3">
                                                 <div class="col-11  "></div>
-                                                    <button type="submit" class="btn btn-primary btn-submit mb-4 float-end">Submit</button>
+                                                    <button type="button" class="btn btn-primary col-1 fs-3">Send</button>
                                             </div>
                                         </form> 
                                     </div>

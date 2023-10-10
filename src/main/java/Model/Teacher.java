@@ -26,11 +26,6 @@ public class Teacher {
     public Teacher() {
     }
 
-    public Teacher(String lastname, String firstname) {
-        this.lastname = lastname;
-        this.firstname = firstname;
-    }
-
     
     
     public Teacher(String teacherid, String lastname, String firstname, String major, String email, String address, String phoneNumber, Date dob, boolean gender) {

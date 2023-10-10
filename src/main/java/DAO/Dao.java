@@ -9,15 +9,12 @@ import Model.Student;
 import Model.Teacher;
 import Model.Class;
 import Model.Mark;
-import Model.Notification;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Connection;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -34,7 +31,7 @@ public class Dao implements Serializable {
     //ResultSet rs = null;
     private static Dao instance;
 
-    public Dao() {
+    private Dao() {
     }
 
     public static Dao getInstance() {
@@ -44,202 +41,7 @@ public class Dao implements Serializable {
         }
         return instance;
     }
-    private static final String SELECT_ALL_STUDENT = "SELECT * FROM student WHERE classid = ?";
-    private static final String SELECT_ALL_NOTI_TEACHER = "SELECT * FROM [dbo].[notification] WHERE categoryid = ? AND classid = ? ORDER BY notificationid Desc";
-    private static final String SELECT_ALL_NOTI_SCHOOL = "SELECT * FROM [dbo].[notification] WHERE categoryid = ? ORDER BY notificationid Desc";
-    private static final String SELECT_TEACHER_BY_ID = "SELECT firstname, lastname FROM [dbo].[teacher] WHERE teacherid = ? ";
-    private static final String INSERT_NOTI_SCHOOL = "INSERT INTO [dbo].[notification] (title, content, date, categoryid) VALUES (?, ?, ?, ?)";
-    private static final String INSERT_NOTI_TEACHER = "INSERT INTO [dbo].[notification] (title, content, date, categoryid, classid) VALUES (?, ?, ?, ?,?)";
-    private static final String SELECT_ALL_NOTI_TEACHER_PAGE = "SELECT * FROM [dbo].[notification] WHERE teacherid = ? ORDER BY notificationid Desc";
 
-    public List<Notification> selectAllNotiTeacherPage(String teacherid) {
-        
-        PreparedStatement stm;
-        ResultSet rs;
-
-        List<Notification> noti = new ArrayList<>();
-        try {
-            
-            String sql = SELECT_ALL_NOTI_TEACHER_PAGE;
-            stm = conn.prepareStatement(sql);
-            stm.setString(1,teacherid);
-            
-          rs = stm.executeQuery();
-            while (rs.next()) {    
-                Teacher teacher = selectTeacherById(rs.getString(7));
-                noti.add(new Notification(
-                        rs.getInt(1),
-                        rs.getString(2),
-                        rs.getString(3),                      
-                        rs.getDate(4),
-                        rs.getInt(5),
-                        rs.getInt(6),
-                        rs.getString(7),
-                        teacher             
-                ));
-            }
-        } catch (Exception ex) {
-            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return noti;
-    }
-    
-    public void insertNotiSchool(String title, String content, LocalDate date, int category) throws SQLException {
-        PreparedStatement stm;
-//        ResultSet rs;
-        try {
-            String sql = INSERT_NOTI_SCHOOL;
-            stm = conn.prepareStatement(sql);
-            stm.setString(1, title);
-            stm.setString(2, content);
-            stm.setDate(3, java.sql.Date.valueOf(date));
-            stm.setInt(4, category);            
-
-            stm.executeUpdate(); // không trả dữ liệu thì dùng executeUpdate
-        } catch (Exception e) {
-            System.out.println("loi" + e + "loi");
-        }
-    }
-    
-    public void insertNotiTeacher(String title, String content, LocalDate date, int category, String classid) throws SQLException {
-        PreparedStatement stm;
-//        ResultSet rs;
-        try {
-            String sql = INSERT_NOTI_TEACHER;
-            stm = conn.prepareStatement(sql);
-            stm.setString(1, title);
-            stm.setString(2, content);
-            stm.setDate(3, java.sql.Date.valueOf(date));
-            stm.setInt(4, category); 
-            stm.setString(5, classid);
-
-            stm.executeUpdate(); // không trả dữ liệu thì dùng executeUpdate
-        } catch (Exception e) {
-            System.out.println("loi" + e + "loi");
-        }
-    }
-    
-    public Teacher selectTeacherById(String teacherid) {
-    PreparedStatement stm;
-    ResultSet rs;
-    Teacher teacher = null;
-
-    try {
-        String sql = SELECT_TEACHER_BY_ID;
-        stm = conn.prepareStatement(sql);
-        stm.setString(1, teacherid);
-
-        rs = stm.executeQuery();
-        if (rs.next()) {
-            teacher = new Teacher(
-                    rs.getString("firstname"),
-                    rs.getString("lastname")
-            );
-        }
-    } catch (Exception ex) {
-        Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
-    }
-    return teacher;
-}
-
-    public List<Notification> selectAllNotiTeacher(String categoryid, int classid) {
-        
-        PreparedStatement stm;
-        ResultSet rs;
-
-        List<Notification> noti = new ArrayList<>();
-        try {
-            
-            String sql = SELECT_ALL_NOTI_TEACHER;
-            stm = conn.prepareStatement(sql);
-            stm.setString(1,categoryid);
-            stm.setInt(2, classid);
-            
-            
-            rs = stm.executeQuery();
-            while (rs.next()) {                
-                Teacher teacher = selectTeacherById(rs.getString(7));
-                noti.add(new Notification(
-                        rs.getInt(1),
-                        rs.getString(2),
-                        rs.getString(3),                      
-                        rs.getDate(4),
-                        rs.getInt(5),
-                        rs.getInt(6),
-                        rs.getString(7),
-                        teacher
-                ));
-            }
-        } catch (Exception ex) {
-            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return noti;
-    }
-    
-    public List<Notification> selectAllNotiSchool(String categoryid) {
-        
-        PreparedStatement stm;
-        ResultSet rs;
-
-        List<Notification> noti = new ArrayList<>();
-        try {
-            
-            String sql = SELECT_ALL_NOTI_SCHOOL;
-            stm = conn.prepareStatement(sql);
-            stm.setString(1,categoryid);            
-            
-            rs = stm.executeQuery();
-            while (rs.next()) {                
-                Teacher teacher = selectTeacherById(rs.getString(7));
-                noti.add(new Notification(
-                        rs.getInt(1),
-                        rs.getString(2),
-                        rs.getString(3),                      
-                        rs.getDate(4),
-                        rs.getInt(5),
-                        rs.getInt(6),
-                        rs.getString(7),
-                        teacher
-                ));
-            }
-        } catch (Exception ex) {
-            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return noti;
-    }
-    
-    public List<Student> selectAllStudent(String classid) {
-        
-        PreparedStatement stm;
-        ResultSet rs;
-
-        List<Student> st = new ArrayList<>();
-        try {
-            
-            String sql = SELECT_ALL_STUDENT;
-            stm = conn.prepareStatement(sql);
-            stm.setString(1,classid);
-            
-            
-            rs = stm.executeQuery();
-            while (rs.next()) {
-                st.add(new Student(
-                        rs.getString(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getString(4),
-                        rs.getString(5),
-                        rs.getString(6),
-                        rs.getInt(7),
-                        rs.getBoolean(8),
-                        rs.getDate(9)
-                ));
-            }
-        } catch (Exception ex) {
-            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return st;
-    }
     public List<Account> getAll() {
 
         PreparedStatement stm;
@@ -442,7 +244,6 @@ public class Dao implements Serializable {
         return markList;
 
     }
-
     public void updateMark(BigDecimal p, BigDecimal m, BigDecimal f, BigDecimal t, String studentid, String teacherid) {
         PreparedStatement stm;
 
@@ -457,13 +258,13 @@ public class Dao implements Serializable {
             stm.setBigDecimal(4, t);
             stm.setString(5, studentid);
             stm.setString(6, teacherid);
-
+            
             stm.executeUpdate();
         } catch (Exception ex) {
             Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    
     public List<Mark> getListMarkOfAStudent(String studentid) {
         PreparedStatement stm;
         ResultSet rs;
@@ -476,7 +277,7 @@ public class Dao implements Serializable {
                     + "where m.studentid=? ";
             stm = conn.prepareStatement(sql);
             stm.setString(1, studentid);
-
+            
             rs = stm.executeQuery();
             while (rs.next()) {
                 markList.add(new Mark(rs.getString("studentid"),
@@ -490,7 +291,8 @@ public class Dao implements Serializable {
         return markList;
 
     }
-
+    
+    
     public void changePassword_forgot(String email, String newPassword) {
         PreparedStatement stm;
         try {
@@ -507,9 +309,10 @@ public class Dao implements Serializable {
         }
 
     }
-
-    public void updateToken(String token, String email) {
-        PreparedStatement stm;
+     
+     
+     public void updateToken(String token, String email){
+         PreparedStatement stm;
         try {
 
             String sql = "UPDATE account SET token = ? WHERE email = ?";
@@ -523,24 +326,25 @@ public class Dao implements Serializable {
             Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-    }
-
-    public Account getTokenByEmail(String email) {
+     }
+     
+     public Account getTokenByEmail(String email) {
 
         PreparedStatement stm;
         ResultSet rs;
 
         Account acc = new Account();
         try {
-
+            
             String sql = "select * from account where email = ?";
             stm = conn.prepareStatement(sql);
-            stm.setString(1, email);
-
+            stm.setString(1,email );
+            
+            
             rs = stm.executeQuery();
             while (rs.next()) {
                 return acc = new Account(rs.getString("email"), rs.getString("token"));
-
+                        
             }
         } catch (Exception ex) {
             Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
