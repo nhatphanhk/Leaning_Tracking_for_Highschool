@@ -1,0 +1,14 @@
+Controller\LogoutController.class
+Model\Class.class
+Model\Student.class
+Model\Teacher.class
+Model\Account.class
+Model\Mark.class
+Controller\StudentProfileController.class
+Controller\UpdateMarkController.class
+DAO\Dao.class
+Controller\CRUDMarkController.class
+Controller\test.class
+Controller\ChangePassWordController.class
+Controller\LoginController.class
+DAO\DBUtil.class
