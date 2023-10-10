@@ -291,73 +291,11 @@ public class Dao implements Serializable {
         return markList;
 
     }
-    
-    
-    public void changePassword_forgot(String email, String newPassword) {
-        PreparedStatement stm;
-        try {
-
-            String sql = "UPDATE account SET password = ? WHERE email = ?";
-            stm = conn.prepareStatement(sql);
-            stm.setString(1, newPassword);
-            stm.setString(2, email);
-
-            stm.executeUpdate();
-
-        } catch (Exception ex) {
-            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
-     
-     
-     public void updateToken(String token, String email){
-         PreparedStatement stm;
-        try {
-
-            String sql = "UPDATE account SET token = ? WHERE email = ?";
-            stm = conn.prepareStatement(sql);
-            stm.setString(1, token);
-            stm.setString(2, email);
-
-            stm.executeUpdate();
-
-        } catch (Exception ex) {
-            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-     }
-     
-     public Account getTokenByEmail(String email) {
-
-        PreparedStatement stm;
-        ResultSet rs;
-
-        Account acc = new Account();
-        try {
-            
-            String sql = "select * from account where email = ?";
-            stm = conn.prepareStatement(sql);
-            stm.setString(1,email );
-            
-            
-            rs = stm.executeQuery();
-            while (rs.next()) {
-                return acc = new Account(rs.getString("email"), rs.getString("token"));
-                        
-            }
-        } catch (Exception ex) {
-            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
-    }
 
     public static void main(String[] args) {
         Dao dao = Dao.getInstance();
-        List<Mark> list = dao.getListMarkByClassAndTeacher("TC10001", 1);
-        for (Mark item : list) {
-            System.out.println(item.toString());
-        }
+        Student s = dao.getAStudentByEmail("student1@gmail.com");
+        System.out.println(s.toString());
     }
 
 }

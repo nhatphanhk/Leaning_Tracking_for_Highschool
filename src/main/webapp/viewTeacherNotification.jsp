@@ -46,26 +46,26 @@
                   
                   <div class="row m">
                     <div class="notification-list">
-                      <div class="notificaiton-item p-4">
+                      <div class="notificaiton-item p-4" data-bs-toggle="modal" data-bs-target="#notification">
                         <div class="notifi-heading">
                           <div class="notifi-header fs-1">Thông báo lịch thi cuối kỳ</div>
                           <div class="notifi-date fs-3">17/7/2023</div>
                         </div>
                         <div class="ps-3 pt-2 notifi-short-content fs-3 ">Chuẩn bị thi rồi các em chăm chỉ học nhé</div>
-                      </div><div class="notificaiton-item p-4">
+                      </div><div class="notificaiton-item p-4" data-bs-toggle="modal" data-bs-target="#notification">
                         <div class="notifi-heading">
                           <div class="notifi-header fs-1">Thông báo lịch thi cuối kỳ</div>
                           <div class="notifi-date fs-3">17/7/2023</div>
                         </div>
                         <div class="ps-3 pt-2 notifi-short-content fs-3 ">Chuẩn bị thi rồi các em chăm chỉ học nhé</div>
-                      </div><div class="notificaiton-item p-4">
+                      </div><div class="notificaiton-item p-4" data-bs-toggle="modal" data-bs-target="#notification">
                         <div class="notifi-heading">
                           <div class="notifi-header fs-1">Thông báo lịch thi cuối kỳ</div>
                           <div class="notifi-date fs-3">17/7/2023</div>
                         </div>
                         <div class="ps-3 pt-2 notifi-short-content fs-3 ">Chuẩn bị thi rồi các em chăm chỉ học nhé</div>
                       </div>
-                      <div class="notificaiton-item p-4">
+                      <div class="notificaiton-item p-4" data-bs-toggle="modal" data-bs-target="#notification">
                         <div class="notifi-heading">
                           <div class="notifi-header fs-1">Thông báo lịch thi cuối kỳ</div>
                           <div class="notifi-date fs-3">17/7/2023</div>
@@ -80,8 +80,35 @@
             </div>
           </div>
         </div>
+      <!-- The Modal -->
+            <div class="modal fade" id="notification">
+                 <div class="modal-dialog modal-lg">
+                     <div class="modal-content">
+
+      <!-- Modal Header -->
+            <div class="modal-header m-2">
+                <h2 class="modal-title m-2">Thông báo lịch thi cuối kỳ</h2>
+                 <h2 class="modal-title m-2">17/7/2023</h2>
+                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+             </div>
+
+      <!-- Modal body -->
+
+      <div class="modal-body m-4" style="font-size: 14px">
+                 Chuẩn bị thi rồi các em chăm chỉ học nhé
+            </div>
+
+      <!-- Modal footer -->
+             <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+             </div>
+
+            </div>
+        </div>
+        </div>
       </div>
-    </div>
+      </div>
+    
 
 
     <%@ include file="./includes/linkJS.jsp" %>

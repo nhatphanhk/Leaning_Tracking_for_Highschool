@@ -88,20 +88,12 @@
                                                         <div class="col-6">
                                                             <h3>Báo cáo điểm</h3>
                                                             <div class="box-section ps-4">
-                                                                <p class="text-color-green fs-16">Tham dự: 50</p>
                                                                 <p class="text-color-red fs-16">Vắng: 5</p>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="row mt-5 d-flex justify-content-center">
-                                                        <div class="col-6">
-                                                            <h3>Báo cáo điểm</h3>
-                                                            <div class="box-section ps-4">
-                                                                <p class="text-color-green fs-16">Điểm trung bình: 7.1</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                    
+                                    </div>
                                             </div>
                                         </div>
                                     </div>

@@ -86,12 +86,7 @@
                                                                     <span>QUÁ TRÌNH HỌC TẬP</span>
                                                                 </a>
                                                             </li>
-                                                            <li class="info-href-contain h3 ms-3 mb-4">
-                                                                <a href="#" class="text-color-gray">
-                                                                    <i class="fa-solid fa-award me-3"></i>
-                                                                    <span>KHEN THƯỞNG, KỶ LUẬT</span>
-                                                                </a>
-                                                            </li>
+                                                            
                                                             <li class="info-href-contain h3 ms-3 mb-4">
                                                                 <a href="attendanceStatus.jsp" class="text-color-gray">
                                                                     <i class="fa-solid fa-triangle-exclamation me-3"></i>
@@ -261,7 +256,7 @@
                                             <div class="ps-3 pt-2 notifi-short-content">Chuẩn bị thi rồi các em chăm chỉ học nhé</div>
                                         </div>
                                         <div class="text-center view-all">
-                                            <a href="viewSchoolNotification.jsp" class="text-color-gray">Xem tất cả</a>
+                                            <a href="viewTeacherNotification.jsp" class="text-color-gray">Xem tất cả</a>
                                         </div>
                                     </div>
                                 </div>

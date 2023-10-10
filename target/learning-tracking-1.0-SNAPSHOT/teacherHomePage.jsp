@@ -98,114 +98,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="col">
-                <div class="row">
-                  <div class="col">
-                    <div class="box-section">
-                      <div class="app-home__heading">
-                        <div class="header-name">
-                          <i class="fa-solid fa-calendar-days pe-2 ps-2"></i>
-                          Thời khoá biểu
-                        </div>
-                      </div>
-                      <div class="timetable-href">
-                          <a href="teacherTimetable.jsp" class="text-color-gray fw-bold">Xem</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col mt-4">
-                  <div class="box-section">
-                    <div class="app-home__heading">
-                        <a href="viewTeacherNotification.jsp" style="text-decoration: none">
-                             <div class="header-name">
-                        <i class="fa-solid fa-bell pe-2 ps-2"></i>
-                        <span class="header-notice">4</span>
-                        Thông báo từ giáo viên
-                      </div>
-                        </a>
-                    </div>
-                    <div class="notification-list">
-                      <div class="notificaiton-item p-4">
-                        <div class="notifi-heading">
-                          <div class="notifi-header">Loa Loa Loa</div>
-                          <div class="notifi-date">17/7/2023</div>
-                        </div>
-                        <div class="ps-3 pt-2 notifi-short-content">Nay cô bận các em nghỉ nhé</div>
-                      </div>
-                      <div class="notificaiton-item p-4">
-                        <div class="notifi-heading">
-                          <div class="notifi-header">Thông báo lịch thi cuối kỳ</div>
-                          <div class="notifi-date">17/7/2023</div>
-                        </div>
-                        <div class="ps-3 pt-2 notifi-short-content">Chuẩn bị thi rồi các em chăm chỉ học nhé</div>
-                      </div>
-                      <div class="notificaiton-item p-4">
-                        <div class="notifi-heading">
-                          <div class="notifi-header">Thông báo lịch thi cuối kỳ</div>
-                          <div class="notifi-date">17/7/2023</div>
-                        </div>
-                        <div class="ps-3 pt-2 notifi-short-content">Chuẩn bị thi rồi các em chăm chỉ học nhé</div>
-                      </div>
-                      <div class="text-center view-all">
-                          <a href="viewTeacherNotification.jsp" class="text-color-gray">Xem tất cả</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row mt-4">
-              <div class="col">
-      
-                    <div class="box-section">
-                      <div class="app-home__heading">
-                        <div class="header-name">
-                          <i class="fa-solid fa-clipboard pe-2 ps-2"></i>
-                          Thủ tục, pháp lý
-                        </div>
-                      </div>
-                      <div class="registration-container">
-                        <div class="applicate-container">
-                             <a href="teacherSendApplication.jsp">
-                          <button type="button" class="btn btn-me applicate-btn">
-                             <i class="ps-3 pe-3 w1 fa-solid fa-envelope"></i>
-                            Gửi thông báo
-                          </button>
-                                 </a>
-                            <A href="teacherBox.jsp"> <button type="button" class="btn btn-me applicate-view">Tất cả thư</button></A>
-                        </div>
-                      </div>
-                    </div>
-              
-                <div class="box-section mt-4">
-                  <div class="app-home__heading">
-                    <div class="header-name">
-                      <i class="fa-solid fa-people-group pe-2 ps-2"></i>
-                      Lớp Giảng Dạy
-                    </div>
-                  </div>
-                  <div class="row py-3">
-                    <div class="col-1"></div>
-                    <button type="button" class="btn btn-primary btn-lg col">10A3</button>
-                    <div class="col-4"></div>
-                    <button type="button" class="btn btn-primary btn-lg col">10A3</button>
-                    <div class="col-2"></div>
-                  </div>
-                  <div class="row pb-3">
-                    <div class="col-1"></div>
-                    <button type="button" class="btn btn-primary btn-lg col">10A3</button>
-                    <div class="col-4"></div>
-                    <button type="button" class="btn btn-primary btn-lg col">10A3</button>
-                    <div class="col-2"></div>
-                  </div>
-                  
-                </div>
-              </div>
-
-              <div class="col">
+              </div><div class="col">
                 <div class="box-section">
                   <div class="app-home__heading">
                       <a href="viewSchoolNotification.jsp" style="text-decoration: none">
@@ -251,6 +144,56 @@
                   </div>
                 </div>
               </div>
+              
+            </div>
+            <div class="row mt-4">
+              <div class="col">
+      
+                    <div class="box-section">
+                      <div class="app-home__heading">
+                        <div class="header-name">
+                          <i class="fa-solid fa-clipboard pe-2 ps-2"></i>
+                          Thủ tục, pháp lý
+                        </div>
+                      </div>
+                      <div class="registration-container">
+                        <div class="applicate-container">
+                             <a href="teacherSendApplication.jsp">
+                          <button type="button" class="btn btn-me applicate-btn">
+                             <i class="ps-3 pe-3 w1 fa-solid fa-envelope"></i>
+                            Gửi thông báo
+                          </button>
+                                 </a>
+                            <A href="teacherBox.jsp"> <button type="button" class="btn btn-me applicate-view">Duyệt đơn</button></A>
+                        </div>
+                      </div>
+                    </div>
+              
+                
+                  
+                </div>
+                <div class="col" >
+                <div class="row">
+                  <div class="col">
+                    <div class="box-section" >
+                      <div class="app-home__heading">
+                        <div class="header-name">
+                          <i class="fa-solid fa-calendar-days pe-2 ps-2"></i>
+                          Thời khoá biểu
+                        </div>
+                      </div>
+                      <div class="timetable-href">
+                          <a href="teacherTimetable.jsp" class="text-color-gray fw-bold">Xem</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                
+              </div>
+              </div>
+
+              
               
             </div>
           </div>
