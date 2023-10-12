@@ -57,6 +57,9 @@
                             <h7 class="text-center text-danger">
                                 ${msg}
                             </h7>
+                            <h7 class="text-center text-danger">
+                                ${msgSuccess}
+                            </h7>
                         </div>
                         <br />
                         <div class="d-grid mb-3">

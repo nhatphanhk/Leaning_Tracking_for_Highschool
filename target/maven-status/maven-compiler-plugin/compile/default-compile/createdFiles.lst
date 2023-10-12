@@ -10,7 +10,6 @@ DAO\Dao.class
 Controller\NotificationTeacherPage.class
 Model\Notification.class
 Controller\SendNotificationFromSchool.class
-Controller\test.class
 Controller\ChangePassWordController.class
 Controller\StudentList.class
 Controller\ChangeForgotPasswordController.class
@@ -20,7 +19,10 @@ Model\Account.class
 Controller\UpdateMarkController.class
 Controller\CRUDMarkController.class
 Controller\NotificationFromTeacher.class
+jakarta\servlet\http\Cokkiee.class
 Controller\LoginController.class
 Controller\NotificationFromSchool.class
 Controller\ViewMarkController.class
 DAO\DBUtil.class
+Controller\DetailsNotification.class
+Controller\TeacherNotificationHistory.class

@@ -40,7 +40,7 @@
                   <div class="app-home__heading">
                     <div class="header-name">
                         <a href="studentHomePage.jsp"><i class="fa-solid fa-arrow-left pe-2 ps-2"></i></a>
-                      Nghỉ Học
+                      Giáo viên bộ môn
                     </div>
                   </div>
                   

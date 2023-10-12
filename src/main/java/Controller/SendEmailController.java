@@ -93,13 +93,15 @@ public class SendEmailController extends HttpServlet {
             dao.updateToken(token, to);
 
             String link = "Hello " + to + ",<br><br>" +
-                            "<a href='http://localhost:8080/mavenproject1/verify-email?email=" + to + "&token="+token+ "'>Click Here</a> to reset your password:<br><br>" +
+                            "<a href='http://localhost:8080/learning-tracking/verify-email?email=" + to + "&token="+token+ "'>Click Here</a> to reset your password:<br><br>" +
                             "If you didn't request a password reset, please ignore this email.<br><br>" +
                             "This is an automatically generated email from the system, do not reply!<br><br>" +
                             "SSMS Account Management";
             Boolean isSend = this.sendEmail(to,link);
             System.out.println(isSend);
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+//            request.getRequestDispatcher("login.jsp").forward(request, response);
+            request.setAttribute("msgSuccess", "Mail đã gửi đên hòm thư của bạn vui lòng kiểm tra.");
+            request.getRequestDispatcher("sendMail.jsp").forward(request, response);
             
         }
     }

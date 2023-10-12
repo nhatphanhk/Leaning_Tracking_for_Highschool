@@ -9,7 +9,7 @@ package Model;
  * @author Admin
  */
 public class Account {
-    
+
     private String email;
     private String password;
     private int roleid;
@@ -23,6 +23,14 @@ public class Account {
 
     public Account(String email, String token) {
         this.email = email;
+        this.token = token;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
         this.token = token;
     }
 
@@ -52,19 +60,10 @@ public class Account {
     public void setRoleid(int roleid) {
         this.roleid = roleid;
     }
-    
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
 
     @Override
     public String toString() {
         return "Account{" + "email=" + email + ", password=" + password + ", roleid=" + roleid + '}';
     }
-    
-    
+
 }

@@ -27,6 +27,18 @@ public class Student {
     public Student() {
     }
 
+    public Student(String studentid, String lastName, String firstName, String email, String address, String phoneNumber, int classid, boolean gender, Date dob) {
+        this.studentid = studentid;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.email = email;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.classid = classid;
+        this.gender = gender;
+        this.dob = dob;
+    }
+
     public Student(String studentid, String lastName, String firstName, String email, String address, String phoneNumber, boolean gender, Date dob,String className, int semester,int year) {
         this.studentid = studentid;
         this.lastName = lastName;
@@ -39,6 +51,19 @@ public class Student {
         this.className = className;
         this.semester = semester;
         this.year = year;
+    }
+
+    public Student(String studentid, String lastName, String firstName, String email, String address, String phoneNumber, int classid, boolean gender, Date dob, String className) {
+        this.studentid = studentid;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.email = email;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.classid = classid;
+        this.gender = gender;
+        this.dob = dob;
+        this.className = className;
     }
 
     

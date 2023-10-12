@@ -1,26 +1,12 @@
 <%-- 
-    Document   : academicAffairChangePassword
-    Created on : Oct 1, 2023, 9:21:57 PM
-    Author     : flywt
+    Document   : updatePassword
+    Created on : Oct 1, 2023, 8:07:20 AM
+    Author     : tramy
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ include file="./includes/headerAcademicAffair.jsp" %>
-<div class="app-container mt-0">
-        <div class="grid d-grid">
-          <div class="section-m1">
-            <div class="row">
-              <div class="col">
-                <div class="box-section">
-                  <div class="app-home__heading">
-                    <div class="header-name">
-                      Thay đổi mật khẩu
-                    </div>
-                  </div>
-                  <div class="app-home__body">
-                    <div class="info-container">
-                        <div class="m-5">
-                            <div class="col-3 m-2">
+<div class="tab-pane">
+                      <div class="col-3 m-5">
                         <form class="change-password-container">
                           <div class="mb-4">
                             <input type="email" class="form-control" id="currentPassword" aria-describedby="emailHelp" placeholder="Mật khẩu hiện tại">
@@ -39,18 +25,4 @@
                           </div>
                         </form>
                       </div>
-                        </div>
                     </div>
-                  </div>
-                </div>
-                </div>
-              </div>
-            </div>
-        </div>
-      </div>
-    </div>
-        <%@ include file="./includes/linkJS.jsp" %>
-        <script src="./assets/js/mycode.js"></script>
-    </script>
-</body>
-</html>
