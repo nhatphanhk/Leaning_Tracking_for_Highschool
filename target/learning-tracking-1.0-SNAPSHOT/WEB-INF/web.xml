@@ -7,41 +7,145 @@
         <servlet-name>LoginController</servlet-name>
         <servlet-class>Controller.LoginController</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>StudentProfileController</servlet-name>
         <servlet-class>Controller.StudentProfileController</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>StudentProfileController</servlet-name>
+        <url-pattern>/studentprofile</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>SendApplication</servlet-name>
         <servlet-class>Controller.SendApplication</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>SendApplication</servlet-name>
+        <url-pattern>/SendApplication</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>StudentList</servlet-name>
         <servlet-class>Controller.StudentList</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>StudentList</servlet-name>
+        <url-pattern>/student-list</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>NotificationTeacher</servlet-name>
         <servlet-class>Controller.NotificationFromTeacher</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>LoginController</servlet-name>
-        <url-pattern>/login</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>StudentProfileController</servlet-name>
-        <url-pattern>/studentprofile</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SendApplication</servlet-name>
-        <url-pattern>/SendApplication</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>StudentList</servlet-name>
-        <url-pattern>/student-list</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>NotificationTeacher</servlet-name>
-        <url-pattern>/NotificationTeacher</url-pattern>
+        <url-pattern>/notificationTeacher</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>NotificationFromSchool</servlet-name>
+        <servlet-class>Controller.NotificationFromSchool</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NotificationFromSchool</servlet-name>
+        <url-pattern>/notificationSchool</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>SendNotificationFromTeacher</servlet-name>
+        <servlet-class>Controller.SendNotificationFromTeacher</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SendNotificationFromTeacher</servlet-name>
+        <url-pattern>/sendNotificationFromTeacher</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>SendNotificationFromSchool</servlet-name>
+        <servlet-class>Controller.SendNotificationFromSchool</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SendNotificationFromSchool</servlet-name>
+        <url-pattern>/sendNotificationFromSchool</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ChangePassWordController</servlet-name>
+        <servlet-class>Controller.ChangePassWordController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ChangePassWordController</servlet-name>
+        <url-pattern>/changepassword</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CRUDMarkController</servlet-name>
+        <servlet-class>Controller.CRUDMarkController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CRUDMarkController</servlet-name>
+        <url-pattern>/crudmark</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UpdateMarkController</servlet-name>
+        <servlet-class>Controller.UpdateMarkController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateMarkController</servlet-name>
+        <url-pattern>/updatemark</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ViewMarkController</servlet-name>
+        <servlet-class>Controller.ViewMarkController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TeacherNotificationHistory</servlet-name>
+        <servlet-class>Controller.TeacherNotificationHistory</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewMarkController</servlet-name>
+        <url-pattern>/viewmark</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>LogoutController</servlet-name>
+        <servlet-class>Controller.LogoutController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutController</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>SendEmailController</servlet-name>
+        <servlet-class>Controller.SendEmailController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SendEmailController</servlet-name>
+        <url-pattern>/send-email</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>VerifyEmailHandler</servlet-name>
+        <servlet-class>Controller.VerifyEmailHandler</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VerifyEmailHandler</servlet-name>
+        <url-pattern>/verify-email</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ChangeForgotPasswordController</servlet-name>
+        <servlet-class>Controller.ChangeForgotPasswordController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ChangeForgotPasswordController</servlet-name>
+        <url-pattern>/change-forgot-password</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>NotificationTeacherPage</servlet-name>
+        <servlet-class>Controller.NotificationTeacherPage</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NotificationTeacherPage</servlet-name>
+        <url-pattern>/notificationTeacherPage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TeacherNotificationHistory</servlet-name>
+        <url-pattern>/teacherNotificationHistory</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

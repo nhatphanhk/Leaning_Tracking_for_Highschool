@@ -74,17 +74,12 @@
                                                                 </a>
                                                             </li>
                                                             <li class="info-href-contain h3 ms-3 mb-4">
-                                                                <a href="studentMarkReport.jsp" class="text-color-gray">
+                                                                <a href="viewmark?studentid=${sessionScope.student.studentid}" class="text-color-gray">
                                                                     <i class="fa-solid fa-book me-3"></i>
                                                                     <span>QUÁ TRÌNH HỌC TẬP</span>
                                                                 </a>
                                                             </li>
-                                                            <li class="info-href-contain h3 ms-3 mb-4">
-                                                                <a href="#" class="text-color-gray">
-                                                                    <i class="fa-solid fa-award me-3"></i>
-                                                                    <span>KHEN THƯỞNG, KỶ LUẬT</span>
-                                                                </a>
-                                                            </li>
+                                                            
                                                             <li class="info-href-contain h3 ms-3 mb-4">
                                                                 <a href="attendanceStatus.jsp" class="text-color-gray">
                                                                     <i class="fa-solid fa-triangle-exclamation me-3"></i>
@@ -179,7 +174,7 @@
                                     <div class="app-home__heading">
                                         <a href="notificationSchool?classid=${sessionScope.student.classid}" style="text-decoration: none">
                                             <div class="header-name">
-                                                <i class="fa-solid fa-envelope pe-2 ps-2"></i>
+                                                <i class="fa-solid fa-bell pe-2 ps-2"></i>
                                                 <span class="header-notice">2</span>
                                                 Thông báo từ nhà trường
                                             </div>
@@ -187,7 +182,7 @@
                                     </div>
                                     <div class="notification-list">
                                         <c:forEach var="x" items="${sessionScope.notification}">
-                                        <div class="notificaiton-item p-4">
+                                        <div class="notificaiton-item p-4 " >
                                             <div class="notifi-heading">
                                                 <div class="notifi-header">${x.title}</div>
                                                 <div class="notifi-date">${x.date}</div>

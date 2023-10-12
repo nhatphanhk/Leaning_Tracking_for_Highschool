@@ -96,7 +96,7 @@ public class ChangePassWordController extends HttpServlet {
             // Passwords match and meet validation criteria
             dao.changePassword(email, newpass);
             session.setAttribute("account", acc);
-            request.setAttribute("msg", "Đổi mật khẩu thành công");
+            request.setAttribute("msgSuccess", "Đổi mật khẩu thành công");
             request.getRequestDispatcher("changePassword.jsp").forward(request, response);
         }
 //With this modification, the password change operation (dao.changePassword) will only execute when all the conditions are met, including password verification. This ensures that the password is only changed if the new password and the verification match, and all other conditions are satisfied.

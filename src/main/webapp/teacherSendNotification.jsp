@@ -4,6 +4,7 @@
     Author     : tramy
 --%>
 
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,9 +36,9 @@
                         <div class="header-name d-flex">
                             <a href="teacherHomePage.jsp"><i class="fa-solid fa-arrow-left me-3"></i></a>
                             THÔNG BÁO
-                            <button type="button" class="btn btn-outline-primary ms-auto">Tạo Mới</button>
+                            <a href="teacherSendApplication.jsp" class="btn btn-outline-primary ms-auto add-noti">+</a>
                         </div>
-                        
+
                     </div>
                     <div class="app-home__content">
                         <div class="grid-container grid-header">
@@ -46,24 +47,14 @@
                             <div class="grid-item">Tiêu Đề</div>
                             <div class="grid-item">Ngày Gửi</div>
                         </div>
+                        <c:forEach items="${notification}" var="x" varStatus="loopStatus">
                         <div class="grid-container">                          
-                            <div class="grid-item">1</div>
-                            <div class="grid-item">10A1</div>
-                            <div class="grid-item">Thông báo</div>
-                            <div class="grid-item">07/07/2019</div>
-                        </div>
-                        <div class="grid-container">   
-                            <div class="grid-item">1</div>
-                            <div class="grid-item">10A1</div>
-                            <div class="grid-item">Thông báo</div>
-                            <div class="grid-item">07/07/2019</div>
-                        </div>
-                        <div class="grid-container">   
-                            <div class="grid-item">1</div>
-                            <div class="grid-item">10A1</div>
-                            <div class="grid-item">Thông báo</div>
-                            <div class="grid-item">07/07/2019</div>
-                        </div>
+                            <div class="grid-item">${loopStatus.index + 1}</div>
+                            <div class="grid-item">${x.classid}</div>
+                            <div class="grid-item">${x.title}</div>
+                            <div class="grid-item">${x.date}</div>
+                        </div>  
+                        </c:forEach>
                     </div>
                     <div class="navigation me-5">
                         <nav aria-label="Page navigation example">
@@ -81,100 +72,9 @@
                         </nav>
                     </div>
                 </div>
-            </div>
-            <!-- The Modal -->
-            <div class="modal" id="myModal">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <!-- Modal Header -->
-                        <div class="modal-header">
-                            <h2 class="modal-title" style="color: #2fb5fa">
-                                Approve
-                            </h2>
-                            <button
-                                type="button"
-                                class="btn-close"
-                                data-bs-dismiss="modal"
-                                ></button>
-                        </div>
-
-                        <!-- Modal body -->
-                        <div class="modal-body">
-                            <form>
-                                <div class="form-row mt-3 mb-3 pb-3 pt-3">
-                                    <dl class="row">
-                                        <dt class="col-12 col-sm-2 pb-4"><h3>Người gửi :</h3> </dt>
-                                        <dd class="col-12 col-sm-8">
-
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                                id="from"
-                                                name="from"
-
-                                                />
-
-                                        </dd>
-                                        <hr />
-                                        <dt class="col-12 col-sm-2 pb-4"><h3>Người nhận :</h3></dt>
-                                        <dd class="col-12 col-sm-8">
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                                id="date"
-                                                name="date"
-                                                />
-                                        </dd>
-                                        <hr>
-                                        <dt class="col-12 col-sm-2 pb-4">
-                                            <h3>Title :</h3>
-                                        </dt>
-                                        <dd class="col-12 col-sm-8">
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                                id="title"
-                                                name="title"
-
-                                                />
-                                        </dd>
-                                        <h3>Nội dung</h3>
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            id="content"
-                                            name="content"
-
-                                            >
-                                    </dl>
-
-                                </div>
-                            </form>
-                        </div>
-
-                        <!-- Modal footer -->
-                        <div class="modal-footer">
-                            <button
-                                type="button"
-                                class="btn btn-success"
-                                data-bs-dismiss="modal"
-                                >
-                                <h3>Accept</h3>
-                            </button>
-                            <button
-                                type="button"
-                                class="btn btn-danger"
-                                data-bs-dismiss="modal"
-                                >
-                                <h3>Reject</h3>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </div>            
         </div>
-    </div>
-    <%@ include file="./includes/linkJS.jsp" %>
-</body>
+        <%@ include file="./includes/linkJS.jsp" %>
+    </body>
 
 </html>

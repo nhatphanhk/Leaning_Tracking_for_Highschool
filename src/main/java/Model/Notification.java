@@ -20,11 +20,30 @@ public class Notification {
     private int classid;
     private String teacherid;
     private Teacher teacher;
+    private String classname;
+    private Boolean readStatus;
 
     // Getters and Setters
     public int getNotificationId() {
         return notificationId;
     }
+
+    public Notification() {
+    }
+
+    public Notification(int notificationId, String title, String content, Date date, int categoryId, int classid, String teacherid, Teacher teacher, String classname) {
+        this.notificationId = notificationId;
+        this.title = title;
+        this.content = content;
+        this.date = date;
+        this.categoryId = categoryId;
+        this.classid = classid;
+        this.teacherid = teacherid;
+        this.teacher = teacher;
+        this.classname = classname;
+    }
+    
+    
 
     public Notification(int notificationId, String title, String content, Date date, int categoryId) {
         this.notificationId = notificationId;
@@ -43,6 +62,14 @@ public class Notification {
         this.classid = classid;
         this.teacherid = teacherid;
         this.teacher = teacher;
+    }
+
+    public Boolean getReadStatus() {
+        return readStatus;
+    }
+
+    public void setReadStatus(Boolean readStatus) {
+        this.readStatus = readStatus;
     }
 
 
@@ -108,8 +135,10 @@ public class Notification {
 
     @Override
     public String toString() {
-        return "Notification{" + "notificationId=" + notificationId + ", title=" + title + ", content=" + content + ", date=" + date + ", classid=" + classid + ", teacher=" + teacher + '}';
+        return "Notification{" + "notificationId=" + notificationId + ", title=" + title + ", content=" + content + ", date=" + date + ", categoryId=" + categoryId + ", classid=" + classid + ", teacherid=" + teacherid + '}';
     }
+
+    
 
     
 

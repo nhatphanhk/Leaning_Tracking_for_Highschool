@@ -65,8 +65,8 @@ public class NotificationFromTeacher extends HttpServlet {
         Dao notiDAO = new Dao();
         List<Notification> notis = notiDAO.selectAllNotiTeacher("2", classid);
         request.setAttribute("notifications", notis);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("viewTeacherNotification.jsp");
-        dispatcher.forward(request, response);       
+        request.getRequestDispatcher("viewTeacherNotification.jsp").forward(request, response);
+        
         
     }
 

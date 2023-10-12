@@ -3,7 +3,7 @@
     Created on : Sep 22, 2023, 10:03:22 AM
     Author     : htk09
 --%>
-
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,31 +63,20 @@
                                           </tr>
                                         </thead>
                                         <tbody>
-                                          <tr>
-                                            <td>Toán</td>
-                                            <td>8 | 10</td>
-                                            <td>8 | 10</td>
-                                            <td>8 | 10</td>
-                                            <td>10</td>
+                                            <c:forEach var="stm" items="${requestScope.studentmarks}">
+                                                <tr>
+                                            <td>${stm.major}</td>
+                                            <td>${stm.progress_mark}</td>
+                                            <td>${stm.middle_mark}</td>
+                                            <td>${stm.final_mark}</td>
+                                            <td>${stm.total_mark}</td>
                                           </tr>
-                                          <tr>
-                                            <td>Toán</td>
-                                            <td>8 | 10</td>
-                                            <td>8 | 10</td>
-                                            <td>8 | 10</td>
+                                            </c:forEach>    
+                                          
+                                          
+<!--                                            <td colspan="4">Tổng kết</td>
                                             <td>10</td>
-                                          </tr>
-                                          <tr>
-                                            <td>Toán</td>
-                                            <td>8 | 10</td>
-                                            <td>8 | 10</td>
-                                            <td>8 | 10</td>
-                                            <td>10</td>
-                                          </tr>
-                                          <tr>
-                                            <td colspan="4">Tổng kết</td>
-                                            <td>10</td>
-                                          </tr>
+                                          </tr>-->
                                         </tbody>
                                     </table>
                                 </div>

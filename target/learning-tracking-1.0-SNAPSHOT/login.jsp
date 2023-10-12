@@ -76,7 +76,7 @@
                             </button>
                         </div>
                         <div class="text-center pb-3">
-                            <a href="">Quên mật khẩu?</a>
+                            <a href="sendEmail.jsp">Quên mật khẩu?</a>
                         </div>
                     </form>
                 </div>

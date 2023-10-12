@@ -14,3 +14,4 @@ nbdist/
 # End of https://www.toptal.com/developers/gitignore/api/netbeans
 src/main/java/DAO/DBUtil.java
 target/classes/DAO/DBUtil.class
+/target/

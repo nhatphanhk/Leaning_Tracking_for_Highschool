@@ -430,3 +430,11 @@ list-style-type: none;
     outline: none;
     text-align: center;
 }
+
+.read-notification {
+    background-color: #f8f9fa; /* light gray */
+}
+
+.unread-notification {
+    background-color: #ffffff; /* white */
+}

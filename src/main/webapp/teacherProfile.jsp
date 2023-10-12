@@ -54,7 +54,7 @@
                                                             <div class="card-body text-center student-profile__avatar">
                                                                 <img
                                                                     class="img-account-profile rounded-circle mb-4 mt-4"
-                                                                    src="./assets/imgs/hih.jfif"
+                                                                    src="./assets/imgs/user.png"
                                                                     alt=""
                                                                     />
                                                             </div>

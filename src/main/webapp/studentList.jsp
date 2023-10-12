@@ -39,7 +39,7 @@
                                             Danh sách học sinh
                                             <form action="student-list" method="get">
                                                 <div class="search">
-                                                    <div class="search-btn-contain">
+                                                    <div class="search-btn-contain" style="right:80px;">
                                                         <select id="classid" name="classid" class="form-select" aria-label="Default select example" onchange="changeClassName()">
                                                             <option selected>Chọn Lớp</option>
                                                             <option value="1">10A1</option>
@@ -53,7 +53,7 @@
                                                             <option value="9">12A3</option>                                                            
                                                         </select>                                   
                                                     </div>
-                                                    <button type="submit" class="btn btn-block submit-modal-btn">
+                                                    <button type="submit" class="btn btn-block submit-modal-btn" style="position: absolute;top: 7px;right: 7px">
                                                         Tìm kiếm
                                                     </button>
                                                 </div>
@@ -115,27 +115,6 @@
 
             <%@ include file="./includes/linkJS.jsp" %>
             <script src="./assets/js/mycode.js"></script>
-            <script>
-                                                            function changeClassName() {
-                                                                var select = document.getElementById('classid');
-                                                                var selectedValue = select.options[select.selectedIndex].value;
-                                                                var selectedText = select.options[select.selectedIndex].text;
-                                                                console.log(selectedValue);
-                                                                console.log(selectedText);
-                                                                select.options[0].text = selectedText;
-
-                                                                // Lưu giá trị đã chọn vào sessionStorage
-                                                                sessionStorage.setItem('selectedClassId', selectedValue);
-
-                                                            }
-                                                            // Khi trang tải xong, lấy giá trị đã chọn từ sessionStorage và đặt nó cho thẻ select
-                                                            window.onload = function () {
-                                                                var selectedClassId = sessionStorage.getItem('selectedClassId');
-                                                                if (selectedClassId) {
-                                                                    document.getElementById('classid').value = selectedClassId;
-                                                                }
-                                                            }
-
-            </script>
+            <%@ include file="./includes/script.html" %>
     </body>
 </html>
