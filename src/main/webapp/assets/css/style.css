@@ -438,3 +438,108 @@ list-style-type: none;
 .unread-notification {
     background-color: #ffffff; /* white */
 }
+
+/* Admin Academic Affairs */
+
+.acaAff-header {
+    height: 80px;
+}
+
+.acaAff-header  p {
+    color: var(--primary-color);
+}
+
+.acaAff-header .navbar-logo {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+}
+
+.acaAff-header .navbar-logo p {
+    line-height: 30px;
+    font-size: 20px;
+    margin-left: 20px;
+    margin-bottom: 0;
+}
+
+.acaAff-header .navbar-nav .nav-item {
+    margin: 0 10px;
+}
+
+.acaAff-header .navbar-nav .nav-link {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.acaAff-header .navbar-nav .nav-link:hover {
+    color: var(--primary-color);
+}
+
+.acaAff-header .user-dropdown .user-dropdown-btn{
+    height: 50px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.acaAff-header .user-dropdown .user-dropdown-btn i {
+    margin: 0 5px;
+}
+
+.acaAff-header .dropdown-menu .dropdown-item{
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Timetable Academic Affair */
+.acaAff-input-ctrl {
+    max-width: 250px;
+}
+
+.acaAff-input-ctrl label{
+    font-size: 16px;
+    font-weight: 500;
+    margin-right: 10px;
+    line-height: 33px;
+}
+
+.acaAff-input-ctrl select {
+    font-size: 16px;
+    font-weight: 400;
+    width: 100px;
+    border-radius: 5px;
+    background-color: #e2e2e2;
+}
+
+.acaAff-input-ctrl input {
+    font-size: 16px;
+    font-weight: 400;
+    width: 120px;
+    height: 33px;
+    border-radius: 5px;
+    background-color: #e2e2e2;
+}
+
+/* Lock Mark  */
+.box-lock-time {
+    border: 1px solid #ccc;
+}
+
+.box-lock-time .box-lock-time__header {
+    border-bottom: 1px solid #ccc;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px;
+}
+
+.acaAff-container .tab-content {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+
+.acaAff-container .nav-link {
+    font-size: 16px;
+    color: var(--primary-color);
+    font-weight: 500;
+}
