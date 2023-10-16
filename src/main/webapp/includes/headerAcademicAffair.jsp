@@ -1,8 +1,3 @@
-<%-- 
-    Document   : headerAcademicAffair
-    Created on : Oct 13, 2023, 7:45:17 AM
-    Author     : flywt
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -63,7 +58,11 @@
                                 <a class="nav-link" href="./academicAffairCheckAttendance.jsp">Điểm danh</a>
                             </li>
                             <li class="nav-item">
+
                                 <a class="nav-link" href="/learning-tracking/LockMark">Tình trạng học sinh</a>
+
+                                <a class="nav-link" href="./academicAffairLockMarkReport.jsp">Tình trạng học sinh</a>
+
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -90,4 +89,4 @@
                         </div>
                     </div>
                 </nav>
-            </div>
+
