@@ -7,6 +7,14 @@
         <servlet-name>LoginController</servlet-name>
         <servlet-class>Controller.LoginController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CheckAttendanceList</servlet-name>
+        <servlet-class>Controller.CheckAttendanceList</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CheckAttendanceController</servlet-name>
+        <servlet-class>Controller.CheckAttendanceController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -146,6 +154,14 @@
     <servlet-mapping>
         <servlet-name>TeacherNotificationHistory</servlet-name>
         <url-pattern>/teacherNotificationHistory</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckAttendanceList</servlet-name>
+        <url-pattern>/list-attendance</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckAttendanceController</servlet-name>
+        <url-pattern>/check-attendance</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

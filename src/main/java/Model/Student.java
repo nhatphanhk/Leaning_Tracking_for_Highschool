@@ -168,5 +168,5 @@ public class Student {
         return "Student{" + "studentid=" + studentid + ", lastName=" + lastName + ", firstName=" + firstName + ", email=" + email + ", address=" + address + ", phoneNumber=" + phoneNumber + ", gender=" + gender + ", dob=" + dob + ", className=" + className + ", semester=" + semester + ", year=" + year + '}';
     }
 
-    
+ 
 }

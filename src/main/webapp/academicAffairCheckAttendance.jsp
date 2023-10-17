@@ -3,150 +3,98 @@
     Created on : Oct 1, 2023, 9:13:39 PM
     Author     : flywt
 --%>
-
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ include file="./includes/headerAcademicAffair.jsp" %>
 
-      <div class="app-container mt-0">
-        <div class="grid d-grid">
-          <div class="section-m1">
+<div class="app-container mt-0">
+    <div class="grid d-grid">
+        <div class="section-m1">
             <div class="row">
-              <div class="col">
-                <div class="box-section">
-                  <div class="app-home__heading">
-                    <div class="header-name d-flex justify-content-between">
-                      <span>Điểm danh</span>
-                      <button 
-                      role="button"
-                      data-bs-toggle="modal" 
-                      data-bs-target="#infoModal" class="acaAff-btn">
-                        Tìm kiếm lớp
-                    </button>
-                    </div>
-                  </div>
-                  <div class="app-home__body m-5">
-                    <div class="row">
-                        <div class="col">
-                            <form action="">
-                                <!-- Student List details  -->
-                                <table class="table table-bordered table-striped">
-                                  <thead class="background-primary">
-                                      <tr class="text-color-white">
-                                        <th>STT</th>
-                                        <th>Mã học sinh</th>
-                                        <th>Họ và Tên</th>
-                                        <th>Giới tính</th>
-                                        <th>Ngày sinh</th>
-                                        <th>Số điện thoại</th>
-                                        <th>Điểm danh</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                      <tr>
-                                        <td>1</td>
-                                        <td>DE170068</td>
-                                        <td>Hà Trọng Tấn</td>
-                                        <td>Nam</td>
-                                        <td>1/1/2007</td>
-                                        <td>0123456789</td>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                      </tr>
-                                      <tr>
-                                        <td>1</td>
-                                        <td>DE170068</td>
-                                        <td>Hà Trọng Tấn</td>
-                                        <td>Nam</td>
-                                        <td>1/1/2007</td>
-                                        <td>0123456789</td>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                      </tr>
-                                      <tr>
-                                        <td>1</td>
-                                        <td>DE170068</td>
-                                        <td>Hà Trọng Tấn</td>
-                                        <td>Nam</td>
-                                        <td>1/1/2007</td>
-                                        <td>0123456789</td>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                      </tr>
-                                      <tr>
-                                        <td>1</td>
-                                        <td>DE170068</td>
-                                        <td>Hà Trọng Tấn</td>
-                                        <td>Nam</td>
-                                        <td>1/1/2007</td>
-                                        <td>0123456789</td>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                      </tr>
-                                    </tbody>
-                                </table>
-                                <div class="row d-flex flex-row-reverse">
-                                    <a href="" class="acaAff-btn">Lưu</a>
+                <div class="col">
+                    <div class="box-section">
+                        <div class="app-home__heading">
+                            <div class="header-name d-flex justify-content-between">
+                                <span>Điểm danh</span>
+                                <form action="list-attendance" method="get">
+                                    <div class="search">
+                                        <div class="search-btn-contain" style="right:80px;">
+                                            <select id="classid" name="classid" class="form-select" aria-label="Default select example" onchange="changeClassName()">
+                                                <option selected>Chọn Lớp</option>
+                                                <option value="1">10A1</option>
+                                                <option value="2">10A2</option>
+                                                <option value="3">10A3</option>
+                                                <option value="4">11A1</option>
+                                                <option value="5">11A2</option>
+                                                <option value="6">11A3</option>
+                                                <option value="7">12A1</option>
+                                                <option value="8">12A2</option>
+                                                <option value="9">12A3</option>                                                            
+                                            </select>                                   
+                                        </div>
+                                        <button type="submit" class="btn btn-block submit-modal-btn" style="position: absolute;top: 7px;right: 7px">
+                                            Tìm kiếm
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="app-home__body m-5">
+                            <div class="row">
+                                <div class="col">
+                                    <form action="check-attendance">
+                                        <!-- Student List details  -->
+                                        <table class="table table-bordered table-striped">
+                                            <thead class="background-primary">
+                                                <tr class="text-color-white">
+                                                    <th>STT</th>
+                                                    <th>Mã học sinh</th>
+                                                    <th>Họ và Tên</th>
+                                                    <th>Giới tính</th>
+                                                    <th>Ngày sinh</th>
+                                                    <th>Số điện thoại</th>
+                                                    <th>Điểm danh</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <c:forEach items="${students}" var="x" varStatus="status">
+                                                <tr>
+                                                    <td>${status.index+1}</td>
+                                                    <td>${x.studentid}</td>
+                                                    <td>${x.lastName} ${x.firstName}</td>
+                                                    <td>
+                                                <c:choose>
+                                                    <c:when test="${x.gender}">
+                                                        Nam
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        Nữ
+                                                    </c:otherwise>
+                                                </c:choose>
+                                                </td>
+                                                <td>${x.dob}</td>
+                                                <td>${x.phoneNumber}</td>
+                                                <td><input type="checkbox" name="status${status.index}" ></td>
+                                                </tr>  
+                                            </c:forEach>
+                                            </tbody>
+                                        </table>
+                                        <div class="row d-flex flex-row-reverse">
+                                            <button class="acaAff-btn">Lưu</button>
+                                        </div>
+                                    </form>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
-                  </div>
                 </div>
-                </div>
-              </div>
             </div>
         </div>
-      </div>
     </div>
-    <div id="infoModal" class="modal fade" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header background-primary text-color-white">
-              <h4 class="modal-title">Thông tin tìm kiếm</h4>
-              <button type="button" class="btn-close text-color-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body p-4">
-              <form action="">
-                <div class="row mb-5">
-                    <div class="col-6">
-                      <label class="col-3 col-form-label modal__label"
-                        >Khối</label
-                      >
-                      <div class="col-8 d-flex justify-content-around">
-                        <select class="form-select" aria-label="Default select example">
-                            <option value="10">Khối 10</option>
-                            <option value="11">Khối 11</option>
-                            <option value="12">Khối 12</option>
-                          </select>
-                      </div>
-                    </div>
-                    <div class="col-6">
-                        <label class="col-3 col-form-label"
-                          >Lớp</label
-                        >
-                        <div class="col-8 d-flex justify-content-around">
-                          <select class="form-select" aria-label="Default select example">
-                              <option value="A3">Lớp A3</option>
-                              <option value="A4">Lớp A4</option>
-                              <option value="A5">Lớp A5</option>
-                            </select>
-                        </div>
-                      </div>
+</div>
 
-                </div>
-  
-                <div class="form-group row">
-                  <div class="col-12">
-                    <button type="submit" class="acaAff-btn">
-                      Tìm kiếm
-                    </button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    <%@ include file="./includes/linkJS.jsp" %>
-    <script src="./assets/js/mycode.js"></script>
-    </script>
-  </body>
+<%@ include file="./includes/linkJS.jsp" %>
+<script src="./assets/js/mycode.js"></script>
+</script>
+</body>
 </html>
