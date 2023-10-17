@@ -29,7 +29,7 @@
     <body>
         <div class="app">
             <!-- header  -->
-            <%--<%@ include file="./includes/headerAccountManagement.jsp" %>--%>
+            <%@ include file="./includes/headerAccountManagement.jsp" %>
 
             <div class="app-container m-0">
                 <div class="grid d-grid">

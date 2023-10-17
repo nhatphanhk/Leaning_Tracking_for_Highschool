@@ -8,6 +8,14 @@
         <servlet-class>Controller.LoginController</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>CheckAttendanceList</servlet-name>
+        <servlet-class>Controller.CheckAttendanceList</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CheckAttendanceController</servlet-name>
+        <servlet-class>Controller.CheckAttendanceController</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>LockMark</servlet-name>
         <servlet-class>Controller.LockMark</servlet-class>
     </servlet>
@@ -150,6 +158,14 @@
     <servlet-mapping>
         <servlet-name>TeacherNotificationHistory</servlet-name>
         <url-pattern>/teacherNotificationHistory</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckAttendanceList</servlet-name>
+        <url-pattern>/list-attendance</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckAttendanceController</servlet-name>
+        <url-pattern>/check-attendance</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LockMark</servlet-name>

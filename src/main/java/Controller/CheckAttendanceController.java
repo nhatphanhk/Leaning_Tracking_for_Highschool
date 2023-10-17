@@ -6,22 +6,24 @@ package Controller;
 
 import DAO.Dao;
 import Model.Student;
-import jakarta.servlet.annotation.WebServlet;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
- * @author tramy
+ * @author htk09
  */
-//@WebServlet(name = "StudentList", urlPatterns = {"/student-list"})
-public class StudentList extends HttpServlet {
+public class CheckAttendanceController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,10 +42,10 @@ public class StudentList extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet StudentList</title>");            
+            out.println("<title>Servlet CheckAttendanceController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet StudentList at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet CheckAttendanceController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -59,15 +61,29 @@ public class StudentList extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    String classid = request.getParameter("classid");
-    Dao studentDAO = new Dao();
-    List<Student> students = studentDAO.selectAllStudent(classid);
-    request.setAttribute("students", students);
-    RequestDispatcher dispatcher = request.getRequestDispatcher("studentList.jsp");
-    dispatcher.forward(request, response);
-}
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
+        HttpSession session = request.getSession();
+        String classid = (String) session.getAttribute("classid");
+        Dao dao = new Dao();
+        List<Student> students = dao.selectAllStudent(classid);
+        int i = 0;
+        String semesterid = "FI23";
+        for (Student student : students) {
+            LocalDate currentDate = LocalDate.now();
+            String studentid = student.getStudentid();
+            boolean sta = (request.getParameter("status" + i) != null);
+            try {
+                dao.insertAttendanceStatus(currentDate, sta, studentid, semesterid);
+            } catch (SQLException ex) {
+                Logger.getLogger(CheckAttendanceController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            i++;
+        }
+        session.removeAttribute("classid");
+        response.sendRedirect("academicAffairCheckAttendance.jsp");
+    }
 
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -80,7 +96,7 @@ public class StudentList extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         processRequest(request, response);
+        processRequest(request, response);
     }
 
     /**

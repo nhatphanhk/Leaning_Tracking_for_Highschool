@@ -27,6 +27,7 @@ import java.util.logging.Logger;
  *
  * @author Admin
  */
+
 public class Dao implements Serializable {
 
     private Connection conn = DBUtil.makeConnection();
@@ -52,7 +53,23 @@ public class Dao implements Serializable {
     private static final String INSERT_NOTI_TEACHER = "INSERT INTO [dbo].[notification] (title, content, date, categoryid, classid) VALUES (?, ?, ?, ?,?)";
     private static final String SELECT_ALL_NOTI_TEACHER_PAGE = "SELECT n.notificationid, n.title, n.content, n.date, n.categoryid, n.classid, n.teacherid, c.classname FROM [dbo].[notification] n JOIN [dbo].[class] c ON c.classid = n.classid WHERE teacherid = ? ORDER BY notificationid Desc";
     private static final String SELECT_ALL_CLASS = "SELECT * FROM class";
-
+    private static final String INSERT_ATTENDANCE_STATUS = "INSERT INTO [dbo].[attendance_status] (date, status, studentid, semesterid) VALUES (?,?,?,?)";
+    
+    public void insertAttendanceStatus(LocalDate date, boolean status, String studentid, String semesterid) throws SQLException {
+        PreparedStatement stm;
+        try {
+            String sql = INSERT_ATTENDANCE_STATUS;
+            stm = conn.prepareStatement(sql);
+            stm.setDate(1, java.sql.Date.valueOf(date));
+            stm.setBoolean(2, status);
+            stm.setString(3, studentid); 
+            stm.setString(4, semesterid);
+            stm.executeUpdate(); // không trả dữ liệu thì dùng executeUpdate
+        } catch (Exception e) {
+            System.out.println("loi" + e + "loi");
+        }
+    }
+    
     public List<Notification> selectAllNotiTeacherPage(String teacherid) {
         
         PreparedStatement stm;
