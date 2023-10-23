@@ -16,6 +16,7 @@
                         <div class="app-home__heading">
                             <div class="header-name d-flex justify-content-between">
                                 <span>Điểm danh</span>
+                                <h3>${msg}</h3>
                                 <form action="list-attendance" method="get">
                                     <div class="search">
                                         <div class="search-btn-contain" style="right:80px;">
@@ -74,7 +75,8 @@
                                                 </td>
                                                 <td>${x.dob}</td>
                                                 <td>${x.phoneNumber}</td>
-                                                <td><input type="checkbox" name="status${status.index}" ></td>
+                                                <c:if test="${(x.status == true)}"><td><input type="checkbox" name="status${status.index}" value="${x.status}" ></td></c:if>
+                                                <c:if test="${(x.status == false)}"><td><input type="checkbox" name="status${status.index}" value="${x.status}" ></td></c:if>
                                                 </tr>  
                                             </c:forEach>
                                             </tbody>
@@ -95,6 +97,22 @@
 
 <%@ include file="./includes/linkJS.jsp" %>
 <script src="./assets/js/mycode.js"></script>
+<script> 
+ var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+  // Loop through the checkboxes and check them based on their values
+  checkboxes.forEach(function (checkbox) {
+  if (checkbox.value === "true") {
+    checkbox.checked = true;
+  }
+});
+
+checkboxes.forEach(function (checkbox) {
+  checkbox.addEventListener("change", function () {
+    // Update the value when the checkbox is checked
+    checkbox.value = checkbox.checked ? "true" : "false";
+  });
+});
 </script>
 </body>
 </html>

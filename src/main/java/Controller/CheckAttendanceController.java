@@ -5,6 +5,7 @@
 package Controller;
 
 import DAO.Dao;
+import Model.AttendanceList;
 import Model.Student;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -70,8 +71,10 @@ public class CheckAttendanceController extends HttpServlet {
         List<Student> students = dao.selectAllStudent(classid);
         int i = 0;
         String semesterid = "FI23";
-        for (Student student : students) {
-            LocalDate currentDate = LocalDate.now();
+        LocalDate currentDate = LocalDate.now();
+        List<AttendanceList> students2 = dao.getAttendanceStudentByDate(java.sql.Date.valueOf(currentDate),classid);
+        if("[]".equals(students2.toString())){
+            for (Student student : students) {
             String studentid = student.getStudentid();
             boolean sta = (request.getParameter("status" + i) != null);
             try {
@@ -81,8 +84,25 @@ public class CheckAttendanceController extends HttpServlet {
             }
             i++;
         }
+            String msg = "Add Successfully";
+             request.setAttribute("msg", msg);
+        }else{
+            for (AttendanceList student : students2) {
+                String studentid = student.getStudentid();
+                Boolean sta = Boolean.valueOf(request.getParameter("status"+i));
+                try {
+                    dao.updateAttendanceStatus(currentDate, sta, studentid, semesterid, studentid);
+                } catch (SQLException ex) {
+                    Logger.getLogger(CheckAttendanceController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                i++;
+            }
+             String msg = "Update Successfully";
+             request.setAttribute("msg", msg);
+        }
+        
         session.removeAttribute("classid");
-        response.sendRedirect("academicAffairCheckAttendance.jsp");
+        request.getRequestDispatcher("academicAffairCheckAttendance.jsp").forward(request, response);
     }
 
     /**
