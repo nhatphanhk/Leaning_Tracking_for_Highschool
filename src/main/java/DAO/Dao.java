@@ -30,6 +30,7 @@ import java.util.logging.Logger;
  *
  * @author Admin
  */
+
 public class Dao implements Serializable {
 
     private Connection conn = DBUtil.makeConnection();
@@ -54,6 +55,7 @@ public class Dao implements Serializable {
     private static final String INSERT_NOTI_SCHOOL = "INSERT INTO [dbo].[notification] (title, content, date, categoryid) VALUES (?, ?, ?, ?)";
     private static final String INSERT_NOTI_TEACHER = "INSERT INTO [dbo].[notification] (title, content, date, categoryid, classid) VALUES (?, ?, ?, ?,?)";
     private static final String SELECT_ALL_NOTI_TEACHER_PAGE = "SELECT n.notificationid, n.title, n.content, n.date, n.categoryid, n.classid, n.teacherid, c.classname FROM [dbo].[notification] n JOIN [dbo].[class] c ON c.classid = n.classid WHERE teacherid = ? ORDER BY notificationid Desc";
+    private static final String SELECT_ALL_CLASS = "SELECT * FROM class";
     private static final String INSERT_ATTENDANCE_STATUS = "INSERT INTO [dbo].[attendance_status] (date, status, studentid, semesterid) VALUES (?,?,?,?)";
     private static final String UPDATE_ATTENDANCE_STATUS = "UPDATE [dbo].[attendance_status] SET date = ? ,status = ?, studentid = ?  ,semesterid = ? where studentid = ?";
     private static final String SELECT_STUDENT_BY_DATE_ATTENDANCE = "SELECT student.studentid, lastname, firstname, gender, dob, phonenumber,status FROM student INNER JOIN attendance_status ON attendance_status.date = ? and student.classid = ? and student.studentid = attendance_status.studentid";
@@ -95,7 +97,6 @@ public class Dao implements Serializable {
             stm.setBoolean(2, status);
             stm.setString(3, studentid); 
             stm.setString(4, semesterid);
-
             stm.executeUpdate(); // không trả dữ liệu thì dùng executeUpdate
         } catch (Exception e) {
             System.out.println("loi" + e + "loi");
@@ -366,6 +367,29 @@ public class Dao implements Serializable {
         }
         return bookList;
     }
+    
+     public List<Class> getAllClasses() {
+
+        PreparedStatement stm;
+        ResultSet rs;
+
+        List<Class> classList = new ArrayList();
+        try {
+
+            String sql = SELECT_ALL_CLASS;
+            stm = conn.prepareStatement(sql);
+
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                classList.add(new Class(rs.getInt("classid"),
+                        rs.getString("classname")));
+
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return classList;
+    }
 
     public Account login(String email, String password) {
 
@@ -475,7 +499,7 @@ public class Dao implements Serializable {
 
             rs = stm.executeQuery();
             while (rs.next()) {
-                classList.add(new Class(rs.getInt("classid"), rs.getString("classname")));
+                classList.add(new Class(rs.getInt("classid"), rs.getString("classname").replaceAll("\\s+", "")));
 
             }
         } catch (Exception ex) {
@@ -506,6 +530,35 @@ public class Dao implements Serializable {
         return classList;
     }
 
+    public List<Mark> getListMarkByClasses(int classid) {
+        PreparedStatement stm;
+        ResultSet rs;
+        List<Mark> markList = new ArrayList();
+        try {
+
+            String sql = "select s.studentid,s.lastname,s.firstname,AVG(COALESCE(m.progress_mark, 0)) AS progress_mark, \n"
++"		AVG(COALESCE(m.middle, 0)) AS middle_mark, \n"
++"		AVG(COALESCE(m.final, 0)) AS final_mark, \n"
++"		AVG(COALESCE(m.total, 0)) AS total_mark,se.semester,se.year \n"
++"                  from mark m inner join student s on m.studentid = s.studentid  \n"
++"                  inner join semester se on m.semseterid = se.semesterid \n"
++"                  where s.classid=? \n"
++"		group by s.studentid,s.lastname,s.firstname,se.semester,se.year";
+            stm = conn.prepareStatement(sql);
+            stm.setInt(1, classid);
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                markList.add(new Mark(rs.getString("studentid"),
+                        rs.getString("lastname"), rs.getString("firstname"),
+                        rs.getBigDecimal("progress_mark"), rs.getBigDecimal("middle_mark"), rs.getBigDecimal("final_mark"), rs.getBigDecimal("total_mark"), rs.getInt("semester"), rs.getInt("year")));
+
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return markList;
+    }
+    //here
     public List<Mark> getListMarkByClassAndTeacher(String teacherid, int classid) {
         PreparedStatement stm;
         ResultSet rs;
@@ -640,7 +693,7 @@ public class Dao implements Serializable {
 
     public static void main(String[] args) {
         Dao dao = Dao.getInstance();
-        List<Mark> list = dao.getListMarkByClassAndTeacher("TC10001", 1);
+        List<Mark> list = dao.getListMarkByClasses(1);
         for (Mark item : list) {
             System.out.println(item.toString());
         }

@@ -18,6 +18,10 @@
     <servlet>
         <servlet-name>AttendanceStatusController</servlet-name>
         <servlet-class>Controller.AttendanceStatusController</servlet-class>
+  </servlet>
+      <servlet>
+        <servlet-name>LockMark</servlet-name>
+        <servlet-class>Controller.LockMark</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -170,10 +174,14 @@
     <servlet-mapping>
         <servlet-name>AttendanceStatusController</servlet-name>
         <url-pattern>/attendance-status</url-pattern>
+      </serrvlet-mapping>
+  <servlet-mapping>
+        <servlet-name>LockMark</servlet-name>
+        <url-pattern>/LockMark</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
-            30
+            60
         </session-timeout>
     </session-config>
 </web-app>
