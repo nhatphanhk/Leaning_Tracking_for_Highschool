@@ -1,10 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package DAO;
 
 import Model.Account;
+import Model.Admin;
 import Model.AttendanceList;
 import Model.AttendanceStatus;
 import Model.Student;
@@ -36,8 +34,6 @@ import java.util.logging.Logger;
 public class Dao implements Serializable {
 
     private Connection conn = DBUtil.makeConnection();
-    //PreparedStatement pr =null;
-    //ResultSet rs = null;
     private static Dao instance;
 
     public Dao() {
@@ -191,7 +187,6 @@ public class Dao implements Serializable {
     
     public void insertNotiSchool(String title, String content, LocalDate date, int category) throws SQLException {
         PreparedStatement stm;
-//        ResultSet rs;
         try {
             String sql = INSERT_NOTI_SCHOOL;
             stm = conn.prepareStatement(sql);
@@ -208,7 +203,6 @@ public class Dao implements Serializable {
     
     public void insertNotiTeacher(String title, String content, LocalDate date, int category, String classid) throws SQLException {
         PreparedStatement stm;
-//        ResultSet rs;
         try {
             String sql = INSERT_NOTI_TEACHER;
             stm = conn.prepareStatement(sql);
@@ -605,7 +599,6 @@ public class Dao implements Serializable {
         }
         return markList;
     }
-    //here
     public List<Mark> getListMarkByClassAndTeacher(String teacherid, int classid) {
         PreparedStatement stm;
         ResultSet rs;
@@ -910,6 +903,7 @@ public class Dao implements Serializable {
         }
         return null;
     }
+    
     public List<Student> getAllStudent(){
         PreparedStatement stm;
         ResultSet rs;
@@ -935,6 +929,30 @@ public class Dao implements Serializable {
             Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
         }
         return st;
+    }
+    
+    public Admin getAdminByEmail(String email) {
+        PreparedStatement stm;
+        ResultSet rs;
+        Admin tc = new Admin();
+
+        try {
+
+            String sql = "select staffid,lastname,firstname,email,phonenumber\n"
+                    + "from staff where email = ?";
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, email);
+
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                return tc = new Admin(rs.getString("staffid"), rs.getString("lastname"), rs.getString("firstname"), rs.getString("email"),
+                         rs.getString("phonenumber"));
+
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
     
     public List<Major> getAllMajor(){
@@ -965,37 +983,15 @@ public class Dao implements Serializable {
     
 
     public static void main(String[] args) {
-<<<<<<< HEAD
-//    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-//    java.util.Date newDateOfBirth = null;
-//    
-//    try {
-//        newDateOfBirth = sdf.parse("1984-10-16"); // Parsing a date from a string
-//        
-//    } catch (Exception e) {
-//        e.printStackTrace();
-//    }
+//        Dao dao =  Dao.getInstance();
+//        Account acc = dao.getAccountByEmail("student2@gmail.com");
+//        System.out.println(acc.toString());
 //
-//    java.sql.Date sqlDateOfBirth = new java.sql.Date(newDateOfBirth.getTime()); // Convert to java.sql.Date
-//
-//    Dao dao = Dao.getInstance();
-//    String oldstudentid = dao.getLastStudent().getStudentid();
-//        String numPart = oldstudentid.substring(2); 
-//        int num = Integer.parseInt(numPart); 
-//        num++; 
-//        String newStudentId = "ST" + num;
-//        dao.addStudent(newStudentId, "Long", "Nguyễn", "student136@gmail.com","09841456789", "231 Bạch Đằng", sqlDateOfBirth, true,1,"FI23");
-      
-        Dao dao =  Dao.getInstance();
-        Account acc = dao.getAccountByEmail("student2@gmail.com");
-        System.out.println(acc.toString());
-=======
-        Dao dao = Dao.getInstance();
-        List<Mark> list = dao.getListMarkByClasses(1);
-        for (Mark item : list) {
-            System.out.println(item.toString());
-        }
->>>>>>> 1af8ebbf867167dc34b59346f9f626eb1743371e
+//        Dao dao = Dao.getInstance();
+//        List<Mark> list = dao.getListMarkByClasses(1);
+//        for (Mark item : list) {
+//            System.out.println(item.toString());
+//        }
     }
 
 }
