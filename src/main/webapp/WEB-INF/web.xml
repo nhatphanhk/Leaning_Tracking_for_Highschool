@@ -8,6 +8,38 @@
         <servlet-class>Controller.LoginController</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ViewDetailsNotiFromSchool</servlet-name>
+        <servlet-class>Controller.ViewDetailsNotiFromSchool</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SendApplicationStudent</servlet-name>
+        <servlet-class>Controller.SendApplicationStudent</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InsertApplicationStudent</servlet-name>
+        <servlet-class>Controller.InsertApplicationStudent</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewApplicationHistoryStudent</servlet-name>
+        <servlet-class>Controller.ViewApplicationHistoryStudent</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewApplicationTeacher</servlet-name>
+        <servlet-class>Controller.ViewApplicationTeacher</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoadTimetable</servlet-name>
+        <servlet-class>Controller.LoadTimetable</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewTimetableTeacher</servlet-name>
+        <servlet-class>Controller.ViewTimetableTeacher</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewTimetableStudent</servlet-name>
+        <servlet-class>Controller.ViewTimetableStudent</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>TeacherListController</servlet-name>
         <servlet-class>Controller.TeacherListController</servlet-class>
     </servlet>
@@ -191,14 +223,6 @@
         <servlet-name>ChangeForgotPasswordController</servlet-name>
         <url-pattern>/change-forgot-password</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>NotificationTeacherPage</servlet-name>
-        <servlet-class>Controller.NotificationTeacherPage</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>NotificationTeacherPage</servlet-name>
-        <url-pattern>/notificationTeacherPage</url-pattern>
-    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>TeacherNotificationHistory</servlet-name>
         <url-pattern>/teacherNotificationHistory</url-pattern>
@@ -282,6 +306,46 @@
     <servlet-mapping>
         <servlet-name>vnpayRefund</servlet-name>
         <url-pattern>/vnpayrefund/*</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UpdateNotiFromTeacher</servlet-name>
+        <servlet-class>Controller.UpdateNotiFromTeacher</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateNotiFromTeacher</servlet-name>
+        <url-pattern>/updateNotiFromTeacher</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewDetailsNotiFromSchool</servlet-name>
+        <url-pattern>/viewDetailsNotiFromSchool</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SendApplicationStudent</servlet-name>
+        <url-pattern>/sendApplicationStudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertApplicationStudent</servlet-name>
+        <url-pattern>/insertApplicationStudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewApplicationHistoryStudent</servlet-name>
+        <url-pattern>/viewApplicationHistoryStudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewApplicationTeacher</servlet-name>
+        <url-pattern>/viewApplicationTeacher</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadTimetable</servlet-name>
+        <url-pattern>/loadTimetable</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewTimetableTeacher</servlet-name>
+        <url-pattern>/viewTimetableTeacher</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewTimetableStudent</servlet-name>
+        <url-pattern>/viewTimetableStudent</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
