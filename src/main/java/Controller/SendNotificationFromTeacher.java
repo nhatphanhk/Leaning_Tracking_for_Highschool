@@ -19,6 +19,7 @@ import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpSession;
 
 /**
  *
@@ -64,7 +65,7 @@ public class SendNotificationFromTeacher extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        request.getRequestDispatcher("teacherSendApplication.jsp").forward(request, response);
     }
 
     /**
@@ -78,15 +79,17 @@ public class SendNotificationFromTeacher extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String title = request.getParameter("title");
-        String content = request.getParameter("content");
-        LocalDate currentDate = LocalDate.now();
-        int category = 2;
-        String classid = request.getParameter("classid");
-        
-        Dao noti = Dao.getInstance();
         try {
-            noti.insertNotiTeacher(title, content, currentDate, category, classid);
+           String title = request.getParameter("title");
+            String content = request.getParameter("content");
+            LocalDate currentDate = LocalDate.now();
+            int category = 2;
+            String classid = request.getParameter("classid");
+            HttpSession session = request.getSession();
+            String teacherid = (String) session.getAttribute("teacherid");
+
+            Dao noti = Dao.getInstance();
+            noti.insertNotiTeacher(title, content, currentDate, category, classid, teacherid);
             
 //        // Nhận tệp tin từ form
 ////    Part filePart = request.getPart("attachmentFile"); // Retrieves <input type="file" name="attachmentFile">
@@ -108,7 +111,7 @@ public class SendNotificationFromTeacher extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(SendNotificationFromTeacher.class.getName()).log(Level.SEVERE, null, ex);
         }
-        response.sendRedirect("teacherSendNotification.jsp");
+        response.sendRedirect("teacherNotificationHistory");
     }
 
     /**
