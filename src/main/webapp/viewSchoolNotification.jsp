@@ -48,10 +48,12 @@
                                         <div class="notification-list">
                                             <c:forEach var="x" items="${notification}">
                                                 <div class="notificaiton-item p-4" data-bs-toggle="modal" data-bs-target="#">
-                                                    <div class="notifi-heading">
-                                                        <div class="notifi-header fs-1">${x.title}</div>
-                                                        <div class="notifi-date fs-3">${x.date}</div>
-                                                    </div>
+                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-noti-id="${x.notificationId}">
+                                                        <div class="notifi-heading">
+                                                            <div class="notifi-header fs-1">${x.title}</div>
+                                                            <div class="notifi-date fs-3">${x.date}</div>
+                                                        </div>
+                                                    </a>
                                                     <div class="ps-3 pt-2 notifi-short-content fs-3 " style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap; max-width: 500px">
                                                         ${x.content}
                                                     </div>
@@ -65,37 +67,30 @@
                     </div>
                 </div>
             </div>
-           <!-- The Modal -->
-        <div class="modal fade" id="notiSchool">
-             <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">${x.title}</h4>
-        
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        Modal body..
-      </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-      </div>
-
-             </div>
-             </div>
+           <!--Modal-->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title" id="staticBackdropLabel">THÔNG BÁO</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <h3>Tiêu Đề: </h3>${detail-noti.title}
+                            <h3>Nội dung: </h3>
+                            <div>${detail-noti.content}</div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-   
 
 
-    <%@ include file="./includes/linkJS.jsp" %>
-    <script src="assets/js/scripts.js"></script>
-</body>
+            <%@ include file="./includes/linkJS.jsp" %>
+            <%@ include file="./includes/script.html" %>
+            <script src="assets/js/scripts.js"></script>
+    </body>
 </html>
 
