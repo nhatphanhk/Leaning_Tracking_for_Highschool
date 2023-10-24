@@ -6,7 +6,9 @@
 package Controller;
 
 import DAO.Dao;
+import Model.AcademicAffair;
 import Model.Account;
+import Model.Admin;
 import Model.Notification;
 import Model.Student;
 import Model.Teacher;
@@ -125,7 +127,12 @@ public class LoginController extends HttpServlet {
             session.setAttribute("teacher", tc);
             request.getRequestDispatcher("teacherHomePage.jsp").forward(request, response);
             break;
-            
+            case 5:
+            session.setAttribute("account", acc);
+            Admin aa = dao.getAdminByEmail(email);
+            session.setAttribute("academicAffair", aa);
+            response.sendRedirect("academicAffairProfile.jsp");
+            break;
         }
             
         }

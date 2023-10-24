@@ -81,7 +81,7 @@
                                                             </li>
                                                             
                                                             <li class="info-href-contain h3 ms-3 mb-4">
-                                                                <a href="attendanceStatus.jsp" class="text-color-gray">
+                                                                <a href="attendance-status?studentid=${sessionScope.student.studentid}" class="text-color-gray">
                                                                     <i class="fa-solid fa-triangle-exclamation me-3"></i>
                                                                     <span>VI PHẠM, NGHỈ HỌC</span>
                                                                 </a>

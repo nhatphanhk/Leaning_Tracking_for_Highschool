@@ -3,7 +3,8 @@
     Created on : Sep 22, 2023, 10:01:54 AM
     Author     : htk09
 --%>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -106,43 +107,28 @@
                                                                     </div>-->
 
                                                 <div class="col">
-                                                    <div class="box-section">
-                                                        <table class="table table-bordered text-center ">
+                                                    <div class="box-section" style="height: 100%">
+                                                        <table class="table table-bordered text-center " >
                                                             <thead>
                                                                 <tr>
-                                                                    <th class="col-1" scope="col" rowspan="2">STT</th>
-                                                                    <th class="col-1" scope="col" rowspan="2">Ngày</th>
-                                                                    <th class="col-2" scope="col" colspan="2">Phép</th>
-                                                                    <th class="col-3" scope="col" rowspan="2">Nội Dung
+                                                                    <th class="col-1" scope="col" >STT</th>
+                                                                    <th class="col-2" scope="col" >Ngày</th>
+                                                                    <th class="col-1" scope="col" >Học Kỳ</th>
+                                                                    <th class="col" scope="col">Nội Dung
                                                                     </th>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th class="col-1" scope="col">Có</th>
-                                                                    <th class="col-1" scope="col">Không</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <tr>
-                                                                    <th scope="col">1</th>
-                                                                    <td>10/10/2023</td>
-                                                                    <td><i class="fa-solid fa-check"></i></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">2</th>
-                                                                    <td>11/10/2023</td>
-                                                                    <td><i class="fa-solid fa-check"></i></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">3</th>
-                                                                    <td>20/10/2023</td>
-                                                                    <td></td>
-                                                                    <td><i class="fa-solid fa-check"></i></td>
-                                                                    <td></td>
-                                                                </tr>
+
+                                                                <c:forEach items="${status}" var="x" varStatus="status">
+                                                                    <tr>
+                                                                        <td>${status.index+1}</td>
+                                                                        <fmt:formatDate value="${x.date}" pattern="dd/MM/yyyy" var="formattedDate" />
+                                                                        <td>${formattedDate}</td>
+                                                                        <td>${x.semesterid}</td>
+                                                                        <td style="text-align: start;">Xin phép nghỉ học ngày ${formattedDate}</td>
+                                                                    </tr>  
+                                                                </c:forEach>
                                                             </tbody>
                                                         </table>
                                                     </div>
