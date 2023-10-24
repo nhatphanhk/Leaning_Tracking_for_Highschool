@@ -30,6 +30,13 @@ public class Notification {
 
     public Notification() {
     }
+    // UPDATE NOTI BY TEACHER
+    public Notification(int notificationId, String title, String content, int classid) {    
+        this.notificationId = notificationId;
+        this.title = title;
+        this.content = content;
+        this.classid = classid;
+    }
 
     public Notification(int notificationId, String title, String content, Date date, int categoryId, int classid, String teacherid, Teacher teacher, String classname) {
         this.notificationId = notificationId;
@@ -45,15 +52,16 @@ public class Notification {
     
     
 
-    public Notification(int notificationId, String title, String content, Date date, int categoryId) {
+    public Notification(int notificationId, String title, String content, Date date, int categoryId,String teacherid) {
         this.notificationId = notificationId;
         this.title = title;
         this.content = content;
         this.date = date;
         this.categoryId = categoryId;
+        this.teacherid = teacherid;
     }
 
-    public Notification(int notificationId, String title, String content, Date date, int categoryId, int classid, String teacherid, Teacher teacher) {
+    public Notification(int notificationId, String title, String content, Date date, int categoryId,String teacherid, int classid, Teacher teacher) {
         this.notificationId = notificationId;
         this.title = title;
         this.content = content;
@@ -62,6 +70,23 @@ public class Notification {
         this.classid = classid;
         this.teacherid = teacherid;
         this.teacher = teacher;
+    }
+
+    public Notification(int notificationId, String title, String content, int categoryId, int classid, String teacherid) {
+        this.notificationId = notificationId;
+        this.title = title;
+        this.content = content;
+        this.categoryId = categoryId;
+        this.classid = classid;
+        this.teacherid = teacherid;
+    }
+
+    public String getclassname() {
+        return classname;
+    }
+
+    public void setclassname(String classname) {
+        this.classname = classname;
     }
 
     public Boolean getReadStatus() {
@@ -135,7 +160,7 @@ public class Notification {
 
     @Override
     public String toString() {
-        return "Notification{" + "notificationId=" + notificationId + ", title=" + title + ", content=" + content + ", date=" + date + ", categoryId=" + categoryId + ", classid=" + classid + ", teacherid=" + teacherid + '}';
+        return "Notification{" + "notificationId=" + notificationId + ", title=" + title + ", content=" + content + ", date=" + date + ", categoryId=" + categoryId + ", classid=" + classid + ",classname=" + classname + ", teacherid=" + teacherid + '}';
     }
 
     
