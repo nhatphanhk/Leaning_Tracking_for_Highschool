@@ -36,17 +36,7 @@ public class LockMark extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        HttpSession session = request.getSession();
-        Object lockedMarkObj = session.getAttribute("isLockedMark");
         
-        if(lockedMarkObj == null){
-            boolean isLockedMark = true;
-            int oneMonth = 30 * 24 * 60 * 60; 
-            session.setMaxInactiveInterval(oneMonth);
-            session.setAttribute("isLockedMark", isLockedMark);
-        }else {
-            session.removeAttribute("isLockedMark");
-        }
         Dao dao = Dao.getInstance();
         List<Class> classes = dao.getAllClass();
         
@@ -86,6 +76,17 @@ public class LockMark extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        Object lockedMarkObj = session.getAttribute("isLockedMark");
+        
+        if(lockedMarkObj == null){
+            boolean isLockedMark = true;
+            int oneMonth = 30 * 24 * 60 * 60; 
+            session.setMaxInactiveInterval(oneMonth);
+            session.setAttribute("isLockedMark", isLockedMark);
+        }else {
+            session.removeAttribute("isLockedMark");
+        }
         processRequest(request, response);
     }
 

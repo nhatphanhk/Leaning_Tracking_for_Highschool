@@ -1,3 +1,10 @@
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+});
+
+
+
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
@@ -28,6 +35,7 @@ tabs.forEach((tab, index) => {
 });
 
 
+
 // DropDown
 const iconMe = $$(".fa-solid.drop-down-icon");
 const dropDowns = $$(".drop-down-me");
@@ -45,5 +53,5 @@ dropDowns.forEach((item, index)=>{
     iconMe[index].classList.remove("fa-caret-down");
     iconMe[index].classList.add("fa-caret-left");
   }
-  }
+  };
 });

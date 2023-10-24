@@ -61,8 +61,6 @@
 
                                 <a class="nav-link" href="/learning-tracking/LockMark">Tình trạng học sinh</a>
 
-                                <a class="nav-link" href="./academicAffairLockMarkReport.jsp">Tình trạng học sinh</a>
-
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -89,4 +87,4 @@
                         </div>
                     </div>
                 </nav>
-
+                </div>
