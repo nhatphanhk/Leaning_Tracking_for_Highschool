@@ -8,7 +8,6 @@
         <servlet-class>Controller.LoginController</servlet-class>
     </servlet>
     <servlet>
-<<<<<<< HEAD
         <servlet-name>TeacherListController</servlet-name>
         <servlet-class>Controller.TeacherListController</servlet-class>
     </servlet>
@@ -43,7 +42,8 @@
     <servlet>
         <servlet-name>UpdateAccountController</servlet-name>
         <servlet-class>Controller.UpdateAccountController</servlet-class>
-=======
+    </servlet>
+    <servlet>
         <servlet-name>CheckAttendanceList</servlet-name>
         <servlet-class>Controller.CheckAttendanceList</servlet-class>
     </servlet>
@@ -54,11 +54,10 @@
     <servlet>
         <servlet-name>AttendanceStatusController</servlet-name>
         <servlet-class>Controller.AttendanceStatusController</servlet-class>
-  </servlet>
+    </servlet>
       <servlet>
         <servlet-name>LockMark</servlet-name>
         <servlet-class>Controller.LockMark</servlet-class>
->>>>>>> 1af8ebbf867167dc34b59346f9f626eb1743371e
     </servlet>
     <servlet>
         <servlet-name>Payment</servlet-name>
@@ -205,7 +204,6 @@
         <url-pattern>/teacherNotificationHistory</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-<<<<<<< HEAD
         <servlet-name>TeacherListController</servlet-name>
         <url-pattern>/teacherlistcontroller</url-pattern>
     </servlet-mapping>
@@ -240,7 +238,8 @@
     <servlet-mapping>
         <servlet-name>UpdateAccountController</servlet-name>
         <url-pattern>/updateaccount</url-pattern>
-=======
+        </servlet-mapping>
+        <servlet-mapping>
         <servlet-name>CheckAttendanceList</servlet-name>
         <url-pattern>/list-attendance</url-pattern>
     </servlet-mapping>
@@ -249,13 +248,12 @@
         <url-pattern>/check-attendance</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AttendanceStatusController</servlet-name>
-        <url-pattern>/attendance-status</url-pattern>
-      </serrvlet-mapping>
+    <servlet-name>AttendanceStatusController</servlet-name>
+    <url-pattern>/attendance-status</url-pattern>
+</servlet-mapping>
   <servlet-mapping>
         <servlet-name>LockMark</servlet-name>
         <url-pattern>/LockMark</url-pattern>
->>>>>>> 1af8ebbf867167dc34b59346f9f626eb1743371e
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Payment</servlet-name>
