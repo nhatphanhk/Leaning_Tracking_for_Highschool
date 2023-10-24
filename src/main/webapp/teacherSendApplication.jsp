@@ -3,7 +3,7 @@ Document   : teacherSendApplication
 Created on : Sep 22, 2023, 10:04:52 AM
 Author     : htk09
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +32,7 @@ Author     : htk09
                 <div class="box-section w-50 mt-lg-5">
                     <div class="app-home__heading">
                         <div class="header-name">
-                            <a href="teacherHomePage.jsp"><i class="fa-solid fa-arrow-left me-3"></i></a>
+                           <a href="teacherNotificationHistory?teacherid=${sessionScope.teacherid}"><i class="fa-solid fa-arrow-left me-3"></i></a>
                             Gửi thông báo
                         </div>
                     </div>
@@ -40,11 +40,11 @@ Author     : htk09
                         <div class="send-notification mx-4">
                             <div class="mb-3 d-flex mt-4">
                                 <label class="form-label me-4">Tiêu đề:</label>
-                                <input name="title" type="text" class="form-control w-75 noti-select" placeholder=""/>
+                                <input name="title" type="text" value="${noti.title}" class="form-control w-75 noti-select" placeholder="" required/>
                             </div>
                             <div class="mb-3 d-flex mt-4">
                                 <label class="me-4">Đến:</label>
-                                <select id="classid" name="classid" class="form-select w-25 noti-select" onchange="changeClassName() aria-label="Default select example">
+                               <select id="classid" name="classid" value="${noti.classid}" class="form-select w-25 noti-select" onchange="changeClassName() aria-label="Default select example" required>
                                     <option selected>Chọn Lớp</option>
                                     <option value="1">10A1</option>
                                     <option value="2">10A2</option>
@@ -59,13 +59,14 @@ Author     : htk09
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Nội dung:</label>
-                                <textarea name="content" type="text" class="form-control noti-textarea" rows="3"></textarea>
+                                <textarea name="content" type="text" value="${noti.content}" class="form-control noti-textarea" rows="3" required></textarea>
                             </div>
 
                             <div class="mb-3">
                                 <label for="attachmentFile" class="form-label">File đính kèm:</label>
                                 <input type="file" class="form-control" id="attachmentFile" name="attachmentFile">
                             </div>
+                            <input type="hidden" name="teacherid" value="" />
                             <button type="submit" class="btn btn-primary btn-submit mb-4 float-end">Submit</button>
                         </div>
                     </form>
