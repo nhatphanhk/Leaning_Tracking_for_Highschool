@@ -80,7 +80,7 @@
 
 .grid-container {
     display: grid;
-    grid-template-columns: 10% 20% 50% 20%;
+    grid-template-columns: 10% 20% 35% 20% 10%;
     gap: 10px;
     /* padding: 10px; */
     text-decoration: none;
