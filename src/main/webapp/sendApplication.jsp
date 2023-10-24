@@ -32,7 +32,7 @@
         <div class="app">
             <!-- header  -->
             <%@ include file="./includes/header.jsp" %>
-            <div class="app-container">
+           <div class="app-container">
                 <div class="grid d-grid">
                     <div class="app-home section-m1">
                         <div class="row">
@@ -45,8 +45,7 @@
                                             Gửi đơn                   
                                         </div>
                                     </div>
-
-                                    <form action="insertApplicationStudent" method="post" enctype="multipart/form-data">
+                                        <form action="insertApplicationStudent" method="post" enctype="multipart/form-data">
                                         <div class="row py-5 px-5 mx-5 mt-5">
                                             <h1 class="mb-4 text-secondary fw-bolder">
                                                 Gửi đơn cho thầy cô giáo chủ nhiệm
