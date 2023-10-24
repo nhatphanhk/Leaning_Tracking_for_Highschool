@@ -6,6 +6,9 @@ import Model.Admin;
 import Model.AttendanceList;
 import Model.AttendanceStatus;
 import Model.Student;
+import Model.Application;
+import Model.Staff;
+import Model.Timetable;
 import Model.Teacher;
 import Model.Class;
 import Model.Major;
@@ -51,13 +54,259 @@ public class Dao implements Serializable {
     private static final String SELECT_ALL_NOTI_SCHOOL = "SELECT * FROM [dbo].[notification] WHERE categoryid = ? ORDER BY notificationid Desc";
     private static final String SELECT_TEACHER_BY_ID = "SELECT firstname, lastname FROM [dbo].[teacher] WHERE teacherid = ? ";
     private static final String INSERT_NOTI_SCHOOL = "INSERT INTO [dbo].[notification] (title, content, date, categoryid) VALUES (?, ?, ?, ?)";
-    private static final String INSERT_NOTI_TEACHER = "INSERT INTO [dbo].[notification] (title, content, date, categoryid, classid) VALUES (?, ?, ?, ?,?)";
+    private static final String INSERT_NOTI_TEACHER = "INSERT INTO [dbo].[notification] (title, content, date, categoryid, classid, teacherid) VALUES (?, ?, ?, ?,?,?)";
     private static final String SELECT_ALL_NOTI_TEACHER_PAGE = "SELECT n.notificationid, n.title, n.content, n.date, n.categoryid, n.classid, n.teacherid, c.classname FROM [dbo].[notification] n JOIN [dbo].[class] c ON c.classid = n.classid WHERE teacherid = ? ORDER BY notificationid Desc";
     private static final String SELECT_ALL_CLASS = "SELECT * FROM class";
     private static final String INSERT_ATTENDANCE_STATUS = "INSERT INTO [dbo].[attendance_status] (date, status, studentid, semesterid) VALUES (?,?,?,?)";
     private static final String UPDATE_ATTENDANCE_STATUS = "UPDATE [dbo].[attendance_status] SET date = ? ,status = ?, studentid = ?  ,semesterid = ? where studentid = ?";
     private static final String SELECT_STUDENT_BY_DATE_ATTENDANCE = "SELECT student.studentid, lastname, firstname, gender, dob, phonenumber,status FROM student INNER JOIN attendance_status ON attendance_status.date = ? and student.classid = ? and student.studentid = attendance_status.studentid";
     private static final String SELECT_STUDENT_ATTENDANCE_STATUS = "SELECT * FROM attendance_status where studentid = ? and status =?";
+
+    private static final String SELECT_CLASS_BY_ID = "SELECT classid, classname FROM class WHERE classid = ?";
+    private static final String UPDATE_NOTI_BY_TEACHER = "UPDATE notification SET title = ?, content = ?, classid = ? WHERE notificationid = ?";
+    private static final String SELECT_NOTI_BY_ID = "SELECT * FROM notification WHERE notificationid = ?";
+    private static final String INSERT_APPLICATION_STUDENT = "INSERT INTO [dbo].[application] (title, categoryid, date, studentid) VALUES (?, ?, ?, ?)";
+    private static final String SELECT_APPLICATION_STUDENT = "SELECT n.applicationid, n.title, n.categoryid, n.date, n.teacherid, n.studentid, c.category FROM [dbo].[application] n JOIN [dbo].[application_category] c ON c.categoryid = n.categoryid WHERE studentid = ? ORDER BY applicationid Desc";
+    private static final String SELECT_APPLICATION_TEACHER = "SELECT n.applicationid, n.title, n.categoryid, n.date, n.teacherid, n.studentid, c.firstname, c.lastname FROM [dbo].[application] n JOIN [dbo].[student] c ON c.studentid = n.studentid WHERE teacherid = ? ORDER BY applicationid Desc";
+    private static final String INSERT_TIMETABLE = "INSERT INTO timetable (day, hour, classid, majorid, teacherid, semesterid) VALUES (?,?,?,?,?,?)";
+    private static final String SELECT_TIMETABLE_STUDENT = "SELECT n.activityid, n.[day], n.[hour], n.classid, n.majorid, n.teacherid, n.semesterid, c.classname, m.majorname\n"
+            + "FROM [dbo].[timetable] n\n"
+            + "JOIN [dbo].[class] c ON c.classid = n.classid\n"
+            + "JOIN [dbo].[subject] m ON m.majorid = n.majorid\n"
+            + "WHERE hour = ? AND c.classid = ?";
+    private static final String SELECT_TIMETABLE_TEACHER = "SELECT n.activityid, n.[day], n.[hour], n.classid, n.majorid, n.teacherid, n.semesterid, c.classname, m.majorname FROM [dbo].[timetable] n JOIN [dbo].[class] c ON c.classid = n.classid JOIN [dbo].[subject] m ON m.majorid = n.majorid WHERE hour = ? AND teacherid = ?";
+
+    public List<Timetable> selectTimetableTeacher(String hour, String teacherid) {
+
+        PreparedStatement stm;
+        ResultSet rs;
+
+        List<Timetable> st = new ArrayList<>();
+        try {
+
+            String sql = SELECT_TIMETABLE_TEACHER;
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, hour);
+            stm.setString(2, teacherid);
+
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                st.add(new Timetable(
+                        rs.getInt("activityid"),
+                        rs.getString("day"),
+                        rs.getString("hour"),
+                        rs.getInt("classid"),
+                        rs.getString("majorid"),
+                        rs.getString("teacherid"),
+                        rs.getString("semesterid"),
+                        rs.getString("majorname"),
+                        rs.getString("classname")
+                ));
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return st;
+    }
+
+    public List<Timetable> selectTimetableStudent(String hour, String classid) {
+
+        PreparedStatement stm;
+        ResultSet rs;
+
+        List<Timetable> st = new ArrayList<>();
+        try {
+
+            String sql = SELECT_TIMETABLE_STUDENT;
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, hour);
+            stm.setString(2, classid);
+
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                st.add(new Timetable(
+                        rs.getInt("activityid"),
+                        rs.getString("day"),
+                        rs.getString("hour"),
+                        rs.getInt("classid"),
+                        rs.getString("majorid"),
+                        rs.getString("teacherid"),
+                        rs.getString("semesterid"),
+                        rs.getString("majorname"),
+                        rs.getString("classname")
+                ));
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return st;
+    }
+
+    public void insertTimetable(Timetable timetable) throws SQLException {
+        PreparedStatement stm;
+        try {
+            String sql = INSERT_TIMETABLE;
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, timetable.getDay());
+            stm.setString(2, timetable.getHour());
+            stm.setInt(3, timetable.getClassid());
+            stm.setString(4, timetable.getMajorid());
+            stm.setString(5, timetable.getTeacherid());
+            stm.setString(6, timetable.getSemesterid());
+
+            stm.executeUpdate(); // không trả dữ liệu thì dùng executeUpdate
+        } catch (Exception e) {
+            System.out.println("loi: " + e);
+        }
+    }
+
+    public Staff getAStaffByEmail(String email) {
+        PreparedStatement stm;
+        ResultSet rs;
+        Staff stf = new Staff();
+        try {
+            String sql = "select * from staff where staffid= ?";
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, email);
+
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                return stf = new Staff(
+                        rs.getString("staffid"),
+                        rs.getString("lastname"),
+                        rs.getString("firstname"),
+                        rs.getString("email"),
+                        rs.getInt("phone")
+                );
+
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+
+    }
+
+    public List<Application> selectApplicationTeacher(String teacherid) {
+
+        PreparedStatement stm;
+        ResultSet rs;
+
+        List<Application> app = new ArrayList<>();
+        try {
+
+            String sql = SELECT_APPLICATION_TEACHER;
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, teacherid);
+
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                app.add(new Application(
+                        rs.getInt("applicationid"),
+                        rs.getString("title"),
+                        rs.getInt("categoryid"),
+                        rs.getDate("date"),
+                        rs.getString("studentid"),
+                        rs.getString("teacherid"),
+                        rs.getString("firstname"),
+                        rs.getString("lastname")
+                ));
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return app;
+    }
+
+    public List<Application> selectApplicationStudent(String studentid) {
+
+        PreparedStatement stm;
+        ResultSet rs;
+
+        List<Application> app = new ArrayList<>();
+        try {
+
+            String sql = SELECT_APPLICATION_STUDENT;
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, studentid);
+
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                app.add(new Application(
+                        rs.getInt("applicationid"),
+                        rs.getString("title"),
+                        rs.getInt("categoryid"),
+                        rs.getDate("date"),
+                        rs.getString("studentid"),
+                        rs.getString("teacherid"),
+                        rs.getString("category")
+                ));
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return app;
+    }
+
+    public void insertApplicationStudent(String title, String categoryid, LocalDate date, String studentid) throws SQLException {
+        PreparedStatement stm;
+        try {
+            String sql = INSERT_APPLICATION_STUDENT;
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, title);
+            stm.setString(2, categoryid);
+            stm.setDate(3, java.sql.Date.valueOf(date));
+            stm.setString(4, studentid);
+
+            stm.executeUpdate(); // không trả dữ liệu thì dùng executeUpdate
+        } catch (Exception e) {
+            System.out.println("loi" + e + "loi");
+        }
+    }
+
+    public Notification selectNotiByNotiId(String notificationId) {
+        PreparedStatement stm;
+        ResultSet rs;
+        Notification noti = null;
+
+        try {
+            String sql = SELECT_NOTI_BY_ID;
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, notificationId);
+
+            rs = stm.executeQuery();
+            if (rs.next()) {
+                noti = new Notification(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getDate(4),
+                        rs.getInt(5),
+                        rs.getString(6)
+                );
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return noti;
+
+    }
+
+    public boolean updateNotiByTeacher(Notification noti) throws SQLException {
+        String sql = UPDATE_NOTI_BY_TEACHER;
+        try ( PreparedStatement stm = conn.prepareStatement(sql)) {
+
+            stm.setString(1, noti.getTitle());
+            stm.setString(2, noti.getContent());
+            stm.setInt(3, noti.getClassid());
+            stm.setInt(4, noti.getNotificationId());
+
+            boolean rowUpdated = stm.executeUpdate() > 0;
+            stm.close();
+            return rowUpdated;
+        }
+
+    }
     
     public List<AttendanceStatus> selectStudentAttendanceStatus(String studentid) {
         
@@ -165,8 +414,7 @@ public class Dao implements Serializable {
             stm.setString(1,teacherid);
             
           rs = stm.executeQuery();
-            while (rs.next()) {    
-                Teacher teacher = selectTeacherById(rs.getString(7));
+            while (rs.next()) {   
                 noti.add(new Notification(
                         rs.getInt(1),
                         rs.getString(2),
@@ -175,8 +423,7 @@ public class Dao implements Serializable {
                         rs.getInt(5),
                         rs.getInt(6),
                         rs.getString(7),
-                        teacher, 
-                        rs.getString(9)
+                        rs.getString(8)
                 ));
             }
         } catch (Exception ex) {
@@ -201,7 +448,7 @@ public class Dao implements Serializable {
         }
     }
     
-    public void insertNotiTeacher(String title, String content, LocalDate date, int category, String classid) throws SQLException {
+    public void insertNotiTeacher(String title, String content, LocalDate date, int category, String classid, String teacherid) throws SQLException {
         PreparedStatement stm;
         try {
             String sql = INSERT_NOTI_TEACHER;
@@ -211,6 +458,7 @@ public class Dao implements Serializable {
             stm.setDate(3, java.sql.Date.valueOf(date));
             stm.setInt(4, category); 
             stm.setString(5, classid);
+            stm.setString(6, teacherid);
 
             stm.executeUpdate(); // không trả dữ liệu thì dùng executeUpdate
         } catch (Exception e) {
@@ -261,6 +509,30 @@ public class Dao implements Serializable {
     }
     return teacher;
 }
+
+     public Class selectClassById(String classid) {
+        PreparedStatement stm;
+        ResultSet rs;
+        Class cls = null;
+
+        try {
+            String sql = SELECT_CLASS_BY_ID;
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, classid);
+
+            rs = stm.executeQuery();
+            if (rs.next()) {
+                cls = new Class(
+                        rs.getInt("classid"),
+                        rs.getString("classname")
+                );
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return cls;
+
+    }
 
     public List<Notification> selectAllNotiTeacher(String categoryid, int classid) {
         
@@ -317,8 +589,8 @@ public class Dao implements Serializable {
                         rs.getString(3),                      
                         rs.getDate(4),
                         rs.getInt(5),
-                        rs.getInt(6),
-                        rs.getString(7),
+                        rs.getString(6),
+                        rs.getInt(7),
                         teacher
                 ));
             }
