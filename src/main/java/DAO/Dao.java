@@ -6,6 +6,7 @@ package DAO;
 
 import Model.Account;
 import Model.AttendanceList;
+import Model.AttendanceStatus;
 import Model.Student;
 import Model.Teacher;
 import Model.Class;
@@ -56,6 +57,34 @@ public class Dao implements Serializable {
     private static final String INSERT_ATTENDANCE_STATUS = "INSERT INTO [dbo].[attendance_status] (date, status, studentid, semesterid) VALUES (?,?,?,?)";
     private static final String UPDATE_ATTENDANCE_STATUS = "UPDATE [dbo].[attendance_status] SET date = ? ,status = ?, studentid = ?  ,semesterid = ? where studentid = ?";
     private static final String SELECT_STUDENT_BY_DATE_ATTENDANCE = "SELECT student.studentid, lastname, firstname, gender, dob, phonenumber,status FROM student INNER JOIN attendance_status ON attendance_status.date = ? and student.classid = ? and student.studentid = attendance_status.studentid";
+    private static final String SELECT_STUDENT_ATTENDANCE_STATUS = "SELECT * FROM attendance_status where studentid = ? and status =?";
+    
+    public List<AttendanceStatus> selectStudentAttendanceStatus(String studentid) {
+        
+        PreparedStatement stm;
+        ResultSet rs;
+
+        List<AttendanceStatus> sta = new ArrayList<>();
+        try {
+            
+            String sql = SELECT_STUDENT_ATTENDANCE_STATUS;
+            stm = conn.prepareStatement(sql);
+            stm.setString(1,studentid);
+            stm.setString(2,"0");
+            
+          rs = stm.executeQuery();
+            while (rs.next()) {
+                sta.add(new AttendanceStatus(
+                        rs.getDate(2),
+                        rs.getString(4),
+                        rs.getString(5)));
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return sta;
+    }
+    
     
     public void insertAttendanceStatus(LocalDate date, boolean status, String studentid, String semesterid) throws SQLException {
         PreparedStatement stm;
