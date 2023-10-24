@@ -6,6 +6,7 @@
 package Controller;
 
 import DAO.Dao;
+import Model.AttendanceList;
 import Model.Student;
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
@@ -15,6 +16,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.time.LocalDate;
 import java.util.List;
 import javax.mail.Session;
 
@@ -61,8 +63,14 @@ public class CheckAttendanceList extends HttpServlet {
     throws ServletException, IOException {
         String classid = request.getParameter("classid");
         Dao studentDAO = new Dao();
-        List<Student> students = studentDAO.selectAllStudent(classid);
-        request.setAttribute("students", students);
+        LocalDate currentDate = LocalDate.now();
+        List<AttendanceList> students = studentDAO.getAttendanceStudentByDate(java.sql.Date.valueOf(currentDate),classid);
+        List<Student> students2 = studentDAO.selectAllStudent(classid);
+        if("[]".equals(students.toString())){
+            request.setAttribute("students", students2);
+        }else{
+            request.setAttribute("students", students);
+        }
         HttpSession session = request.getSession();
         session.setAttribute("classid", classid);
         RequestDispatcher dispatcher = request.getRequestDispatcher("academicAffairCheckAttendance.jsp");

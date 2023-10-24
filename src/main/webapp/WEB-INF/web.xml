@@ -16,6 +16,10 @@
         <servlet-class>Controller.CheckAttendanceController</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>AttendanceStatusController</servlet-name>
+        <servlet-class>Controller.AttendanceStatusController</servlet-class>
+  </servlet>
+      <servlet>
         <servlet-name>LockMark</servlet-name>
         <servlet-class>Controller.LockMark</servlet-class>
     </servlet>
@@ -168,6 +172,10 @@
         <url-pattern>/check-attendance</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>AttendanceStatusController</servlet-name>
+        <url-pattern>/attendance-status</url-pattern>
+      </serrvlet-mapping>
+  <servlet-mapping>
         <servlet-name>LockMark</servlet-name>
         <url-pattern>/LockMark</url-pattern>
     </servlet-mapping>

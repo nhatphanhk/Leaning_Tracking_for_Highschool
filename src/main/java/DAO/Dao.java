@@ -5,6 +5,8 @@
 package DAO;
 
 import Model.Account;
+import Model.AttendanceList;
+import Model.AttendanceStatus;
 import Model.Student;
 import Model.Teacher;
 import Model.Class;
@@ -13,6 +15,7 @@ import Model.Notification;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Connection;
+import java.sql.Date;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -54,6 +57,36 @@ public class Dao implements Serializable {
     private static final String SELECT_ALL_NOTI_TEACHER_PAGE = "SELECT n.notificationid, n.title, n.content, n.date, n.categoryid, n.classid, n.teacherid, c.classname FROM [dbo].[notification] n JOIN [dbo].[class] c ON c.classid = n.classid WHERE teacherid = ? ORDER BY notificationid Desc";
     private static final String SELECT_ALL_CLASS = "SELECT * FROM class";
     private static final String INSERT_ATTENDANCE_STATUS = "INSERT INTO [dbo].[attendance_status] (date, status, studentid, semesterid) VALUES (?,?,?,?)";
+    private static final String UPDATE_ATTENDANCE_STATUS = "UPDATE [dbo].[attendance_status] SET date = ? ,status = ?, studentid = ?  ,semesterid = ? where studentid = ?";
+    private static final String SELECT_STUDENT_BY_DATE_ATTENDANCE = "SELECT student.studentid, lastname, firstname, gender, dob, phonenumber,status FROM student INNER JOIN attendance_status ON attendance_status.date = ? and student.classid = ? and student.studentid = attendance_status.studentid";
+    private static final String SELECT_STUDENT_ATTENDANCE_STATUS = "SELECT * FROM attendance_status where studentid = ? and status =?";
+    
+    public List<AttendanceStatus> selectStudentAttendanceStatus(String studentid) {
+        
+        PreparedStatement stm;
+        ResultSet rs;
+
+        List<AttendanceStatus> sta = new ArrayList<>();
+        try {
+            
+            String sql = SELECT_STUDENT_ATTENDANCE_STATUS;
+            stm = conn.prepareStatement(sql);
+            stm.setString(1,studentid);
+            stm.setString(2,"0");
+            
+          rs = stm.executeQuery();
+            while (rs.next()) {
+                sta.add(new AttendanceStatus(
+                        rs.getDate(2),
+                        rs.getString(4),
+                        rs.getString(5)));
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return sta;
+    }
+    
     
     public void insertAttendanceStatus(LocalDate date, boolean status, String studentid, String semesterid) throws SQLException {
         PreparedStatement stm;
@@ -64,6 +97,57 @@ public class Dao implements Serializable {
             stm.setBoolean(2, status);
             stm.setString(3, studentid); 
             stm.setString(4, semesterid);
+            stm.executeUpdate(); // không trả dữ liệu thì dùng executeUpdate
+        } catch (Exception e) {
+            System.out.println("loi" + e + "loi");
+        }
+    }
+    
+    public List<AttendanceList> getAttendanceStudentByDate(Date date, String classid) {
+        
+        PreparedStatement stm;
+        ResultSet rs;
+
+        List<AttendanceList> st = new ArrayList<>();
+        try {
+            
+            String sql = SELECT_STUDENT_BY_DATE_ATTENDANCE;
+            stm = conn.prepareStatement(sql);
+            stm.setDate(1,date);
+            stm.setString(2, classid);
+            
+            
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                st.add(new AttendanceList(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getBoolean(4),
+                        rs.getDate(5),
+                        rs.getString(6),
+                        rs.getBoolean(7)
+                ));
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return st;
+    }
+    
+    
+    
+    public void updateAttendanceStatus(LocalDate date, boolean status, String studentid, String semesterid, String studentid2) throws SQLException {
+        PreparedStatement stm;
+        try {
+            String sql = UPDATE_ATTENDANCE_STATUS;
+            stm = conn.prepareStatement(sql);
+            stm.setDate(1, java.sql.Date.valueOf(date));
+            stm.setBoolean(2, status);
+            stm.setString(3, studentid); 
+            stm.setString(4, semesterid);
+            stm.setString(5, studentid2);
+
             stm.executeUpdate(); // không trả dữ liệu thì dùng executeUpdate
         } catch (Exception e) {
             System.out.println("loi" + e + "loi");
@@ -251,7 +335,8 @@ public class Dao implements Serializable {
                         rs.getString(6),
                         rs.getInt(7),
                         rs.getBoolean(8),
-                        rs.getDate(9)
+                        rs.getDate(9),
+                        false
                 ));
             }
         } catch (Exception ex) {
