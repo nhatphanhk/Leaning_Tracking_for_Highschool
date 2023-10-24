@@ -70,8 +70,8 @@
                                     Danh sách
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="./academicAffairTeacherList.jsp">Danh sách giáo viên</a></li>
-                                    <li><a class="dropdown-item" href="./academicAffairStudentList.jsp">Danh sách học sinh</a></li>
+                                    <li><a class="dropdown-item" href="teacherlistcontroller">Danh sách giáo viên</a></li>
+                                    <li><a class="dropdown-item" href="studentlistcontroller">Danh sách học sinh</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -83,7 +83,7 @@
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 <li><a class="dropdown-item" href="./academicAffairProfile.jsp">Hồ sơ cá nhân</a></li>
-                                <li><a class="dropdown-item" href="./academicAffairChangePassword.jsp">Đổi mật khẩu</a></li>
+                                <li><a class="dropdown-item" href="./changePassword.jsp">Đổi mật khẩu</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li class=""><a class="dropdown-item bg-danger text-color-white" href="#">Đăng xuất</a></li>
                             </ul>

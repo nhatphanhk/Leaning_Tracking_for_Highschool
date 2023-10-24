@@ -57,7 +57,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="accountManagementCRUDacc.jsp">Quản lý tài khoản</a>
+                                <a class="nav-link" href="listaccount">Quản lý tài khoản</a>
                             </li>
                         </ul>
                         <!-- User DropDown  -->
