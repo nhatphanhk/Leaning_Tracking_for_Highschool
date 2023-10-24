@@ -23,7 +23,7 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/styleFee.css" />
     <link rel="stylesheet" href="assets/css/sendApplication.css"/>
     
     <title>MS</title>
@@ -32,63 +32,76 @@
     <div class="app">
       <!-- header  -->
      <%@ include file="./includes/header.jsp" %>
-      <div class="app-container">
+      <!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="app-container">
         <div class="grid d-grid">
-          <div class="app-home section-m1">
-            <div class="row">
-              <div class="col">
-                <div class="box-section row ">
-                  <div class="app-home__heading">
-                    <div class="header-name">
-                        <a href="studentHomePage.jsp"><i class="fa-solid fa-arrow-left pe-2 ps-2"></i></a>
-                      Đóng học phí
+            <div class="app-home section-m1">
+                <div class="row">
+                    <div class="col">
+                        <div class="box-section row">
+                            <div class="app-home__heading">
+                                <div class="header-name">
+                                    <a href="studentHomePage.jsp"><i class="fa-solid fa-arrow-left pe-2 ps-2"></i></a>
+                                    Đóng học phí
+                                </div>
+                            </div>
+                            <form class="col">
+                                <div class="row px-5 mx-5 mt-5">
+                                    <h1 class="mb-4 text-secondary fw-bolder">
+                                        Lựa chọn các khoản phí :
+                                    </h1>
+                                </div>
+
+                                <div class="row px-5 mx-5 mb-5 pb-5 ">
+                                    <div class="col-3">
+                                        <h1 class="mt-2 text-secondary fw-bolder align-middle">
+                                            Học Phí theo Kỳ :
+                                        </h1>
+                                    </div>
+                                    <div class="col-5">
+                                        <input class="fs-2" type="checkbox" id="hoc-phi" />
+                                        <label for="hoc-phi">7.499.000VNĐ</label>
+                                    </div>
+                                </div>
+
+                                <div class="row px-5 mx-5 mb-5 pb-5 ">
+                                    <div class="col-3">
+                                        <h1 class="mt-2 text-secondary fw-bolder align-middle">
+                                            Các khoản phí khác :
+                                        </h1>
+                                    </div>
+                                    <div class="col-5">
+                                        <input class="fs-2" type="checkbox" id="khoan-phi" />
+                                        <label for="khoan-phi">2.000.000</label>
+                                    </div>
+                                </div>
+                                <div class="row px-5 mx-5 mb-5 collapse" id="LinkVPN" style="font-size: 20px">
+                                    <div class="col-8">
+                                        Hãy tới nhấn vào đường link để tới trang thanh toán. <a class="text-color-green" href="  https://sandbox.vnpayment.vn/paymentv2/vpcpay.html
+" >Link</a>
+                                    </div>
+                                </div>
+
+                                <div class="row px-5 mx-5 pt-5 pb-5">
+                                    <div class="col-10"></div>
+                                    <button type="button" class="btn btn-primary col-1 fs-3" data-bs-toggle="collapse" data-bs-target="#LinkVPN">Submit</button>
+                                </div>
+                            </form>
+
+                        </div>
                     </div>
-                  </div>
-                    <div class="col-2"></div>
-                    <form class="col">
-                        <div class="row py-5 px-5 mx-5 mt-5">
-                            <h1 class="mb-4 text-secondary fw-bolder">
-                              Lựa chọn các khoàn phí
-                            </h1>
-                        </div>
-
-                        <div class="row px-5 mx-5 mb-5 pb-5 ">
-                          <div class="col-3">
-                            <h1 class="mt-2 text-secondary fw-bolder align-middle">
-                              Học Phí theo Kỳ
-                            </h1>
-                          </div>
-                          <div class="col-5">
-                              <input class="fs-2" type="text" placeholder="Nhập số tiền" />
-                          </div>
-                        </div>
-
-                        <div class="row px-5 mx-5 mb-5 pb-5 ">
-                          <div class="col-3">
-                            <h1 class="mt-2 text-secondary fw-bolder align-middle">
-                              Các khoản phí khác
-                            </h1>
-                          </div>
-                          <div class="col-5">
-                              <input class="fs-2" type="text" placeholder="Nhập số tiền" />
-                          </div>
-                        </div>
-
-
-                        <div class="row px-5 mx-5 pt-5 pb-5">
-                            <div class="col-10"></div>
-                          <button type="button" class="btn btn-primary col-1 fs-3">Submit</button>
-                        </div>
-                    </form>
-                  
                 </div>
-              </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
+                
+</body>
+</html>
 
 
     <%@ include file="./includes/linkJS.jsp" %>

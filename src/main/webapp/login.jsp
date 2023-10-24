@@ -92,5 +92,6 @@
                 }
             }
         </script>
+        <script src="/assets/js/firebase.js"></script>
     </body>
 </html>

@@ -91,10 +91,20 @@
                                                         </tbody>
                                                     </table>
                                                     <div class="change-password-btn m-4">
-                                                        <button class="btn btn-me change-btn">
+                                                        <c:if test = "${isLockedMark}">
+                                                            <button class="btn btn-me change-btn" disabled>
                                                             <i class="fa-solid fa-circle-check ms-2 me-3"></i>
-                                                            Xác nhận
-                                                        </button>
+                                                                Xác nhận
+                                                            </button>
+                                                            <p class="text-danger"> Thời gian nhập và nộp điểm đã kết thúc!</p>
+                                                        </c:if>
+                                                        <c:if test = "${!isLockedMark}">
+                                                            <button class="btn btn-me change-btn">
+                                                            <i class="fa-solid fa-circle-check ms-2 me-3"></i>
+                                                                Xác nhận
+                                                            </button>
+                                                        </c:if>
+                                                        
                                                     </div>
                                                 </form>
 

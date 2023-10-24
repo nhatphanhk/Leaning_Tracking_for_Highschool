@@ -47,8 +47,7 @@
                                                 <a
                                                     role="button"
                                                     class="btn btn-block nav-link"
-                                                    data-bs-toggle="modal" 
-                                                    data-bs-target="#AddAccountModal"
+                                                    href="./accountManagementAddAcc.jsp"
                                                     ><i class="fa-solid fa-square-plus"></i></a>
                                             </div>
                                         </div>
@@ -87,8 +86,7 @@
                                                                 <a
                                                                 role="button"
                                                                 class="btn btn-block nav-link"
-                                                                data-bs-toggle="modal" 
-                                                                data-bs-target="#ChangeAccountModal"
+                                                                href="./accountManagementFixAcc.jsp"
                                                                 ><i class="fa-solid fa-square-pen"></i></a>
                                                             </td>
                                                             <td><i class="fa-solid fa-x"></i></td>
@@ -107,113 +105,7 @@
             </div>
         </div>
         
-        <!--Modal-->
-        <div id="ChangeAccountModal" class="modal fade" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <!-- Modal content-->
-                      <div class="modal-content">
-                        <div class="modal-header background-primary text-color-white">
-                          <h4 class="modal-title">Chỉnh sửa thông tin tài khoản</h4>
-                          <button type="button" class="btn-close text-color-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body p-4">
-                          <form action="">
-                            <div class="row mb-5">
-                                <h3 class="col-3 mt-1 align-middle">Mã học sinh</h3>
-                                <input class="col fs-3" type="text" value="DE170068" />
-                            </div>
-                            <div class="row mb-5">
-                                <h3 class="col-3 mt-1 align-middle">Họ và Tên</h3>
-                                <input class="col fs-3" type="text" value="Hà Trọng Tấn" />
-                            </div>
-                            <div class="row mb-5">
-                                <h3 class="col-3 mt-1 align-middle">Giới Tính</h3>
-                                <input class="col fs-3" type="text" value="Nam" />
-                            </div>
-                            <div class="row mb-5">
-                                <h3 class="col-3 mt-1 align-middle">Ngày sinh</h3>
-                                <input class="col fs-3" type="date" value="2007-01-31" />
-                            </div>
-                            <div class="row mb-5">
-                                <h3 class="col-3 mt-1 align-middle" style="font-size: 16px">Số Điện Thoại</h3>
-                                <input class="col fs-3" type="tel" value="0123456789" />
-                            </div>
-                             <div class="row mb-5">
-                                <h3 class="col-3 mt-1 align-middle">Tài Khoản</h3>
-                                <input class="col fs-3" type="email" value="Student1@gmai.com" />
-                            </div>
-                            <div class="row mb-4">
-                                <h3 class="col-3 mt-1 align-middle">Mật Khẩu</h3>
-                                <input class="col fs-3" type="text" value="Student123" />
-                            </div>
-              
-                            <div class="form-group row">
-                                <div class="col-10"></div>
-                                <div class="col">
-                                <button type="submit" class="btn btn-outline-primary fs-4">
-                                  Submit
-                                </button>
-                              </div>
-                            </div>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-        
-        
-        <div id="AddAccountModal" class="modal fade" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <!-- Modal content-->
-                      <div class="modal-content">
-                        <div class="modal-header background-primary text-color-white">
-                          <h4 class="modal-title">Tạo tài khoản</h4>
-                          <button type="button" class="btn-close text-color-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body p-4">
-                          <form action="">
-                            <div class="row mb-5">
-                                <h3 class="col-3 mt-1 align-middle">Mã học sinh</h3>
-                                <input class="col fs-3" type="text"  />
-                            </div>
-                            <div class="row mb-5">
-                                <h3 class="col-3 mt-1 align-middle">Họ và Tên</h3>
-                                <input class="col fs-3" type="text"  />
-                            </div>
-                            <div class="row mb-5">
-                                <h3 class="col-3 mt-1 align-middle">Giới Tính</h3>
-                                <input class="col fs-3" type="text" />
-                            </div>
-                            <div class="row mb-5">
-                                <h3 class="col-3 mt-1 align-middle">Ngày sinh</h3>
-                                <input class="col fs-3" type="date"  />
-                            </div>
-                            <div class="row mb-5">
-                                <h3 class="col-3 mt-1 align-middle" style="font-size: 16px">Số Điện Thoại</h3>
-                                <input class="col fs-3" type="tel" />
-                            </div>
-                             <div class="row mb-5">
-                                <h3 class="col-3 mt-1 align-middle">Tài Khoản</h3>
-                                <input class="col fs-3" type="email"/>
-                            </div>
-                            <div class="row mb-4">
-                                <h3 class="col-3 mt-1 align-middle">Mật Khẩu</h3>
-                                <input class="col fs-3" type="text"/>
-                            </div>
-              
-                            <div class="form-group row">
-                                <div class="col-10"></div>
-                                <div class="col">
-                                <button type="submit" class="btn btn-outline-primary fs-4">
-                                  Submit
-                                </button>
-                              </div>
-                            </div>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+       
 
         <%@ include file="./includes/linkJS.jsp" %>
         <script src="./assets/js/mycode.js"></script>
