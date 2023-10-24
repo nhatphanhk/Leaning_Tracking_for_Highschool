@@ -6,25 +6,21 @@
 package Controller;
 
 import DAO.Dao;
-import Model.AttendanceList;
 import Model.Student;
-import jakarta.servlet.RequestDispatcher;
+import Model.Teacher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import java.time.LocalDate;
-import java.util.List;
-import javax.mail.Session;
+import java.text.SimpleDateFormat;
 
 /**
  *
- * @author htk09
+ * @author Admin
  */
-public class CheckAttendanceList extends HttpServlet {
+public class UpdateStudentController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -41,10 +37,10 @@ public class CheckAttendanceList extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CheckAttendanceController</title>");  
+            out.println("<title>Servlet UpdateStudentController</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet CheckAttendanceController at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet UpdateStudentController at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -61,20 +57,19 @@ public class CheckAttendanceList extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        String classid = request.getParameter("classid");
-        Dao studentDAO = new Dao();
-        LocalDate currentDate = LocalDate.now();
-        List<AttendanceList> students = studentDAO.getAttendanceStudentByDate(java.sql.Date.valueOf(currentDate),classid);
-        List<Student> students2 = studentDAO.selectAllStudent(classid);
-        if("[]".equals(students.toString())){
-            request.setAttribute("students", students2);
-        }else{
-            request.setAttribute("students", students);
+        String email = request.getParameter("email");
+        Dao dao = Dao.getInstance();
+        if(email.startsWith("stu")){
+        Student st = dao.getAStudentByEmail(email);
+        request.setAttribute("st", st);
+        request.getRequestDispatcher("academicAffairFixStudentList.jsp").forward(request, response);
         }
-        HttpSession session = request.getSession();
-        session.setAttribute("classid", classid);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("academicAffairCheckAttendance.jsp");
-        dispatcher.forward(request, response);
+        if(email.startsWith("tea")){
+        Teacher tc = dao.getATeacherByEmail(email);
+        request.setAttribute("tc", tc);
+        request.getRequestDispatcher("academicAffairFixTeacherList.jsp").forward(request, response);
+        }
+        
     } 
 
     /** 
@@ -87,8 +82,44 @@ public class CheckAttendanceList extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
+        Dao dao = Dao.getInstance();
+        
+        String id = request.getParameter("id");
+        String lastname = request.getParameter("lastname");
+        String firstname = request.getParameter("firstname");
+        String phone = request.getParameter("phone");
+        String gender_raw = request.getParameter("gender");
+        String dob_raw =  request.getParameter("dob");
+        String address = request.getParameter("address");
+        String classid = request.getParameter("classid");
+        boolean gender ;
+            if(gender_raw.equals("Nam")){
+                gender = true;
+            }else{
+                gender =false;
+            }
+        try {
+            
+            SimpleDateFormat sfm =  new SimpleDateFormat("yyyy-MM-dd");
+            java.sql.Date dob = null;
+            java.util.Date dobjava = sfm.parse(dob_raw);
+            dob = new java.sql.Date(dobjava.getTime());
+            if(id.startsWith("ST")){
+                dao.updateStudent(id, firstname, lastname, phone, address, dob, gender);
+                //request.getRequestDispatcher("StudentListByClassController?classid="+classid).forward(request, response);
+                response.sendRedirect("StudentListByClassController?classid="+classid);
+            }
+            if(id.startsWith("TC")){
+                dao.updateTeacher(id, firstname, lastname, phone, address, dob, gender);
+                //request.getRequestDispatcher("StudentListByClassController?classid="+classid).forward(request, response);
+                response.sendRedirect("teacherlistcontroller");
+            }
+            
+        } catch (Exception e) {
+            
+        }
+        
     }
-
 
     /** 
      * Returns a short description of the servlet.

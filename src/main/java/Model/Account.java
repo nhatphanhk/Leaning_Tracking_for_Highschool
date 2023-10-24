@@ -21,6 +21,13 @@ public class Account {
         this.roleid = roleid;
     }
 
+    public Account(String email, String password, int roleid, String token) {
+        this.email = email;
+        this.password = password;
+        this.roleid = roleid;
+        this.token = token;
+    }
+
     public Account(String email, String token) {
         this.email = email;
         this.token = token;

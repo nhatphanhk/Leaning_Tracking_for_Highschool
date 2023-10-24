@@ -1,11 +1,12 @@
+    
 <%-- 
     Document   : accountManagementNotification
     Created on : Oct 3, 2023, 11:18:28 AM
     Author     : htk09
 --%>
-
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -27,7 +28,7 @@
         <title>MS</title>
     </head>
     <body>
-        <div class="app">
+        <div class="app">-->
             <!-- header  -->
             <%@ include file="./includes/headerAccountManagement.jsp" %>
 
@@ -61,36 +62,36 @@
                                                     <thead class="background-primary">
                                                         <tr class="text-color-white">
                                                             <th>STT</th>
-                                                            <th>Mã học sinh</th>
-                                                            <th>Họ và Tên</th>
-                                                            <th>Giới tính</th>
-                                                            <th>Ngày sinh</th>
-                                                            <th>Số điện thoại</th>
                                                             <th>Tài khoản</th>
-                                                            <th>Mật Khẩu</th>
+                                                            <th>Mật khẩu</th>
+                                                            <th>Chức vụ</th>
                                                             <th>Sửa</th>
                                                             <th>Xóa</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td>1</td>
-                                                            <td>DE170068</td>
-                                                            <td>Hà Trọng Tấn</td>
-                                                            <td>Nam</td>
-                                                            <td>1/1/2007</td>
-                                                            <td>0123456789</td>
-                                                            <td>Student1@gmai.com</td>
-                                                            <td>Student123</td>
+                                                        <c:forEach items="${sessionScope.listaccount}" var="a" varStatus="loopStatus">
+                                                            
+                                                            <tr>
+                                                            <td>${loopStatus.index+1}</td>
+                                                            <td>${a.email}</td>
+                                                            <td>${a.password}</td>
+                                                            <td>${a.roleid}</td>
                                                             <td>
                                                                 <a
+<<<<<<< HEAD
                                                                 role="button"
                                                                 class="btn btn-block nav-link"
                                                                 href="./accountManagementFixAcc.jsp"
+=======
+                                                                    href="updateaccount?email=${a.email}"
+>>>>>>> a7ac4c005fbd4ecb5f3e505d7a722ce9c24a0908
                                                                 ><i class="fa-solid fa-square-pen"></i></a>
                                                             </td>
-                                                            <td><i class="fa-solid fa-x"></i></td>
+                                                            <td><a href=""><i class="fa-solid fa-x"></i></a></td>
                                                         </tr>
+                                                        </c:forEach>
+                                                         
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -105,8 +106,12 @@
             </div>
         </div>
         
+<<<<<<< HEAD
        
 
+=======
+        
+>>>>>>> a7ac4c005fbd4ecb5f3e505d7a722ce9c24a0908
         <%@ include file="./includes/linkJS.jsp" %>
         <script src="./assets/js/mycode.js"></script>
     </script>

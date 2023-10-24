@@ -28,21 +28,22 @@
                                         <div class="row d-flex flex-row mt-4">
                                             <div class="acaAff-input-ctrl d-flex align-middle me-4">
                                                 <label for="">Thời gian từ:</label>
-                                                <input type="date">
+                                                <input type="date" disabled="">
                                             </div>
                                             <div class="acaAff-input-ctrl d-flex align-middle me-4">
                                                 <label for="">Đến:</label>
-                                                <input type="date">
+                                                <input type="date" disabled="">
                                             </div>
+                                            <span class="text-danger">Tính năng nhập thời gian hiện chưa hỗ trợ</span>
                                         </div>
                                         <c:if test = "${!isLockedMark}">
                                             <div class="row acaAff-files d-flex flex-row-reverse m-4">
-                                                <button type="submit" class="acaAff-btn btn-error">KHÓA</button>
+                                                <button type="submit" class="acaAff-btn btn-error" data-bs-toggle="tooltip" data-bs-placement="top" title="Nhấn để khóa sổ điểm">KHÓA</button>
                                             </div>
                                         </c:if>
                                         <c:if test = "${isLockedMark}">
                                             <div class="row acaAff-files d-flex flex-row-reverse m-4">
-                                                <button type="submit" class="acaAff-btn btn-success">MỞ</button>
+                                                <button type="submit" class="acaAff-btn btn-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Nhấn để mở sổ điểm">MỞ</button>
                                             </div>
                                         </c:if>
                                     </div>

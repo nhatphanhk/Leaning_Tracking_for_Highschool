@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 D:\Java-space-1\Leaning_Tracking_for_Highschool\src\main\java\Controller\ChangePassWordController.java
 D:\Java-space-1\Leaning_Tracking_for_Highschool\src\main\java\Model\Mark.java
 D:\Java-space-1\Leaning_Tracking_for_Highschool\src\main\java\Controller\VerifyEmailHandler.java
@@ -33,3 +34,35 @@ D:\Java-space-1\Leaning_Tracking_for_Highschool\src\main\java\Controller\LockMar
 D:\Java-space-1\Leaning_Tracking_for_Highschool\src\main\java\Controller\NotificationFromSchool.java
 D:\Java-space-1\Leaning_Tracking_for_Highschool\src\main\java\Controller\NotificationFromTeacher.java
 D:\Java-space-1\Leaning_Tracking_for_Highschool\src\main\java\Controller\StudentList.java
+=======
+D:\FPT\FA23--Ky 5\Project Ky 5\Leaning_Tracking_for_Highschool\src\main\java\Model\Teacher.java
+D:\FPT\FA23--Ky 5\Project Ky 5\Leaning_Tracking_for_Highschool\src\main\java\Controller\VerifyEmailHandler.java
+D:\FPT\FA23--Ky 5\Project Ky 5\Leaning_Tracking_for_Highschool\src\main\java\Controller\SendNotificationFromTeacher.java
+D:\FPT\FA23--Ky 5\Project Ky 5\Leaning_Tracking_for_Highschool\src\main\java\Controller\test.java
+D:\FPT\FA23--Ky 5\Project Ky 5\Leaning_Tracking_for_Highschool\src\main\java\Controller\NotificationTeacherPage.java
+D:\FPT\FA23--Ky 5\Project Ky 5\Leaning_Tracking_for_Highschool\src\main\java\Controller\CheckAttendanceController.java
+D:\FPT\FA23--Ky 5\Project Ky 5\Leaning_Tracking_for_Highschool\src\main\java\Model\Notification.java
+D:\FPT\FA23--Ky 5\Project Ky 5\Leaning_Tracking_for_Highschool\src\main\java\Controller\NotificationFromSchool.java
+D:\FPT\FA23--Ky 5\Project Ky 5\Leaning_Tracking_for_Highschool\src\main\java\Controller\ViewMarkController.java
+D:\FPT\FA23--Ky 5\Project Ky 5\Leaning_Tracking_for_Highschool\src\main\java\Model\Account.java
+D:\FPT\FA23--Ky 5\Project Ky 5\Leaning_Tracking_for_Highschool\src\main\java\jakarta\servlet\http\Cokkiee.java
+D:\FPT\FA23--Ky 5\Project Ky 5\Leaning_Tracking_for_Highschool\src\main\java\Controller\LoginController.java
+D:\FPT\FA23--Ky 5\Project Ky 5\Leaning_Tracking_for_Highschool\src\main\java\Controller\CheckAttendanceList.java
+D:\FPT\FA23--Ky 5\Project Ky 5\Leaning_Tracking_for_Highschool\src\main\java\Controller\SendEmailController.java
+D:\FPT\FA23--Ky 5\Project Ky 5\Leaning_Tracking_for_Highschool\src\main\java\Controller\StudentProfileController.java
+D:\FPT\FA23--Ky 5\Project Ky 5\Leaning_Tracking_for_Highschool\src\main\java\DAO\DBUtil.java
+D:\FPT\FA23--Ky 5\Project Ky 5\Leaning_Tracking_for_Highschool\src\main\java\Controller\NotificationFromTeacher.java
+D:\FPT\FA23--Ky 5\Project Ky 5\Leaning_Tracking_for_Highschool\src\main\java\Controller\UpdateMarkController.java
+D:\FPT\FA23--Ky 5\Project Ky 5\Leaning_Tracking_for_Highschool\src\main\java\Controller\TeacherNotificationHistory.java
+D:\FPT\FA23--Ky 5\Project Ky 5\Leaning_Tracking_for_Highschool\src\main\java\Model\Class.java
+D:\FPT\FA23--Ky 5\Project Ky 5\Leaning_Tracking_for_Highschool\src\main\java\Model\Mark.java
+D:\FPT\FA23--Ky 5\Project Ky 5\Leaning_Tracking_for_Highschool\src\main\java\Model\Student.java
+D:\FPT\FA23--Ky 5\Project Ky 5\Leaning_Tracking_for_Highschool\src\main\java\Controller\LogoutController.java
+D:\FPT\FA23--Ky 5\Project Ky 5\Leaning_Tracking_for_Highschool\src\main\java\Controller\StudentList.java
+D:\FPT\FA23--Ky 5\Project Ky 5\Leaning_Tracking_for_Highschool\src\main\java\Controller\SendNotificationFromSchool.java
+D:\FPT\FA23--Ky 5\Project Ky 5\Leaning_Tracking_for_Highschool\src\main\java\Controller\ChangePassWordController.java
+D:\FPT\FA23--Ky 5\Project Ky 5\Leaning_Tracking_for_Highschool\src\main\java\DAO\Dao.java
+D:\FPT\FA23--Ky 5\Project Ky 5\Leaning_Tracking_for_Highschool\src\main\java\Controller\ChangeForgotPasswordController.java
+D:\FPT\FA23--Ky 5\Project Ky 5\Leaning_Tracking_for_Highschool\src\main\java\Controller\DetailsNotification.java
+D:\FPT\FA23--Ky 5\Project Ky 5\Leaning_Tracking_for_Highschool\src\main\java\Controller\CRUDMarkController.java
+>>>>>>> a7ac4c005fbd4ecb5f3e505d7a722ce9c24a0908
