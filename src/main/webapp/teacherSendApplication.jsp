@@ -62,10 +62,10 @@ Author     : htk09
                                 <textarea name="content" type="text" value="${noti.content}" class="form-control noti-textarea" rows="3" required></textarea>
                             </div>
 
-                            <div class="mb-3">
+<!--                            <div class="mb-3">
                                 <label for="attachmentFile" class="form-label">File đính kèm:</label>
                                 <input type="file" class="form-control" id="attachmentFile" name="attachmentFile">
-                            </div>
+                            </div>-->
                             <input type="hidden" name="teacherid" value="" />
                             <button type="submit" class="btn btn-primary btn-submit mb-4 float-end">Submit</button>
                         </div>
