@@ -14,9 +14,9 @@
                 <div class="col">
                     <div class="box-section">
                         <div class="app-home__heading">
-                            <div class="header-name d-flex justify-content-between">
+                            <div class="header-name d-flex">
                                 <a href="teacherlistcontroller"><i class="fa-solid fa-arrow-left pe-2 ps-2"></i></a>
-                                <span>Chỉnh sửa giáo viên</span>
+                                <span style="margin-top: 5px">Chỉnh sửa giáo viên</span>
                             </div>
                         </div>
                         <div class="app-home__body m-5">

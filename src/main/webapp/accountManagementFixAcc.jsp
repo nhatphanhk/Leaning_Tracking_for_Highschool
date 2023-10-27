@@ -97,6 +97,6 @@
         </div>
     </div>
    <%@ include file="./includes/linkJS.jsp" %>
-        <script src="./assets/js/mycode.js"></script>
+        <script src="./assets/js/mycode.js"></script>   
 </body>
 </html>
