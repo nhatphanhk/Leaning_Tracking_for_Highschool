@@ -27,14 +27,16 @@
                         <div class="acaAff-input-ctrl d-flex align-middle me-4">
                           <label for="">Năm:</label>
                           <select class="form-select">
+                              <option disabled selected>Chọn năm</option>
                             <option value="1">2023</option>
                             <option value="2">2022</option>
                             <option value="3">2021</option>
                           </select>
                         </div>
                         <div class="acaAff-input-ctrl d-flex align-middle me-4">
-                          <label for="">Học kì:</label>
+                          <label for="">Học kỳ:</label>
                           <select class="form-select">
+                              <option disabled selected>Chọn kỳ</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                           </select>

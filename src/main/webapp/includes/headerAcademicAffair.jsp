@@ -73,18 +73,7 @@
                             </li>
                         </ul>
                         <!-- User DropDown  -->
-                        <div class="dropdown user-dropdown">
-                            <button class="btn btn-light dropdown-toggle user-dropdown-btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                User
-                                <i class="fa-solid fa-user"></i>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="./academicAffairProfile.jsp">Hồ sơ cá nhân</a></li>
-                                <li><a class="dropdown-item" href="./changePassword.jsp">Đổi mật khẩu</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li class=""><a class="dropdown-item bg-danger text-color-white" href="#">Đăng xuất</a></li>
-                            </ul>
-                        </div>
+                        <%@ include file="./dropDownSettings.jsp" %>
                     </div>
                 </nav>
                 </div>

@@ -74,6 +74,12 @@ public class LoginController extends HttpServlet {
            if(email.startsWith("teacher")){
                response.sendRedirect("teacherHomePage.jsp");
            }
+           if(email.startsWith("academic")){
+               response.sendRedirect("academicAffairProfile.jsp");
+           }
+           if(email.startsWith("accountmanager")){
+               response.sendRedirect("accountManagementProfile.jsp");
+           }
        }
            
        
@@ -132,6 +138,12 @@ public class LoginController extends HttpServlet {
             Admin aa = dao.getAdminByEmail(email);
             session.setAttribute("academicAffair", aa);
             response.sendRedirect("academicAffairProfile.jsp");
+            break;
+            case 3:
+            session.setAttribute("account", acc);
+            Admin am = dao.getAdminByEmail(email);
+            session.setAttribute("accountManager", am);
+            response.sendRedirect("accountManagementProfile.jsp");
             break;
         }
             
