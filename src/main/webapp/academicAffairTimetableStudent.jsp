@@ -10,6 +10,7 @@
         <div class="grid d-grid">
         <div class="section-m1">
             <div class="row">
+              
                 <div class="col">
                     <div class="box-section">
                         <div class="app-home__heading">
@@ -20,15 +21,13 @@
                                 <!--<a class="acaAff-btn">Import</a>-->
                             </div>
                       <div class="app-home__body m-5">                           
-                                <div class="row acaAff-files d-flex flex-row-reverse">
-                                    <!--<a class="acaAff-btn">Import</a>-->
-                                    <!--<a class="acaAff-btn">Export</a>-->
+                                
                                     <form action="loadTimetable" method="post" enctype="multipart/form-data">
-                                        <div class="mb-3">
-                                            <label for="attachmentFile"></label>
-                                            <input type="file" id="attachmentFile" name="attachmentFile">
+                                        <div class=" acaAff-files d-flex flex-row-reverse " >
+                                            <input type="file" id="attachmentFile" name="attachmentFile">                                                                                  
                                         </div>
-                                        <input type="submit" value="Import">
+                                        
+                                       
                                     </form>
                                 </div>
                                 <div class="row d-flex flex-row mt-4">
@@ -54,6 +53,9 @@
                                             <option value="2">11</option>
                                             <option value="3">12</option>
                                         </select>
+                                    </div>
+                                     <div class="acaAff-input-ctrl d-flex align-middle">
+                                     <input class="acaAff-btn" type="submit" value="Tìm kiếm">
                                     </div>
                                 </div>
                                 <div class="row mt-4">
@@ -180,6 +182,7 @@
                                         </table>
                                     </div>
                                 </div>
+                            
                                 
                 </div>
             </div>

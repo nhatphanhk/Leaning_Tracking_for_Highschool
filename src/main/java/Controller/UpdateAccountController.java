@@ -13,6 +13,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  *
@@ -57,11 +58,29 @@ public class UpdateAccountController extends HttpServlet {
     throws ServletException, IOException {
         Dao dao = Dao.getInstance();
         String email = request.getParameter("email");
-        Account acc = dao.getAccountByEmail(email);
-        request.setAttribute("account", acc);
-        request.getRequestDispatcher("accountManagementFixAcc.jsp").forward(request, response);
-    } 
+        if(isAccountEmpty(email)){
+            Account acc = dao.getEmptyAccountByEmail(email);
+            request.setAttribute("ms", "Tài khoản này chưa được cấp cho người dùng nào");
+            request.setAttribute("account", acc);
+            request.getRequestDispatcher("accountManagementFixAcc.jsp").forward(request, response);
+        }
+        if(email.startsWith("stu")){
+            Account acc = dao.getStudentAccountByEmail(email);
+            request.setAttribute("account", acc);
+            request.getRequestDispatcher("accountManagementFixAcc.jsp").forward(request, response);
 
+        }else{
+            if(email.startsWith("tea")){
+            Account acc = dao.getTeacherAccountByEmail(email);
+            request.setAttribute("account", acc);
+            request.getRequestDispatcher("accountManagementFixAcc.jsp").forward(request, response);
+            }else{
+            Account acc = dao.getStaffAccountByEmail(email);
+            request.setAttribute("account", acc);
+            request.getRequestDispatcher("accountManagementFixAcc.jsp").forward(request, response);
+            }
+        }
+    }
     /** 
      * Handles the HTTP <code>POST</code> method.
      * @param request servlet request
@@ -69,10 +88,50 @@ public class UpdateAccountController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    @Override
+   @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+        Dao dao = Dao.getInstance();
+        HttpSession session = request.getSession();
+        String email = request.getParameter("email");
+        String newpass = request.getParameter("pass");
+        String role_raw = request.getParameter("role");
+        try {
+            int role = Integer.parseInt(role_raw);
+            if (newpass.length() < 6 || newpass.length() > 32 || !containsLetterAndNumber(newpass)) {
+            session.setAttribute("msg", "Mật khẩu mới phải có từ 6-32 ký tự và phải chứa cả chữ và số.");
+            response.sendRedirect("updateaccount?email="+email);
+
+
+        }
+        dao.updateAccount(email, newpass,role );
+        session.setAttribute("msgs", "Cập nhật thông tin tài khoản thành công");
+        response.sendRedirect("updateaccount?email="+email);
+        } catch (Exception e) {
+        }
+
+
+
+    }
+    private boolean isAccountEmpty(String email){
+        Dao dao = Dao.getInstance();
+        Account acc = dao.getEmptyAccountByEmail(email);
+        return acc != null;
+    }
+    private boolean containsLetterAndNumber(String str) {
+        boolean hasLetter = false;
+        boolean hasNumber = false;
+        for (char c : str.toCharArray()) {
+            if (Character.isLetter(c)) {
+                hasLetter = true;
+            } else if (Character.isDigit(c)) {
+                hasNumber = true;
+            }
+            if (hasLetter && hasNumber) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /** 

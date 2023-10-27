@@ -60,6 +60,8 @@
                                 <a class="nav-link" href="listaccount">Quản lý tài khoản</a>
                             </li>
                         </ul>
+                        <!-- User DropDown  -->
+                        <%@ include file="./dropDownSettings.jsp" %>
                         <!--                         User DropDown  
                                                 <div class="dropdown user-dropdown">
                                                     <button class="btn btn-light dropdown-toggle user-dropdown-btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
