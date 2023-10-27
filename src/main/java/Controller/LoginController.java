@@ -64,6 +64,31 @@ public class LoginController extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
+       String email= request.getParameter("email");
+       if(email.startsWith("student")){
+           Dao dao = Dao.getInstance();
+           Student student = dao.getAStudentByEmail(email);
+           request.setAttribute("student", student);
+           
+           response.sendRedirect("studentHomePage.jsp");
+       }else{
+           if(email.startsWith("teacher")){
+               response.sendRedirect("teacherHomePage.jsp");
+           }
+           if(email.startsWith("academic")){
+               response.sendRedirect("academicAffairProfile.jsp");
+           }
+           if(email.startsWith("accountmanager")){
+               response.sendRedirect("accountManagementProfile.jsp");
+           }
+       }
+           
+       
+        
+    } 
+
+    /** 
             throws ServletException, IOException {
         String email = request.getParameter("email");
         if (email.startsWith("student")) {
@@ -114,6 +139,40 @@ public class LoginController extends HttpServlet {
             request.getRequestDispatcher("login.jsp").forward(request, response);
         } else {
             int role = acc.getRoleid();
+            
+            switch(role){
+            
+            case 1: 
+            session.setAttribute("account", acc);
+            Student st = dao.getAStudentByEmail(email);
+            List<Notification> notis = dao.selectAllNotiTeacher("2", st.getClassid());
+            session.setAttribute("notifications", notis);            
+            session.setAttribute("notification", noti);
+            session.setAttribute("student", st);
+            response.sendRedirect("studentHomePage.jsp");
+            break;
+            case 2: 
+            session.setAttribute("account", acc);
+            session.setAttribute("notification", noti);
+            Teacher tc = dao.getATeacherByEmail(email);
+            
+            session.setAttribute("teacher", tc);
+            request.getRequestDispatcher("teacherHomePage.jsp").forward(request, response);
+            break;
+            case 5:
+            session.setAttribute("account", acc);
+            Admin aa = dao.getAdminByEmail(email);
+            session.setAttribute("academicAffair", aa);
+            response.sendRedirect("academicAffairProfile.jsp");
+            break;
+            case 3:
+            session.setAttribute("account", acc);
+            Admin am = dao.getAdminByEmail(email);
+            session.setAttribute("accountManager", am);
+            response.sendRedirect("accountManagementProfile.jsp");
+            break;
+        }
+            
 
             switch (role) {
 
