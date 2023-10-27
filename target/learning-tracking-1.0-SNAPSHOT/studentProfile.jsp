@@ -83,18 +83,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="col">
-                          <div class="row d-flex justify-content-center">
-                            <div class="col-6">
-                              <h3>Báo cáo điểm</h3>
-                              <div class="box-section ps-4">
-                              
-                              <p class="text-color-red fs-16">Vắng: 5</p>
-                            </div>
-                            </div>
-                          </div>
-                          
-                        </div>
+                        
                       </div>
                     </div>
                   </div>

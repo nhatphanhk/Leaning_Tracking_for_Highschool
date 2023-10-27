@@ -19,14 +19,6 @@
         <servlet-name>InsertApplicationStudent</servlet-name>
         <servlet-class>Controller.InsertApplicationStudent</servlet-class>
     </servlet>
-    <!--    <servlet>
-        <servlet-name>ViewApplicationHistoryStudent</servlet-name>
-        <servlet-class>Controller.ViewApplicationHistoryStudent</servlet-class>
-    </servlet>-->
-    <!--    <servlet>
-        <servlet-name>ViewApplicationTeacher</servlet-name>
-        <servlet-class>Controller.ViewApplicationTeacher</servlet-class>
-    </servlet>-->
     <servlet>
         <servlet-name>LoadTimetable</servlet-name>
         <servlet-class>Controller.LoadTimetable</servlet-class>
@@ -131,6 +123,14 @@
         <servlet-name>DeleteNotification</servlet-name>
         <url-pattern>/deleteNotification</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>AddAccountController</servlet-name>
+        <servlet-class>Controller.AddAccountController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetTeacherListByClassid</servlet-name>
+        <servlet-class>Controller.GetTeacherListByClassid</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -231,6 +231,14 @@
         <servlet-name>TeacherNotificationHistory</servlet-name>
         <servlet-class>Controller.TeacherNotificationHistory</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GetTeacherListByClassid</servlet-name>
+        <servlet-class>Controller.GetTeacherListByClassid</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetTeacherListByClassid</servlet-name>
+        <url-pattern>/list-teacher</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ViewMarkController</servlet-name>
         <url-pattern>/viewmark</url-pattern>
@@ -371,10 +379,7 @@
         <servlet-name>InsertApplicationStudent</servlet-name>
         <url-pattern>/insertApplicationStudent</url-pattern>
     </servlet-mapping>
-    <!--    <servlet-mapping>
-        <servlet-name>ViewApplicationHistoryStudent</servlet-name>
-        <url-pattern>/viewApplicationHistoryStudent</url-pattern>
-    </servlet-mapping>-->
+    <!--    <servlet-mapping><servlet-name>ViewApplicationHistoryStudent</servlet-name><url-pattern>/viewApplicationHistoryStudent</url-pattern></servlet-mapping>-->
     <servlet-mapping>
         <servlet-name>LoadTimetable</servlet-name>
         <url-pattern>/loadTimetable</url-pattern>
@@ -427,5 +432,5 @@
         <session-timeout>
             60
         </session-timeout>
-    </session-config>
+    </session-config>undefined
 </web-app>

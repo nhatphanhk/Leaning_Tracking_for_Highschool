@@ -1,11 +1,5 @@
 
 import DAO.Dao;
-import Model.Application;
-import Model.Notification;
-import Model.Student;
-import Model.Teacher;
-import Model.Class;
-import Model.Timetable;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Date;

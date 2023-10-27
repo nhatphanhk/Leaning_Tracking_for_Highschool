@@ -22,7 +22,7 @@ public class Staff {
         this.firstname = firstname;
         this.email = email;
         this.phone = phone;
-    }    
+    }
 
     public String getStaffid() {
         return staffid;
@@ -63,6 +63,9 @@ public class Staff {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
+
+  
 
     @Override
     public String toString() {

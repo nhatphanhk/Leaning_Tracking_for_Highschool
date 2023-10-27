@@ -3,7 +3,7 @@
     Created on : Sep 22, 2023, 10:04:23 AM
     Author     : htk09
 --%>
-
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,15 +23,18 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="./assets/css/base.css" />
+    <!--<link rel="stylesheet" href="./assets/css/style-attendanceStatu--student.css" />-->
+
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="stylesheet" href="./assets/css/style-attendanceStatu--student.css" />
+
     <title>MS</title>
   </head>
   <body>
     <div class="app">
       <!-- header  -->
             <%@ include file="./includes/header.jsp" %>
-      <div class="app-container">
+    <div class="app-container">
         <div class="grid d-grid">
           <div class="app-home section-m1">
             <div class="row">
@@ -50,27 +53,21 @@
                       <table class="table table-bordered">
                         <thead>
                           <tr>
-                            <th class="col-1 text-center" scope="col" >Môn học</th>
-                            <th class="col-2 text-center"  scope="col">Giáo Viên</th>
-                            <th class="col-3 text-center" scope="col">SĐT</th>
+                            <th class="col-1 text-center" scope="col" style="background-color:#2fb5fa">STT</th>
+                            <th class="col-1 text-center" scope="col" style="background-color:#2fb5fa">Môn học</th>
+                            <th class="col-2 text-center"  scope="col" style="background-color:#2fb5fa">Giáo Viên</th>
+                            <th class="col-3 text-center" scope="col" style="background-color:#2fb5fa">SĐT</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>Toán</td>
-                            <td>Nguyễn Thị A</td>
-                            <td>1234567890</td>
-                          </tr>
-                          <tr>
-                            <td>Văn</td>
-                            <td>Trần Văn C </td>
-                            <td>09999999999</td>
-                          </tr>
-                          <tr>
-                            <td>Anh</td>
-                            <td>Bùi Thị C</i></td>
-                            <td>0888888888</td>
-                          </tr>
+                            <c:forEach items="${sessionScope.list}" var="c" varStatus="status">
+                            <tr>
+                                <td>${status.index+1}</td>
+                                <td>${c.major}</td>
+                                <td>${c.lastname} ${c.firstname}</td>
+                                <td>${c.phoneNumber}</td>
+                            </tr>
+                            </c:forEach>
                         </tbody>
                       </table>
                     </div>

@@ -33,87 +33,91 @@
             <%@ include file="./includes/headerAccountManagement.jsp" %>
 
             <div class="app-container m-0">
-                <div class="grid d-grid">
-                    <div class="section-m1">
-                        <div class="row">
-                            <div class="col">
-                                <div class="box-section">
-                                    <div class="app-home__heading">
-                                        <div class="header-name">
-                                            <a href="accountManagementProfile.jsp">
-                                                <i class="fa-solid fa-arrow-left"></i>
-                                            </a>
-                                            Danh sách học sinh
-                                            <div class="search-btn-contain"     >
-                                                <a
-                                                    role="button"
-                                                    class="btn btn-block nav-link"
-                                                    href="./accountManagementAddAcc.jsp"
-                                                    ><i class="fa-solid fa-square-plus"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="app-home__body">
-                                        <div class="row">
-                                            <div class="col">
-                                                <!-- Student List details  -->
-                                                <table class="table table-bordered table-striped">
-                                                    <thead class="background-primary">
-                                                        <tr class="text-color-white">
-                                                            <th>STT</th>
-                                                            <th>Tài khoản</th>
-                                                            <th>Mật khẩu</th>
-                                                            <th>Chức vụ</th>
-                                                            <th>Sửa</th>
-                                                            <th>Xóa</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <c:forEach items="${sessionScope.listaccount}" var="a" varStatus="loopStatus">
-                                                            
-                                                            <tr>
-                                                            <td>${loopStatus.index+1}</td>
-                                                            <td>${a.email}</td>
-                                                            <td>${a.password}</td>
-                                                            <td>${a.roleid}</td>
-                                                            <td>
-                                                                <a
-<<<<<<< HEAD
-                                                                role="button"
-                                                                class="btn btn-block nav-link"
-                                                                href="./accountManagementFixAcc.jsp"
-=======
-                                                                    href="updateaccount?email=${a.email}"
->>>>>>> a7ac4c005fbd4ecb5f3e505d7a722ce9c24a0908
-                                                                ><i class="fa-solid fa-square-pen"></i></a>
-                                                            </td>
-                                                            <td><a href=""><i class="fa-solid fa-x"></i></a></td>
-                                                        </tr>
-                                                        </c:forEach>
-                                                         
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-
+    <div class="grid d-grid">
+        <div class="section-m1">
+            <div class="row">
+                <div class="col">
+                    <div class="box-section">
+                        <div class="app-home__heading">
+                            <div class="header-name">
+                                <a href="accountManagementProfile.jsp">
+                                    <i class="fa-solid fa-arrow-left"></i>
+                                </a>
+                                Danh sách học sinh
+                                <div class="search-btn-contain"     >
+                                    <a
+                                        role="button"
+                                        class="btn btn-block nav-link"
+                                        href="./accountManagementAddAcc.jsp"
+                                        ><i class="fa-solid fa-square-plus"></i></a>
                                 </div>
                             </div>
                         </div>
+
+                        <div class="app-home__body">
+                            <div class="row">
+                                <div class="col">
+                                    <!-- Student List details  -->
+                                    <table class="table table-bordered table-striped">
+                                        <thead class="background-primary">
+                                            <tr class="text-color-white">
+                                                <th>STT</th>
+                                                <th>Tài khoản</th>
+                                                <th>Mật khẩu</th>
+                                                <th>Chức vụ</th>
+                                                <th>Sửa</th>
+                                                <th>Xóa</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach items="${sessionScope.listaccount}" var="a" varStatus="loopStatus">
+
+                                                <tr>
+                                                    <td>${loopStatus.index+1}</td>
+                                                    <td>${a.email}</td>
+                                                    <td>${a.password}</td>
+                                                    <td>
+                                                        <c:choose>
+                                                            <c:when test="${a.roleid eq 1}">Học sinh</c:when>
+                                                            <c:when test="${a.roleid eq 2}">Giáo viên</c:when>
+                                                            <c:when test="${a.roleid eq 3}">Quản lí tài khoản</c:when>
+                                                            <c:when test="${a.roleid eq 4}">Kế toán</c:when>
+                                                            <c:when test="${a.roleid eq 5}">Giám thị</c:when>
+                                                            <c:when test="${a.roleid eq 6}">Admin</c:when>
+                                                            <c:otherwise>${a.roleid}</c:otherwise>
+                                                        </c:choose>
+                                                    </td>
+                                                    <td>
+                                                        <a
+                                                            role="button"
+                                                            class="btn btn-block nav-link"
+
+
+                                                            href="updateaccount?email=${a.email}"
+
+                                                            ><i class="fa-solid fa-square-pen"></i></a>
+                                                    </td>
+                                                    <td><a href=""><i class="fa-solid fa-x"></i></a></td>
+                                                </tr>
+                                            </c:forEach>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
-        
-<<<<<<< HEAD
-       
+    </div>
+</div>
+</div>
 
-=======
-        
->>>>>>> a7ac4c005fbd4ecb5f3e505d7a722ce9c24a0908
-        <%@ include file="./includes/linkJS.jsp" %>
-        <script src="./assets/js/mycode.js"></script>
-    </script>
+
+<%@ include file="./includes/linkJS.jsp" %>
+<script src="./assets/js/mycode.js"></script>
+</script>
 </body>
 </html>

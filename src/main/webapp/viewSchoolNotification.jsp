@@ -88,6 +88,30 @@
                 </div>
             </div>-->
 
+      <!-- Modal Header -->
+            <div class="modal-header m-2">
+                <h2 class="modal-title m-2">Thông báo lịch thi cuối kỳ</h2>
+                 <h2 class="modal-title m-2">17/7/2023</h2>
+                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+             </div>
+
+      <!-- Modal body -->
+
+      <div class="modal-body m-4" style="font-size: 14px">
+                 Chuẩn bị thi rồi các em chăm chỉ học nhé
+            </div>
+
+      <!-- Modal footer -->
+             <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+             </div>
+
+            </div>
+        </div>
+        </div>
+      </div>
+    
+    
 
 
             </div>

@@ -10,11 +10,46 @@ package Model;
  */
 public class Account {
 
+    private String id;
+    private String lastname;
+    private String firstname;
     private String email;
     private String password;
     private int roleid;
     private String token;
 
+     public Account(String id, String lastname, String firstname, String email, String password, int roleid) {
+        this.id = id;
+        this.lastname = lastname;
+        this.firstname = firstname;
+        this.email = email;
+        this.password = password;
+        this.roleid = roleid;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
     public Account(String email, String password, int roleid) {
         this.email = email;
         this.password = password;

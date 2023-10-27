@@ -129,7 +129,7 @@
                                                 </div>
                                             </div>
                                             <div class="timetable-href">
-                                                <a href="teacherList.jsp" class="text-color-gray fw-bold">Xem</a>
+                                                <a href="list-teacher?classid=${sessionScope.student.classid}" class="text-color-gray fw-bold">Xem</a>
                                             </div>
                                         </div>
                                     </div>

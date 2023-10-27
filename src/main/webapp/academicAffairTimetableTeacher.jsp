@@ -14,31 +14,46 @@
                 <div class="box-section">
                   <div class="app-home__heading">
                     <div class="header-name">
+                      <a href="academicAffairProfile.jsp"><i class="fa-solid fa-arrow-left pe-2 ps-2"></i></a>
                       Thời khóa biểu
                     </div>
                   </div>
                   <div class="app-home__body m-5">
-                    <form action="">
-                      <div class="row acaAff-files d-flex flex-row-reverse">
-                        <a class="acaAff-btn">Import</a>
-                        <a class="acaAff-btn">Export</a>
-                      </div>
+                      <form action="loadTimetable" method="post" enctype="multipart/form-data">
+                             <div class=" acaAff-files d-flex flex-row-reverse " >
+                                <input type="file" id="attachmentFile" name="attachmentFile">                                                                                  
+                            </div>
+                                        
+                                       
+                         </form>
                       <div class="row d-flex flex-row mt-4">
                         <div class="acaAff-input-ctrl d-flex align-middle me-4">
                           <label for="">Năm:</label>
                           <select class="form-select">
+                              <option disabled selected>Chọn năm</option>
                             <option value="1">2023</option>
                             <option value="2">2022</option>
                             <option value="3">2021</option>
                           </select>
                         </div>
                         <div class="acaAff-input-ctrl d-flex align-middle me-4">
-                          <label for="">Học kì:</label>
+                          <label for="">Học kỳ:</label>
                           <select class="form-select">
+                              <option disabled selected>Chọn kỳ</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                           </select>
                         </div>
+                          <div class="acaAff-input-ctrl d-flex align-middle me-4">
+                          <label for="">Giáo viên:</label>
+                          <select class="form-select">
+                            <option value="1">Hà trọng tấn</option>
+                            <option value="2">Hoàng Tuấn Kiệt</option>
+                          </select>
+                        </div>
+                          <div class="acaAff-input-ctrl d-flex align-middle">
+                                     <input class="acaAff-btn" type="submit" value="Tìm kiếm">
+                                    </div>
                       </div>
                       <div class="row mt-4">
                         <div class="col">

@@ -76,8 +76,9 @@ public class Dao implements Serializable {
             + "JOIN [dbo].[subject] m ON m.majorid = n.majorid\n"
             + "WHERE hour = ? AND c.classid = ?";
     private static final String SELECT_TIMETABLE_TEACHER = "SELECT n.activityid, n.[day], n.[hour], n.classid, n.majorid, n.teacherid, n.semesterid, c.classname, m.majorname FROM [dbo].[timetable] n JOIN [dbo].[class] c ON c.classid = n.classid JOIN [dbo].[subject] m ON m.majorid = n.majorid WHERE hour = ? AND teacherid = ?";
+    private static final String SELECT_TEACHER_BY_CLASSID = "select teacher.teacherid, lastname, firstname, major, email, address, phonenumber, dob, gender from teacher inner join class_assign on teacher.teacherid = class_assign.teacherid where class_assign.classid= ?";
     private static final String DELETE_NOTI = "DELETE FROM notification WHERE notificationid = ?";
-    
+
     public void deleteNoti(String notificationid) throws SQLException {
         PreparedStatement stm;
         ResultSet rs;
@@ -93,6 +94,36 @@ public class Dao implements Serializable {
         
         
     }
+    public List<Teacher> selectTeacherByClassid(String classid){
+        PreparedStatement stm;
+        ResultSet rs;
+        List<Teacher> tc = new ArrayList<>();
+
+    try {
+        String sql = SELECT_TEACHER_BY_CLASSID;
+        stm = conn.prepareStatement(sql);
+        stm.setString(1, classid);
+
+        rs = stm.executeQuery();
+        while (rs.next()) {
+            tc.add(new Teacher(
+                    rs.getString(1), 
+                    rs.getString(2), 
+                    rs.getString(3), 
+                    rs.getString(4), 
+                    rs.getString(5), 
+                    rs.getString(6), 
+                    rs.getString(7), 
+                    rs.getDate(8), 
+                    rs.getBoolean(9)
+            ));}
+        
+    } catch (Exception ex) {
+        Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return tc;
+    }
+    
     public List<Timetable> selectTimetableTeacher(String hour, String teacherid) {
 
         PreparedStatement stm;
@@ -175,6 +206,33 @@ public class Dao implements Serializable {
         } catch (Exception e) {
             System.out.println("loi: " + e);
         }
+    }
+
+    public Staff getAStaffByEmail(String email) {
+        PreparedStatement stm;
+        ResultSet rs;
+        Staff stf = new Staff();
+        try {
+            String sql = "select * from staff where email= ?";
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, email);
+
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                return stf = new Staff(
+                        rs.getString("staffid"),
+                        rs.getString("lastname"),
+                        rs.getString("firstname"),
+                        rs.getString("email"),
+                        rs.getString("phonenumber")
+                );
+
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+
     }
 
     public List<Application> selectApplicationTeacher(String teacherid) {
@@ -415,7 +473,6 @@ public class Dao implements Serializable {
             System.out.println("loi" + e + "loi");
         }
     }
-
     public List<Notification> selectAllNotiTeacherId(String teacherid) {
 
         PreparedStatement stm;
@@ -446,9 +503,9 @@ public class Dao implements Serializable {
         }
         return noti;
     }
-
+    
     public List<Notification> selectAllNotiTeacherPage(String teacherid) {
-
+        
         PreparedStatement stm;
         ResultSet rs;
 
@@ -613,6 +670,8 @@ public class Dao implements Serializable {
         }
         return noti;
     }
+
+   
 
     public List<Notification> selectAllNotiSchool(String categoryid) {
 
@@ -820,33 +879,7 @@ public class Dao implements Serializable {
         return null;
     }
 
-    public Staff getAStaffByEmail(String email) {
-        PreparedStatement stm;
-        ResultSet rs;
-        Staff stf = new Staff();
-        try {
-            String sql = "select * from staff where email= ?";
-            stm = conn.prepareStatement(sql);
-            stm.setString(1, email);
-
-            rs = stm.executeQuery();
-            while (rs.next()) {
-                return stf = new Staff(
-                        rs.getString("staffid"),
-                        rs.getString("lastname"),
-                        rs.getString("firstname"),
-                        rs.getString("email"),
-                        rs.getString("phonenumber")
-                );
-
-            }
-        } catch (Exception ex) {
-            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
-
-    }
-
+    
     public Teacher getLastTeacher() {
         PreparedStatement stm;
         ResultSet rs;
@@ -1313,6 +1346,139 @@ public class Dao implements Serializable {
             Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
+    }
+    public Account getStaffAccountByEmail(String email) {
+        PreparedStatement stm;
+        ResultSet rs;
+
+        Account acc = new Account();
+        try {
+
+            String sql = "Select a.email, a.password,a.roleid,s.lastname,s.firstname,s.staffid from account a Join staff s on a.email=s.email where a.email =? ";
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, email);
+
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                return acc = new Account(rs.getString("staffid"), rs.getString("lastname"),
+                         rs.getString("firstname"), rs.getString("email"), rs.getString("password"), rs.getInt("roleid"));
+
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public Account getStudentAccountByEmail(String email) {
+        PreparedStatement stm;
+        ResultSet rs;
+
+        Account acc = new Account();
+        try {
+
+            String sql = "Select a.email, a.password,a.roleid,s.lastname,s.firstname,s.studentid from account a join student s on a.email=s.email where a.email =? ";
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, email);
+
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                return acc = new Account(rs.getString("studentid"), rs.getString("lastname"),
+                         rs.getString("firstname"), rs.getString("email"), rs.getString("password"), rs.getInt("roleid"));
+
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public Account getTeacherAccountByEmail(String email) {
+        PreparedStatement stm;
+        ResultSet rs;
+
+        Account acc = new Account();
+        try {
+
+            String sql = "Select a.email, a.password,a.roleid,s.lastname,s.firstname,s.teacherid from account a Join teacher s on a.email=s.email where a.email =? ";
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, email);
+
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                return acc = new Account(rs.getString("teacherid"), rs.getString("lastname"),
+                         rs.getString("firstname"), rs.getString("email"), rs.getString("password"), rs.getInt("roleid"));
+
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public Account getEmptyAccountByEmail(String email) {
+        PreparedStatement stm;
+        ResultSet rs;
+
+        Account acc = new Account();
+        try {
+
+            String sql = " SELECT a.email, a.password, a.roleid\n"
+                    + "FROM account AS a\n"
+                    + "LEFT JOIN student AS s ON a.email = s.email left join teacher t on a.email = t.email left join staff st on a.email = st.email\n"
+                    + "WHERE s.email IS NULL and t.email is null and st.email is null and a.email = ? ";
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, email);
+
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                return acc = new Account(rs.getString("email"), rs.getString("password"), rs.getInt("roleid"));
+                
+
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+     public void updateAccount(String email, String newPassword ,int role) {
+        PreparedStatement stm;
+        try {
+
+            String sql = "UPDATE account SET password = ?, roleid = ? WHERE email = ?";
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, newPassword);
+            stm.setInt(2, role);
+            stm.setString(3, email);
+            
+            
+
+            stm.executeUpdate();
+
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+     public void addAccount(String email, String newPassword ,int role) {
+        PreparedStatement stm;
+        try {
+
+            String sql = "insert into Account(email,password,roleid) values(?,?,?)";
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, email);
+            
+            stm.setString(2,newPassword);
+            stm.setInt(3,role );
+            
+            
+
+            stm.executeUpdate();
+
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     public static void main(String[] args) {
