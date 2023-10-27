@@ -25,19 +25,18 @@
     />
     <link rel="stylesheet" href="./assets/css/styleFee.css" />
     <link rel="stylesheet" href="assets/css/sendApplication.css"/>
+    <link rel="stylesheet" href="assets/css/style.css"/>
+
+
     
     <title>MS</title>
   </head>
-  <body>
-    <div class="app">
-      <!-- header  -->
-     <%@ include file="./includes/header.jsp" %>
-      <!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
+ 
+
 <body>
+    <div class="app">
+        <%@ include file="./includes/header.jsp" %>
+
     <div class="app-container">
         <div class="grid d-grid">
             <div class="app-home section-m1">
@@ -47,7 +46,7 @@
                             <div class="app-home__heading">
                                 <div class="header-name">
                                     <a href="studentHomePage.jsp"><i class="fa-solid fa-arrow-left pe-2 ps-2"></i></a>
-                                    Đóng học phí
+                                    Học phí
                                 </div>
                             </div>
                             <form class="col">
@@ -64,7 +63,7 @@
                                         </h1>
                                     </div>
                                     <div class="col-5">
-                                        <input class="fs-2" type="checkbox" id="hoc-phi" />
+                                        <input class="fs-2" type="checkbox" id="hoc-phi" required/>
                                         <label for="hoc-phi">7.499.000VNĐ</label>
                                     </div>
                                 </div>
@@ -80,16 +79,16 @@
                                         <label for="khoan-phi">2.000.000</label>
                                     </div>
                                 </div>
-                                <div class="row px-5 mx-5 mb-5 collapse" id="LinkVPN" style="font-size: 20px">
+                                
+                                <div class="row px-5 mx-5 mb-5 pb-5 collapse" id="LinkVPN" style="font-size: 20px">
                                     <div class="col-8">
-                                        Hãy tới nhấn vào đường link để tới trang thanh toán. <a class="text-color-green" href="  https://sandbox.vnpayment.vn/paymentv2/vpcpay.html
-" >Link</a>
+                                        Hãy tới nhấn vào đường link để tới trang thanh toán. <a class="text-color-green" href="https://sandbox.vnpayment.vn/tryitnow/Home/CreateOrder">Link</a>
                                     </div>
                                 </div>
 
                                 <div class="row px-5 mx-5 pt-5 pb-5">
                                     <div class="col-10"></div>
-                                    <button type="button" class="btn btn-primary col-1 fs-3" data-bs-toggle="collapse" data-bs-target="#LinkVPN">Submit</button>
+                                    <button type="button" class="btn btn-primary col-1 fs-3" onclick="showLinkVPN()">Submit</button>
                                 </div>
                             </form>
 
@@ -99,6 +98,7 @@
             </div>
         </div>
     </div>
+    </div>
                 
 </body>
 </html>
@@ -106,6 +106,20 @@
 
     <%@ include file="./includes/linkJS.jsp" %>
     <script src="assets/js/scripts.js"></script>
+    <script>
+    function showLinkVPN() {
+        // Kiểm tra xem checkbox có được chọn hay không
+        var checkbox = document.getElementById("hoc-phi");
+        var checkbox2 =document.getElementById("khoan-phi");
+                    var collapsible = document.getElementById("LinkVPN");
+
+        if (checkbox.checked || checkbox2.checked) {
+            collapsible.classList.add("show");
+        } else {
+            collapsible.classList.remove("show");
+        }
+    }
+    </script>
   </body>
 </html>
 

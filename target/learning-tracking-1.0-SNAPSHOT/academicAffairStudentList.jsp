@@ -19,12 +19,10 @@
                         </div>
                         <div class="app-home__body m-5">
                             <form action="">
-                                <div class="row acaAff-files d-flex">
+                                <div class="row acaAff-files float-end">
                                     <a href="addstudent"><button type="button" class="col-2 acaAff-btn" >Thêm</button></a>
                                      
-                                     <span class="col" ></span>
-                                     <a class="col-2 acaAff-btn ">Import</a>
-                                     <a class="col-2 acaAff-btn ">Export</a>
+                                     
                                   </div>
                                 <c:set var="cid" value="${requestScope.cid}" />
                                 <div class="row d-flex flex-row mt-4">

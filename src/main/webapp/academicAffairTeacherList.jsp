@@ -19,22 +19,15 @@
                         </div>
                         <div class="app-home__body m-5">
                             <form action="">
-                                <div class="row acaAff-files d-flex">
-                                    <a href="addteacher"><button type="button" class="col-2 acaAff-btn" >Thêm</button></a>
-                                    <span class="col" ></span>
-                                    <a class="col-2 acaAff-btn ">Import</a>
-                                    <a class="col-2 acaAff-btn ">Export</a>
-                                </div>
+                                
                                 <div class="row d-flex flex-row mt-4">
-                                    <!--                          <div class="acaAff-input-ctrl d-flex align-middle me-4">
-                                                                <label for="">Bộ môn:</label>
-                                                                <select class="form-select">
-                                                                  <option value="1">Toán</option>
-                                                                  <option value="2">Tiếng Anh</option>
-                                                                  <option value="3">Hóa học</option>
-                                                                </select>
-                                                              </div>-->
+                                   <div class="row acaAff-files">
+                                    <a href="addteacher"><button type="button" class="col-3 acaAff-btn" >Thêm</button></a>
+                                    
                                 </div>
+                                </div>
+                                    
+                                
                                 <div class="row mt-4">
                                     <div class="col">
                                         <!-- Student List details  -->
