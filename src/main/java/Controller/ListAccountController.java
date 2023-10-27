@@ -61,6 +61,7 @@ public class ListAccountController extends HttpServlet {
         Dao dao = Dao.getInstance();
         List<Account> list = dao.getAll();
         session.setAttribute("listaccount", list);
+        
         request.getRequestDispatcher("accountManagementCRUDacc.jsp").forward(request, response);
     } 
 

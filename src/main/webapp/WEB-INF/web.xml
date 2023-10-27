@@ -103,6 +103,10 @@
         <servlet-name>ViewApplicationTeacher</servlet-name>
         <servlet-class>Controller.ViewApplicationTeacher</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddAccountController</servlet-name>
+        <servlet-class>Controller.AddAccountController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -358,6 +362,10 @@
     <servlet-mapping>
         <servlet-name>ViewApplicationTeacher</servlet-name>
         <url-pattern>/viewApplicationTeacher</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddAccountController</servlet-name>
+        <url-pattern>/addaccount</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

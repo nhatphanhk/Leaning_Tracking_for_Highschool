@@ -1,4 +1,3 @@
-
 package DAO;
 
 import Model.Account;
@@ -33,7 +32,6 @@ import java.util.logging.Logger;
  *
  * @author Admin
  */
-
 public class Dao implements Serializable {
 
     private Connection conn = DBUtil.makeConnection();
@@ -307,21 +305,21 @@ public class Dao implements Serializable {
         }
 
     }
-    
+
     public List<AttendanceStatus> selectStudentAttendanceStatus(String studentid) {
-        
+
         PreparedStatement stm;
         ResultSet rs;
 
         List<AttendanceStatus> sta = new ArrayList<>();
         try {
-            
+
             String sql = SELECT_STUDENT_ATTENDANCE_STATUS;
             stm = conn.prepareStatement(sql);
-            stm.setString(1,studentid);
-            stm.setString(2,"0");
-            
-          rs = stm.executeQuery();
+            stm.setString(1, studentid);
+            stm.setString(2, "0");
+
+            rs = stm.executeQuery();
             while (rs.next()) {
                 sta.add(new AttendanceStatus(
                         rs.getDate(2),
@@ -333,8 +331,7 @@ public class Dao implements Serializable {
         }
         return sta;
     }
-    
-    
+
     public void insertAttendanceStatus(LocalDate date, boolean status, String studentid, String semesterid) throws SQLException {
         PreparedStatement stm;
         try {
@@ -342,28 +339,27 @@ public class Dao implements Serializable {
             stm = conn.prepareStatement(sql);
             stm.setDate(1, java.sql.Date.valueOf(date));
             stm.setBoolean(2, status);
-            stm.setString(3, studentid); 
+            stm.setString(3, studentid);
             stm.setString(4, semesterid);
             stm.executeUpdate(); // không trả dữ liệu thì dùng executeUpdate
         } catch (Exception e) {
             System.out.println("loi" + e + "loi");
         }
     }
-    
+
     public List<AttendanceList> getAttendanceStudentByDate(Date date, String classid) {
-        
+
         PreparedStatement stm;
         ResultSet rs;
 
         List<AttendanceList> st = new ArrayList<>();
         try {
-            
+
             String sql = SELECT_STUDENT_BY_DATE_ATTENDANCE;
             stm = conn.prepareStatement(sql);
-            stm.setDate(1,date);
+            stm.setDate(1, date);
             stm.setString(2, classid);
-            
-            
+
             rs = stm.executeQuery();
             while (rs.next()) {
                 st.add(new AttendanceList(
@@ -381,9 +377,7 @@ public class Dao implements Serializable {
         }
         return st;
     }
-    
-    
-    
+
     public void updateAttendanceStatus(LocalDate date, boolean status, String studentid, String semesterid, String studentid2) throws SQLException {
         PreparedStatement stm;
         try {
@@ -391,7 +385,7 @@ public class Dao implements Serializable {
             stm = conn.prepareStatement(sql);
             stm.setDate(1, java.sql.Date.valueOf(date));
             stm.setBoolean(2, status);
-            stm.setString(3, studentid); 
+            stm.setString(3, studentid);
             stm.setString(4, semesterid);
             stm.setString(5, studentid2);
 
@@ -400,6 +394,7 @@ public class Dao implements Serializable {
             System.out.println("loi" + e + "loi");
         }
     }
+
     public List<Notification> selectAllNotiTeacherId(String teacherid) {
 
         PreparedStatement stm;
@@ -430,25 +425,25 @@ public class Dao implements Serializable {
         }
         return noti;
     }
-    
+
     public List<Notification> selectAllNotiTeacherPage(String teacherid) {
-        
+
         PreparedStatement stm;
         ResultSet rs;
 
         List<Notification> noti = new ArrayList<>();
         try {
-            
+
             String sql = SELECT_ALL_NOTI_TEACHER_PAGE;
             stm = conn.prepareStatement(sql);
-            stm.setString(1,teacherid);
-            
-          rs = stm.executeQuery();
-            while (rs.next()) {   
+            stm.setString(1, teacherid);
+
+            rs = stm.executeQuery();
+            while (rs.next()) {
                 noti.add(new Notification(
                         rs.getInt(1),
                         rs.getString(2),
-                        rs.getString(3),                      
+                        rs.getString(3),
                         rs.getDate(4),
                         rs.getInt(5),
                         rs.getInt(6),
@@ -461,7 +456,7 @@ public class Dao implements Serializable {
         }
         return noti;
     }
-    
+
     public void insertNotiSchool(String title, String content, LocalDate date, int category) throws SQLException {
         PreparedStatement stm;
         try {
@@ -470,14 +465,14 @@ public class Dao implements Serializable {
             stm.setString(1, title);
             stm.setString(2, content);
             stm.setDate(3, java.sql.Date.valueOf(date));
-            stm.setInt(4, category);            
+            stm.setInt(4, category);
 
             stm.executeUpdate(); // không trả dữ liệu thì dùng executeUpdate
         } catch (Exception e) {
             System.out.println("loi" + e + "loi");
         }
     }
-    
+
     public void insertNotiTeacher(String title, String content, LocalDate date, int category, String classid, String teacherid) throws SQLException {
         PreparedStatement stm;
         try {
@@ -486,7 +481,7 @@ public class Dao implements Serializable {
             stm.setString(1, title);
             stm.setString(2, content);
             stm.setDate(3, java.sql.Date.valueOf(date));
-            stm.setInt(4, category); 
+            stm.setInt(4, category);
             stm.setString(5, classid);
             stm.setString(6, teacherid);
 
@@ -495,52 +490,53 @@ public class Dao implements Serializable {
             System.out.println("loi" + e + "loi");
         }
     }
-    public Account getAccountByEmail(String email){
+
+    public Account getAccountByEmail(String email) {
         PreparedStatement stm;
         ResultSet rs;
         Account acc = new Account();
-        
+
         try {
-        String sql = "select * from account where email =?";
-        stm = conn.prepareStatement(sql);
-        stm.setString(1, email);
+            String sql = "select * from account where email =?";
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, email);
 
-        rs = stm.executeQuery();
-        if (rs.next()) {
-            acc = new Account(rs.getString("email"), rs.getString("password"), rs.getInt("roleid"), rs.getString("token"));
-            
+            rs = stm.executeQuery();
+            if (rs.next()) {
+               return acc = new Account(rs.getString("email"), rs.getString("password"), rs.getInt("roleid"), rs.getString("token"));
+
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
         }
-    } catch (Exception ex) {
-        Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        return null;
+
     }
-    return acc;
-        
-    }
-    
+
     public Teacher selectTeacherById(String teacherid) {
-    PreparedStatement stm;
-    ResultSet rs;
-    Teacher teacher = null;
+        PreparedStatement stm;
+        ResultSet rs;
+        Teacher teacher = null;
 
-    try {
-        String sql = SELECT_TEACHER_BY_ID;
-        stm = conn.prepareStatement(sql);
-        stm.setString(1, teacherid);
+        try {
+            String sql = SELECT_TEACHER_BY_ID;
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, teacherid);
 
-        rs = stm.executeQuery();
-        if (rs.next()) {
-            teacher = new Teacher(
-                    rs.getString("firstname"),
-                    rs.getString("lastname")
-            );
+            rs = stm.executeQuery();
+            if (rs.next()) {
+                teacher = new Teacher(
+                        rs.getString("firstname"),
+                        rs.getString("lastname")
+                );
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
         }
-    } catch (Exception ex) {
-        Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        return teacher;
     }
-    return teacher;
-}
 
-     public Class selectClassById(String classid) {
+    public Class selectClassById(String classid) {
         PreparedStatement stm;
         ResultSet rs;
         Class cls = null;
@@ -597,26 +593,25 @@ public class Dao implements Serializable {
         return noti;
     }
 
-    
     public List<Notification> selectAllNotiSchool(String categoryid) {
-        
+
         PreparedStatement stm;
         ResultSet rs;
 
         List<Notification> noti = new ArrayList<>();
         try {
-            
+
             String sql = SELECT_ALL_NOTI_SCHOOL;
             stm = conn.prepareStatement(sql);
-            stm.setString(1,categoryid);            
-            
+            stm.setString(1, categoryid);
+
             rs = stm.executeQuery();
-            while (rs.next()) {                
+            while (rs.next()) {
                 Teacher teacher = selectTeacherById(rs.getString(7));
                 noti.add(new Notification(
                         rs.getInt(1),
                         rs.getString(2),
-                        rs.getString(3),                      
+                        rs.getString(3),
                         rs.getDate(4),
                         rs.getInt(5),
                         rs.getString(6),
@@ -629,20 +624,19 @@ public class Dao implements Serializable {
         }
         return noti;
     }
-    
+
     public List<Student> selectAllStudent(String classid) {
-        
+
         PreparedStatement stm;
         ResultSet rs;
 
         List<Student> st = new ArrayList<>();
         try {
-            
+
             String sql = SELECT_ALL_STUDENT;
             stm = conn.prepareStatement(sql);
-            stm.setString(1,classid);
-            
-            
+            stm.setString(1, classid);
+
             rs = stm.executeQuery();
             while (rs.next()) {
                 st.add(new Student(
@@ -663,6 +657,7 @@ public class Dao implements Serializable {
         }
         return st;
     }
+
     public List<Account> getAll() {
 
         PreparedStatement stm;
@@ -686,8 +681,8 @@ public class Dao implements Serializable {
         }
         return bookList;
     }
-    
-     public List<Class> getAllClasses() {
+
+    public List<Class> getAllClasses() {
 
         PreparedStatement stm;
         ResultSet rs;
@@ -743,27 +738,25 @@ public class Dao implements Serializable {
 
         Student st = new Student();
         try {
-            
-            String sql = "select s.studentid,s.lastname,s.firstname,s.email,s.[address],s.phonenumber,s.classid,s.gender,s.dob,c.classname\n" +
-"from student s  join class c on s.classid=c.classid where s.email =?";
+
+            String sql = "select s.studentid,s.lastname,s.firstname,s.email,s.[address],s.phonenumber,s.classid,s.gender,s.dob,c.classname\n"
+                    + "from student s  join class c on s.classid=c.classid where s.email =?";
             stm = conn.prepareStatement(sql);
-            stm.setString(1,email );
-            
-            
+            stm.setString(1, email);
+
             rs = stm.executeQuery();
             while (rs.next()) {
-                return st = new Student(rs.getString("studentid"),rs.getString("lastname")
-                        ,rs.getString("firstname"),rs.getString("email")
-                        ,rs.getString("address"),rs.getString("phonenumber"),rs.getInt("classid"),
-                        rs.getBoolean("gender"),rs.getDate("dob"),rs.getString("classname"));
-                        
+                return st = new Student(rs.getString("studentid"), rs.getString("lastname"),
+                         rs.getString("firstname"), rs.getString("email"),
+                         rs.getString("address"), rs.getString("phonenumber"), rs.getInt("classid"),
+                        rs.getBoolean("gender"), rs.getDate("dob"), rs.getString("classname"));
+
             }
         } catch (Exception ex) {
             Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
-    
 
     public void changePassword(String email, String newPassword) {
         PreparedStatement stm;
@@ -805,7 +798,7 @@ public class Dao implements Serializable {
         }
         return null;
     }
-    
+
     public Teacher getLastTeacher() {
         PreparedStatement stm;
         ResultSet rs;
@@ -880,13 +873,13 @@ public class Dao implements Serializable {
         try {
 
             String sql = "select s.studentid,s.lastname,s.firstname,AVG(COALESCE(m.progress_mark, 0)) AS progress_mark, \n"
-+"		AVG(COALESCE(m.middle, 0)) AS middle_mark, \n"
-+"		AVG(COALESCE(m.final, 0)) AS final_mark, \n"
-+"		AVG(COALESCE(m.total, 0)) AS total_mark,se.semester,se.year \n"
-+"                  from mark m inner join student s on m.studentid = s.studentid  \n"
-+"                  inner join semester se on m.semseterid = se.semesterid \n"
-+"                  where s.classid=? \n"
-+"		group by s.studentid,s.lastname,s.firstname,se.semester,se.year";
+                    + "		AVG(COALESCE(m.middle, 0)) AS middle_mark, \n"
+                    + "		AVG(COALESCE(m.final, 0)) AS final_mark, \n"
+                    + "		AVG(COALESCE(m.total, 0)) AS total_mark,se.semester,se.year \n"
+                    + "                  from mark m inner join student s on m.studentid = s.studentid  \n"
+                    + "                  inner join semester se on m.semseterid = se.semesterid \n"
+                    + "                  where s.classid=? \n"
+                    + "		group by s.studentid,s.lastname,s.firstname,se.semester,se.year";
             stm = conn.prepareStatement(sql);
             stm.setInt(1, classid);
             rs = stm.executeQuery();
@@ -901,6 +894,7 @@ public class Dao implements Serializable {
         }
         return markList;
     }
+
     public List<Mark> getListMarkByClassAndTeacher(String teacherid, int classid) {
         PreparedStatement stm;
         ResultSet rs;
@@ -1032,7 +1026,7 @@ public class Dao implements Serializable {
         }
         return null;
     }
-    
+
     public List<Teacher> getAllTeacher() {
         PreparedStatement stm;
         ResultSet rs;
@@ -1043,12 +1037,11 @@ public class Dao implements Serializable {
             String sql = "select t.teacherid,t.lastname,t.firstname,t.email,t.address,t.phonenumber,t.gender,t.dob,s.majorname\n"
                     + "from teacher t join subject s on t.major=s.majorid order by t.firstname ";
             stm = conn.prepareStatement(sql);
-            
 
             rs = stm.executeQuery();
             while (rs.next()) {
                 tc.add(new Teacher(rs.getString("teacherid"), rs.getString("lastname"), rs.getString("firstname"), rs.getString("majorname"), rs.getString("email"),
-                        rs.getString("address"), rs.getString("phonenumber"), rs.getDate("dob"), rs.getBoolean("gender")));  
+                        rs.getString("address"), rs.getString("phonenumber"), rs.getDate("dob"), rs.getBoolean("gender")));
 
             }
         } catch (Exception ex) {
@@ -1056,8 +1049,9 @@ public class Dao implements Serializable {
         }
         return tc;
     }
-    public void updateStudent(String studenid,String firstname,String lastname,String phone,String address,Date dob, boolean gender){
-       PreparedStatement stm;
+
+    public void updateStudent(String studenid, String firstname, String lastname, String phone, String address, Date dob, boolean gender) {
+        PreparedStatement stm;
 
         try {
             String sql = "update student set firstname = ?,lastname=?,"
@@ -1070,15 +1064,15 @@ public class Dao implements Serializable {
             stm.setBoolean(5, gender);
             stm.setDate(6, dob);
             stm.setString(7, studenid);
-            
 
             stm.executeUpdate();
         } catch (Exception ex) {
             Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void updateTeacher(String teacherid,String firstname,String lastname,String phone,String address,Date dob, boolean gender){
-       PreparedStatement stm;
+
+    public void updateTeacher(String teacherid, String firstname, String lastname, String phone, String address, Date dob, boolean gender) {
+        PreparedStatement stm;
 
         try {
             String sql = "update teacher set firstname = ?,lastname=?,"
@@ -1091,21 +1085,20 @@ public class Dao implements Serializable {
             stm.setBoolean(5, gender);
             stm.setDate(6, dob);
             stm.setString(7, teacherid);
-            
 
             stm.executeUpdate();
         } catch (Exception ex) {
             Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void deleteStudent(String email){
+
+    public void deleteStudent(String email) {
         PreparedStatement stm;
 
         try {
             String sql = "delete from student where email =?";
             stm = conn.prepareStatement(sql);
             stm.setString(1, email);
-            
 
             stm.executeUpdate();
         } catch (Exception ex) {
@@ -1113,14 +1106,14 @@ public class Dao implements Serializable {
         }
 
     }
-    public void deleteTeacher(String email){
+
+    public void deleteTeacher(String email) {
         PreparedStatement stm;
 
         try {
             String sql = "delete from teacher where email =?";
             stm = conn.prepareStatement(sql);
             stm.setString(1, email);
-            
 
             stm.executeUpdate();
         } catch (Exception ex) {
@@ -1128,12 +1121,13 @@ public class Dao implements Serializable {
         }
 
     }
-    public void addStudent(String studentid, String firstname,String lastname,String email,String phone,String address,Date dob,boolean gender,int classid,String semesterid ){
+
+    public void addStudent(String studentid, String firstname, String lastname, String email, String phone, String address, Date dob, boolean gender, int classid, String semesterid) {
         PreparedStatement stm;
 
         try {
-            String sql = "insert into student(studentid,lastname,firstname,email,address,phonenumber,classid,gender,dob,semesterid) values\n" +
-            "(?,?,?,?,?,?,?,?,?,?)";
+            String sql = "insert into student(studentid,lastname,firstname,email,address,phonenumber,classid,gender,dob,semesterid) values\n"
+                    + "(?,?,?,?,?,?,?,?,?,?)";
             stm = conn.prepareStatement(sql);
             stm.setString(1, studentid);
             stm.setString(2, lastname);
@@ -1145,7 +1139,6 @@ public class Dao implements Serializable {
             stm.setBoolean(8, gender);
             stm.setDate(9, dob);
             stm.setString(10, semesterid);
-            
 
             stm.executeUpdate();
         } catch (Exception ex) {
@@ -1153,12 +1146,13 @@ public class Dao implements Serializable {
         }
 
     }
-    public void addTeacher(String teacherid, String firstname,String lastname,String email,String phone,String address,Date dob,String major,boolean gender ){
+
+    public void addTeacher(String teacherid, String firstname, String lastname, String email, String phone, String address, Date dob, String major, boolean gender) {
         PreparedStatement stm;
 
         try {
-            String sql = "insert into teacher(teacherid,lastname,firstname,email,address,phonenumber,major,gender,dob) values\n" +
-            "(?,?,?,?,?,?,?,?,?)";
+            String sql = "insert into teacher(teacherid,lastname,firstname,email,address,phonenumber,major,gender,dob) values\n"
+                    + "(?,?,?,?,?,?,?,?,?)";
             stm = conn.prepareStatement(sql);
             stm.setString(1, teacherid);
             stm.setString(2, lastname);
@@ -1170,7 +1164,6 @@ public class Dao implements Serializable {
             stm.setBoolean(8, gender);
             stm.setDate(9, dob);
             //stm.setString(10, semesterid);
-            
 
             stm.executeUpdate();
         } catch (Exception ex) {
@@ -1178,61 +1171,57 @@ public class Dao implements Serializable {
         }
 
     }
-    
-    public Student getLastStudent(){
+
+    public Student getLastStudent() {
         PreparedStatement stm;
         ResultSet rs;
 
         Student st = new Student();
         try {
-            
-            String sql = "select top 1 s.studentid,s.lastname,s.firstname,s.email,s.[address],s.phonenumber,s.classid,s.gender,s.dob,c.classname\n" +
-            "from student s  join class c on s.classid=c.classid order by studentid desc";
+
+            String sql = "select top 1 s.studentid,s.lastname,s.firstname,s.email,s.[address],s.phonenumber,s.classid,s.gender,s.dob,c.classname\n"
+                    + "from student s  join class c on s.classid=c.classid order by studentid desc";
             stm = conn.prepareStatement(sql);
-            
-            
-            
+
             rs = stm.executeQuery();
             while (rs.next()) {
-                return st = new Student(rs.getString("studentid"),rs.getString("lastname")
-                        ,rs.getString("firstname"),rs.getString("email")
-                        ,rs.getString("address"),rs.getString("phonenumber"),rs.getInt("classid"),
-                        rs.getBoolean("gender"),rs.getDate("dob"),rs.getString("classname"));
-                        
+                return st = new Student(rs.getString("studentid"), rs.getString("lastname"),
+                         rs.getString("firstname"), rs.getString("email"),
+                         rs.getString("address"), rs.getString("phonenumber"), rs.getInt("classid"),
+                        rs.getBoolean("gender"), rs.getDate("dob"), rs.getString("classname"));
+
             }
         } catch (Exception ex) {
             Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
-    
-    public List<Student> getAllStudent(){
+
+    public List<Student> getAllStudent() {
         PreparedStatement stm;
         ResultSet rs;
 
         List<Student> st = new ArrayList<>();
         try {
-            
-            String sql = "select s.studentid,s.lastname,s.firstname,s.email,s.[address],s.phonenumber,s.classid,s.gender,s.dob,c.classname\n" +
-            "from student s  join class c on s.classid=c.classid ";
+
+            String sql = "select s.studentid,s.lastname,s.firstname,s.email,s.[address],s.phonenumber,s.classid,s.gender,s.dob,c.classname\n"
+                    + "from student s  join class c on s.classid=c.classid ";
             stm = conn.prepareStatement(sql);
-            
-            
-            
+
             rs = stm.executeQuery();
             while (rs.next()) {
-                 st.add(  new Student(rs.getString("studentid"),rs.getString("lastname")
-                        ,rs.getString("firstname"),rs.getString("email")
-                        ,rs.getString("address"),rs.getString("phonenumber"),rs.getInt("classid"),
-                        rs.getBoolean("gender"),rs.getDate("dob"),rs.getString("classname")));
-                        
+                st.add(new Student(rs.getString("studentid"), rs.getString("lastname"),
+                         rs.getString("firstname"), rs.getString("email"),
+                         rs.getString("address"), rs.getString("phonenumber"), rs.getInt("classid"),
+                        rs.getBoolean("gender"), rs.getDate("dob"), rs.getString("classname")));
+
             }
         } catch (Exception ex) {
             Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
         }
         return st;
     }
-    
+
     public Admin getAdminByEmail(String email) {
         PreparedStatement stm;
         ResultSet rs;
@@ -1248,7 +1237,7 @@ public class Dao implements Serializable {
             rs = stm.executeQuery();
             while (rs.next()) {
                 return tc = new Admin(rs.getString("staffid"), rs.getString("lastname"), rs.getString("firstname"), rs.getString("email"),
-                         rs.getString("phonenumber"));
+                        rs.getString("phonenumber"));
 
             }
         } catch (Exception ex) {
@@ -1256,23 +1245,21 @@ public class Dao implements Serializable {
         }
         return null;
     }
-    
-    public List<Major> getAllMajor(){
+
+    public List<Major> getAllMajor() {
         PreparedStatement stm;
         ResultSet rs;
         List<Major> list = new ArrayList<>();
-        
+
         try {
-            
+
             String sql = "select * from subject";
             stm = conn.prepareStatement(sql);
-            
-            
-            
+
             rs = stm.executeQuery();
             while (rs.next()) {
-                 list.add( new Major(rs.getString(1), rs.getString(2)));
-                        
+                list.add(new Major(rs.getString(1), rs.getString(2)));
+
             }
         } catch (Exception ex) {
             Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
@@ -1280,20 +1267,143 @@ public class Dao implements Serializable {
         return list;
     }
 
-    
+    public Account getStaffAccountByEmail(String email) {
+        PreparedStatement stm;
+        ResultSet rs;
 
-    
+        Account acc = new Account();
+        try {
+
+            String sql = "Select a.email, a.password,a.roleid,s.lastname,s.firstname,s.staffid from account a Join staff s on a.email=s.email where a.email =? ";
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, email);
+
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                return acc = new Account(rs.getString("staffid"), rs.getString("lastname"),
+                         rs.getString("firstname"), rs.getString("email"), rs.getString("password"), rs.getInt("roleid"));
+
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public Account getStudentAccountByEmail(String email) {
+        PreparedStatement stm;
+        ResultSet rs;
+
+        Account acc = new Account();
+        try {
+
+            String sql = "Select a.email, a.password,a.roleid,s.lastname,s.firstname,s.studentid from account a join student s on a.email=s.email where a.email =? ";
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, email);
+
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                return acc = new Account(rs.getString("studentid"), rs.getString("lastname"),
+                         rs.getString("firstname"), rs.getString("email"), rs.getString("password"), rs.getInt("roleid"));
+
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public Account getTeacherAccountByEmail(String email) {
+        PreparedStatement stm;
+        ResultSet rs;
+
+        Account acc = new Account();
+        try {
+
+            String sql = "Select a.email, a.password,a.roleid,s.lastname,s.firstname,s.teacherid from account a Join teacher s on a.email=s.email where a.email =? ";
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, email);
+
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                return acc = new Account(rs.getString("teacherid"), rs.getString("lastname"),
+                         rs.getString("firstname"), rs.getString("email"), rs.getString("password"), rs.getInt("roleid"));
+
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public Account getEmptyAccountByEmail(String email) {
+        PreparedStatement stm;
+        ResultSet rs;
+
+        Account acc = new Account();
+        try {
+
+            String sql = " SELECT a.email, a.password, a.roleid\n"
+                    + "FROM account AS a\n"
+                    + "LEFT JOIN student AS s ON a.email = s.email left join teacher t on a.email = t.email left join staff st on a.email = st.email\n"
+                    + "WHERE s.email IS NULL and t.email is null and st.email is null and a.email = ? ";
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, email);
+
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                return acc = new Account(rs.getString("email"), rs.getString("password"), rs.getInt("roleid"));
+                
+
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+     public void updateAccount(String email, String newPassword ,int role) {
+        PreparedStatement stm;
+        try {
+
+            String sql = "UPDATE account SET password = ?, roleid = ? WHERE email = ?";
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, newPassword);
+            stm.setInt(2, role);
+            stm.setString(3, email);
+            
+            
+
+            stm.executeUpdate();
+
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+     public void addAccount(String email, String newPassword ,int role) {
+        PreparedStatement stm;
+        try {
+
+            String sql = "insert into Account(email,password,roleid) values(?,?,?)";
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, email);
+            
+            stm.setString(2,newPassword);
+            stm.setInt(3,role );
+            
+            
+
+            stm.executeUpdate();
+
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 
     public static void main(String[] args) {
-//        Dao dao =  Dao.getInstance();
-//        Account acc = dao.getAccountByEmail("student2@gmail.com");
-//        System.out.println(acc.toString());
-//
-//        Dao dao = Dao.getInstance();
-//        List<Mark> list = dao.getListMarkByClasses(1);
-//        for (Mark item : list) {
-//            System.out.println(item.toString());
-//        }
+        Dao dao = Dao.getInstance();
+        dao.updateAccount("student188@gmail.com", "luilailayda", 1);
     }
 
 }
