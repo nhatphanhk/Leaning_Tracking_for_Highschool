@@ -39,7 +39,7 @@
                                 <div class="box-section">
                                     <div class="app-home__heading">
                                         <div class="header-name">
-                                            <a href="studentHomePage.jsp">
+                                            <a href="login?email=${sessionScope.account.email}">
                                                 <i class="fa-solid fa-arrow-left"></i>
                                             </a>
                                             Thay đổi mật khẩu
@@ -71,7 +71,8 @@
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <h3> ${msg}</h3>
+                                                            <h3 style="color: red;"> ${msg}</h3>
+                                                            <h3> ${msgSuccess}</h3>
                                                         </div>
                                                     </form>
                                                 </div>

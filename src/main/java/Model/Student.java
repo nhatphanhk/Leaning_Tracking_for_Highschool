@@ -23,8 +23,30 @@ public class Student {
     private String className;
     private int semester;
     private int year;
+    private Boolean status;
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
     
     public Student() {
+    }
+
+    public Student(String studentid, String lastName, String firstName, String email, String address, String phoneNumber, int classid, boolean gender, Date dob, Boolean status) {
+        this.studentid = studentid;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.email = email;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.classid = classid;
+        this.gender = gender;
+        this.dob = dob;
+        this.status = status;
     }
 
     public Student(String studentid, String lastName, String firstName, String email, String address, String phoneNumber, boolean gender, Date dob,String className, int semester,int year) {
@@ -39,6 +61,19 @@ public class Student {
         this.className = className;
         this.semester = semester;
         this.year = year;
+    }
+
+    public Student(String studentid, String lastName, String firstName, String email, String address, String phoneNumber, int classid, boolean gender, Date dob, String className) {
+        this.studentid = studentid;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.email = email;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.classid = classid;
+        this.gender = gender;
+        this.dob = dob;
+        this.className = className;
     }
 
     
@@ -143,5 +178,5 @@ public class Student {
         return "Student{" + "studentid=" + studentid + ", lastName=" + lastName + ", firstName=" + firstName + ", email=" + email + ", address=" + address + ", phoneNumber=" + phoneNumber + ", gender=" + gender + ", dob=" + dob + ", className=" + className + ", semester=" + semester + ", year=" + year + '}';
     }
 
-    
+ 
 }

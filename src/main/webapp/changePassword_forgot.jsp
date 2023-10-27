@@ -50,7 +50,7 @@
                     <div class="info-container">
                         <div class="m-5">
                             <div class="col-3 m-2">
-                                <form class="change-password-container" action="change-password" method="post">
+                                <form class="change-password-container" action="change-forgot-password" method="post">
                                     <div class="mb-4">
                                         <input type="email" class="form-control" id="email" aria-describedby="emailHelp" value="${email}" readonly name="email">
                                     </div>

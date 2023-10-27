@@ -5,7 +5,6 @@
 package Model;
 
 import java.sql.Date;
-import java.util.List;
 
 /**
  *
@@ -21,9 +20,13 @@ public class Teacher {
     private String phoneNumber;
     private Date dob;
     private boolean  gender;
-    //private List<String> class_assign;
 
     public Teacher() {
+    }
+
+    public Teacher(String lastname, String firstname) {
+        this.lastname = lastname;
+        this.firstname = firstname;
     }
 
     

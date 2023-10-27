@@ -1,7 +1,7 @@
 <%-- 
     Document   : headerAccountManagement
-    Created on : Oct 3, 2023, 10:56:37 AM
-    Author     : htk09
+    Created on : Oct 13, 2023, 9:23:31 AM
+    Author     : nhatp
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -48,7 +48,7 @@
                     <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNavDropdown">
                         <ul class="navbar-nav ms-3">
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Thông Báo
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -57,20 +57,38 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="accountManagementCRUDacc.jsp">Quản lý tài khoản</a>
+                                <a class="nav-link" href="listaccount">Quản lý tài khoản</a>
                             </li>
                         </ul>
-                        <!-- User DropDown  -->
-                        <div class="dropdown user-dropdown">
-                            <button class="btn btn-light dropdown-toggle user-dropdown-btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                User
-                                <i class="fa-solid fa-user"></i>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="accountManagementProfile.jsp">Hồ sơ cá nhân</a></li>
-                                <li><a class="dropdown-item" href="accountManagementChangePassword.jsp">Đổi mật khẩu</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li class=""><a class="dropdown-item bg-danger text-color-white" href="#">Đăng xuất</a></li>
+                        <!--                         User DropDown  
+                                                <div class="dropdown user-dropdown">
+                                                    <button class="btn btn-light dropdown-toggle user-dropdown-btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        User
+                                                        <i class="fa-solid fa-user"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                        <li><a class="dropdown-item" href="accountManagementProfile.jsp">Hồ sơ cá nhân</a></li>
+                                                        <li><a class="dropdown-item" href="accountManagementChangePassword.jsp">Đổi mật khẩu</a></li>
+                                                        <li><hr class="dropdown-divider"></li>
+                                                        <li class=""><a class="dropdown-item bg-danger text-color-white" href="#">Đăng xuất</a></li>
+                                                    </ul>
+                                                </div>-->
+                        <!--Dropdown Setting-->
+                        <div class="btn-group nav-dropdown-setting">
+                            <button
+                                type="button"
+                                class="btn btn-secondary dropdown-toggle"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                                ></button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="changePassword.jsp">Đổi mật khẩu</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+
+
+
+                                <li><a class="dropdown-item" href="logout">Đăng xuất</a></li>
+
                             </ul>
                         </div>
                     </div>

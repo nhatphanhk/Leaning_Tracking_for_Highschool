@@ -4,6 +4,7 @@
     Author     : htk09
 --%>
 
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,14 +28,6 @@
         <title>MS</title>
     </head>
     <body>
-        <%
-              response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");  
-              if(session .getAttribute("account")==null)
-              
-                response.sendRedirect("login.jsp");
-        
-                
-        %>
         <div class="app">
             <!-- header  -->
             <%@ include file="./includes/header.jsp" %>
@@ -86,14 +79,9 @@
                                                                     <span>QUÁ TRÌNH HỌC TẬP</span>
                                                                 </a>
                                                             </li>
+                                                            
                                                             <li class="info-href-contain h3 ms-3 mb-4">
-                                                                <a href="#" class="text-color-gray">
-                                                                    <i class="fa-solid fa-award me-3"></i>
-                                                                    <span>KHEN THƯỞNG, KỶ LUẬT</span>
-                                                                </a>
-                                                            </li>
-                                                            <li class="info-href-contain h3 ms-3 mb-4">
-                                                                <a href="attendanceStatus.jsp" class="text-color-gray">
+                                                                <a href="attendance-status?studentid=${sessionScope.student.studentid}" class="text-color-gray">
                                                                     <i class="fa-solid fa-triangle-exclamation me-3"></i>
                                                                     <span>VI PHẠM, NGHỈ HỌC</span>
                                                                 </a>
@@ -126,7 +114,7 @@
                                                 </div>
                                             </div>
                                             <div class="timetable-href">
-                                                <a href="studentTimetable.jsp" class="text-color-gray fw-bold">Xem</a>
+                                                <a href="viewTimetableStudent?classid=${sessionScope.student.classid}" class="text-color-gray fw-bold">Xem</a>
                                             </div>
                                         </div>
                                     </div>
@@ -141,7 +129,7 @@
                                                 </div>
                                             </div>
                                             <div class="timetable-href">
-                                                <a href="teacherList.jsp" class="text-color-gray fw-bold">Xem</a>
+                                                <a href="list-teacher?classid=${sessionScope.student.classid}" class="text-color-gray fw-bold">Xem</a>
                                             </div>
                                         </div>
                                     </div>
@@ -157,13 +145,13 @@
                                             </div>
                                             <div class="registration-container">
                                                 <div class="applicate-container">
-                                                    <a href="sendApplication.jsp">
+                                                    <a href="insertApplicationStudent?studentid=${sessionScope.student.studentid}">
                                                         <button type="button" class="btn btn-me applicate-btn">
                                                             <i class="ps-3 pe-3 fa-solid fa-paper-plane"></i>
                                                             Gửi đơn
                                                         </button>
                                                     </a>
-                                                    <a href="applicationHistory.jsp"><button type="button" class="btn btn-me applicate-view">Đơn đã gửi</button></a>
+                                                    <a href="viewApplicationHistoryStudent?studentid=${sessionScope.student.studentid}"><button type="button" class="btn btn-me applicate-view">Đơn đã gửi</button></a>
                                                 </div>
                                                 <div class="mt-3 paid-items-container">
                                                     <a href="payFee.jsp">
@@ -184,38 +172,26 @@
                             <div class="col">
                                 <div class="box-section">
                                     <div class="app-home__heading">
-                                        <a href="viewSchoolNotification.jsp" style="text-decoration: none">
+                                        <a href="notificationSchool?classid=${sessionScope.student.classid}" style="text-decoration: none">
                                             <div class="header-name">
-                                                <i class="fa-solid fa-envelope pe-2 ps-2"></i>
+                                                <i class="fa-solid fa-bell pe-2 ps-2"></i>
                                                 <span class="header-notice">2</span>
                                                 Thông báo từ nhà trường
                                             </div>
                                         </a>
                                     </div>
                                     <div class="notification-list">
-                                        <div class="notificaiton-item p-4">
+                                        <c:forEach var="x" items="${sessionScope.notification}">
+                                        <div class="notificaiton-item p-4 " >
                                             <div class="notifi-heading">
-                                                <div class="notifi-header">Thông báo lịch thi cuối kỳ</div>
-                                                <div class="notifi-date">17/7/2023</div>
+                                                <div class="notifi-header">${x.title}</div>
+                                                <div class="notifi-date">${x.date}</div>
                                             </div>
-                                            <div class="ps-3 pt-2 notifi-short-content">Chuẩn bị thi rồi các em chăm chỉ học nhé</div>
+                                            <div class="ps-3 pt-2 notifi-short-content" style="text-overflow: ellipsis;overflow: hidden;white-space:nowrap; max-width: 500px">${x.content}</div>
                                         </div>
-                                        <div class="notificaiton-item p-4">
-                                            <div class="notifi-heading">
-                                                <div class="notifi-header">Thông báo lịch thi cuối kỳ</div>
-                                                <div class="notifi-date">17/7/2023</div>
-                                            </div>
-                                            <div class="ps-3 pt-2 notifi-short-content">Chuẩn bị thi rồi các em chăm chỉ học nhé</div>
-                                        </div>
-                                        <div class="notificaiton-item p-4">
-                                            <div class="notifi-heading">
-                                                <div class="notifi-header">Thông báo lịch thi cuối kỳ</div>
-                                                <div class="notifi-date">17/7/2023</div>
-                                            </div>
-                                            <div class="ps-3 pt-2 notifi-short-content">Chuẩn bị thi rồi các em chăm chỉ học nhé</div>
-                                        </div>
+                                        </c:forEach>
                                         <div class="text-center view-all">
-                                            <a href="viewSchoolNotification.jsp" class="text-color-gray">Xem tất cả</a>
+                                            <a href="notificationSchool?classid=${sessionScope.student.classid}" class="text-color-gray">Xem tất cả</a>
                                         </div>
                                     </div>
                                 </div>
@@ -223,7 +199,7 @@
                             <div class="col">
                                 <div class="box-section">
                                     <div class="app-home__heading">
-                                        <a href="viewTeacherNotification.jsp" style="text-decoration: none">
+                                        <a href="notificationTeacher?classid=${sessionScope.student.classid}" style="text-decoration: none">
                                             <div class="header-name">
                                                 <i class="fa-solid fa-bell pe-2 ps-2"></i>
                                                 <span class="header-notice">4</span>
@@ -232,36 +208,19 @@
                                         </a>
                                     </div>
                                     <div class="notification-list">
+                                         <c:forEach var="x" items="${sessionScope.notifications}">
                                         <div class="notificaiton-item p-4">
                                             <div class="notifi-heading">
-                                                <div class="notifi-header">Loa Loa Loa</div>
-                                                <div class="notifi-date">17/7/2023</div>
+                                                <div class="notifi-header">${x.title}</div>
+                                                <div class="notifi-date">${x.date}</div>
                                             </div>
-                                            <div class="ps-3 pt-2 notifi-short-content">Nay cô bận các em nghỉ nhé</div>
-                                        </div>
-                                        <div class="notificaiton-item p-4">
-                                            <div class="notifi-heading">
-                                                <div class="notifi-header">Loa Loa Loa</div>
-                                                <div class="notifi-date">17/7/2023</div>
+                                            <div class="ps-3 pt-2 notifi-short-content" style="text-overflow: ellipsis;overflow: hidden;white-space:nowrap; max-width: 500px">
+                                                ${x.content}
                                             </div>
-                                            <div class="ps-3 pt-2 notifi-short-content">Nay cô bận các em nghỉ nhé</div>
                                         </div>
-                                        <div class="notificaiton-item p-4">
-                                            <div class="notifi-heading">
-                                                <div class="notifi-header">Thông báo lịch thi cuối kỳ</div>
-                                                <div class="notifi-date">17/7/2023</div>
-                                            </div>
-                                            <div class="ps-3 pt-2 notifi-short-content">Chuẩn bị thi rồi các em chăm chỉ học nhé</div>
-                                        </div>
-                                        <div class="notificaiton-item p-4">
-                                            <div class="notifi-heading">
-                                                <div class="notifi-header">Thông báo lịch thi cuối kỳ</div>
-                                                <div class="notifi-date">17/7/2023</div>
-                                            </div>
-                                            <div class="ps-3 pt-2 notifi-short-content">Chuẩn bị thi rồi các em chăm chỉ học nhé</div>
-                                        </div>
+                                        </c:forEach>
                                         <div class="text-center view-all">
-                                            <a href="viewSchoolNotification.jsp" class="text-color-gray">Xem tất cả</a>
+                                            <a href="notificationTeacher?classid=${sessionScope.student.classid}" class="text-color-gray">Xem tất cả</a>
                                         </div>
                                     </div>
                                 </div>

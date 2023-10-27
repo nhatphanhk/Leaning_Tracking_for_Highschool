@@ -91,10 +91,20 @@
                                                         </tbody>
                                                     </table>
                                                     <div class="change-password-btn m-4">
-                                                        <button class="btn btn-me change-btn">
+                                                        <c:if test = "${isLockedMark}">
+                                                            <button class="btn btn-me change-btn" disabled>
                                                             <i class="fa-solid fa-circle-check ms-2 me-3"></i>
-                                                            Xác nhận
-                                                        </button>
+                                                                Xác nhận
+                                                            </button>
+                                                            <p class="text-danger"> Thời gian nhập và nộp điểm đã kết thúc!</p>
+                                                        </c:if>
+                                                        <c:if test = "${!isLockedMark}">
+                                                            <button class="btn btn-me change-btn">
+                                                            <i class="fa-solid fa-circle-check ms-2 me-3"></i>
+                                                                Xác nhận
+                                                            </button>
+                                                        </c:if>
+                                                        
                                                     </div>
                                                 </form>
 
@@ -142,8 +152,8 @@
                                             <!--                                            <option value="A3">Lớp A3</option>
                                                                                         <option value="A4">Lớp A4</option>
                                                                                         <option value="A5">Lớp A5</option>-->
-                                            
-                                            
+
+
                                             <c:forEach var ="x" items="${classes}">
                                                 <option  value="${x.classid}">${x.classname}</option>
 <!--                                                <option value="A5">${classid}</option>-->
@@ -196,31 +206,31 @@
                     }
                 }
             }
-            
-            
+
+
             function changeClassName() {
-                                                                var select = document.getElementById('classid');
-                                                                var selectedValue = select.options[select.selectedIndex].value;
-                                                                var selectedText = select.options[select.selectedIndex].text;
-                                                                console.log(selectedValue);
-                                                                console.log(selectedText);
-                                                                select.options[0].text = selectedText;
+                var select = document.getElementById('classid');
+                var selectedValue = select.options[select.selectedIndex].value;
+                var selectedText = select.options[select.selectedIndex].text;
+                console.log(selectedValue);
+                console.log(selectedText);
+                select.options[0].text = selectedText;
 
-                                                                // Lưu giá trị đã chọn vào sessionStorage
-                                                                sessionStorage.setItem('selectedClassId', selectedValue);
+                // Lưu giá trị đã chọn vào sessionStorage
+                sessionStorage.setItem('selectedClassId', selectedValue);
 
-                                                            }
-                                                            // Khi trang tải xong, lấy giá trị đã chọn từ sessionStorage và đặt nó cho thẻ select
-                                                            window.onload = function () {
-                                                                var selectedClassId = sessionStorage.getItem('selectedClassId');
-                                                                if (selectedClassId) {
-                                                                    document.getElementById('classid').value = selectedClassId;
-                                                                }
-                                                            }
+            }
+            // Khi trang tải xong, lấy giá trị đã chọn từ sessionStorage và đặt nó cho thẻ select
+            window.onload = function () {
+                var selectedClassId = sessionStorage.getItem('selectedClassId');
+                if (selectedClassId) {
+                    document.getElementById('classid').value = selectedClassId;
+                }
+            }
 
         </script>
-        
-    
+
+
 
     </body>
 </html>

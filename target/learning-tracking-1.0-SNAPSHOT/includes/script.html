@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<script>
+    function changeClassName() {
+        var select = document.getElementById('classid');
+        var selectedValue = select.options[select.selectedIndex].value;
+        var selectedText = select.options[select.selectedIndex].text;
+        console.log(selectedValue);
+        console.log(selectedText);
+        select.options[0].text = selectedText;
+
+        // Lưu giá trị đã chọn vào sessionStorage
+        sessionStorage.setItem('selectedClassId', selectedValue);
+
+    }
+    // Khi trang tải xong, lấy giá trị đã chọn từ sessionStorage và đặt nó cho thẻ select
+    window.onload = function () {
+        var selectedClassId = sessionStorage.getItem('selectedClassId');
+        if (selectedClassId) {
+            document.getElementById('classid').value = selectedClassId;
+        }
+    };
+
+    const alertPlaceholder = document.getElementById('liveAlertPlaceholder');
+
+    const alert = (message, type) => {
+        const wrapper = document.createElement('div');
+        wrapper.innerHTML = [
+            `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+            `   <div>${message}</div>`,
+            '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+            '</div>'
+        ].join('');
+
+        alertPlaceholder.append(wrapper);
+    };
+
+    const alertTrigger = document.getElementById('liveAlertBtn');
+    if (alertTrigger) {
+        alertTrigger.addEventListener('click', () => {
+            alert('Nice, you triggered this alert message!', 'success');
+        });
+    }
+
+    var exampleModal = document.getElementById('exampleModal');
+    exampleModal.addEventListener('show.bs.modal', function (event) {
+        // Button that triggered the modal
+        var button = event.relatedTarget;
+        // Extract info from data-bs-* attributes
+        var recipient = button.getAttribute('data-bs-whatever');
+        // If necessary, you could initiate an AJAX request here
+        // and then do the updating in a callback.
+        //
+        // Update the modal's content.
+        var modalTitle = exampleModal.querySelector('.modal-title');
+        var modalBodyInput = exampleModal.querySelector('.modal-body input');
+
+        modalTitle.textContent = 'New message to ' + recipient;
+        modalBodyInput.value = recipient;
+    });
+
+</script>

@@ -7,13 +7,15 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>markfunctionv1</name>
+    <name>backup</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+                <java.version>18</java.version>
+
     </properties>
-    
+  
     <dependencies>
         <dependency>
             <groupId>jakarta.platform</groupId>
@@ -22,6 +24,11 @@
             <scope>provided</scope>
         </dependency>
         
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>5.0.0</version>
+        </dependency>
         
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
@@ -40,12 +47,34 @@
             <artifactId>jakarta.servlet.jsp.jstl</artifactId>
             <version>3.0.1</version>
         </dependency>
-        
-    <!-- Mail -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>5.0.0</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-web-api</artifactId>
+            <version>7.0</version>
+            <type>jar</type>
+        </dependency>
+        <!-- Mail -->
         <dependency>
             <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>
             <version>1.4.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>5.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.3.1</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 

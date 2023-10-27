@@ -37,6 +37,18 @@ public class Mark {
         this.semester = semester;
         this.year = year;
     }
+    
+    public Mark(String studentid, String lastname, String firstname, BigDecimal progress_mark, BigDecimal middle_mark, BigDecimal final_mark, BigDecimal total_mark, int semester, int year) {
+        this.studentid = studentid;
+        this.lastname = lastname;
+        this.firstname = firstname;
+        this.progress_mark = progress_mark;
+        this.middle_mark = middle_mark;
+        this.final_mark = final_mark;
+        this.total_mark = total_mark;
+        this.semester = semester;
+        this.year = year;
+    }
 
     public String getStudentid() {
         return studentid;
