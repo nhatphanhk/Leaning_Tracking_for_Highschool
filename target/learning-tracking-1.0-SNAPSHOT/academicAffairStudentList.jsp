@@ -7,202 +7,96 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ include file="./includes/headerAcademicAffair.jsp" %>
 <div class="app-container mt-0">
-        <div class="grid d-grid">
+    <div class="grid d-grid">
         <div class="section-m1">
             <div class="row">
                 <div class="col">
                     <div class="box-section">
                         <div class="app-home__heading">
-                            <div class="header-name d-flex justify-content-between">
+                            <div class="header-name d-flex">
                                 <a href="academicAffairProfile.jsp"><i class="fa-solid fa-arrow-left pe-2 ps-2"></i></a>
-                                <span>Danh sách học sinh</span>
+                                <span style="margin-top: 5px">Danh sách học sinh</span>
                             </div>
                         </div>
                         <div class="app-home__body m-5">
                             <form action="">
-                                <div class="row acaAff-files float-end">
-                                    <a href="addstudent"><button type="button" class="col-2 acaAff-btn" >Thêm</button></a>
-
                                 <div class="row acaAff-files d-flex">
                                     <a class="col-2" href="addstudent"><button type="button" class="col-2 acaAff-btn" >Thêm</button></a>
                                      
-                                     
+                                     <span class="col" ></span>
+                                     <a class="col-2 acaAff-btn ">Import</a>
+                                     <a class="col-2 acaAff-btn ">Export</a>
                                   </div>
                                 <c:set var="cid" value="${requestScope.cid}" />
-                            <div class="header-name">
-                                <a href="academicAffairProfile.jsp"><i class="fa-solid fa-arrow-left pe-2 ps-2"></i></a>
-                                Thời khóa biểu
-
-                                <!--<a class="acaAff-btn">Import</a>-->
-                            </div>
-                      <div class="app-home__body m-5">                           
-                                
-                                    <form action="loadTimetable" method="post" enctype="multipart/form-data">
-                                        <div class=" acaAff-files d-flex flex-row-reverse " >
-                                            <input type="file" id="attachmentFile" name="attachmentFile">                                                                                  
-                                        </div>
-                                        
-                                       
-                                    </form>
-                                </div>
-
                                 <div class="row d-flex flex-row mt-4">
                                     <div class="acaAff-input-ctrl d-flex align-middle me-4">
-                                        <label for="">Năm:</label>
-                                        <select class="form-select">
-                                            <option value="1">2023</option>
-                                            <option value="2">2022</option>
-                                            <option value="3">2021</option>
-                                        </select>
-                                    </div>
-                                    <div class="acaAff-input-ctrl d-flex align-middle me-4">
-                                        <label for="">Học kì:</label>
-                                        <select class="form-select">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                        </select>
-                                    </div>
-                                    <div class="acaAff-input-ctrl d-flex align-middle me-4">
                                         <label for="">Lớp:</label>
-                                        <select class="form-select">
-                                            <option value="1">10</option>
-                                            <option value="2">11</option>
-                                            <option value="3">12</option>
+                                        
+                                        <select id="classSelect" class="form-select">
+                                            <option disabled selected>Chọn lớp</option>
+                                            <c:forEach var="x" items="${requestScope.listclass}">
+                                                <option ${(cid == x.classid)?'selected':''}  value="${x.classid}">${x.classname}</option>
+                                            </c:forEach>
                                         </select>
                                     </div>
-                                     <div class="acaAff-input-ctrl d-flex align-middle">
-                                     <input class="acaAff-btn" type="submit" value="Tìm kiếm">
-                                    </div>
+
                                 </div>
                                 <div class="row mt-4">
                                     <div class="col">
-                                        <!-- Timetable details  -->
-                                        <table class="table table-bordered">
+                                        <!-- Student List details  -->
+                                        <table class="table table-bordered table-striped">
                                             <thead class="background-primary">
                                                 <tr class="text-color-white">
-                                                    <th>Buổi</th>
-                                                    <th>Tiết</th>
-                                                    <th>Thứ 2</th>
-                                                    <th>Thứ 3</th>
-                                                    <th>Thứ 4</th>
-                                                    <th>Thứ 5</th>
-                                                    <th>Thứ 6</th>
-                                                    <th>Thứ 7</th>
-                                                    <th>Chủ Nhật</th>
+                                                    <th>STT</th>
+                                                    <th>Mã học sinh</th>
+                                                    <th>Họ và Tên</th>
+                                                    <th>Giới tính</th>
+                                                    <th>Ngày sinh</th>
+                                                    <th>Số điện thoại</th>
+                                                    <th>Địa điểm</th>
+                                                    <th>Chỉnh sửa</th>
+                                                    <th>Xoá</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td rowspan="5" class="align-middle">Sáng</td>
-                                                    <td>1</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>4</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>5</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td rowspan="5" class="align-middle">Chiều</td>
-                                                    <td>1</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>4</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>5</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td>Toán</td>
-                                                    <td></td>
-                                                </tr>
+                                                <c:forEach items="${requestScope.studentlist}" var="x" varStatus="loopStatus">
+                                                    <tr>
+                                                        <td>${loopStatus.index+1}</td>
+                                                        <td>${x.studentid}</td>
+                                                        <td>${x.lastName} ${x.firstName}</td>
+                                                        <td><c:choose>
+                                                                            <c:when test="${x.gender}">
+                                                                                Nam
+                                                                            </c:when>
+                                                                            <c:otherwise>
+                                                                                Nữ
+                                                                            </c:otherwise>
+                                                                        </c:choose></td>
+                                                        <td>${x.dob}</td>
+                                                        <td>${x.phoneNumber}</td>
+                                                        <td>${x.address}</td>
+                                                        <td><a href="updatestudent?email=${x.email}" email>Chỉnh sửa</a></td>
+                                                        <td><a class="delete-link" href="deletestudent?email=${x.email}&classid=${x.classid}">Xoá<a></td>
+                                            
+
+
+                                                    </tr>
+                                                </c:forEach>
+
+
                                             </tbody>
                                         </table>
+                                        
                                     </div>
                                 </div>
-                                
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
             
             
                                 
