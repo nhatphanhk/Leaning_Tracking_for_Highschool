@@ -19,14 +19,14 @@
         <servlet-name>InsertApplicationStudent</servlet-name>
         <servlet-class>Controller.InsertApplicationStudent</servlet-class>
     </servlet>
-    <servlet>
+    <!--    <servlet>
         <servlet-name>ViewApplicationHistoryStudent</servlet-name>
         <servlet-class>Controller.ViewApplicationHistoryStudent</servlet-class>
-    </servlet>
-    <servlet>
+    </servlet>-->
+    <!--    <servlet>
         <servlet-name>ViewApplicationTeacher</servlet-name>
         <servlet-class>Controller.ViewApplicationTeacher</servlet-class>
-    </servlet>
+    </servlet>-->
     <servlet>
         <servlet-name>LoadTimetable</servlet-name>
         <servlet-class>Controller.LoadTimetable</servlet-class>
@@ -87,13 +87,21 @@
         <servlet-name>AttendanceStatusController</servlet-name>
         <servlet-class>Controller.AttendanceStatusController</servlet-class>
     </servlet>
-      <servlet>
+    <servlet>
         <servlet-name>LockMark</servlet-name>
         <servlet-class>Controller.LockMark</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Payment</servlet-name>
         <servlet-class>Controller.Payment</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewApplicationHistoryStudent</servlet-name>
+        <servlet-class>Controller.ViewApplicationHistoryStudent</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewApplicationTeacher</servlet-name>
+        <servlet-class>Controller.ViewApplicationTeacher</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -262,8 +270,8 @@
     <servlet-mapping>
         <servlet-name>UpdateAccountController</servlet-name>
         <url-pattern>/updateaccount</url-pattern>
-        </servlet-mapping>
-        <servlet-mapping>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>CheckAttendanceList</servlet-name>
         <url-pattern>/list-attendance</url-pattern>
     </servlet-mapping>
@@ -272,10 +280,10 @@
         <url-pattern>/check-attendance</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-    <servlet-name>AttendanceStatusController</servlet-name>
-    <url-pattern>/attendance-status</url-pattern>
-</servlet-mapping>
-  <servlet-mapping>
+        <servlet-name>AttendanceStatusController</servlet-name>
+        <url-pattern>/attendance-status</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>LockMark</servlet-name>
         <url-pattern>/LockMark</url-pattern>
     </servlet-mapping>
@@ -327,14 +335,10 @@
         <servlet-name>InsertApplicationStudent</servlet-name>
         <url-pattern>/insertApplicationStudent</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
+    <!--    <servlet-mapping>
         <servlet-name>ViewApplicationHistoryStudent</servlet-name>
         <url-pattern>/viewApplicationHistoryStudent</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ViewApplicationTeacher</servlet-name>
-        <url-pattern>/viewApplicationTeacher</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping>-->
     <servlet-mapping>
         <servlet-name>LoadTimetable</servlet-name>
         <url-pattern>/loadTimetable</url-pattern>
@@ -346,6 +350,14 @@
     <servlet-mapping>
         <servlet-name>ViewTimetableStudent</servlet-name>
         <url-pattern>/viewTimetableStudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewApplicationHistoryStudent</servlet-name>
+        <url-pattern>/viewApplicationHistoryStudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewApplicationTeacher</servlet-name>
+        <url-pattern>/viewApplicationTeacher</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -109,7 +109,7 @@
                                         </a>
                                     </div>
                                     <div class="notification-list">
-                                        <c:forEach var="x" items="${sessionScope.notification}">
+                                        <c:forEach var="x" items="${notification}">
                                             <div class="notificaiton-item p-4">
                                                 <div class="notifi-heading">
                                                     <div class="notifi-header">${x.title}</div>
@@ -119,7 +119,7 @@
                                             </div>
                                         </c:forEach>
                                         <div class="text-center view-all">
-                                            <a href="notificationSchool?teacherid=${sessionScope.teacher.teacherid}" class="text-color-gray">Xem tất cả</a>
+                                            <a href="notificationSchool?teacherid=${sessionScope.teacherid}" class="text-color-gray">Xem tất cả</a>
                                         </div>
                                     </div>
                                 </div>
@@ -179,13 +179,13 @@
                                     </div>
                                     <div class="registration-container">
                                         <div class="applicate-container">
-                                            <a href="teacherSendNotification.jsp">
+                                            <a href="teacherNotificationHistory?teacherid=${sessionScope.teacherid}">
                                                 <button type="button" class="btn btn-me applicate-btn">
                                                     <i class="ps-3 pe-3 w1 fa-solid fa-envelope"></i>
                                                     Gửi thông báo
                                                 </button>
                                             </a>
-                                            <A href="teacherBox.jsp"> <button type="button" class="btn btn-me applicate-view">Đơn</button></A>
+                                            <A href="viewApplicationTeacher?teacherid=${sessionScope.teacherid}"> <button type="button" class="btn btn-me applicate-view">Đơn</button></A>
                                         </div>
                                     </div>
                                 </div>
@@ -203,7 +203,7 @@
                                                 </div>
                                             </div>
                                             <div class="timetable-href">
-                                                <a href="teacherTimetable.jsp" class="text-color-gray fw-bold">Xem</a>
+                                                <a href="viewTimetableTeacher?teacherid=${sessionScope.teacher.teacherid}" class="text-color-gray fw-bold">Xem</a>
                                             </div>
                                         </div>
                                     </div>

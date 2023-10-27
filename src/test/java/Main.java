@@ -22,6 +22,8 @@ public class Main {
         for (Timetable student : students) {
             System.out.println(student);
         }
+    }
+}
 
 //        Notification classN = studentDAO.selectNotiByNotiId("7");
 //        System.out.println(classN);

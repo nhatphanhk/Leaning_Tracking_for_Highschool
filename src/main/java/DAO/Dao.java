@@ -400,6 +400,36 @@ public class Dao implements Serializable {
             System.out.println("loi" + e + "loi");
         }
     }
+    public List<Notification> selectAllNotiTeacherId(String teacherid) {
+
+        PreparedStatement stm;
+        ResultSet rs;
+
+        List<Notification> noti = new ArrayList<>();
+        try {
+
+            String sql = SELECT_ALL_NOTI_TEACHER_PAGE;
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, teacherid);
+
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                noti.add(new Notification(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getDate(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getString(7),
+                        rs.getString(8)
+                ));
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return noti;
+    }
     
     public List<Notification> selectAllNotiTeacherPage(String teacherid) {
         
@@ -534,31 +564,30 @@ public class Dao implements Serializable {
 
     }
 
-    public List<Notification> selectAllNotiTeacher(String categoryid, int classid) {
-        
+    public List<Notification> selectAllNotiTeacher(String categoryid, String classid) {
+
         PreparedStatement stm;
         ResultSet rs;
 
         List<Notification> noti = new ArrayList<>();
         try {
-            
+
             String sql = SELECT_ALL_NOTI_TEACHER;
             stm = conn.prepareStatement(sql);
-            stm.setString(1,categoryid);
-            stm.setInt(2, classid);
-            
-            
+            stm.setString(1, categoryid);
+            stm.setString(2, classid);
+
             rs = stm.executeQuery();
-            while (rs.next()) {                
+            while (rs.next()) {
                 Teacher teacher = selectTeacherById(rs.getString(7));
                 noti.add(new Notification(
                         rs.getInt(1),
                         rs.getString(2),
-                        rs.getString(3),                      
+                        rs.getString(3),
                         rs.getDate(4),
                         rs.getInt(5),
-                        rs.getInt(6),
-                        rs.getString(7),
+                        rs.getString(6),
+                        rs.getInt(7),
                         teacher
                 ));
             }
@@ -567,6 +596,7 @@ public class Dao implements Serializable {
         }
         return noti;
     }
+
     
     public List<Notification> selectAllNotiSchool(String categoryid) {
         

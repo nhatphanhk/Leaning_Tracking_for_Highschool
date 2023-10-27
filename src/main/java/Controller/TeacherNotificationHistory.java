@@ -59,12 +59,15 @@ public class TeacherNotificationHistory extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         Dao notiDAO = new Dao(); 
         HttpSession session = request.getSession();
         String teacherid = (String) session.getAttribute("teacherid");
         List<Notification> notis = notiDAO.selectAllNotiTeacherId(teacherid);
         request.setAttribute("notificationHistory", notis);
         request.getRequestDispatcher("teacherSendNotification.jsp").forward(request, response);
+        
+        
     }
 
     /**

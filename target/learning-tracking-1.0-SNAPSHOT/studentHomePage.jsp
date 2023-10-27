@@ -114,7 +114,7 @@
                                                 </div>
                                             </div>
                                             <div class="timetable-href">
-                                                <a href="studentTimetable.jsp" class="text-color-gray fw-bold">Xem</a>
+                                                <a href="viewTimetableStudent?classid=${sessionScope.student.classid}" class="text-color-gray fw-bold">Xem</a>
                                             </div>
                                         </div>
                                     </div>
@@ -145,13 +145,13 @@
                                             </div>
                                             <div class="registration-container">
                                                 <div class="applicate-container">
-                                                    <a href="sendApplication.jsp">
+                                                    <a href="insertApplicationStudent?studentid=${sessionScope.student.studentid}">
                                                         <button type="button" class="btn btn-me applicate-btn">
                                                             <i class="ps-3 pe-3 fa-solid fa-paper-plane"></i>
                                                             Gửi đơn
                                                         </button>
                                                     </a>
-                                                    <a href="applicationHistory.jsp"><button type="button" class="btn btn-me applicate-view">Đơn đã gửi</button></a>
+                                                    <a href="viewApplicationHistoryStudent?studentid=${sessionScope.student.studentid}"><button type="button" class="btn btn-me applicate-view">Đơn đã gửi</button></a>
                                                 </div>
                                                 <div class="mt-3 paid-items-container">
                                                     <a href="payFee.jsp">
