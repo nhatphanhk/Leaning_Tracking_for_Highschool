@@ -165,7 +165,7 @@ public class Dao implements Serializable {
         ResultSet rs;
         Staff stf = new Staff();
         try {
-            String sql = "select * from staff where staffid= ?";
+            String sql = "select * from staff where email= ?";
             stm = conn.prepareStatement(sql);
             stm.setString(1, email);
 
@@ -176,7 +176,7 @@ public class Dao implements Serializable {
                         rs.getString("lastname"),
                         rs.getString("firstname"),
                         rs.getString("email"),
-                        rs.getInt("phone")
+                        rs.getString("phonenumber")
                 );
 
             }

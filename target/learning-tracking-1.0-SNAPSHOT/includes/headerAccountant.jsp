@@ -43,10 +43,10 @@
                         <ul class="navbar-nav ms-3">
 
                             <li class="nav-item">
-                                <a class="nav-link" href="/">Quản lý phí</a>
+                                <a class="nav-link" href="#">Quản lý phí</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/">Báo cáo chưa thanh toán</a>
+                                <a class="nav-link" href="#">Báo cáo chưa thanh toán</a>
                             </li>
                         </ul>
                         <!--                         User DropDown  
