@@ -38,10 +38,10 @@
                               <div class="card-body student-profile">
                                 <ul class="profile-info">
                                     <li class="profile-info-item h2 ms-2 mb-4 fw-bold">
-                                      Họ & Tên: Hà Trọng Tấn
+                                      Họ & Tên: ${sessionScope.accountManager.lastname} ${sessionScope.accountManager.firstname}
                                     </li>
                                     <li class="profile-info-item h2 ms-2 mb-4 fw-bold">
-                                      Thời gian công tác
+                                      Thời gian công tác : 2015 - 2023
                                     </li>
                                     <li class="profile-info-item h2 ms-2 mb-4 fw-bold">
                                       Giới tính: Nam
@@ -69,10 +69,10 @@
                   <div class="tab-content p-3">
                     <div class="tab-pane active">
                       <ul class="general-info-list">
-                        <li class="general-info-item fs-20 mb-2 fw-bold">Ngày, tháng, năm sinh: 01/01/2007</li>
+                        <li class="general-info-item fs-20 mb-2 fw-bold">Ngày, tháng, năm sinh: 04/03/1990</li>
                         <li class="general-info-item fs-20 mb-2 fw-bold">Hộ khẩu thường trú: 86 land, kdt FPT, Đà Nẵng</li>
-                        <li class="general-info-item fs-20 mb-2 fw-bold">Số điện thoại: 0123456789</li>
-                        <li class="general-info-item fs-20 mb-2 fw-bold">Email: email@example.com</li>
+                        <li class="general-info-item fs-20 mb-2 fw-bold">Số điện thoại: ${sessionScope.accountManager.phone}</li>
+                        <li class="general-info-item fs-20 mb-2 fw-bold">Email: ${sessionScope.accountManager.email}</li>
                       </ul>
                     </div>
                     </div>

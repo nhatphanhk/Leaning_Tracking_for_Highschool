@@ -22,11 +22,11 @@
                                 <div class="box-section">
                                     <div class="app-home__heading">
                                         <div class="header-name">
-                                            <a href="accountManagementProfile.jsp">
+                                            <a href="listaccount">
                                                 <i class="fa-solid fa-arrow-left"></i>
                                             </a>
                                             Thêm tài khoản
-                                                                                    </div>
+                                            </div>
                                     </div>
 
                                     <div class="app-home__body">
@@ -84,6 +84,7 @@
                 </div>
             </div>
         </div>
-       
+          <%@ include file="./includes/linkJS.jsp" %>
+        <script src="./assets/js/mycode.js"></script>
     </body>
 </html>

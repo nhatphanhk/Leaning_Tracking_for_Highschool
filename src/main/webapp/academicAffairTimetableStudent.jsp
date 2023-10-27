@@ -14,6 +14,7 @@
                     <div class="box-section">
                         <div class="app-home__heading">
                             <div class="header-name">
+                                <a href="academicAffairProfile.jsp"><i class="fa-solid fa-arrow-left pe-2 ps-2"></i></a>
                                 Thời khóa biểu
 
                                 <!--<a class="acaAff-btn">Import</a>-->

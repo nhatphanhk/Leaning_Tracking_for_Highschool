@@ -14,6 +14,7 @@
                     <div class="box-section">
                         <div class="app-home__heading">
                             <div class="header-name d-flex justify-content-between">
+                                <a href="academicAffairProfile.jsp"><i class="fa-solid fa-arrow-left pe-2 ps-2"></i></a>
                                 <span>Danh sách giáo viên</span>
                             </div>
                         </div>

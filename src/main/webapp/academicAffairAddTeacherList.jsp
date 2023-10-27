@@ -14,8 +14,9 @@
                 <div class="col">
                     <div class="box-section">
                         <div class="app-home__heading">
-                            <div class="header-name d-flex justify-content-between">
-                                <span>Thêm học sinh</span>
+                            <div class="header-name d-flex">
+                                <a href="teacherlistcontroller"><i class="fa-solid fa-arrow-left pe-2 ps-2"></i></a>
+                                <span style="margin-top: 5px">Thêm học sinh</span>
                             </div>
                         </div>
                         <div class="app-home__body m-5">
@@ -32,7 +33,7 @@
                                   </div>
                                   <div class="form-group m-2">
                                         <label class="col-3" style="font-size: 15px">Giới tính</label>
-                                        <select name="gender" class="col-7">
+                                        <select name="gender" class="col-7" style="width: 115px">
                                             <option value="Nam" selected }>Nam</option>
                                             <option value="Nữ" >Nữ</option>
                                         </select>

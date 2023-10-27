@@ -37,10 +37,10 @@
                               <div class="card-body student-profile">
                                 <ul class="profile-info">
                                     <li class="profile-info-item h2 ms-2 mb-4 fw-bold">
-                                      Họ & Tên: ${academicAffair.lastName} ${academicAffair.firstName}
+                                        Họ & Tên: ${sessionScope.academicAffair.lastname} ${sessionScope.academicAffair.firstname}
                                     </li>
                                     <li class="profile-info-item h2 ms-2 mb-4 fw-bold">
-                                      Thời gian công tác
+                                      Thời gian công tác : 2017-2023
                                     </li>
                                     <li class="profile-info-item h2 ms-2 mb-4 fw-bold">
                                       Giới tính: Nam
@@ -68,10 +68,10 @@
                   <div class="tab-content p-3">
                     <div class="tab-pane active">
                       <ul class="general-info-list">
-                        <li class="general-info-item fs-20 mb-2 fw-bold">Ngày, tháng, năm sinh: 01/01/2007</li>
+                        <li class="general-info-item fs-20 mb-2 fw-bold">Ngày, tháng, năm sinh: 13/01/1992</li>
                         <li class="general-info-item fs-20 mb-2 fw-bold">Hộ khẩu thường trú: 86 land, kdt FPT, Đà Nẵng</li>
-                        <li class="general-info-item fs-20 mb-2 fw-bold">Số điện thoại: ${academicAffair.phoneNumber}</li>
-                        <li class="general-info-item fs-20 mb-2 fw-bold">Email: ${academicAffair.email}</li>
+                        <li class="general-info-item fs-20 mb-2 fw-bold">Số điện thoại: ${sessionScope.academicAffair.phone}</li>
+                        <li class="general-info-item fs-20 mb-2 fw-bold">Email: ${sessionScope.academicAffair.email}</li>
                       </ul>
                     </div>
                     </div>

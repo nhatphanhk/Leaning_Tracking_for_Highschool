@@ -15,6 +15,7 @@
                     <div class="box-section">
                         <div class="app-home__heading">
                             <div class="header-name d-flex justify-content-between">
+                                <a href="academicAffairProfile.jsp"><i class="fa-solid fa-arrow-left pe-2 ps-2"></i></a>
                                 <span>Điểm danh</span>
                                 <h3>${msg}</h3>
                                 <form action="list-attendance" method="get">
