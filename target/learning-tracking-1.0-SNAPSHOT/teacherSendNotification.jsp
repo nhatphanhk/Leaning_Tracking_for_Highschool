@@ -36,7 +36,7 @@
                         <div class="header-name d-flex">
                             <a href="teacherHomePage.jsp"><i class="fa-solid fa-arrow-left me-3"></i></a>
                             THÔNG BÁO
-                           <a href="sendNotificationFromTeacher?teacherid=${sessionScope.teacher.teacherid}" class="btn btn-outline-primary ms-auto add-noti">+</a>
+                            <a href="sendNotificationFromTeacher?teacherid=${sessionScope.teacher.teacherid}" class="btn btn-outline-primary ms-auto add-noti">+</a>
                         </div>
 
                     </div>
@@ -47,16 +47,26 @@
                             <div class="grid-item">Tiêu Đề</div>
                             <div class="grid-item">Ngày Gửi</div>
                         </div>
-                         <c:forEach items="${notificationHistory}" var="noti" varStatus="loopStatus">
-                            <div class="grid-container">                          
-                                <div class="grid-item">${loopStatus.index + 1}</div>
-                                <div class="grid-item">${noti.classname}</div>
-                                <div class="grid-item">${noti.title}</div>
-                                <div class="grid-item">${noti.date}</div>
-<!--                                <div class="grid-item">
-                                    <a href="updateNotiFromTeacher?notificationid="><button class="btn btn-success btn-lg rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button></a>
-                                </div>-->
-                            </div>  
+                        <c:forEach items="${notificationHistory}" var="noti" varStatus="loopStatus">
+                            <a href="viewDetailsNotiFromTeacher?notificationid=${noti.notificationid}" class="text-decoration-none">
+                                <div class="grid-container">                                 
+                                    <div class="grid-item">${loopStatus.index + 1}</div>
+                                    <div class="grid-item">${noti.classname}</div>
+                                    <div class="grid-item">${noti.title}</div>
+                                    <div class="grid-item">${noti.date}</div> 
+                                    <div class="grid-item">
+                                        <a role="button" class="btn btn-block nav-link" href="viewDetailNotiTeacherUpdate?notificationid=${noti.notificationid}"
+                                           ><i data-toggle="tooltip" class="fa-solid fa-square-pen"></i>
+                                        </a>
+                                    </div>
+                                    <div class="grid-item">
+                                        <a href="deleteNotificationTeacher?notificationid=${noti.notificationid}" onclick="">
+                                            <i class="fa-solid fa-x"></i>
+                                        </a>
+                                    </div>
+
+                                </div>  
+                            </a>
                         </c:forEach>
                     </div>
                     <div class="navigation me-5">

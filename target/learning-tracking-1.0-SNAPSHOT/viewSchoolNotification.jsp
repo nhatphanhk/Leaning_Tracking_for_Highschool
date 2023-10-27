@@ -40,7 +40,7 @@
                                     <div class="app-home__heading">
                                         <div class="header-name">
                                             <a href="login?email=${sessionScope.account.email}"><i class="fa-solid fa-arrow-left pe-2 ps-2"></i></a>
-                                            Các Thông Báo Từ Trường
+                                            Các Thông Báo Từ Trường
                                         </div>
                                     </div>
 
@@ -48,15 +48,16 @@
                                         <div class="notification-list">
                                             <c:forEach var="x" items="${notification}">
                                                 <div class="notificaiton-item p-4" data-bs-toggle="modal" data-bs-target="#">
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-noti-id="${x.notificationId}">
+                                                    <a href="viewDetailsNotiFromSchool?notificationid=${x.notificationid}" class="text-decoration-none">
                                                         <div class="notifi-heading">
                                                             <div class="notifi-header fs-1">${x.title}</div>
                                                             <div class="notifi-date fs-3">${x.date}</div>
                                                         </div>
-                                                    </a>
+                                                    
                                                     <div class="ps-3 pt-2 notifi-short-content fs-3 " style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap; max-width: 500px">
                                                         ${x.content}
                                                     </div>
+                                                    </a>
                                                 </div>
                                             </c:forEach>
                                         </div>
@@ -67,7 +68,7 @@
                     </div>
                 </div>
             </div>
-           <!--Modal-->
+<!--           Modal
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable">
                     <div class="modal-content">
@@ -76,34 +77,18 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <h3>Tiêu Đề: </h3>${detail-noti.title}
+                            <h3>Tiêu Đề: </h3>
                             <h3>Nội dung: </h3>
-                            <div>${detail-noti.content}</div>
+                            <div></div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
 
-      <!-- Modal Header -->
-            <div class="modal-header m-2">
-                <h2 class="modal-title m-2">Thông báo lịch thi cuối kỳ</h2>
-                 <h2 class="modal-title m-2">17/7/2023</h2>
-                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-             </div>
 
-      <!-- Modal body -->
-
-      <div class="modal-body m-4" style="font-size: 14px">
-                 Chuẩn bị thi rồi các em chăm chỉ học nhé
-            </div>
-
-      <!-- Modal footer -->
-             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-             </div>
 
             </div>
         </div>

@@ -103,6 +103,34 @@
         <servlet-name>ViewApplicationTeacher</servlet-name>
         <servlet-class>Controller.ViewApplicationTeacher</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SchoolNotificationHistory</servlet-name>
+        <servlet-class>Controller.SchoolNotificationHistory</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateNotiFromSchool</servlet-name>
+        <servlet-class>Controller.UpdateNotiFromSchool</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewDetailsNotiFromTeacher</servlet-name>
+        <servlet-class>Controller.ViewDetailsNotiFromTeacher</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewDetailNotificationManager</servlet-name>
+        <servlet-class>Controller.ViewDetailNotificationManager</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewDetailNotiSchoolUpdate</servlet-name>
+        <servlet-class>Controller.ViewDetailNotiSchoolUpdate</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteNotification</servlet-name>
+        <servlet-class>Controller.DeleteNotification</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteNotification</servlet-name>
+        <url-pattern>/deleteNotification</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -110,6 +138,14 @@
     <servlet>
         <servlet-name>StudentProfileController</servlet-name>
         <servlet-class>Controller.StudentProfileController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteNotificationTeacher</servlet-name>
+        <servlet-class>Controller.DeleteNotificationTeacher</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewDetailNotiTeacherUpdate</servlet-name>
+        <servlet-class>Controller.ViewDetailNotiTeacherUpdate</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>StudentProfileController</servlet-name>
@@ -358,6 +394,34 @@
     <servlet-mapping>
         <servlet-name>ViewApplicationTeacher</servlet-name>
         <url-pattern>/viewApplicationTeacher</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SchoolNotificationHistory</servlet-name>
+        <url-pattern>/schoolNotificationHistory</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateNotiFromSchool</servlet-name>
+        <url-pattern>/updateNotiFromSchool</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewDetailsNotiFromTeacher</servlet-name>
+        <url-pattern>/viewDetailsNotiFromTeacher</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewDetailNotificationManager</servlet-name>
+        <url-pattern>/viewDetailNotificationManager</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewDetailNotiSchoolUpdate</servlet-name>
+        <url-pattern>/viewDetailNotiSchoolUpdate</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteNotificationTeacher</servlet-name>
+        <url-pattern>/deleteNotificationTeacher</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewDetailNotiTeacherUpdate</servlet-name>
+        <url-pattern>/viewDetailNotiTeacherUpdate</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

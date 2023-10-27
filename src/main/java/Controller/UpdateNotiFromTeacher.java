@@ -37,7 +37,7 @@ public class UpdateNotiFromTeacher extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet UpdateNotiFromTeacher</title>");            
+            out.println("<title>Servlet UpdateNotiFromTeacher</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet UpdateNotiFromTeacher at " + request.getContextPath() + "</h1>");
@@ -57,21 +57,8 @@ public class UpdateNotiFromTeacher extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {        
-        try {
-            int notificationId = Integer.parseInt(request.getParameter("notificationId"));
-            String title = request.getParameter("title");
-            String content = request.getParameter("content");
-            int classid = Integer.parseInt(request.getParameter("classid"));
-
-            Notification noti = new Notification(notificationId, title, content, classid);
-            Dao dao = Dao.getInstance();
-            dao.updateNotiByTeacher(noti);
-        request.getRequestDispatcher("teacherSendNotification.jsp").forward(request, response);
-
-        } catch (SQLException ex) {
-            Logger.getLogger(UpdateNotiFromTeacher.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            throws ServletException, IOException {
+                processRequest(request, response);
     }
 
     /**
@@ -85,7 +72,19 @@ public class UpdateNotiFromTeacher extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            String notificationid = request.getParameter("notificationid");
+            String title = request.getParameter("title");
+            String content = request.getParameter("content");
+            String classid = request.getParameter("classid");
+
+            Dao dao = Dao.getInstance();
+            dao.updateNoti(title, content, classid, notificationid);
+            request.getRequestDispatcher("teacherUpdateNotification.jsp").forward(request, response);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UpdateNotiFromTeacher.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

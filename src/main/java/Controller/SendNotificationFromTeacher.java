@@ -90,24 +90,7 @@ public class SendNotificationFromTeacher extends HttpServlet {
 
             Dao noti = Dao.getInstance();
             noti.insertNotiTeacher(title, content, currentDate, category, classid, teacherid);
-            
-//        // Nhận tệp tin từ form
-////    Part filePart = request.getPart("attachmentFile"); // Retrieves <input type="file" name="attachmentFile">
-//    String fileName = Paths.get(request.getPart("attachmentFile").getSubmittedFileName()).getFileName().toString(); // Lấy tên tệp tin
-//
-//    // Lưu tệp tin vào máy chủ
-//    String uploadPath = getServletContext().getRealPath("") + File.separator + "uploads";
-//    File uploadDir = new File(uploadPath);
-//    if (!uploadDir.exists()) uploadDir.mkdir(); // Tạo thư mục uploads nếu nó không tồn tại
-//    request.getPart("attachmentFile").write(uploadPath + File.separator + fileName);
-//
-////    // Lưu đường dẫn tệp tin vào session
-////    HttpSession session = request.getSession();
-////    session.setAttribute("filePath", uploadPath + File.separator + fileName);
-//
-//    // Hoặc lưu đường dẫn tệp tin vào cookie
-//    Cookie filePathCookie = new Cookie("filePath", uploadPath + File.separator + fileName);
-//    response.addCookie(filePathCookie);
+
         } catch (SQLException ex) {
             Logger.getLogger(SendNotificationFromTeacher.class.getName()).log(Level.SEVERE, null, ex);
         }
