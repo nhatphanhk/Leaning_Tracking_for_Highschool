@@ -75,7 +75,40 @@ public class Dao implements Serializable {
             + "JOIN [dbo].[subject] m ON m.majorid = n.majorid\n"
             + "WHERE hour = ? AND c.classid = ?";
     private static final String SELECT_TIMETABLE_TEACHER = "SELECT n.activityid, n.[day], n.[hour], n.classid, n.majorid, n.teacherid, n.semesterid, c.classname, m.majorname FROM [dbo].[timetable] n JOIN [dbo].[class] c ON c.classid = n.classid JOIN [dbo].[subject] m ON m.majorid = n.majorid WHERE hour = ? AND teacherid = ?";
+    private static final String SELECT_TEACHER_BY_CLASSID = "select teacher.teacherid, lastname, firstname, major, email, address, phonenumber, dob, gender from teacher inner join class_assign on teacher.teacherid = class_assign.teacherid where class_assign.classid= ?";
+    
+    
+    public List<Teacher> selectTeacherByClassid(String classid){
+        PreparedStatement stm;
+        ResultSet rs;
+        List<Teacher> tc = new ArrayList<>();
 
+    try {
+        String sql = SELECT_TEACHER_BY_CLASSID;
+        stm = conn.prepareStatement(sql);
+        stm.setString(1, classid);
+
+        rs = stm.executeQuery();
+        while (rs.next()) {
+            tc.add(new Teacher(
+                    rs.getString(1), 
+                    rs.getString(2), 
+                    rs.getString(3), 
+                    rs.getString(4), 
+                    rs.getString(5), 
+                    rs.getString(6), 
+                    rs.getString(7), 
+                    rs.getDate(8), 
+                    rs.getBoolean(9)
+            ));}
+        
+    } catch (Exception ex) {
+        Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return tc;
+    }
+    
+    
     public List<Timetable> selectTimetableTeacher(String hour, String teacherid) {
 
         PreparedStatement stm;

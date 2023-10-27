@@ -24,8 +24,8 @@ public class Main {
 //            System.out.println(student);
 //        }
 
-        Staff stf = dao.getAStaffByEmail("academicaffair1@gmail.com");
-        System.out.println(stf);
+       
+        System.out.println(dao.selectTeacherByClassid("1"));
     }
 }
 
