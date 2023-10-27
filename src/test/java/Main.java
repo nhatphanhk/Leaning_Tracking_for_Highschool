@@ -5,6 +5,7 @@ import Model.Notification;
 import Model.Student;
 import Model.Teacher;
 import Model.Class;
+import Model.Staff;
 import Model.Timetable;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -17,11 +18,14 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws SQLException {
 //        
-        Dao studentDAO = new Dao();
-        List<Timetable> students = studentDAO.selectTimetableTeacher("Slot 1", "TC10001");
-        for (Timetable student : students) {
-            System.out.println(student);
-        }
+        Dao dao = new Dao();
+//        List<Timetable> students = studentDAO.selectTimetableTeacher("Slot 1", "TC10001");
+//        for (Timetable student : students) {
+//            System.out.println(student);
+//        }
+
+        Staff stf = dao.getAStaffByEmail("academicaffair1@gmail.com");
+        System.out.println(stf);
     }
 }
 

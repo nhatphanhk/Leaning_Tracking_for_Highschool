@@ -79,13 +79,9 @@
                                                             <td>${a.roleid}</td>
                                                             <td>
                                                                 <a
-<<<<<<< HEAD
                                                                 role="button"
                                                                 class="btn btn-block nav-link"
-                                                                href="./accountManagementFixAcc.jsp"
-=======
                                                                     href="updateaccount?email=${a.email}"
->>>>>>> a7ac4c005fbd4ecb5f3e505d7a722ce9c24a0908
                                                                 ><i class="fa-solid fa-square-pen"></i></a>
                                                             </td>
                                                             <td><a href=""><i class="fa-solid fa-x"></i></a></td>
@@ -105,13 +101,6 @@
                 </div>
             </div>
         </div>
-        
-<<<<<<< HEAD
-       
-
-=======
-        
->>>>>>> a7ac4c005fbd4ecb5f3e505d7a722ce9c24a0908
         <%@ include file="./includes/linkJS.jsp" %>
         <script src="./assets/js/mycode.js"></script>
     </script>

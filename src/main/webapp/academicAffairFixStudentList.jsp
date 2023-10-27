@@ -15,6 +15,7 @@
                     <div class="box-section">
                         <div class="app-home__heading">
                             <div class="header-name d-flex justify-content-between">
+                                <a href="studentlistcontroller"><i class="fa-solid fa-arrow-left pe-2 ps-2"></i></a>
                                 <span>Chỉnh sửa học sinh</span>
                             </div>
                         </div>
@@ -39,7 +40,7 @@
                                   </div>
                                   <div class="form-group m-2">
                                         <label class="col-3" style="font-size: 15px">Giới tính</label>
-                                        <select name="gender" class="col-7">
+                                        <select name="gender" class="col-7" style="width: 115px">
                                             <option value="Nam" ${(requestScope.st.gender == true) ? 'selected' : ''}>Nam</option>
                                             <option value="Nữ" ${(requestScope.st.gender == false) ? 'selected' : ''}>Nữ</option>
                                             <c:if test=""></c:if>

@@ -14,13 +14,14 @@
                     <div class="box-section">
                         <div class="app-home__heading">
                             <div class="header-name d-flex justify-content-between">
+                                <a href="academicAffairProfile.jsp"><i class="fa-solid fa-arrow-left pe-2 ps-2"></i></a>
                                 <span>Danh sách học sinh</span>
                             </div>
                         </div>
                         <div class="app-home__body m-5">
                             <form action="">
                                 <div class="row acaAff-files d-flex">
-                                    <a href="addstudent"><button type="button" class="col-2 acaAff-btn" >Thêm</button></a>
+                                    <a class="col-2" href="addstudent"><button type="button" class="col-2 acaAff-btn" >Thêm</button></a>
                                      
                                      <span class="col" ></span>
                                      <a class="col-2 acaAff-btn ">Import</a>

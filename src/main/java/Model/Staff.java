@@ -9,20 +9,18 @@ public class Staff {
     private String lastname;
     private String firstname;
     private String email;
-    private int phone;
+    private String phone;
 
     public Staff() {
     }
 
-
-    // select staff by staffid
-    public Staff(String staffid, String lastname, String firstname, String email, int phone) {
+    public Staff(String staffid, String lastname, String firstname, String email, String phone) {
         this.staffid = staffid;
         this.lastname = lastname;
         this.firstname = firstname;
         this.email = email;
         this.phone = phone;
-    }    
+    }
 
     public String getStaffid() {
         return staffid;
@@ -56,13 +54,16 @@ public class Staff {
         this.email = email;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
+
+
+  
 
     @Override
     public String toString() {
