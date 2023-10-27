@@ -28,6 +28,7 @@ D:\Java-space-1\Leaning_Tracking_for_Highschool\src\main\java\Controller\LockMar
 D:\Java-space-1\Leaning_Tracking_for_Highschool\src\main\java\Controller\NotificationFromSchool.java
 D:\Java-space-1\Leaning_Tracking_for_Highschool\src\main\java\Controller\NotificationFromTeacher.java
 D:\Java-space-1\Leaning_Tracking_for_Highschool\src\main\java\Controller\ViewTimetableStudent.java
+D:\Java-space-1\Leaning_Tracking_for_Highschool\src\main\java\Controller\GetTeacherByClassid.java
 D:\Java-space-1\Leaning_Tracking_for_Highschool\src\main\java\Controller\StudentListController.java
 D:\Java-space-1\Leaning_Tracking_for_Highschool\src\main\java\Controller\SendApplicationStudent.java
 D:\Java-space-1\Leaning_Tracking_for_Highschool\src\main\java\Controller\UpdateNotiFromTeacher.java
@@ -35,6 +36,7 @@ D:\Java-space-1\Leaning_Tracking_for_Highschool\src\main\java\Model\Mark.java
 D:\Java-space-1\Leaning_Tracking_for_Highschool\src\main\java\Controller\DetailsNotification.java
 D:\Java-space-1\Leaning_Tracking_for_Highschool\src\main\java\Controller\NotificationTeacherPage.java
 D:\Java-space-1\Leaning_Tracking_for_Highschool\src\main\java\Controller\test.java
+D:\Java-space-1\Leaning_Tracking_for_Highschool\src\main\java\Controller\AddAccountController.java
 D:\Java-space-1\Leaning_Tracking_for_Highschool\src\main\java\Controller\UpdateMarkController.java
 D:\Java-space-1\Leaning_Tracking_for_Highschool\src\main\java\Model\Student.java
 D:\Java-space-1\Leaning_Tracking_for_Highschool\src\main\java\Controller\ViewMarkController.java

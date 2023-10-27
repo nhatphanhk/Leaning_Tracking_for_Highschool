@@ -30,6 +30,7 @@ Controller\ViewMarkController.class
 Controller\DetailsNotification.class
 Controller\SendApplicationStudent.class
 Controller\UpdateNotiFromTeacher.class
+Controller\AddAccountController.class
 Controller\InsertApplicationStudent.class
 Model\AcademicAffair.class
 Controller\SendEmailController$1.class
@@ -52,10 +53,8 @@ Model\Staff.class
 Model\AttendanceList.class
 Controller\Config.class
 Controller\ViewApplicationHistoryStudent.class
-Controller\UpdateAccountController.class
 Controller\ViewApplicationTeacher.class
 Controller\AddStudentController.class
 Controller\LoginController.class
-DAO\DBUtil.class
 Model\Major.class
 Controller\TeacherNotificationHistory.class

@@ -103,9 +103,13 @@
         <servlet-name>ViewApplicationTeacher</servlet-name>
         <servlet-class>Controller.ViewApplicationTeacher</servlet-class>
     </servlet>
-     <servlet>
+    <servlet>
         <servlet-name>AddAccountController</servlet-name>
         <servlet-class>Controller.AddAccountController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetTeacherListByClassid</servlet-name>
+        <servlet-class>Controller.GetTeacherListByClassid</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -366,6 +370,10 @@
     <servlet-mapping>
         <servlet-name>AddAccountController</servlet-name>
         <url-pattern>/addaccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetTeacherListByClassid</servlet-name>
+        <url-pattern>/list-teacher</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

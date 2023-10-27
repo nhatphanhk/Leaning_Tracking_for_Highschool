@@ -79,7 +79,7 @@ public class UpdateAccountController extends HttpServlet {
             request.setAttribute("account", acc);
             request.getRequestDispatcher("accountManagementFixAcc.jsp").forward(request, response);
             }
-        }
+        }}
 
     /** 
      * Handles the HTTP <code>POST</code> method.
