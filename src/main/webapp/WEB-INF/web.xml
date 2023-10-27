@@ -363,6 +363,10 @@
         <servlet-name>ViewApplicationTeacher</servlet-name>
         <url-pattern>/viewApplicationTeacher</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddAccountController</servlet-name>
+        <url-pattern>/addaccount</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             60
