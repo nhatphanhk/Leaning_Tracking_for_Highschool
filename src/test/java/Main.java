@@ -1,60 +1,54 @@
 
 import DAO.Dao;
+import Model.Application;
 import Model.Notification;
 import Model.Student;
 import Model.Teacher;
+import Model.Class;
+import Model.Staff;
+import Model.Timetable;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Other/File.java to edit this template
- */
-
-/**
- *
- * @author tramy
+	@@ -18,24 +22,33 @@
  */
 public class Main {
     public static void main(String[] args) throws SQLException {
-        
-        Dao studentDAO = new Dao();
-        List<Notification> students = studentDAO.selectAllNotiTeacherPage("TC10001");
-        for (Notification student : students) {
-            System.out.println(student);
-        }
-//
-//        Dao notiDAO = new Dao();
-//       // Định nghĩa các giá trị mẫu
-//    String title = "Test Title";
-//    String content = "Test Content";
-//    LocalDate date = LocalDate.now();
-//    int category = 2;
-//    int classid = 1;
-
-    // Gọi hàm insertNotiTeacher với các giá trị mẫu
-//    try {
-//        notiDAO.insertNotiTeacher(title, content, date, category, classid);
-//        System.out.println("Thông báo đã được thêm thành công!");
-//    } catch (SQLException e) {
-//        e.printStackTrace();
-//    }
-//        for (Notification noti : notis) {
-//            Teacher teacher = noti.getTeacher();
-//            if (teacher != null) {
-//                System.out.println("Notification ID: " + noti.getNotificationId());
-//                System.out.println("Teacher Name: " + teacher.getFirstName() + " " + teacher.getLastName());
-//            }
-//        }
-//        for (Notification noti : notis) {
-//            System.out.println(noti);
+//        
+        Dao dao = new Dao();
+//        List<Timetable> students = studentDAO.selectTimetableTeacher("Slot 1", "TC10001");
+//        for (Timetable student : students) {
+//            System.out.println(student);
 //        }
 
-        
-
+        Staff stf = dao.getAStaffByEmail("academicaffair1@gmail.com");
+        System.out.println(stf);
     }
 }
 
+//        Notification classN = studentDAO.selectNotiByNotiId("7");
+//        System.out.println(classN);
 
 
+
+
+
+//
+//        Dao notiDAO = new Dao();
+////       // Định nghĩa các giá trị mẫu
+//    String title = "Test Title";
+//    String content = "";
+//    LocalDate date = LocalDate.now();
+////    int category = 2;
+//    String studentid = "ST10001";
+////    String teacherid = "TC10001";
+//
+//    // Gọi hàm insertNotiTeacher với các giá trị mẫu
+//    try {
+//        notiDAO.insertApplicationStudent(title, content, date, studentid);
+//        System.out.println("Thông báo đã được thêm thành công!");
+//    } catch (SQLException e) {
+//        e.printStackTrace();

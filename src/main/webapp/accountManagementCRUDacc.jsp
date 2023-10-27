@@ -48,8 +48,7 @@
                                                 <a
                                                     role="button"
                                                     class="btn btn-block nav-link"
-                                                    data-bs-toggle="modal" 
-                                                    data-bs-target="#AddAccountModal"
+                                                    href="./accountManagementAddAcc.jsp"
                                                     ><i class="fa-solid fa-square-plus"></i></a>
                                             </div>
                                         </div>
@@ -80,6 +79,8 @@
                                                             <td>${a.roleid}</td>
                                                             <td>
                                                                 <a
+                                                                role="button"
+                                                                class="btn btn-block nav-link"
                                                                     href="updateaccount?email=${a.email}"
                                                                 ><i class="fa-solid fa-square-pen"></i></a>
                                                             </td>
@@ -100,8 +101,6 @@
                 </div>
             </div>
         </div>
-        
-        
         <%@ include file="./includes/linkJS.jsp" %>
         <script src="./assets/js/mycode.js"></script>
     </script>

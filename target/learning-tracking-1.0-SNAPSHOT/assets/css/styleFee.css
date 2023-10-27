@@ -1,0 +1,31 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Oct 24, 2023, 1:36:41 AM
+    Author     : nhatp
+*/
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"] + label:before {
+    content: "\2610";
+    display: inline-block;
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+input[type="checkbox"]:checked + label:before {
+    content: "\2611";
+    color: green;
+}
+

@@ -22,6 +22,7 @@ public class Notification {
     private Teacher teacher;
     private String classname;
     private Boolean readStatus;
+//    private Class classname;
 
     // Getters and Setters
     public int getNotificationId() {
@@ -31,7 +32,17 @@ public class Notification {
     public Notification() {
     }
 
-    public Notification(int notificationId, String title, String content, Date date, int categoryId, int classid, String teacherid, Teacher teacher, String classname) {
+    
+    // UPDATE NOTI BY TEACHER
+    public Notification(int notificationId, String title, String content, int classid) {    
+        this.notificationId = notificationId;
+        this.title = title;
+        this.content = content;
+        this.classid = classid;
+    }
+
+    // SELECT ALL NOTI TEACHER PAGE
+    public Notification(int notificationId, String title, String content, Date date, int categoryId, int classid, String teacherid, String classname) {
         this.notificationId = notificationId;
         this.title = title;
         this.content = content;
@@ -39,21 +50,21 @@ public class Notification {
         this.categoryId = categoryId;
         this.classid = classid;
         this.teacherid = teacherid;
-        this.teacher = teacher;
         this.classname = classname;
     }
     
     
-
-    public Notification(int notificationId, String title, String content, Date date, int categoryId) {
+    // SELECT NOTI BY NOTI ID
+    public Notification(int notificationId, String title, String content, Date date, int categoryId, String teacherid) {
         this.notificationId = notificationId;
         this.title = title;
         this.content = content;
         this.date = date;
         this.categoryId = categoryId;
+        this.teacherid = teacherid;
     }
 
-    public Notification(int notificationId, String title, String content, Date date, int categoryId, int classid, String teacherid, Teacher teacher) {
+    public Notification(int notificationId, String title, String content, Date date, int categoryId,String teacherid, int classid, Teacher teacher) {
         this.notificationId = notificationId;
         this.title = title;
         this.content = content;
@@ -63,6 +74,25 @@ public class Notification {
         this.teacherid = teacherid;
         this.teacher = teacher;
     }
+
+    public Notification(int notificationId, String title, String content, int categoryId, int classid, String teacherid) {
+        this.notificationId = notificationId;
+        this.title = title;
+        this.content = content;
+        this.categoryId = categoryId;
+        this.classid = classid;
+        this.teacherid = teacherid;
+    }
+
+    public String getclassname() {
+        return classname;
+    }
+
+    public void setclassname(String classname) {
+        this.classname = classname;
+    }
+    
+    
 
     public Boolean getReadStatus() {
         return readStatus;
@@ -71,6 +101,14 @@ public class Notification {
     public void setReadStatus(Boolean readStatus) {
         this.readStatus = readStatus;
     }
+
+//    public Class getclassname() {
+//        return classname;
+//    }
+//
+//    public void setclassname(Class classname) {
+//        this.classname = classname;
+//    }
 
 
     public Teacher getTeacher() {
@@ -135,8 +173,13 @@ public class Notification {
 
     @Override
     public String toString() {
-        return "Notification{" + "notificationId=" + notificationId + ", title=" + title + ", content=" + content + ", date=" + date + ", categoryId=" + categoryId + ", classid=" + classid + ", teacherid=" + teacherid + '}';
+        return "Notification{" + "notificationId=" + notificationId + ", title=" + title + ", content=" + content + ", date=" + date + ", categoryId=" + categoryId + ", classid=" + classid + ", classname=" + classname + ", teacherid=" + teacherid + '}';
     }
+
+//    @Override
+//    public String toString() {
+//        return "Notification{" + "notificationId=" + notificationId + ", title=" + title + ", content=" + content + ", date=" + date + ", categoryId=" + categoryId + ", classid=" + classid + ", teacherid=" + teacherid + ", teacher=" + teacher + ", classname=" + classname + '}';
+//    }
 
     
 

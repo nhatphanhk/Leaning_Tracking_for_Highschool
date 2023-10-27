@@ -8,6 +8,38 @@
         <servlet-class>Controller.LoginController</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ViewDetailsNotiFromSchool</servlet-name>
+        <servlet-class>Controller.ViewDetailsNotiFromSchool</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SendApplicationStudent</servlet-name>
+        <servlet-class>Controller.SendApplicationStudent</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InsertApplicationStudent</servlet-name>
+        <servlet-class>Controller.InsertApplicationStudent</servlet-class>
+    </servlet>
+    <!--    <servlet>
+        <servlet-name>ViewApplicationHistoryStudent</servlet-name>
+        <servlet-class>Controller.ViewApplicationHistoryStudent</servlet-class>
+    </servlet>-->
+    <!--    <servlet>
+        <servlet-name>ViewApplicationTeacher</servlet-name>
+        <servlet-class>Controller.ViewApplicationTeacher</servlet-class>
+    </servlet>-->
+    <servlet>
+        <servlet-name>LoadTimetable</servlet-name>
+        <servlet-class>Controller.LoadTimetable</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewTimetableTeacher</servlet-name>
+        <servlet-class>Controller.ViewTimetableTeacher</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewTimetableStudent</servlet-name>
+        <servlet-class>Controller.ViewTimetableStudent</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>TeacherListController</servlet-name>
         <servlet-class>Controller.TeacherListController</servlet-class>
     </servlet>
@@ -55,9 +87,21 @@
         <servlet-name>AttendanceStatusController</servlet-name>
         <servlet-class>Controller.AttendanceStatusController</servlet-class>
     </servlet>
-      <servlet>
+    <servlet>
         <servlet-name>LockMark</servlet-name>
         <servlet-class>Controller.LockMark</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Payment</servlet-name>
+        <servlet-class>Controller.Payment</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewApplicationHistoryStudent</servlet-name>
+        <servlet-class>Controller.ViewApplicationHistoryStudent</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewApplicationTeacher</servlet-name>
+        <servlet-class>Controller.ViewApplicationTeacher</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -187,14 +231,6 @@
         <servlet-name>ChangeForgotPasswordController</servlet-name>
         <url-pattern>/change-forgot-password</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>NotificationTeacherPage</servlet-name>
-        <servlet-class>Controller.NotificationTeacherPage</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>NotificationTeacherPage</servlet-name>
-        <url-pattern>/notificationTeacherPage</url-pattern>
-    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>TeacherNotificationHistory</servlet-name>
         <url-pattern>/teacherNotificationHistory</url-pattern>
@@ -234,8 +270,8 @@
     <servlet-mapping>
         <servlet-name>UpdateAccountController</servlet-name>
         <url-pattern>/updateaccount</url-pattern>
-        </servlet-mapping>
-        <servlet-mapping>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>CheckAttendanceList</servlet-name>
         <url-pattern>/list-attendance</url-pattern>
     </servlet-mapping>
@@ -244,12 +280,84 @@
         <url-pattern>/check-attendance</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-    <servlet-name>AttendanceStatusController</servlet-name>
-    <url-pattern>/attendance-status</url-pattern>
-</servlet-mapping>
-  <servlet-mapping>
+        <servlet-name>AttendanceStatusController</servlet-name>
+        <url-pattern>/attendance-status</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>LockMark</servlet-name>
         <url-pattern>/LockMark</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Payment</servlet-name>
+        <url-pattern>/Payment</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ajaxServlet</servlet-name>
+        <servlet-class>com.vnpay.common.ajaxServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>vnpayQuery</servlet-name>
+        <servlet-class>com.vnpay.common.vnpayQuery</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>vnpayRefund</servlet-name>
+        <servlet-class>com.vnpay.common.vnpayRefund</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ajaxServlet</servlet-name>
+        <url-pattern>/vnpayajax/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>vnpayQuery</servlet-name>
+        <url-pattern>/vnpayquery/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>vnpayRefund</servlet-name>
+        <url-pattern>/vnpayrefund/*</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UpdateNotiFromTeacher</servlet-name>
+        <servlet-class>Controller.UpdateNotiFromTeacher</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateNotiFromTeacher</servlet-name>
+        <url-pattern>/updateNotiFromTeacher</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewDetailsNotiFromSchool</servlet-name>
+        <url-pattern>/viewDetailsNotiFromSchool</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SendApplicationStudent</servlet-name>
+        <url-pattern>/sendApplicationStudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertApplicationStudent</servlet-name>
+        <url-pattern>/insertApplicationStudent</url-pattern>
+    </servlet-mapping>
+    <!--    <servlet-mapping>
+        <servlet-name>ViewApplicationHistoryStudent</servlet-name>
+        <url-pattern>/viewApplicationHistoryStudent</url-pattern>
+    </servlet-mapping>-->
+    <servlet-mapping>
+        <servlet-name>LoadTimetable</servlet-name>
+        <url-pattern>/loadTimetable</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewTimetableTeacher</servlet-name>
+        <url-pattern>/viewTimetableTeacher</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewTimetableStudent</servlet-name>
+        <url-pattern>/viewTimetableStudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewApplicationHistoryStudent</servlet-name>
+        <url-pattern>/viewApplicationHistoryStudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewApplicationTeacher</servlet-name>
+        <url-pattern>/viewApplicationTeacher</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

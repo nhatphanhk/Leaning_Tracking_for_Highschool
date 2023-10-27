@@ -76,7 +76,7 @@
                             </button>
                         </div>
                         <div class="text-center pb-3">
-                            <a href="sendEmail.jsp">Quên mật khẩu?</a>
+                            <a href="">Quên mật khẩu?</a>
                         </div>
                     </form>
                 </div>
@@ -92,5 +92,6 @@
                 }
             }
         </script>
+        <script src="/assets/js/firebase.js"></script>
     </body>
 </html>

@@ -3,6 +3,7 @@
     Created on : Sep 22, 2023, 10:03:55 AM
     Author     : htk09
 --%>
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -68,283 +69,111 @@
                                   <tr>
                                     <td rowspan="5" class="align-middle">Sáng</td>
                                     <td>1</td>
+                                    <c:forEach var="x" items="${timetableTeacher0}">
                                     <td>
-                                        Toán
-                                        <h5>10A3</h5>
+                                        ${x.majorname}
+                                        <h5>${x.classname}</h5>
                                     </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
+                                    </c:forEach>
+                                    <td>                                  
                                     </td>
                                     <td></td>
                                   </tr>
                                   <tr>
                                       <td>2</td>
-                                      <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
+                                      <c:forEach var="x" items="${timetableTeacher1}">
                                     <td>
-                                        Toán
-                                        <h5>10A3</h5>
+                                        ${x.majorname}
+                                        <h5>${x.classname}</h5>
                                     </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
+                                    </c:forEach>
                                       <td></td>
                                     </tr>
                                     <tr>
                                       <td>3</td>
-                                      <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
+                                      <c:forEach var="x" items="${timetableTeacher2}">
                                     <td>
-                                        Toán
-                                        <h5>10A3</h5>
+                                        ${x.majorname}
+                                        <h5>${x.classname}</h5>
                                     </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
+                                    </c:forEach>
                                       <td></td>
                                     </tr>
                                     <tr>
                                       <td>4</td>
-                                      <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
+                                      <c:forEach var="x" items="${timetableTeacher3}">
                                     <td>
-                                        Toán
-                                        <h5>10A3</h5>
+                                        ${x.majorname}
+                                        <h5>${x.classname}</h5>
                                     </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
+                                    </c:forEach>
                                       <td></td>
                                     </tr>
                                     <tr>
                                       <td>5</td>
-                                      <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
+                                      <c:forEach var="x" items="${timetableTeacher4}">
                                     <td>
-                                        Toán
-                                        <h5>10A3</h5>
+                                        ${x.majorname}
+                                        <h5>${x.classname}</h5>
                                     </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
+                                    </c:forEach>
+                                    
                                       <td></td>
                                     </tr>
                                     <tr>
                                         <td rowspan="5" class="align-middle">Chiều</td>
                                         <td>1</td>
-                                        <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
+                                        <c:forEach var="x" items="${timetableTeacher5}">
                                     <td>
-                                        Toán
-                                        <h5>10A3</h5>
+                                        ${x.majorname}
+                                        <h5>${x.classname}</h5>
                                     </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
+                                    </c:forEach>
+                                    
                                         <td></td>
                                       </tr>
                                       <tr>
                                           <td>2</td>
-                                          <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
+                                          <c:forEach var="x" items="${timetableTeacher6}">
                                     <td>
-                                        Toán
-                                        <h5>10A3</h5>
+                                        ${x.majorname}
+                                        <h5>${x.classname}</h5>
                                     </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
+                                    </c:forEach>
+                                   
                                           <td></td>
                                         </tr>
                                         <tr>
                                           <td>3</td>
-                                          <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
+                                          <c:forEach var="x" items="${timetableTeacher7}">
                                     <td>
-                                        Toán
-                                        <h5>10A3</h5>
+                                        ${x.majorname}
+                                        <h5>${x.classname}</h5>
                                     </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
+                                    </c:forEach>
+                                    
                                           <td></td>
                                         </tr>
                                         <tr>
                                           <td>4</td>
-                                          <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
+                                          <c:forEach var="x" items="${timetableTeacher8}">
                                     <td>
-                                        Toán
-                                        <h5>10A3</h5>
+                                        ${x.majorname}
+                                        <h5>${x.classname}</h5>
                                     </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
+                                    </c:forEach>
+                                    
                                           <td></td>
                                         </tr>
                                         <tr>
                                           <td>5</td>
-                                          <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
+                                          <c:forEach var="x" items="${timetableTeacher0}">
                                     <td>
-                                        Toán
-                                        <h5>10A3</h5>
+                                        ${x.majorname}
+                                        <h5>${x.classname}</h5>
                                     </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
-                                    <td>
-                                        Toán
-                                        <h5>10A3</h5>
-                                    </td>
+                                    </c:forEach>
+                                    
                                           <td></td>
                                         </tr>
                                 </tbody>
@@ -366,4 +195,3 @@
     </script>
   </body>
 </html>
-
