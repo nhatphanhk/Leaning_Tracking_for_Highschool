@@ -12,11 +12,11 @@ import java.sql.Date;
  */
 public class Notification {
 
-    private int notificationId;
+    private int notificationid;
     private String title;
     private String content;
     private Date date;
-    private int categoryId;
+    private int categoryid;
     private int classid;
     private String teacherid;
     private Teacher teacher;
@@ -25,8 +25,8 @@ public class Notification {
 //    private Class classname;
 
     // Getters and Setters
-    public int getNotificationId() {
-        return notificationId;
+    public int getnotificationid() {
+        return notificationid;
     }
 
     public Notification() {
@@ -34,20 +34,20 @@ public class Notification {
 
     
     // UPDATE NOTI BY TEACHER
-    public Notification(int notificationId, String title, String content, int classid) {    
-        this.notificationId = notificationId;
+    public Notification(int notificationid, String title, String content, int classid) {    
+        this.notificationid = notificationid;
         this.title = title;
         this.content = content;
         this.classid = classid;
     }
 
     // SELECT ALL NOTI TEACHER PAGE
-    public Notification(int notificationId, String title, String content, Date date, int categoryId, int classid, String teacherid, String classname) {
-        this.notificationId = notificationId;
+    public Notification(int notificationid, String title, String content, Date date, int categoryid, int classid, String teacherid, String classname) {
+        this.notificationid = notificationid;
         this.title = title;
         this.content = content;
         this.date = date;
-        this.categoryId = categoryId;
+        this.categoryid = categoryid;
         this.classid = classid;
         this.teacherid = teacherid;
         this.classname = classname;
@@ -55,31 +55,41 @@ public class Notification {
     
     
     // SELECT NOTI BY NOTI ID
-    public Notification(int notificationId, String title, String content, Date date, int categoryId, String teacherid) {
-        this.notificationId = notificationId;
+    public Notification(int notificationid, String title, String content, Date date, int categoryid, String teacherid) {
+        this.notificationid = notificationid;
         this.title = title;
         this.content = content;
         this.date = date;
-        this.categoryId = categoryId;
+        this.categoryid = categoryid;
         this.teacherid = teacherid;
     }
-
-    public Notification(int notificationId, String title, String content, Date date, int categoryId,String teacherid, int classid, Teacher teacher) {
-        this.notificationId = notificationId;
+    // SELECT NOTI TEACHER BY NOTI ID
+    public Notification(int notificationid, String title, String content, Date date, int categoryid, String teacherid, String classname) {
+        this.notificationid = notificationid;
         this.title = title;
         this.content = content;
         this.date = date;
-        this.categoryId = categoryId;
+        this.categoryid = categoryid;
+        this.teacherid = teacherid;
+        this.classname = classname;
+    }
+
+    public Notification(int notificationid, String title, String content, Date date, int categoryid,String teacherid, int classid, Teacher teacher) {
+        this.notificationid = notificationid;
+        this.title = title;
+        this.content = content;
+        this.date = date;
+        this.categoryid = categoryid;
         this.classid = classid;
         this.teacherid = teacherid;
         this.teacher = teacher;
     }
 
-    public Notification(int notificationId, String title, String content, int categoryId, int classid, String teacherid) {
-        this.notificationId = notificationId;
+    public Notification(int notificationid, String title, String content, int categoryid, int classid, String teacherid) {
+        this.notificationid = notificationid;
         this.title = title;
         this.content = content;
-        this.categoryId = categoryId;
+        this.categoryid = categoryid;
         this.classid = classid;
         this.teacherid = teacherid;
     }
@@ -135,8 +145,8 @@ public class Notification {
         this.classid = classid;
     }
 
-    public void setNotificationId(int notificationId) {
-        this.notificationId = notificationId;
+    public void setnotificationid(int notificationid) {
+        this.notificationid = notificationid;
     }
 
     public String getTitle() {
@@ -163,22 +173,22 @@ public class Notification {
         this.date = date;
     }
 
-    public int getCategoryId() {
-        return categoryId;
+    public int getcategoryid() {
+        return categoryid;
     }
 
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
+    public void setcategoryid(int categoryid) {
+        this.categoryid = categoryid;
     }
 
     @Override
     public String toString() {
-        return "Notification{" + "notificationId=" + notificationId + ", title=" + title + ", content=" + content + ", date=" + date + ", categoryId=" + categoryId + ", classid=" + classid + ", classname=" + classname + ", teacherid=" + teacherid + '}';
+        return "Notification{" + "notificationid=" + notificationid + ", title=" + title + ", content=" + content + ", date=" + date + ", categoryid=" + categoryid + ", classid=" + classid + ", classname=" + classname + ", teacherid=" + teacherid + '}';
     }
 
 //    @Override
 //    public String toString() {
-//        return "Notification{" + "notificationId=" + notificationId + ", title=" + title + ", content=" + content + ", date=" + date + ", categoryId=" + categoryId + ", classid=" + classid + ", teacherid=" + teacherid + ", teacher=" + teacher + ", classname=" + classname + '}';
+//        return "Notification{" + "notificationid=" + notificationid + ", title=" + title + ", content=" + content + ", date=" + date + ", categoryid=" + categoryid + ", classid=" + classid + ", teacherid=" + teacherid + ", teacher=" + teacher + ", classname=" + classname + '}';
 //    }
 
     

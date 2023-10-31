@@ -47,6 +47,7 @@
                                         <div class="notification-list">
                                             <c:forEach var="x" items="${notifications}">
                                                 <div class="notificaiton-item p-4">
+                                                    <a href="viewDetailsNotiFromSchool?notificationid=${x.notificationid}" class="text-decoration-none">
                                                     <div class="notifi-heading">
                                                         <div class="notifi-header fs-1">${x.title}</div>
                                                         <div class="notifi-date fs-3">${x.date}</div>
@@ -57,6 +58,7 @@
                                                         </p>
                                                         <div class="ms-auto ps-3 pt-2 notifi-teacher-name fs-3">${x.teacher.firstname} ${x.teacher.lastname}</div>
                                                     </div>
+                                                    </a>
                                                 </div>
                                             </c:forEach>
                                         </div>

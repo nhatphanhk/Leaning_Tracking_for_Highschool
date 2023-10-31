@@ -39,9 +39,9 @@
                                             Danh sách học sinh
                                             <form action="student-list" method="get">
                                                 <div class="search">
-                                                    <div class="search-btn-contain" style="right:80px;">
-                                                        <select id="classid" name="classid" class="form-select" aria-label="Default select example" onchange="changeClassName()">
-                                                            <option selected>Chọn Lớp</option>
+                                                    <div class="search-btn-contain" style="right:100px ">
+                                                        <select id="classid" name="classid" class="form-select" style="font-size: 15px" aria-label="Default select example" onchange="changeClassName()">
+                                                            <option selected>Chọn Lớp</option
                                                             <option value="1">10A1</option>
                                                             <option value="2">10A2</option>
                                                             <option value="3">10A3</option>

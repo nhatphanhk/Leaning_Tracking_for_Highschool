@@ -60,7 +60,7 @@ public class SendNotificationFromSchool extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        request.getRequestDispatcher("accountManagementCRUDNoti.jsp").forward(request, response);
     }
 
     /**
@@ -83,7 +83,7 @@ public class SendNotificationFromSchool extends HttpServlet {
 
             Dao noti = Dao.getInstance();
             noti.insertNotiSchool(title, content, currentDate, category);
-            response.sendRedirect("teacherSendNotification.jsp");
+            response.sendRedirect("schoolNotificationHistory");
         } catch (SQLException ex) {
             Logger.getLogger(SendNotificationFromSchool.class.getName()).log(Level.SEVERE, null, ex);
         }

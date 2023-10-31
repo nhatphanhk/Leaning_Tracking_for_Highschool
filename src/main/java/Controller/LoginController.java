@@ -122,6 +122,7 @@ public class LoginController extends HttpServlet {
                     Student st = dao.getAStudentByEmail(email);
                     String classIdAsString = String.valueOf(st.getClassid());
                     List<Notification> notis = dao.selectAllNotiTeacher("2", classIdAsString);
+                    
                     session.setAttribute("notifications", notis);
                     session.setAttribute("notification", noti);
                     String studentid = st.getStudentid();
@@ -145,6 +146,8 @@ public class LoginController extends HttpServlet {
                 case 3:
                     session.setAttribute("account", acc);
                     session.setAttribute("accountManager", stf);
+                    String staffid = stf.getStaffid();
+                    session.setAttribute("staffid", staffid);
                     request.getRequestDispatcher("accountManagementProfile.jsp").forward(request, response);
                 case 4:
                     session.setAttribute("account", acc);

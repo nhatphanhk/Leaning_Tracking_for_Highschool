@@ -17,6 +17,7 @@
             integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
             crossorigin="anonymous"
             />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
         <link rel="stylesheet" href="./assets/css/base.css" />
         <link rel="stylesheet" href="./assets/css/style.css" />
         <title>MS</title>
