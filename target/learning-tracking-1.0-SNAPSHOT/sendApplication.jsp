@@ -77,7 +77,7 @@
                                                     </div>                         
                                                 </div>
                                             </div>
-                                            <a href="sendApplicationStudent?value=File.zip">Tải về</a>
+                                            <a href="sendApplicationStudent?value=File.zip" >Tải về</a>
                                         </div>
 
                                         <div class="row px-5 mx-5 my-5">
@@ -89,7 +89,7 @@
                                             <div class="col-9">
                                                 <div class="form-group">
                                                     <label for="attachmentFile" class="form-label">File đính kèm:</label>
-                                                    <input type="file" class="form-control" id="attachmentFile" name="attachmentFile">
+                                                    <input type="file" class="form-control" id="attachmentFile" name="attachmentFile" required>
                                                 </div>
                                             </div>
                                             <input type="hidden" name="studentid" value="" />

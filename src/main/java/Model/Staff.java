@@ -14,6 +14,8 @@ public class Staff {
     public Staff() {
     }
 
+
+    // select staff by staffid
     public Staff(String staffid, String lastname, String firstname, String email, String phone) {
         this.staffid = staffid;
         this.lastname = lastname;

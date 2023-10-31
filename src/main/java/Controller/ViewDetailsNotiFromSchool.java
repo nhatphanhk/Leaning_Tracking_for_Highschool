@@ -5,10 +5,10 @@ import Model.Notification;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 /**
  *
@@ -54,11 +54,11 @@ public class ViewDetailsNotiFromSchool extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String notificationId = request.getParameter("notificationId");
+        String notificationid = request.getParameter("notificationid");
         Dao notiDAO = new Dao();
-        Notification noti = notiDAO.selectNotiByNotiId(notificationId);
-        request.setAttribute("detail-noti", noti);
-        request.getRequestDispatcher("viewSchoolNotification.jsp").forward(request, response);
+        Notification noti = notiDAO.selectNotiByNotiId(notificationid);
+        request.setAttribute("detailNoti", noti);
+        request.getRequestDispatcher("/notificationDetails.jsp").forward(request, response);
     }
 
     /**

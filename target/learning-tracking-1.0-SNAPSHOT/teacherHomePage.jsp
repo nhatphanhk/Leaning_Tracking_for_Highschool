@@ -103,7 +103,6 @@
                                         <a href="notificationSchool?teacherid=${sessionScope.teacher.teacherid}" style="text-decoration: none">
                                             <div class="header-name">
                                                 <i class="fa-solid fa-bell pe-2 ps-2"></i>
-                                                <span class="header-notice">2</span>
                                                 Thông báo từ nhà trường
                                             </div>
                                         </a>

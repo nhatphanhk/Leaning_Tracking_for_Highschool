@@ -63,7 +63,7 @@
                                                             <td>${app.category}</td>
                                                             <td>${app.title}̉</td>
                                                             <td>${app.date}</td>
-                                                            <td>Đã nhận</td>
+                                                            <td>Đã gửi thành công</td>
                                                         </tr>  
                                                     </c:forEach>
                                                 </tbody>

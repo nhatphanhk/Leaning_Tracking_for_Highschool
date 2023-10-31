@@ -48,12 +48,12 @@
                     <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNavDropdown">
                         <ul class="navbar-nav ms-3">
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Thông Báo
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="accountManagementViewNoti.jsp">Tất cả thông báo</a></li>
-                                    <li><a class="dropdown-item" href="accountManagementCRUDNoti.jsp">Gửi Thông Báo</a></li>
+                                    <li><a class="dropdown-item" href="schoolNotificationHistory?staffid=${sessionScope.accountManager.staffid}">Tất cả thông báo</a></li>
+                                    <li><a class="dropdown-item" href="sendNotificationFromSchool?staffid=${sessionScope.accountManager.staffid}">Gửi Thông Báo</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item">

@@ -3,7 +3,7 @@
     Created on : Oct 3, 2023, 1:26:55 PM
     Author     : htk09
 --%>
-
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +39,7 @@
                                 <div class="box-section">
                                     <div class="app-home__heading">
                                         <div class="header-name">
-                                            <a href="accountManagementProfile.jsp">
+                                            <a href="login?email=${sessionScope.account.email}">
                                                 <i class="fa-solid fa-arrow-left"></i>
                                             </a>
                                             Danh sách thông báo
@@ -47,7 +47,7 @@
                                                 <a
                                                     role="button"
                                                     class="btn btn-block nav-link"
-                                                    href="accountManagementCRUDNoti.jsp"
+                                                    href="sendNotificationFromSchool?staffid=${sessionScope.accountManager.staffid}"
                                                     ><i class="fa-solid fa-square-plus"></i></a>
                                             </div>
                                         </div>
@@ -67,28 +67,38 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td class="align-middle">1</td>
-                                                            <td>
+                                                        <c:forEach var="x" items="${notification}" varStatus="loopStatus">
+                                                            <tr>
+                                                        <input type="hidden" name="notificationid" id="notificationid" value="${x.notificationid}"/>
+                                                        <td class="align-middle">${loopStatus.index + 1}</td>
+                                                        <td>
+                                                            <a href="viewDetailNotificationManager?notificationid=${x.notificationid}" class="text-decoration-none">
+
                                                                 <div class="notificaiton-item p-4" style="text-align: left">
-                                                                <div class="notifi-heading">
-                                                                  <div class="notifi-header fs-1">Thông báo lịch thi cuối kỳ</div>
+                                                                    <div class="notifi-heading">
+                                                                        <div class="notifi-header fs-1">${x.title}</div>
+                                                                    </div>
+                                                                    <div class="ps-3 pt-2 notifi-short-content fs-3" style="font-weight: 400;text-overflow: ellipsis;overflow: hidden;white-space:nowrap; max-width: 500px">${x.content}</div>
+                                                                    <div class="notifi-date fs-3" style="text-align: right; font-weight: 400">${x.date}</div>
                                                                 </div>
-                                                                    <div class="ps-3 pt-2 notifi-short-content fs-3" style="font-weight: 400">Chuẩn bị thi rồi các em chăm chỉ học nhé</div>
-                                                                <div class="notifi-date fs-3" style="text-align: right; font-weight: 400">17/7/2023</div>
-                                                              </div>
-                                                            </td>
-                                                            <td class="align-middle">
-                                                                <a
+                                                            </a>
+                                                        </td>
+
+                                                        <td class="align-middle">
+                                                            <a
                                                                 role="button"
-                                                                class="btn btn-block nav-link"
-                                                                data-bs-toggle="modal" 
-                                                                data-bs-target="#ChangeNotiModal"
-                                                                ><i class="fa-solid fa-square-pen"></i></a>
-                                                            </td>
-                                                            <td class="align-middle"><i class="fa-solid fa-x"></i></td>
+                                                                class="btn btn-block nav-link"                                                                
+                                                                href="viewDetailNotiSchoolUpdate?notificationid=${x.notificationid}"
+
+                                                                ><i data-toggle="tooltip" class="fa-solid fa-square-pen"></i></a>
+                                                        </td>
+                                                        <td class="align-middle">
+                                                            <a href="deleteNotification?notificationid=${x.notificationid}" onclick="">
+                                                                <i class="fa-solid fa-x"></i>
+                                                            </a>
+                                                        </c:forEach>
                                                         </tr>
-                                                    </tbody>
+                                                        </tbody>
                                                 </table>
                                             </div>
                                         </div>
@@ -101,42 +111,39 @@
                 </div>
             </div>
         </div>
-        
-        <!--Modal-->
-        <div id="ChangeNotiModal" class="modal fade" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <!-- Modal content-->
-                      <div class="modal-content">
-                        <div class="modal-header background-primary text-color-white">
-                          <h4 class="modal-title">Thông tin tìm kiếm</h4>
-                          <button type="button" class="btn-close text-color-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body p-4 pt-0">
-                          <form action="">
-                            <div class="row fs-4 p-3">
-                                <div class="col-2 p-3" style="border-right: solid 1px">Tiêu Đề</div>
-                                <input class="col w-100 p-3 border-0" type="text" style="outline: none" value="Thông báo lịch thi cuối kỳ"/>
-                            </div>
-                            <textarea class=" w-100 p-3 fs-4" type="text"style="outline: none; height: 300px; border-right: 0; border-left: 0">Chuẩn bị thi rồi các em chăm chỉ học nhé
-                            </textarea>
-                       
-              
-                            <div class="form-group row">
-                                <div class="col-10"></div>
-                                <div class="col">
-                                <button type="submit" class="btn btn-outline-primary fs-4">
-                                  Submit
-                                </button>
-                              </div>
-                            </div>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
 
+        <!--Modal-->
+        <div class="modal" id="deleteModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Cảnh Báo!</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Bạn có chắc chắn xoá thông báo này?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <form action="deleteNotification" method="post">
+                            <input type="hidden" name="notificationid" id="notificationid">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Huỷ</button>
+                            <button type="submit" class="btn btn-primary">Xoá</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            function showMess(notificationid) {
+                console.log(notificationid);
+                document.getElementById('notificationid').value = notificationid;
+                var deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+                deleteModal.show();
+                console.log(deleteModal);
+            }
+        </script>
         <%@ include file="./includes/linkJS.jsp" %>
         <script src="./assets/js/mycode.js"></script>
-    </script>
-</body>
+
+    </body>
 </html>

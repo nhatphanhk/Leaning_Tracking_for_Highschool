@@ -82,7 +82,7 @@
                                 
                                 <div class="row px-5 mx-5 mb-5 pb-5 collapse" id="LinkVPN" style="font-size: 20px">
                                     <div class="col-8">
-                                        Hãy tới nhấn vào đường link để tới trang thanh toán. <a class="text-color-green" href="https://sandbox.vnpayment.vn/tryitnow/Home/CreateOrder">Link</a>
+                                        Hãy tới nhấn vào đường link để tới trang thanh toán. <a class="text-color-green" href="https://sandbox.vnpayment.vn/tryitnow/Home/CreateOrder" target="_blank">Link</a>
                                     </div>
                                 </div>
 

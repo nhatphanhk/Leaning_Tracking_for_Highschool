@@ -96,7 +96,7 @@
                                                             <i class="fa-solid fa-circle-check ms-2 me-3"></i>
                                                                 Xác nhận
                                                             </button>
-                                                            <p class="text-danger"> Thời gian nhập và nộp điểm đã kết thúc!</p>
+                                                            <p class="text-danger h3"> Thời gian nhập và nộp điểm đã kết thúc!</p>
                                                         </c:if>
                                                         <c:if test = "${!isLockedMark}">
                                                             <button class="btn btn-me change-btn">
