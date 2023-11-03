@@ -126,7 +126,7 @@
                                                                         <fmt:formatDate value="${x.date}" pattern="dd/MM/yyyy" var="formattedDate" />
                                                                         <td>${formattedDate}</td>
                                                                         <td>${x.semesterid}</td>
-                                                                        <td style="text-align: start;">Xin phép nghỉ học ngày ${formattedDate}</td>
+                                                                        <td style="text-align: start;"> Nghỉ học ${x.note} ngày ${formattedDate}</td>
                                                                     </tr>  
                                                                 </c:forEach>
                                                             </tbody>

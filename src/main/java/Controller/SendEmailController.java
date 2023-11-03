@@ -101,7 +101,7 @@ public class SendEmailController extends HttpServlet {
             System.out.println(isSend);
 //            request.getRequestDispatcher("login.jsp").forward(request, response);
             request.setAttribute("msgSuccess", "Mail đã gửi đên hòm thư của bạn vui lòng kiểm tra.");
-            request.getRequestDispatcher("sendMail.jsp").forward(request, response);
+            request.getRequestDispatcher("sendEmail.jsp").forward(request, response);
             
         }
     }

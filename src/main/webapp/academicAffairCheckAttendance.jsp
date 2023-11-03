@@ -14,16 +14,13 @@
                 <div class="col">
                     <div class="box-section">
                         <div class="app-home__heading">
-                            <div class="header-name d-flex justify-content-between">
-                                <div>
-                                    <a href="academicAffairProfile.jsp"><i class="fa-solid fa-arrow-left pe-2 ps-2"></i></a>
-                                Điểm danh
-                                </div>
-                                
-                                <h3>${msg}</h3>
-                                <form action="list-attendance " method="get">
-                                    <div class="search d-flex justify-content-between">
-                                        <div class="search-btn-contain" style="right:90px;">
+                            <div class="header-name d-flex" >
+                                <a href="academicAffairProfile.jsp"><i class="fa-solid fa-arrow-left pe-2 ps-2"></i></a>
+                                <span style="top: 5px; position: relative;">Điểm danh</span>
+                                <h3 style="top: 11px; left: 100px; position: relative;">${msg}</h3>
+                                <form action="list-attendance" method="get">
+                                    <div class="search">
+                                        <div class="search-btn-contain" style="top: 10px; right: 115px;;">
                                             <select id="classid" name="classid" class="form-select" aria-label="Default select example" onchange="changeClassName()">
                                                 <option selected>Chọn Lớp</option>
                                                 <option value="1">10A1</option>
@@ -58,7 +55,8 @@
                                                     <th>Giới tính</th>
                                                     <th>Ngày sinh</th>
                                                     <th>Số điện thoại</th>
-                                                    <th>Điểm danh</th>
+                                                    <th>Vắng học</th>
+                                                    <th>Ghi chú</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -66,7 +64,7 @@
                                                 <tr>
                                                     <td>${status.index+1}</td>
                                                     <td>${x.studentid}</td>
-                                                    <td class="text-start">${x.lastName} ${x.firstName}</td>
+                                                    <td>${x.lastName} ${x.firstName}</td>
                                                     <td>
                                                 <c:choose>
                                                     <c:when test="${x.gender}">
@@ -81,6 +79,8 @@
                                                 <td>${x.phoneNumber}</td>
                                                 <c:if test="${(x.status == true)}"><td><input type="checkbox" name="status${status.index}" value="${x.status}" ></td></c:if>
                                                 <c:if test="${(x.status == false)}"><td><input type="checkbox" name="status${status.index}" value="${x.status}" ></td></c:if>
+                                                <c:if test="${(x.note == ' ')}"><td><input type="text" name="note${status.index}" value=" "></td></c:if>
+                                                <c:if test="${(x.note != ' ')}"><td><input type="text" name="note${status.index}" value="${x.note}"></td></c:if>
                                                 </tr>  
                                             </c:forEach>
                                             </tbody>
@@ -106,7 +106,7 @@
 
   // Loop through the checkboxes and check them based on their values
   checkboxes.forEach(function (checkbox) {
-  if (checkbox.value === "true") {
+  if (checkbox.value === "false") {
     checkbox.checked = true;
   }
 });
@@ -114,7 +114,7 @@
 checkboxes.forEach(function (checkbox) {
   checkbox.addEventListener("change", function () {
     // Update the value when the checkbox is checked
-    checkbox.value = checkbox.checked ? "true" : "false";
+    checkbox.value = checkbox.checked ? "false" : "true";
   });
 });
 </script>

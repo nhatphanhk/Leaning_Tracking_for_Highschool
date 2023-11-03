@@ -24,6 +24,15 @@ public class Student {
     private int semester;
     private int year;
     private Boolean status;
+    private String note;
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
 
     public Boolean getStatus() {
         return status;
@@ -35,6 +44,21 @@ public class Student {
     
     public Student() {
     }
+
+    public Student(String studentid, String lastName, String firstName, String email, String address, String phoneNumber, int classid, boolean gender, Date dob, Boolean status, String note) {
+        this.studentid = studentid;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.email = email;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.classid = classid;
+        this.gender = gender;
+        this.dob = dob;
+        this.status = status;
+        this.note = note;
+    }
+    
 
     public Student(String studentid, String lastName, String firstName, String email, String address, String phoneNumber, int classid, boolean gender, Date dob, Boolean status) {
         this.studentid = studentid;
