@@ -16,7 +16,7 @@
                         <div class="app-home__heading">
                             <div class="header-name d-flex">
                                 <a href="teacherlistcontroller"><i class="fa-solid fa-arrow-left pe-2 ps-2"></i></a>
-                                <span style="margin-top: 5px">Thêm học sinh</span>
+                                <span style="margin-top: 5px">Thêm giáo viên</span>
                             </div>
                         </div>
                         <div class="app-home__body m-5">

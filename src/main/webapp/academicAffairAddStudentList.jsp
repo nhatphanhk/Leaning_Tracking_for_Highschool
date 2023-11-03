@@ -14,7 +14,7 @@
                 <div class="col">
                     <div class="box-section">
                         <div class="app-home__heading">
-                            <div class="header-name d-flex justify-content-between">
+                            <div class="header-name">
                                 <a href="studentlistcontroller"><i class="fa-solid fa-arrow-left pe-2 ps-2"></i></a>
                                 <span>Thêm học sinh</span>
                             </div>

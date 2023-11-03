@@ -97,7 +97,7 @@
 
                                                             ><i class="fa-solid fa-square-pen"></i></a>
                                                     </td>
-                                                    <td><a href=""><i class="fa-solid fa-x"></i></a></td>
+                                                    <td><a href=""><i class="fa-solid fa-square-minus"></i></a></td>
                                                 </tr>
                                             </c:forEach>
 
