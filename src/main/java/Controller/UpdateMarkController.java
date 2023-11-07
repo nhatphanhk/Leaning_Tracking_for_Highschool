@@ -73,6 +73,7 @@ public class UpdateMarkController extends HttpServlet {
             throws ServletException, IOException {
         String totalstudent_raw = request.getParameter("total student");
         String teacherid = request.getParameter("teacherid");
+        String semesterid = request.getParameter("semesterid");
         Dao dao = Dao.getInstance();
 
 //        for (int i = 0; i < 15; i++) {
@@ -97,7 +98,7 @@ public class UpdateMarkController extends HttpServlet {
 //                    , (finalMark==null? null : BigDecimal.valueOf(Double.parseDouble(finalMark)))
 //                    , null, studentid, teacherid);
 //        }
-        for (int i = 0; i < 15; i++) {
+        for (int i = 0; i < 5; i++) {
             String progressMarkParam = "progress_mark_" + i;
             String middleMarkParam = "middle_mark_" + i;
             String finalMarkParam = "final_mark_" + i;
@@ -129,7 +130,7 @@ public class UpdateMarkController extends HttpServlet {
             }
             
             // Use the BigDecimal values (or null) in your dao.updateMark method.
-            dao.updateMark(progressMarkBigDecimal, middleMarkBigDecimal, finalMarkBigDecimal,totalMarkBigDecimal , studentid, teacherid);
+            dao.updateMarkV2(progressMarkBigDecimal, middleMarkBigDecimal, finalMarkBigDecimal,totalMarkBigDecimal , studentid, semesterid,"MAT");
         
         }
         response.sendRedirect("crudmark?teacherid="+teacherid);
