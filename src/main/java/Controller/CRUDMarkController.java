@@ -8,6 +8,7 @@ package Controller;
 import DAO.Dao;
 import Model.Class;
 import Model.Mark;
+import Model.Semester;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -63,8 +64,9 @@ public class CRUDMarkController extends HttpServlet {
         //request.setAttribute("classid", classid);
         Dao dao = Dao.getInstance();
         List<Class> list = dao.getClassByTeacherID(teacherid);
+        List<Semester> list1 = dao.getAllSemester();
         request.setAttribute("classes", list);
-        request.getRequestDispatcher("teacherMarkReport.jsp").forward(request, response);
+        request.setAttribute("semester", list1);
     } 
 
     /** 
@@ -77,19 +79,24 @@ public class CRUDMarkController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
+         Dao dao = Dao.getInstance();
         String teacherid = request.getParameter("teacherid");
         String classid_raw = request.getParameter("classid");
+       String semesterid = request.getParameter("semesterid");
         //String teacherid = request.getParameter("teacherid");
         //String classid = request.getParameter("classid");
         
         //request.setAttribute("classid", classid);
-        Dao dao = Dao.getInstance();
         List<Class> list = dao.getClassByTeacherID(teacherid);
         request.setAttribute("classes", list);
         int classid = Integer.parseInt(classid_raw);
         //request.setAttribute("classid", classid);
         //Dao dao = Dao.getInstance();
-        List<Mark> list1 = dao.getListMarkByClassAndTeacher(teacherid, classid);
+       List<Mark> list1 = dao.getListMarkBySemester("MAT", semesterid);
+        //List<Class> listc = dao.getClassByTeacherID(teacherid);
+        List<Semester> lists = dao.getAllSemester();
+        //request.setAttribute("classes", listc);
+        request.setAttribute("semester", lists);
         
         request.setAttribute("marklist", list1);
         request.getRequestDispatcher("teacherMarkReport.jsp").forward(request, response);
