@@ -4,6 +4,7 @@
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Model/Admin.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/DeleteStudentController.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Model/Timetable.java
+/Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/AddAccountController.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/DeleteNotificationTeacher.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Model/Staff.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Model/Account.java
@@ -55,6 +56,7 @@
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/NotificationTeacherPage.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/StudentProfileController.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Model/Student.java
+/Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/GetTeacherListByClassid.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/vnpayQuery.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/UpdateStudentController.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Model/AttendanceList.java

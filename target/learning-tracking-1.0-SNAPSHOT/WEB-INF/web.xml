@@ -20,10 +20,6 @@
         <servlet-class>Controller.InsertApplicationStudent</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>LoadTimetable</servlet-name>
-        <servlet-class>Controller.LoadTimetable</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>ViewTimetableTeacher</servlet-name>
         <servlet-class>Controller.ViewTimetableTeacher</servlet-class>
     </servlet>
@@ -119,6 +115,14 @@
         <servlet-name>DeleteNotification</servlet-name>
         <servlet-class>Controller.DeleteNotification</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoadTimetable</servlet-name>
+        <servlet-class>Controller.LoadTimetable</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoadTimetable</servlet-name>
+        <url-pattern>/loadTimetable</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DeleteNotification</servlet-name>
         <url-pattern>/deleteNotification</url-pattern>
@@ -380,10 +384,6 @@
         <url-pattern>/insertApplicationStudent</url-pattern>
     </servlet-mapping>
     <!--    <servlet-mapping><servlet-name>ViewApplicationHistoryStudent</servlet-name><url-pattern>/viewApplicationHistoryStudent</url-pattern></servlet-mapping>-->
-    <servlet-mapping>
-        <servlet-name>LoadTimetable</servlet-name>
-        <url-pattern>/loadTimetable</url-pattern>
-    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ViewTimetableTeacher</servlet-name>
         <url-pattern>/viewTimetableTeacher</url-pattern>

@@ -43,75 +43,81 @@
                                                 <i class="fa-solid fa-arrow-left"></i>
                                             </a>
                                             Sổ Điểm
-                                            <div class="search-btn-contain">
-                                                <a
-                                                    role="button"
-                                                    class="btn btn-block nav-link"
-                                                    data-bs-toggle="modal" 
-                                                    data-bs-target="#infoModal"
-                                                    >Tìm kiếm</a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="app-home__body">
-                                        <div class="row">
-                                            <div class="col">
-                                                <form action="updatemark" method="post">
-                                                    <!-- Student List details -->
-                                                    <table class="table table-bordered table-striped">
-                                                        <thead class="background-primary">
-                                                            <tr class="text-color-white">
-                                                                <th class="align-middle">STT</th>
-                                                                <th class="align-middle">Mã học sinh</th>
-                                                                <th class="align-middle">Họ và Tên</th>
-                                                                <th class="align-middle">KTTX</th>
-                                                                <th class="align-middle">KTGK</th>
-                                                                <th class="align-middle">KTCK</th>
-                                                                <th class="align-middle">TBM HK</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                        <td> <textarea name="teacherid" class="form-control" id="currentPassword" aria-describedby="emailHelp" placeholder="Email" readonly style="font-size: 16px; display: none;">${sessionScope.teacher.teacherid}</textarea> </td>    
-                                                        <textarea name="totalstudent" class="form-control" id="currentPassword" aria-describedby="emailHelp" placeholder="Email" readonly style="font-size: 16px; display: none;">${requestScope.marklist.size()}</textarea>
-                                                        <c:forEach var="m" items="${requestScope.marklist}" varStatus="loopStatus">
-                                                            <tr>
-                                                                <td>${loopStatus.index + 1}</td>
-                                                                <td>${m.studentid}</td>
-                                                                <td>${m.lastname} ${m.firstname}</td>
-                                                                <td><input class="input-mark-student" type="text" name="progress_mark_${loopStatus.index}" value="${m.progress_mark}" oninput="validateInput(this)" /></td>
-                                                                <td><input class="input-mark-student" type="text" name="middle_mark_${loopStatus.index}" value="${m.middle_mark}" oninput="validateInput(this)" /></td>
-                                                                <td><input class="input-mark-student" type="text" name="final_mark_${loopStatus.index}" value="${m.final_mark}" oninput="validateInput(this)" /></td>
-                                                                <td><input class="input-mark-student" type="text" name="total_mark_${loopStatus.index}" value="${m.total_mark}" readonly /></td>
-                                                                <td> 
-                                                                    <textarea name="studentid_${loopStatus.index}" class="form-control" id="currentPassword" aria-describedby="emailHelp" placeholder="Email" readonly style="font-size: 16px; display: none;">${m.studentid}</textarea>
-                                                                </td>
-                                                            </tr>
-                                                        </c:forEach>
-                                                        </tbody>
-                                                    </table>
-                                                    <div class="change-password-btn m-4">
-                                                        <c:if test = "${isLockedMark}">
-                                                            <button class="btn btn-me change-btn" disabled>
-                                                            <i class="fa-solid fa-circle-check ms-2 me-3"></i>
-                                                                Xác nhận
-                                                            </button>
-                                                            <p class="text-danger"> Thời gian nhập và nộp điểm đã kết thúc!</p>
-                                                        </c:if>
-                                                        <c:if test = "${!isLockedMark}">
-                                                            <button class="btn btn-me change-btn">
-                                                            <i class="fa-solid fa-circle-check ms-2 me-3"></i>
-                                                                Xác nhận
-                                                            </button>
-                                                        </c:if>
-                                                        
+                                            <form action="crudmark" method="post">
+                                                <div class="search">
+                                                    <div class="search-btn-contain" style="right:100px;">
+                                                        <select id="classid" name="classid" class="form-select" style="font-size: 16px" aria-label="Default select example" onchange="changeClassName()">
+                                                            <c:forEach var ="x" items="${classes}">
+                                                                <option  value="${x.classid}">${x.classname}</option>
+                                                            </c:forEach>
+                                                        </select>
+                                                        <textarea name="teacherid" class="form-control" id="currentPassword" aria-describedby="emailHelp" placeholder="Email" readonly style="font-size: 16px; display: none;">${sessionScope.teacher.teacherid}</textarea>
                                                     </div>
-                                                </form>
+                                                    <button type="submit" class="btn btn-block submit-modal-btn" style="position: absolute;top: 7px;right: 7px">
+                                                        Tìm kiếm
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
 
+                                        <div class="app-home__body">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <form action="updatemark" method="post">
+                                                        <!-- Student List details -->
+                                                        <table class="table table-bordered table-striped">
+                                                            <thead class="background-primary">
+                                                                <tr class="text-color-white">
+                                                                    <th class="align-middle">STT</th>
+                                                                    <th class="align-middle">Mã học sinh</th>
+                                                                    <th class="align-middle">Họ và Tên</th>
+                                                                    <th class="align-middle">KTTX</th>
+                                                                    <th class="align-middle">KTGK</th>
+                                                                    <th class="align-middle">KTCK</th>
+                                                                    <th class="align-middle">TBM HK</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <td> <textarea name="teacherid" class="form-control" id="currentPassword" aria-describedby="emailHelp" placeholder="Email" readonly style="font-size: 16px; display: none;">${sessionScope.teacher.teacherid}</textarea> </td>    
+                                                            <textarea name="totalstudent" class="form-control" id="currentPassword" aria-describedby="emailHelp" placeholder="Email" readonly style="font-size: 16px; display: none;">${requestScope.marklist.size()}</textarea>
+                                                            <c:forEach var="m" items="${requestScope.marklist}" varStatus="loopStatus">
+                                                                <tr>
+                                                                    <td>${loopStatus.index + 1}</td>
+                                                                    <td>${m.studentid}</td>
+                                                                    <td style="text-align: left;">${m.lastname} ${m.firstname}</td>
+                                                                    <td><input class="input-mark-student" type="text" name="progress_mark_${loopStatus.index}" value="${m.progress_mark}" oninput="validateInput(this)" /></td>
+                                                                    <td><input class="input-mark-student" type="text" name="middle_mark_${loopStatus.index}" value="${m.middle_mark}" oninput="validateInput(this)" /></td>
+                                                                    <td><input class="input-mark-student" type="text" name="final_mark_${loopStatus.index}" value="${m.final_mark}" oninput="validateInput(this)" /></td>
+                                                                    <td><input class="input-mark-student" type="text" name="total_mark_${loopStatus.index}" value="${m.total_mark}" readonly /></td>
+                                                                    <td> 
+                                                                        <textarea name="studentid_${loopStatus.index}" class="form-control" id="currentPassword" aria-describedby="emailHelp" placeholder="Email" readonly style="font-size: 16px; display: none;">${m.studentid}</textarea>
+                                                                    </td>
+                                                                </tr>
+                                                            </c:forEach>
+                                                            </tbody>
+                                                        </table>
+                                                        <div class="change-password-btn m-4">
+                                                            <c:if test = "${isLockedMark}">
+                                                                <button class="btn btn-me change-btn" disabled>
+                                                                    <i class="fa-solid fa-circle-check ms-2 me-3"></i>
+                                                                    Xác nhận
+                                                                </button>
+                                                                <p class="text-danger"> Thời gian nhập và nộp điểm đã kết thúc!</p>
+                                                            </c:if>
+                                                            <c:if test = "${!isLockedMark}">
+                                                                <button class="btn btn-me change-btn">
+                                                                    <i class="fa-solid fa-circle-check ms-2 me-3"></i>
+                                                                    Xác nhận
+                                                                </button>
+                                                            </c:if>
+
+                                                        </div>
+                                                    </form>
+
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -131,42 +137,19 @@
                     <div class="modal-body p-4">
                         <form action="crudmark" method="post">
                             <div class="row mb-5">
-                                <!--                                <div class="col-6">
-                                                                    <label class="col-3 col-form-label"
-                                                                           >Khối</label
-                                                                    >
-                                                                    <div class="col-8 d-flex justify-content-around">
-                                                                        <select class="form-select" aria-label="Default select example">
-                                                                            <option value="10">Khối 10</option>
-                                                                            <option value="11">Khối 11</option>
-                                                                            <option value="12">Khối 12</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>-->
                                 <div class="col-6">
-                                    <label class="col-3 col-form-label"
-                                           >Lớp</label
-                                    >
+                                    <label class="col-3 col-form-label">Lớp</label>
                                     <div class="col-8 d-flex justify-content-around">
                                         <select id="classid" name="classid" class="form-select" aria-label="Default select example" onchange="changeClassName()">
-                                            <!--                                            <option value="A3">Lớp A3</option>
-                                                                                        <option value="A4">Lớp A4</option>
-                                                                                        <option value="A5">Lớp A5</option>-->
-
 
                                             <c:forEach var ="x" items="${classes}">
                                                 <option  value="${x.classid}">${x.classname}</option>
-<!--                                                <option value="A5">${classid}</option>-->
                                             </c:forEach>
                                         </select>
                                         <textarea name="teacherid" class="form-control" id="currentPassword" aria-describedby="emailHelp" placeholder="Email" readonly style="font-size: 16px; display: none;">${sessionScope.teacher.teacherid}</textarea>
-
-
                                     </div>
                                 </div>
-
                             </div>
-
                             <div class="form-group row">
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-block submit-modal-btn">

@@ -76,10 +76,10 @@
 
                                                                 <div class="notificaiton-item p-4" style="text-align: left">
                                                                     <div class="notifi-heading">
-                                                                        <div class="notifi-header fs-1">${x.title}</div>
+                                                                        <div class="notifi-header fs-1" style="color: black">${x.title}</div>
                                                                     </div>
-                                                                    <div class="ps-3 pt-2 notifi-short-content fs-3" style="font-weight: 400;text-overflow: ellipsis;overflow: hidden;white-space:nowrap; max-width: 500px">${x.content}</div>
-                                                                    <div class="notifi-date fs-3" style="text-align: right; font-weight: 400">${x.date}</div>
+                                                                    <div class="ps-3 pt-2 notifi-short-content fs-3" style="font-weight: 400;text-overflow: ellipsis;overflow: hidden;white-space:nowrap; max-width: 500px; color: black;">${x.content}</div>
+                                                                    <div class="notifi-date fs-3" style="text-align: right; font-weight: 400; color: black;">${x.date}</div>
                                                                 </div>
                                                             </a>
                                                         </td>
@@ -90,11 +90,11 @@
                                                                 class="btn btn-block nav-link"                                                                
                                                                 href="viewDetailNotiSchoolUpdate?notificationid=${x.notificationid}"
 
-                                                                ><i data-toggle="tooltip" class="fa-solid fa-square-pen"></i></a>
+                                                                ><i data-toggle="tooltip" class="fa-solid fa-square-pen" style="font-size: 30px;"></i></a>
                                                         </td>
                                                         <td class="align-middle">
                                                             <a href="deleteNotification?notificationid=${x.notificationid}" onclick="">
-                                                                <i class="fa-solid fa-x"></i>
+                                                                <i class="fa-solid fa-x" style="font-size: 30px; color:black;"></i>
                                                             </a>
                                                         </c:forEach>
                                                         </tr>

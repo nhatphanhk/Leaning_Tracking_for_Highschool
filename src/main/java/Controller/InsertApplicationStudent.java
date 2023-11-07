@@ -104,12 +104,13 @@ public class InsertApplicationStudent extends HttpServlet {
             // insert application
             String title = request.getParameter("title");
             String categoryid = request.getParameter("categoryid");
+            String teacherid = request.getParameter("teacherid");
             LocalDate currentDate = LocalDate.now();
             HttpSession session = request.getSession();
             String studentid = (String) session.getAttribute("studentid");
 
             Dao noti = Dao.getInstance();
-            noti.insertApplicationStudent(title, categoryid, currentDate, studentid);
+            noti.insertApplicationStudent(title, categoryid, currentDate, studentid, teacherid);
         }   catch (SQLException ex) {
             Logger.getLogger(InsertApplicationStudent.class.getName()).log(Level.SEVERE, null, ex);
         }

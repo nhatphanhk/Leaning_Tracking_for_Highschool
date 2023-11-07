@@ -108,7 +108,7 @@
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="notification-list">
+                                        <div class="notification-list" style="min-height: 400px; overflow: hidden;">
                                         <c:forEach var="x" items="${notification}">
                                             <div class="notificaiton-item p-4">
                                                 <div class="notifi-heading">
@@ -118,10 +118,11 @@
                                                 <div class="ps-3 pt-2 notifi-short-content" style="text-overflow: ellipsis;overflow: hidden;white-space:nowrap; max-width: 500px">${x.content}</div>
                                             </div>
                                         </c:forEach>
-                                        <div class="text-center view-all">
-                                            <a href="notificationSchool?teacherid=${sessionScope.teacherid}" class="text-color-gray">Xem tất cả</a>
-                                        </div>
+                                        
                                     </div>
+                                            <div class="text-center view-all text-center" style="height: 30px; border-top: 1px solid #cccccc; font-size: 16px;">
+                                                <a href="notificationSchool?teacherid=${sessionScope.teacherid}" class="text-color-gray" style="text-decoration: none">Xem tất cả</a>
+                                        </div>
                                 </div>
                             </div>
 

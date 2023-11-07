@@ -39,8 +39,8 @@
                                             Danh sách học sinh
                                             <form action="student-list" method="get">
                                                 <div class="search">
-                                                    <div class="search-btn-contain" style="right:80px;">
-                                                        <select id="classid" name="classid" class="form-select" aria-label="Default select example" onchange="changeClassName()">
+                                                    <div class="search-btn-contain" style="right:100px;">
+                                                        <select id="classid" name="classid" class="form-select" style="font-size: 16px" aria-label="Default select example" onchange="changeClassName()">
                                                             <option selected>Chọn Lớp</option>
                                                             <option value="1">10A1</option>
                                                             <option value="2">10A2</option>
@@ -82,8 +82,8 @@
                                                                 <tr>
                                                                     <td>${status.index+1}</td>
                                                                     <td>${x.studentid}</td>
-                                                                    <td>${x.lastName} ${x.firstName}</td>
-                                                                    <td>
+                                                                    <td style="text-align: left;">${x.lastName} ${x.firstName}</td>
+                                                                    <td style="text-align: left;">
                                                                         <c:choose>
                                                                             <c:when test="${x.gender}">
                                                                                 Nam
@@ -93,10 +93,10 @@
                                                                             </c:otherwise>
                                                                         </c:choose>
                                                                     </td>
-                                                                    <td>${x.email}</td>
+                                                                    <td style="text-align: left;">${x.email}</td>
                                                                     <td>${x.dob}</td>
                                                                     <td>${x.phoneNumber}</td>
-                                                                    <td>${x.address}</td>
+                                                                    <td style="text-align: left;">${x.address}</td>
                                                                 </tr>  
                                                             </c:forEach>
                                                         </tbody>

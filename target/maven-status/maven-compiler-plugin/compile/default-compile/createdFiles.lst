@@ -3,6 +3,7 @@ Model/AcademicAffair.class
 DAO/DBUtil.class
 Controller/Config.class
 Controller/DeleteStudentController.class
+Controller/GetTeacherListByClassid.class
 Controller/CheckAttendanceList.class
 Model/Mark.class
 Controller/StudentList.class
@@ -24,6 +25,7 @@ jakarta/servlet/http/Cokkiee.class
 Model/Admin.class
 Model/Class.class
 Controller/ViewDetailNotiSchoolUpdate.class
+Controller/AddAccountController.class
 Controller/UpdateAccountController.class
 Controller/DeleteNotificationTeacher.class
 Controller/LockMark.class
@@ -48,6 +50,7 @@ Controller/SendEmailController$1.class
 Controller/LoadTimetable.class
 Controller/CRUDMarkController.class
 Model/AttendanceList.class
+.netbeans_automatic_build
 Model/Teacher.class
 Model/Application.class
 Controller/TeacherNotificationHistory.class

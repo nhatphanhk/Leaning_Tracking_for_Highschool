@@ -51,15 +51,16 @@
                                             <input type="hidden" name="notificationid" value="${detailNoti.notificationid}" />
                                             <div class="row fs-2 p-3">
                                                 <div class="col-1 p-3" style="border-right: solid 1px">
-                                               Tiêu Đề
+                                                    Tiêu Đề
                                                 </div>
                                                 <textarea name="title" value="${detailNoti.title}" class="col w-100 p-3 border-0" type="text" placeholder="Tiêu Đề" style="outline: none"></textarea>
                                             </div>
-                                            
-                                            <input name="content" value="${detailNoti.content}" class=" w-100 p-3 fs-2" type="text" placeholder="Nội dung" style="outline: none; height: 500px; border-right: 0; border-left: 0"/>
+
+                                            <textarea name="content" value="${detailNoti.content}" class=" w-100 p-3 fs-2" type="text" placeholder="Nội dung" style="outline: none; height: 500px; border-right: 0; border-left: 0"></textarea>
                                             <div class="row px-5 mx-5 pt-3 pb-3">
-                                                <div class="col-11  "></div>
-                                                    <button type="submit" class="btn btn-primary btn-submit mb-4 float-end">Submit</button>
+                                                <div class="col-11">
+                                                    <button type="submit" class="btn btn-primary btn-submit mb-4 float-end" style="font-size: 20px; ">Submit</button>
+                                                </div>
                                             </div>
                                         </form> 
                                     </div>
@@ -71,8 +72,8 @@
                 </div>
             </div>
         </div>
-        
-            
+
+
 
         <%@ include file="./includes/linkJS.jsp" %>
         <script src="./assets/js/mycode.js"></script>

@@ -36,67 +36,85 @@
                 <div class="grid d-grid">
                     <div class="app-home section-m1">
                         <div class="row">
-                            <div class="col">
-                                <div class="box-section">
+                            <div class="col d-flex justify-content-center">
+                                <div class="box-section w-75">
                                     <div class="app-home__heading">
                                         <div class="header-name">
                                             <a href="studentHomePage.jsp">
                                                 <i class="fa-solid fa-arrow-left pe-2 ps-2"></i></a>
-                                            Gửi đơn                   
+                                            Gửi đơn                   
                                         </div>
                                     </div>
                                         <form action="insertApplicationStudent" method="post" enctype="multipart/form-data">
                                         <div class="row py-5 px-5 mx-5 mt-5">
                                             <h1 class="mb-4 text-secondary fw-bolder">
-                                                Gửi đơn cho thầy cô giáo chủ nhiệm
+                                                Gửi đơn cho thầy cô giáo chủ nhiệm
                                             </h1>
                                         </div><!-- comment -->
                                         <div class="row px-5 mx-5 mb-5 pb-5 ">
-                                            <div class="col-2">
-                                                <h1 class="mb-4 text-secondary fw-bolder">
-                                                    Tiêu đề
-                                                </h1>
+                                            <div class="col-3">
+                                                <h2 class="mb-4 text-secondary fw-bolder">
+                                                    Tiêu đề:
+                                                </h2>
                                             </div>
-                                            <div class="col-5">
-                                                <input name="title" type="text" class="form-control w-100 noti-select" placeholder="" required/>
+                                            <div class="col-8">
+                                                <input name="title" type="text" class="form-control noti-select" style="font-size: 20px;" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required>
                                             </div>
                                         </div>
-                                        <div class="row px-5 mx-5 mb-5 pb-5 ">
-                                            <div class="col-2">
-                                                <h1 class="mb-4 text-secondary fw-bolder">
-                                                    Loại đơn
-                                                </h1>
+<!--                                        <div class="row px-5 mx-5 mb-5 pb-5 ">
+                                            <div class="col-3">
+                                                <h2 class="mb-4 text-secondary fw-bolder">
+                                                    Đến:
+                                                </h2>
                                             </div>
-                                            <div class="col-5">
-                                                <div class="dropdown w-50">
+                                            <div class="col-8">
+                                                <input name="title" type="text" class="form-control noti-select" style="font-size: 20px;" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required>
+                                            </div>
+                                        </div>-->
+                                        <div class="row px-5 mx-5 mb-5 pb-5 ">
+                                            <div class="col-3">
+                                                <h2 class="mb-4 text-secondary fw-bolder">
+                                                    Loại đơn:
+                                                </h2>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="dropdown">
                                                     <div class="drop-down--content" id="subMenu2">
-                                                        <select name="categoryid" id="application" class="fs-3">
-                                                            <option value="1">Đơn xin nghỉ học</option>
-                                                            <option value="2">Đơn rút hồ sơ</option>
+                                                        <select name="categoryid" id="application" class="fs-3" style="font-size: 20px;">
+                                                            <option value="1">Đơn xin nghỉ học</option>
+                                                            <option value="2">Đơn rút hồ sơ</option>
                                                         </select>
                                                     </div>                         
                                                 </div>
                                             </div>
-                                            <a href="sendApplicationStudent?value=File.zip" >Tải về</a>
+                                        </div>
+                                        <div class="row px-5 mx-5 mb-5 pb-5 ">
+                                            <div class="col-3">
+                                                <h2 class="mb-4 text-secondary fw-bolder">
+                                                    Mẫu:
+                                                </h2>
+                                            </div>
+                                            <div class="col-8">
+                                                <a style="font-size: 20px;" href="sendApplicationStudent?value=File.zip" >Tải về</a>
+                                            </div>
+                                            
                                         </div>
 
                                         <div class="row px-5 mx-5 my-5">
-                                            <div class="col-2">
-                                                <h1 class="mb-4 text-secondary fw-bolder">
-                                                    Nộp đơn
-                                                </h1>
+                                            <div class="col-3">
+                                                <h2 class="mb-4 text-secondary fw-bolder">
+                                                    File đính kèm:
+                                                </h2>
                                             </div>
-                                            <div class="col-9">
+                                            <div class="col-8">
                                                 <div class="form-group">
-                                                    <label for="attachmentFile" class="form-label">File đính kèm:</label>
-                                                    <input type="file" class="form-control" id="attachmentFile" name="attachmentFile" required>
+                                                    <input style="font-size: 16px;" type="file" class="form-control w-50" id="attachmentFile" name="attachmentFile" required>
                                                 </div>
                                             </div>
                                             <input type="hidden" name="studentid" value="" />
                                         </div>                                      
                                         <div class="row px-5 mx-5 pt-5 pb-5">
-                                            <div class="col-10"></div>
-                                            <button type="submit" class="btn btn-primary col-1 fs-3">Submit</button>
+                                            <button type="submit" class="btn w-25 fs-3" style="background-color:  #0F7DBC; color: white;">Nộp đơn</button>
                                         </div>
                                     </form>
 

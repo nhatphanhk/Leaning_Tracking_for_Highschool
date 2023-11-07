@@ -56,7 +56,7 @@
                                                 <input name="title" value="${detailNoti.title}" class="col w-100 p-3 border-0" type="text" placeholder="Tiêu Đề" style="outline: none"/>
                                             </div>
                                             
-                                            <input name="content" value="${detailNoti.content}" class=" w-100 p-3 fs-2" type="text" placeholder="Nội dung" style="outline: none; height: 500px; border-right: 0; border-left: 0"/>
+                                                <textarea name="content" value="" class=" w-100 p-3 fs-2" type="text" placeholder="Nội dung" style="outline: none; height: 500px; border-right: 0; border-left: 0">${detailNoti.content}</textarea>
                                             <div class="row px-5 mx-5 pt-3 pb-3">
                                                 <div class="col-11  "></div>
                                                     <button type="submit" class="btn btn-primary btn-submit mb-4 float-end">Submit</button>

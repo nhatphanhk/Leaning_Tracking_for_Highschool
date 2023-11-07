@@ -48,7 +48,7 @@ Author     : htk09
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Nội dung:</label>
-                                <div name="content" class="form-control noti-textarea">${detailTeacherNoti.content}</div>
+                                <div name="content" class="form-control noti-textarea" style="min-height: 300px">${detailTeacherNoti.content}</div>
                             </div>
                         </div>
 

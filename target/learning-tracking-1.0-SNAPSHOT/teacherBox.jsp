@@ -38,39 +38,39 @@ Author     : htk09
                             Hòm Thư
                         </div>
                     </div>
-                    <div class="app-home__content">
-                        <div class="grid-container grid-header">
+                    <div class="app-home__content" style="padding: 20px 0px 20px 30px">
+                        <div class="grid-container3 grid-header">
                             <div class="grid-item">STT</div>
                             <div class="grid-item">Họ Và Tên</div>
                             <div class="grid-item">Tiêu đề</div>
                             <div class="grid-item">Ngày Gửi</div>
                         </div>
                         <c:forEach items="${applicationTeacher}" var="app" varStatus="loopStatus">
-                        <a href="#" class="grid-container" data-bs-toggle="modal"
-                           data-bs-target="#myModal">
-                            <div class="grid-item">${loopStatus.index + 1}</div>
-                            <div class="grid-item">${app.lastname} ${app.firstname}</div>
-                            <div class="grid-item">${app.title}</div>
-                            <div class="grid-item">${app.date}</div>
-                        </a>
+                            <a href="#" class="grid-container3" data-bs-toggle="modal"
+                               data-bs-target="#myModal">
+                                <div class="grid-item">${loopStatus.index + 1}</div>
+                                <div class="grid-item">${app.lastname} ${app.firstname}</div>
+                                <div class="grid-item">${app.title}</div>
+                                <div class="grid-item">${app.date}</div>
+                            </a>
                         </c:forEach>
 
                     </div>
-                    <div class="navigation me-5">
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination justify-content-end pagination-lg mt-3">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Next</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
+                    <!--                    <div class="navigation me-5">
+                                            <nav aria-label="Page navigation example">
+                                                <ul class="pagination justify-content-end pagination-lg mt-3">
+                                                    <li class="page-item disabled">
+                                                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                                    </li>
+                                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="#">Next</a>
+                                                    </li>
+                                                </ul>
+                                            </nav>
+                                        </div>-->
                 </div>
             </div>
             <!-- The Modal -->
@@ -80,7 +80,7 @@ Author     : htk09
                         <!-- Modal Header -->
                         <div class="modal-header">
                             <h2 class="modal-title" style="color: #2fb5fa">
-                                Approve
+                                Chi tiết đơn
                             </h2>
                             <button
                                 type="button"
@@ -101,32 +101,14 @@ Author     : htk09
 
                                         </dd>
                                         <hr/>
-                                        <!--                                        <dt class="col-12 col-sm-2 pb-4"><h3>Người nhận :</h3></dt>
-                                                                                <dd class="col-12 col-sm-8">
-                                                                                    <input
-                                                                                        type="text"
-                                                                                        class="form-control"
-                                                                                        id="date"
-                                                                                        name="date"
-                                        
-                                                                                        />
-                                                                                </dd>
-                                                                                <hr>-->
                                         <dt class="col-12 col-sm-2 pb-4">
-                                            <h3>Title :</h3>
+                                            <h3>Tiêu đề :</h3>
                                         </dt>
                                         <dd class="col-12 col-sm-8">
                                             <h3></h3>
                                         </dd>
-                                        <h3>File đính kèm :</h3>
-                                        <!--                                        <input
-                                                                                    type="text"
-                                                                                    class="form-control"
-                                                                                    id="content"
-                                                                                    name="content"
-                                        
-                                                                                    >-->
-                                        <a href="sendApplicationStudent?value=File.zip">Tải về</a>
+                                        <h3>File đính kèm : <a href="sendApplicationStudent?value=File.zip">Tải về</a></h3>
+                                        <h3></h3>
                                     </dl>
 
                                 </div>
@@ -140,14 +122,14 @@ Author     : htk09
                                 class="btn btn-success"
                                 data-bs-dismiss="modal"
                                 >
-                                <h3>Accept</h3>
+                                <h3>Đồng ý</h3>
                             </button>
                             <button
                                 type="button"
                                 class="btn btn-danger"
                                 data-bs-dismiss="modal"
                                 >
-                                <h3>Reject</h3>
+                                <h3>Từ chối</h3>
                             </button>
                         </div>
                     </div>

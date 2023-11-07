@@ -42,7 +42,7 @@ Author     : htk09
                             <p name="title" class="form-control w-75 noti-select">${detailNoti.title}</p>                            </div>                            
                         <div class="mb-3">
                             <label class="form-label">Nội dung:</label>
-                            <div name="content" class="form-control noti-textarea">${detailNoti.content}</div>                        </div>
+                            <div name="content" class="form-control noti-textarea" style="min-height: 300px">${detailNoti.content}</div>                        </div>
                         <!--<input type="hidden" name="teacherid" value="" />-->
                         <!--<button type="submit" class="btn btn-primary btn-submit mb-4 float-end">Submit</button>-->
                     </div>
