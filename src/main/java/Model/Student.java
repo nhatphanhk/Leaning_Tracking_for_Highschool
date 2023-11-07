@@ -24,7 +24,30 @@ public class Student {
     private int semester;
     private int year;
     private Boolean status;
-    private String note;
+   private int identify;
+
+    public Student(String studentid, String lastName, String firstName, String email, String address, String phoneNumber, int classid, boolean gender, Date dob, String className, int identify) {
+        this.studentid = studentid;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.email = email;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.classid = classid;
+        this.gender = gender;
+        this.dob = dob;
+        this.className = className;
+
+        this.identify = identify;
+    }
+
+    public int getIdentify() {
+        return identify;
+    }
+
+    public void setIdentify(int identify) {
+        this.identify = identify;
+    }
 
     public String getNote() {
         return note;
