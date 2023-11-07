@@ -58,7 +58,7 @@
                                                 </h1>
                                             </div>
                                             <div class="col-5">
-                                                <input name="title" type="text" class="form-control w-100 noti-select" placeholder="" required/>
+                                                <input name="title" type="text" class="form-control noti-select" style="font-size: 20px;" placeholder="" required>
                                             </div>
                                         </div>
                                         <div class="row px-5 mx-5 mb-5 pb-5 ">
@@ -68,16 +68,27 @@
                                                 </h1>
                                             </div>
                                             <div class="col-5">
-                                                <div class="dropdown w-50">
+                                                <div class="dropdown">
                                                     <div class="drop-down--content" id="subMenu2">
-                                                        <select name="categoryid" id="application" class="fs-3">
+                                                        <select name="categoryid" id="application" class="fs-3" style="font-size: 20px;">
                                                             <option value="1">Đơn xin nghỉ học</option>
                                                             <option value="2">Đơn rút hồ sơ</option>
                                                         </select>
                                                     </div>                         
                                                 </div>
                                             </div>
-                                            <a href="sendApplicationStudent?value=File.zip" >Tải về</a>
+                                        </div>
+                                        
+                                        <div class="row px-5 mx-5 mb-5 pb-5 ">
+                                            <div class="col-2">
+                                                <h2 class="mb-4 text-secondary fw-bolder">
+                                                    Mẫu
+                                                </h2>
+                                            </div>
+                                            <div class="col-8">
+                                                 <a style="font-size: 20px;" href="sendApplicationStudent?value=File.zip" >Tải về</a>
+                                            </div>
+                                            
                                         </div>
 
                                         <div class="row px-5 mx-5 my-5">
@@ -88,8 +99,8 @@
                                             </div>
                                             <div class="col-9">
                                                 <div class="form-group">
-                                                    <label for="attachmentFile" class="form-label">File đính kèm:</label>
-                                                    <input type="file" class="form-control" id="attachmentFile" name="attachmentFile" required>
+                                                    <label  style="font-size: 16px;" for="attachmentFile" class="form-label">File đính kèm:</label>
+                                                    <input  style="font-size: 16px;" type="file" class="form-control" id="attachmentFile" name="attachmentFile" required>
                                                 </div>
                                             </div>
                                             <input type="hidden" name="studentid" value="" />

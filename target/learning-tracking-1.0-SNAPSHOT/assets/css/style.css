@@ -542,3 +542,31 @@ list-style-type: none;
     color: var(--primary-color);
     font-weight: 500;
 }
+
+.btn-confirm-modal {
+    font-size: 20px;
+    border: 1px solid #ccc;
+    text-align: left;
+    font-weight: 500;
+    transition: fadeIn ease-in .5s;
+    background-color: red;
+}
+
+.btn-confirm-modal:hover {
+    opacity: 0.5;
+    color: #fff;
+}
+
+.btn-cancel-modal {
+    font-size: 20px;
+    border: 1px solid #ccc;
+    text-align: left;
+    font-weight: 500;
+    transition: fadeIn ease-in .5s;
+    background-color: #ccc;
+}
+
+.btn-cancel-modal:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}

@@ -23,7 +23,7 @@
                         <div class="app-home__body m-5">
                             <!--Doughnut Statistic-->
                             <div class="row d-flex justify-content-around mb-5">
-                                <div class="col-sm-4 shadow p-3 mb-5 bg-body rounded">
+                                <div class="col-sm-5 shadow p-3 mb-5 bg-body rounded">
                                     <div class="card">
                                         <div class="row card-body">
                                             <div class="col-4 title-container d-flex flex-column justify-content-center align-items-center">
@@ -56,7 +56,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-4 shadow p-3 mb-5 bg-body rounded">
+                                <div class="col-sm-5 shadow p-3 mb-5 bg-body rounded">
                                     <div class="card">
                                         <div class="row card-body">
                                             <div class="col-4 title-container d-flex flex-column justify-content-center align-items-center">
@@ -91,7 +91,7 @@
                             </div>
 
                             <!--Column chart statistic-->
-                            <div class="row mb-5">
+<!--                            <div class="row mb-5">
                                 <div class="col-4 column-chart">
                                 <div class="heading mb-4 h2">
                                     Học lực học sinh khối 10
@@ -110,7 +110,7 @@
                                 </div>
                                 <canvas id="columnChart12" style="width:100%;max-width:600px"></canvas>
                             </div>
-                            </div>
+                            </div>-->
                             
 
                             <form action="LockMark" method="post">
@@ -137,14 +137,14 @@
                                         </c:if>
                                         <c:if test = "${isLockedMark}">
                                             <div class="row acaAff-files d-flex flex-row-reverse m-4">
-                                                <button type="submit" class="acaAff-btn btn-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Nhấn để mở sổ điểm">MỞ</button>
+                                                <button type="button" class="acaAff-btn " data-bs-toggle="modal" data-bs-target="#openModal">MỞ SỔ ĐIỂM</button>
                                             </div>
                                         </c:if>
                                     </div>
                                 </div>
                             </form>
                             <!-- TABS navigation -->
-                            <div class="row mt-5">
+<!--                            <div class="row mt-5">
                                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                                     <c:forEach var ="x" items="${classes}">
                                         <li class="nav-item" role="presentation">
@@ -185,10 +185,15 @@
                                                     </c:forEach>
                                                 </tbody>
                                             </table>
+                                        <c:if test = "${isLockedMark}">
+                                            <div class="row acaAff-files d-flex flex-row-reverse m-4">
+                                                <button type="submit" class="acaAff-btn btn-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Nhấn để mở quyền chỉnh sửa điểm của lớp ${className}">MỞ</button>
+                                            </div>
+                                        </c:if>
                                         </div>
                                     </c:forEach>
                                 </div>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>
@@ -210,9 +215,28 @@
         Xác nhận khóa sổ điểm, khi sổ điểm khóa thì giáo viên sẽ không thể cập nhật điểm cho học sinh
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary h3" data-bs-dismiss="modal">Hủy</button>
+        <button type="button" class="btn-me btn-cancel-modal" data-bs-dismiss="modal">Hủy</button>
         <form action="LockMark" method="post">
-            <button type="submit" class="btn btn-primary h3">Xác nhận</button>
+            <button type="submit" class="btn-me btn-confirm-modal">Xác nhận</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="openModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">Xác nhận mở khóa sổ điểm</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body h3">
+        Xác nhận mở khóa sổ điểm, khi sổ điểm mở khóa thì giáo viên sẽ có thể cập nhật điểm cho học sinh
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-me btn-cancel-modal" data-bs-dismiss="modal">Hủy</button>
+        <form action="LockMark" method="post">
+            <button type="submit" class="btn-me btn-confirm-modal">Xác nhận</button>
         </form>
       </div>
     </div>

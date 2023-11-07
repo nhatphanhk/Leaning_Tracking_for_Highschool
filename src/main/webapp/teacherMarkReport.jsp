@@ -63,8 +63,8 @@
                                                         <thead class="background-primary">
                                                             <tr class="text-color-white">
                                                                 <th class="align-middle">STT</th>
-                                                                <th class="align-middle">Mã học sinh</th>
-                                                                <th class="align-middle">Họ và Tên</th>
+<!--                                                                <th style="display: none" class="align-middle">Mã học sinh</th>-->
+                                                                <th  class="align-middle">Họ và Tên</th>
                                                                 <th class="align-middle">KTTX</th>
                                                                 <th class="align-middle">KTGK</th>
                                                                 <th class="align-middle">KTCK</th>
@@ -72,25 +72,29 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                        <td> <textarea name="teacherid" class="form-control" id="currentPassword" aria-describedby="emailHelp" placeholder="Email" readonly style="font-size: 16px; display: none;">${sessionScope.teacher.teacherid}</textarea> </td>    
+                                                         <textarea name="teacherid" class="form-control" id="currentPassword" aria-describedby="emailHelp" placeholder="Email" readonly style="font-size: 16px; display: none;">${sessionScope.teacher.teacherid}</textarea> 
                                                         <textarea name="totalstudent" class="form-control" id="currentPassword" aria-describedby="emailHelp" placeholder="Email" readonly style="font-size: 16px; display: none;">${requestScope.marklist.size()}</textarea>
                                                         <c:forEach var="m" items="${requestScope.marklist}" varStatus="loopStatus">
                                                             <tr>
                                                                 <td>${loopStatus.index + 1}</td>
-                                                                <td>${m.studentid}</td>
+<!--                                                                <td style="display: none " ></td>-->
                                                                 <td>${m.lastname} ${m.firstname}</td>
-                                                                <td><input class="input-mark-student" type="text" name="progress_mark_${loopStatus.index}" value="${m.progress_mark}" oninput="validateInput(this)" /></td>
-                                                                <td><input class="input-mark-student" type="text" name="middle_mark_${loopStatus.index}" value="${m.middle_mark}" oninput="validateInput(this)" /></td>
-                                                                <td><input class="input-mark-student" type="text" name="final_mark_${loopStatus.index}" value="${m.final_mark}" oninput="validateInput(this)" /></td>
-                                                                <td><input class="input-mark-student" type="text" name="total_mark_${loopStatus.index}" value="${m.total_mark}" readonly /></td>
-                                                                <td> 
+                                                                <td><input ${(isLockedMark?'readonly':'')} class="input-mark-student" type="text" name="progress_mark_${loopStatus.index}" value="${m.progress_mark}" oninput="validateInput(this)" /></td>
+                                                                <td><input ${(isLockedMark?'readonly':'')} class="input-mark-student" type="text" name="middle_mark_${loopStatus.index}" value="${m.middle_mark}" oninput="validateInput(this)" /></td>
+                                                                <td><input ${(isLockedMark?'readonly':'')} class="input-mark-student" type="text" name="final_mark_${loopStatus.index}" value="${m.final_mark}" oninput="validateInput(this)" /></td>
+                                                                <td><input ${(isLockedMark?'readonly':'')} class="input-mark-student" type="text" name="total_mark_${loopStatus.index}" value="${m.total_mark}" readonly /></td>
+                                                                
                                                                     <textarea name="studentid_${loopStatus.index}" class="form-control" id="currentPassword" aria-describedby="emailHelp" placeholder="Email" readonly style="font-size: 16px; display: none;">${m.studentid}</textarea>
-                                                                </td>
+                                                                
+                                                                 
+                                                                    <textarea name="semesterid" class="form-control" id="currentPassword" aria-describedby="emailHelp" placeholder="Email" readonly style="font-size: 16px; display: none;">${m.semesterid}</textarea>
+                                                                
+                                                                
                                                             </tr>
                                                         </c:forEach>
                                                         </tbody>
                                                     </table>
-                                                    <div class="change-password-btn m-4">
+                                                    <div ${(requestScope.marklist ==null ?'style="display: none;"':''  )} class="change-password-btn m-4">
                                                         <c:if test = "${isLockedMark}">
                                                             <button class="btn btn-me change-btn" disabled>
                                                             <i class="fa-solid fa-circle-check ms-2 me-3"></i>
@@ -157,6 +161,27 @@
                                             <c:forEach var ="x" items="${classes}">
                                                 <option  value="${x.classid}">${x.classname}</option>
 <!--                                                <option value="A5">${classid}</option>-->
+                                            </c:forEach>
+                                        </select>
+                                        <textarea name="teacherid" class="form-control" id="currentPassword" aria-describedby="emailHelp" placeholder="Email" readonly style="font-size: 16px; display: none;">${sessionScope.teacher.teacherid}</textarea>
+
+
+                                    </div>
+                                </div>
+                                        <div class="col-6">
+                                    <label class="col-3 col-form-label"
+                                           >Học Kì</label
+                                    >
+                                    <div class="col-8 d-flex justify-content-around">
+                                        <select id="classid" name="semesterid" class="form-select" aria-label="Default select example" onchange="changeClassName()">
+                                            <!--                                            <option value="A3">Lớp A3</option>
+                                                                                        <option value="A4">Lớp A4</option>
+                                                                                        <option value="A5">Lớp A5</option>-->
+
+
+                                            <c:forEach var ="x" items="${semester}">
+                                                <option  value="${x.semesterid}">${x.semesterid}</option>
+
                                             </c:forEach>
                                         </select>
                                         <textarea name="teacherid" class="form-control" id="currentPassword" aria-describedby="emailHelp" placeholder="Email" readonly style="font-size: 16px; display: none;">${sessionScope.teacher.teacherid}</textarea>
