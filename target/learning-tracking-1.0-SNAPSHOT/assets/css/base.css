@@ -21,12 +21,13 @@ html {
 }
 
 .text-color-primary {
-    color: var(--primary-color);
+    color: var(--primary-color) !important;
 }
 
 .text-color-gray {
     color: #333;
 }
+
 
 .text-color-green {
     color: green;

@@ -1,5 +1,8 @@
 
 import DAO.Dao;
+import Model.Application;
+import Model.AttendanceList;
+import Model.Teacher;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Date;
@@ -13,17 +16,17 @@ public class Main {
     public static void main(String[] args) throws SQLException {
 //        
         Dao studentDAO = new Dao();
-//        List<Notification> students = studentDAO.selectAllNotiSchool("1");
-//        for (Notification student : students) {
-//            System.out.println(student);
-//        }
+        List<Teacher> students = studentDAO.getAllTeacher();
+        for (Teacher student : students) {
+            System.out.println(student);
+        }
 
 //        Dao notiDAO = new Dao();
 //////       // Định nghĩa các giá trị mẫu
 //        String title = "Test Title";
 //        String content = "Test content";
 //        String classid = "2";
-        String notificationid = "50";
+//        String notificationid = "50";
 ////        LocalDate date = LocalDate.now();
 ////        int category = 1;
 ////        String studentid = "ST10001";
@@ -38,8 +41,11 @@ public class Main {
 //            e.printStackTrace();
 //
 //        }
-        studentDAO.deleteNoti(notificationid);
-        System.out.println("Suceess");
+//        LocalDate currentDate = LocalDate.now();
+//        List<AttendanceList> students = studentDAO.getAttendanceStudentByDate(java.sql.Date.valueOf(currentDate),"1");
+//        for (AttendanceList st : students){
+//            System.out.println(st);
+//        }
     }
 }
 

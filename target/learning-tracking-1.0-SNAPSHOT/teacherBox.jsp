@@ -31,10 +31,10 @@ Author     : htk09
             <!-- header  -->
             <%@ include file="./includes/header.jsp" %>
             <div class="app-container d-flex justify-content-center">
-                <div class="box-section w-50 mt-lg-5">
+                <div class="box-section w-75 mt-lg-5">
                     <div class="app-home__heading">
                         <div class="header-name">
-                            <a href="teacherHomePage.jsp"><i class="fa-solid fa-arrow-left me-3"></i></a>
+                            <a href="academicAffairProfile.jsp"><i class="fa-solid fa-arrow-left me-3"></i></a>
                             Hòm Thư
                         </div>
                     </div>
@@ -43,34 +43,23 @@ Author     : htk09
                             <div class="grid-item">STT</div>
                             <div class="grid-item">Họ Và Tên</div>
                             <div class="grid-item">Tiêu đề</div>
+                            <div class="grid-item">Đơn</div>
                             <div class="grid-item">Ngày Gửi</div>
                         </div>
                         <c:forEach items="${applicationTeacher}" var="app" varStatus="loopStatus">
-                            <a href="#" class="grid-container3" data-bs-toggle="modal"
-                               data-bs-target="#myModal">
+                            <a href="#" class="grid-container3">
                                 <div class="grid-item">${loopStatus.index + 1}</div>
                                 <div class="grid-item">${app.lastname} ${app.firstname}</div>
                                 <div class="grid-item">${app.title}</div>
+                                <div class="grid-item">
+                                    <a href="DownloadFileServlet?appId=${app.applicationid}">Tải xuống</a>
+                                </div>
                                 <div class="grid-item">${app.date}</div>
                             </a>
                         </c:forEach>
 
                     </div>
-                    <!--                    <div class="navigation me-5">
-                                            <nav aria-label="Page navigation example">
-                                                <ul class="pagination justify-content-end pagination-lg mt-3">
-                                                    <li class="page-item disabled">
-                                                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                                                    </li>
-                                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                    <li class="page-item">
-                                                        <a class="page-link" href="#">Next</a>
-                                                    </li>
-                                                </ul>
-                                            </nav>
-                                        </div>-->
+
                 </div>
             </div>
             <!-- The Modal -->

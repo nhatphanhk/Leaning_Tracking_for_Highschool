@@ -60,11 +60,11 @@ public class ViewApplicationTeacher extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Dao notiDAO = new Dao();
-        HttpSession session = request.getSession();
-        String teacherid = (String) session.getAttribute("teacherid");
-        List<Application> application = notiDAO.selectApplicationTeacher(teacherid);
+        List<Application> application = notiDAO.selectApplication();
+        System.out.println(application);
         request.setAttribute("applicationTeacher", application);
         request.getRequestDispatcher("teacherBox.jsp").forward(request, response);
+        
     }
 
     /**

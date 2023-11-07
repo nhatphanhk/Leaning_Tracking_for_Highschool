@@ -80,7 +80,7 @@ public class UpdateNotiFromTeacher extends HttpServlet {
 
             Dao dao = Dao.getInstance();
             dao.updateNoti(title, content, classid, notificationid);
-            response.sendRedirect("teacherNotificationHistory");
+            request.getRequestDispatcher("teacherUpdateNotification.jsp").forward(request, response);
 
         } catch (SQLException ex) {
             Logger.getLogger(UpdateNotiFromTeacher.class.getName()).log(Level.SEVERE, null, ex);

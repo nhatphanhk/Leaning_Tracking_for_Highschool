@@ -17,8 +17,16 @@ import jakarta.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 /**
  *
@@ -74,14 +82,22 @@ public class CheckAttendanceController extends HttpServlet {
         LocalDate currentDate = LocalDate.now();
         List<AttendanceList> students2 = dao.getAttendanceStudentByDate(java.sql.Date.valueOf(currentDate),classid);
         if("[]".equals(students2.toString())){
-            for (Student student : students) {
+            for(Student student : students) {
             String studentid = student.getStudentid();
-            boolean sta = (request.getParameter("status" + i) != null);
+            String note = request.getParameter("note"+i);
+            boolean sta = (request.getParameter("status" + i) == null);
             try {
-                dao.insertAttendanceStatus(currentDate, sta, studentid, semesterid);
+                System.out.println(note);
+                dao.insertAttendanceStatus(currentDate, sta, studentid, semesterid,note);
+                if (sta == false){
+                String studentEmail = student.getEmail();
+                Boolean a = this.sendEmail(studentEmail,"Student "+ student.getLastName() + " " + student.getFirstName() +" absent "+ currentDate);
+                System.out.println(a); 
+                }
             } catch (SQLException ex) {
                 Logger.getLogger(CheckAttendanceController.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
             i++;
         }
             String msg = "Add Successfully";
@@ -89,12 +105,21 @@ public class CheckAttendanceController extends HttpServlet {
         }else{
             for (AttendanceList student : students2) {
                 String studentid = student.getStudentid();
-                Boolean sta = Boolean.valueOf(request.getParameter("status"+i));
+                String note = request.getParameter("note"+i);
+                boolean sta = (request.getParameter("status" + i) == null);
+                System.out.println("status"+i +":"+sta);
                 try {
-                    dao.updateAttendanceStatus(currentDate, sta, studentid, semesterid, studentid);
+                    if (sta == false){
+                    Student student_raw = dao.selectStudentById(studentid);
+                    String studentEmail = student_raw.getEmail();
+                    Boolean a = this.sendEmail(studentEmail,"Student "+ student.getLastName() + " " + student.getFirstName() +" absent "+ currentDate);
+                    System.out.println(a); 
+                    }
+                    dao.updateAttendanceStatus(sta, studentid, note);
                 } catch (SQLException ex) {
                     Logger.getLogger(CheckAttendanceController.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                
                 i++;
             }
              String msg = "Update Successfully";
@@ -104,6 +129,45 @@ public class CheckAttendanceController extends HttpServlet {
         session.removeAttribute("classid");
         request.getRequestDispatcher("academicAffairCheckAttendance.jsp").forward(request, response);
     }
+    
+    
+    public Boolean sendEmail(String to, String link){
+        
+        final String from ="htk09032003@gmail.com";
+        final String password ="edyrpmmklyniuvyh";
+    
+        Properties props = new Properties();
+        
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.ssl.protocols", "TLSv1.2");
+        
+        
+        Authenticator auth = new Authenticator() {
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(from, password); 
+            } 
+        };
+        
+        Session session = Session.getInstance(props, auth);
+        
+        MimeMessage msg = new MimeMessage(session);
+        try {
+            msg.addHeader("Content-Type", "text/HTML; charset=UTF-8");
+            msg.setFrom(new InternetAddress(from));
+            msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to,false));
+            msg.setSubject("Attendance notification service -- do not reply this email");
+            msg.setContent(link, "text/html");
+            Transport.send(msg);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }   
 
     /**
      * Handles the HTTP <code>POST</code> method.

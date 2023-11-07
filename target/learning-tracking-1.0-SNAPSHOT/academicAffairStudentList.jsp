@@ -23,9 +23,6 @@
                                 <div class="row acaAff-files d-flex">
                                     <a class="col-2" href="addstudent"><button type="button" class="col-2 acaAff-btn" >Thêm</button></a>
                                      
-                                     <span class="col" ></span>
-                                     <a class="col-2 acaAff-btn ">Import</a>
-                                     <a class="col-2 acaAff-btn ">Export</a>
                                   </div>
                                 <c:set var="cid" value="${requestScope.cid}" />
                                 <div class="row d-flex flex-row mt-4">
@@ -55,7 +52,6 @@
                                                     <th>Số điện thoại</th>
                                                     <th>Địa điểm</th>
                                                     <th>Chỉnh sửa</th>
-                                                    <th>Xoá</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -63,7 +59,7 @@
                                                     <tr>
                                                         <td>${loopStatus.index+1}</td>
                                                         <td>${x.studentid}</td>
-                                                        <td>${x.lastName} ${x.firstName}</td>
+                                                        <td class="text-start">${x.lastName} ${x.firstName}</td>
                                                         <td><c:choose>
                                                                             <c:when test="${x.gender}">
                                                                                 Nam
@@ -75,8 +71,7 @@
                                                         <td>${x.dob}</td>
                                                         <td>${x.phoneNumber}</td>
                                                         <td>${x.address}</td>
-                                                        <td><a href="updatestudent?email=${x.email}" email>Chỉnh sửa</a></td>
-                                                        <td><a class="delete-link" href="deletestudent?email=${x.email}&classid=${x.classid}">Xoá<a></td>
+                                                        <td><a class="btn btn-secondary btn-lg" href="updatestudent?email=${x.email}" email>Chỉnh sửa</a></td>
                                             
 
 

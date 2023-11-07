@@ -103,7 +103,6 @@
                                         <a href="notificationSchool?teacherid=${sessionScope.teacher.teacherid}" style="text-decoration: none">
                                             <div class="header-name">
                                                 <i class="fa-solid fa-bell pe-2 ps-2"></i>
-                                                <span class="header-notice">2</span>
                                                 Thông báo từ nhà trường
                                             </div>
                                         </a>
@@ -127,45 +126,7 @@
                             </div>
 
 
-                            <!--                <div class="col mt-4">
-                                              <div class="box-section">
-                                                <div class="app-home__heading">
-                                                    <a href="viewTeacherNotification.jsp" style="text-decoration: none">
-                                                         <div class="header-name">
-                                                    <i class="fa-solid fa-bell pe-2 ps-2"></i>
-                                                    <span class="header-notice">4</span>
-                                                    Thông báo từ giáo viên
-                                                  </div>
-                                                    </a>
-                                                </div>
-                                                <div class="notification-list">
-                                                  <div class="notificaiton-item p-4">
-                                                    <div class="notifi-heading">
-                                                      <div class="notifi-header">Loa Loa Loa</div>
-                                                      <div class="notifi-date">17/7/2023</div>
-                                                    </div>
-                                                    <div class="ps-3 pt-2 notifi-short-content">Nay cô bận các em nghỉ nhé</div>
-                                                  </div>
-                                                  <div class="notificaiton-item p-4">
-                                                    <div class="notifi-heading">
-                                                      <div class="notifi-header">Thông báo lịch thi cuối kỳ</div>
-                                                      <div class="notifi-date">17/7/2023</div>
-                                                    </div>
-                                                    <div class="ps-3 pt-2 notifi-short-content">Chuẩn bị thi rồi các em chăm chỉ học nhé</div>
-                                                  </div>
-                                                  <div class="notificaiton-item p-4">
-                                                    <div class="notifi-heading">
-                                                      <div class="notifi-header">Thông báo lịch thi cuối kỳ</div>
-                                                      <div class="notifi-date">17/7/2023</div>
-                                                    </div>
-                                                    <div class="ps-3 pt-2 notifi-short-content">Chuẩn bị thi rồi các em chăm chỉ học nhé</div>
-                                                  </div>
-                                                  <div class="text-center view-all">
-                                                      <a href="viewTeacherNotification.jsp" class="text-color-gray">Xem tất cả</a>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                            </div>-->
+                            
 
                         </div>
                         <div class="row mt-4">
@@ -186,7 +147,7 @@
                                                     Gửi thông báo
                                                 </button>
                                             </a>
-                                            <A href="viewApplicationTeacher?teacherid=${sessionScope.teacherid}"> <button type="button" class="btn btn-me applicate-view">Đơn</button></A>
+                                            <!--<A href="viewApplicationTeacher?teacherid=${sessionScope.teacherid}"> <button type="button" class="btn btn-me applicate-view">Đơn</button></A>-->
                                         </div>
                                     </div>
                                 </div>

@@ -17,6 +17,8 @@
             integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
             crossorigin="anonymous"
             />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <link rel="stylesheet" href="./assets/css/base.css" />
         <link rel="stylesheet" href="./assets/css/style.css" />
         <title>MS</title>
@@ -46,16 +48,19 @@
                                 <a class="nav-link" href="./academicAffairProfile.jsp">Giám thị</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link" href="teacherListTimetable"  role="button">
                                     Thời khóa biểu
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="./academicAffairTimetableTeacher.jsp">Thời khóa biểu giáo viên</a></li>
+<!--                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="teacherListTimetable">Thời khóa biểu giáo viên</a></li>
                                     <li><a class="dropdown-item" href="./academicAffairTimetableStudent.jsp">Thời khóa biểu học sinh</a></li>
-                                </ul>
+                                </ul>-->
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="./academicAffairCheckAttendance.jsp">Điểm danh</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="viewApplicationTeacher">Đơn vắng học</a>
                             </li>
                             <li class="nav-item">
 

@@ -83,7 +83,7 @@
                                                             <li class="info-href-contain h3 ms-3 mb-4">
                                                                 <a href="attendance-status?studentid=${sessionScope.student.studentid}" class="text-color-gray">
                                                                     <i class="fa-solid fa-triangle-exclamation me-3"></i>
-                                                                    <span>VI PHẠM, NGHỈ HỌC</span>
+                                                                    <span>NGHỈ HỌC</span>
                                                                 </a>
                                                             </li>
                                                         </ul>
@@ -175,7 +175,6 @@
                                         <a href="notificationSchool?classid=${sessionScope.student.classid}" style="text-decoration: none">
                                             <div class="header-name">
                                                 <i class="fa-solid fa-bell pe-2 ps-2"></i>
-                                                <span class="header-notice">2</span>
                                                 Thông báo từ nhà trường
                                             </div>
                                         </a>
@@ -202,7 +201,6 @@
                                         <a href="notificationTeacher?classid=${sessionScope.student.classid}" style="text-decoration: none">
                                             <div class="header-name">
                                                 <i class="fa-solid fa-bell pe-2 ps-2"></i>
-                                                <span class="header-notice">4</span>
                                                 Thông báo từ giáo viên
                                             </div>
                                         </a>

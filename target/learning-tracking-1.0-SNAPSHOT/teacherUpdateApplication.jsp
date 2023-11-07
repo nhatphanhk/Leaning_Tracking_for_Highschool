@@ -36,7 +36,7 @@ Author     : htk09
                             Chỉnh sửa thông báo
                         </div>
                     </div>
-                    <form action="updateNotiFromTeacher" method="post">
+                    <form action="updateNotiFromteacher" method="post">
                         <input type="hidden" name="notificationid" value="${detailTeacherNoti.notificationid}" />
                         <div class="send-notification mx-4">
                             <div class="mb-3 d-flex mt-4">
@@ -60,7 +60,7 @@ Author     : htk09
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Nội dung:</label>
-                                <textarea name="content" type="text" value="" class="form-control noti-textarea" rows="3" style="min-height: 300px;" required>${detailTeacherNoti.content}</textarea>
+                                <input name="content" type="text" value="${detailTeacherNoti.content}" class="form-control noti-textarea" rows="3" required/>
                             </div>
 
 <!--                            <div class="mb-3">

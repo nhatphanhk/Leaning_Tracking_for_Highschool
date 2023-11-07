@@ -8,6 +8,7 @@
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/DeleteNotificationTeacher.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Model/Staff.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Model/Account.java
+/Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/VerifyEmailHandler.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/ViewApplicationTeacher.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Model/Mark.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/StudentListByClassController.java
@@ -18,6 +19,8 @@
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/DAO/DBUtil.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/ViewDetailNotificationManager.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/ViewTimetableTeacher.java
+/Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/ClassListServlet.java
+/Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/TeacherListTimetable.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/ViewDetailsNotiFromTeacher.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Model/Major.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/CRUDMarkController.java
@@ -41,12 +44,15 @@
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/TeacherListController.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/TeacherNotificationHistory.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/AddTeacherController.java
+/Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/ManageTimetableClass.java
+/Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/DownloadFileServlet.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/UpdateMarkController.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/UpdateNotiFromSchool.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Model/Teacher.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Model/Class.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Model/Application.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/SendNotificationFromSchool.java
+/Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/ChangeForgotPasswordController.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Model/Notification.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/ViewDetailNotiSchoolUpdate.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/StudentListController.java
@@ -62,6 +68,7 @@
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Model/AttendanceList.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/DeleteNotification.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/AddStudentController.java
+/Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/ManageTimtable.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/ajaxServlet.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/LogoutController.java
 /Users/tramy/Desktop/Learning-Tracking/src/main/java/Controller/ViewDetailNotiTeacherUpdate.java

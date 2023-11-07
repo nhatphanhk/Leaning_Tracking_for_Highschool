@@ -12,20 +12,27 @@ import java.sql.Date;
  */
 public class AttendanceStatus {
 
-    @Override
-    public String toString() {
-        return "AttendanceStatus{" + "date=" + date + ", studentid=" + studentid + ", semesterid=" + semesterid + '}';
-    }
-
     private Date date;
     private String studentid;
     private String semesterid;
+    private String note;
 
-    public AttendanceStatus(Date date, String studentid, String semesterid) {
+    public AttendanceStatus(Date date, String studentid, String semesterid, String note) {
         this.date = date;
         this.studentid = studentid;
         this.semesterid = semesterid;
+        this.note = note;
     }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+  
 
     public Date getDate() {
         return date;
@@ -51,6 +58,12 @@ public class AttendanceStatus {
         this.semesterid = semesterid;
     }
     
+
+    @Override
+    public String toString() {
+        return "AttendanceStatus{" + "date=" + date + ", studentid=" + studentid + ", semesterid=" + semesterid + ", note=" + note + '}';
+    }
     
     
 }
+

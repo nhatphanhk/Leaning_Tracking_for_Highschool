@@ -138,8 +138,7 @@ public class LoginController extends HttpServlet {
                     session.setAttribute("teacher", tc);
                     String teacherid = tc.getTeacherid();
                     session.setAttribute("teacherid", teacherid);
-                    List<Application> app = dao.selectApplicationTeacher(teacherid);
-                    session.setAttribute("app", app);
+        
 
                     request.getRequestDispatcher("teacherHomePage.jsp").forward(request, response);
                     break;

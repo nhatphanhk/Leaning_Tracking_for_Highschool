@@ -20,6 +20,10 @@
         <servlet-class>Controller.InsertApplicationStudent</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>LoadTimetable</servlet-name>
+        <servlet-class>Controller.LoadTimetable</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>ViewTimetableTeacher</servlet-name>
         <servlet-class>Controller.ViewTimetableTeacher</servlet-class>
     </servlet>
@@ -115,14 +119,6 @@
         <servlet-name>DeleteNotification</servlet-name>
         <servlet-class>Controller.DeleteNotification</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>LoadTimetable</servlet-name>
-        <servlet-class>Controller.LoadTimetable</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>LoadTimetable</servlet-name>
-        <url-pattern>/loadTimetable</url-pattern>
-    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DeleteNotification</servlet-name>
         <url-pattern>/deleteNotification</url-pattern>
@@ -384,6 +380,26 @@
         <url-pattern>/insertApplicationStudent</url-pattern>
     </servlet-mapping>
     <!--    <servlet-mapping><servlet-name>ViewApplicationHistoryStudent</servlet-name><url-pattern>/viewApplicationHistoryStudent</url-pattern></servlet-mapping>-->
+    <servlet>
+        <servlet-name>TeacherListTimetable</servlet-name>
+        <servlet-class>Controller.TeacherListTimetable</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManageTimtable</servlet-name>
+        <servlet-class>Controller.ManageTimtable</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ClassListServlet</servlet-name>
+        <servlet-class>Controller.ClassListServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManageTimetableClass</servlet-name>
+        <servlet-class>Controller.ManageTimetableClass</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoadTimetable</servlet-name>
+        <url-pattern>/loadTimetable</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ViewTimetableTeacher</servlet-name>
         <url-pattern>/viewTimetableTeacher</url-pattern>
@@ -427,6 +443,22 @@
     <servlet-mapping>
         <servlet-name>ViewDetailNotiTeacherUpdate</servlet-name>
         <url-pattern>/viewDetailNotiTeacherUpdate</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TeacherListTimetable</servlet-name>
+        <url-pattern>/teacherListTimetable</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageTimtable</servlet-name>
+        <url-pattern>/manageTimtable</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ClassListServlet</servlet-name>
+        <url-pattern>/classList</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageTimetableClass</servlet-name>
+        <url-pattern>/manageTimetableClass</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

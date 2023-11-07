@@ -28,6 +28,12 @@ public class Teacher {
         this.lastname = lastname;
         this.firstname = firstname;
     }
+    // select all teacher
+    public Teacher(String teacherid, String lastname, String firstname) {
+        this.teacherid = teacherid;
+        this.lastname = lastname;
+        this.firstname = firstname;
+    }
 
     
     
