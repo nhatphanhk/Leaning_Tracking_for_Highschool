@@ -13,6 +13,7 @@ import Model.Class;
 import Model.Major;
 import Model.Mark;
 import Model.Notification;
+import Model.Semester;
 import java.io.InputStream;
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -28,6 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.apache.taglibs.standard.tei.ForEachTEI;
 
 /**
  *
@@ -121,9 +123,9 @@ public class Dao implements Serializable {
         try {
             String sql = DELETE_NOTI;
             stm = conn.prepareStatement(sql);
-            stm.setString(1, notificationid);            
+            stm.setString(1, notificationid);
             stm.executeUpdate();
-        }  catch (Exception ex) {
+        } catch (Exception ex) {
             Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -135,28 +137,29 @@ public class Dao implements Serializable {
         List<Teacher> tc = new ArrayList<>();
 
     try {
-        String sql = SELECT_TEACHER_BY_CLASSID;
-        stm = conn.prepareStatement(sql);
-        stm.setString(1, classid);
+            String sql = SELECT_TEACHER_BY_CLASSID;
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, classid);
 
-        rs = stm.executeQuery();
-        while (rs.next()) {
-            tc.add(new Teacher(
-                    rs.getString(1), 
-                    rs.getString(2), 
-                    rs.getString(3), 
-                    rs.getString(4), 
-                    rs.getString(5), 
-                    rs.getString(6), 
-                    rs.getString(7), 
-                    rs.getDate(8), 
-                    rs.getBoolean(9)
-            ));}
-        
-    } catch (Exception ex) {
-        Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
-    }
-    return tc;
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                tc.add(new Teacher(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getDate(8),
+                        rs.getBoolean(9)
+                ));
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return tc;
     }
     
     public List<Timetable> selectTimetableTeacher(String hour, String teacherid) {
@@ -859,7 +862,7 @@ public class Dao implements Serializable {
         Student st = new Student();
         try {
 
-            String sql = "select s.studentid,s.lastname,s.firstname,s.email,s.[address],s.phonenumber,s.classid,s.gender,s.dob,c.classname\n"
+            String sql = "select s.studentid,s.lastname,s.firstname,s.email,s.[address],s.phonenumber,s.classid,s.gender,s.dob,c.classname,s.indentify\n"
                     + "from student s  join class c on s.classid=c.classid where s.email =?";
             stm = conn.prepareStatement(sql);
             stm.setString(1, email);
@@ -869,7 +872,7 @@ public class Dao implements Serializable {
                 return st = new Student(rs.getString("studentid"), rs.getString("lastname"),
                         rs.getString("firstname"), rs.getString("email"),
                         rs.getString("address"), rs.getString("phonenumber"), rs.getInt("classid"),
-                        rs.getBoolean("gender"), rs.getDate("dob"), rs.getString("classname"));
+                        rs.getBoolean("gender"), rs.getDate("dob"), rs.getString("classname"),rs.getInt("indentify"));
 
             }
         } catch (Exception ex) {
@@ -1481,7 +1484,7 @@ public class Dao implements Serializable {
         }
         return null;
     }
-     public void updateAccount(String email, String newPassword ,int role) {
+     public void updateAccount(String email, String newPassword, int role) {
         PreparedStatement stm;
         try {
 
@@ -1500,7 +1503,7 @@ public class Dao implements Serializable {
         }
 
     }
-     public void addAccount(String email, String newPassword ,int role) {
+     public void addAccount(String email, String newPassword, int role) {
         PreparedStatement stm;
         try {
 
@@ -1508,8 +1511,8 @@ public class Dao implements Serializable {
             stm = conn.prepareStatement(sql);
             stm.setString(1, email);
             
-            stm.setString(2,newPassword);
-            stm.setInt(3,role );
+            stm.setString(2, newPassword);
+            stm.setInt(3, role);
             
             
 
@@ -1521,16 +1524,110 @@ public class Dao implements Serializable {
 
     }
 
+    public List<Semester> getAllSemester() {
+        PreparedStatement stm;
+        ResultSet rs;
+
+        List<Semester> list = new ArrayList<>();
+
+        try {
+
+            String sql = "select * from semester";
+            stm = conn.prepareStatement(sql);
+
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                list.add(new Semester(rs.getString("semesterid"), rs.getInt("year"), rs.getInt("semester")));
+
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
+    public List<Mark> getListMarkBySemester(String major, String semester) {
+        PreparedStatement stm;
+        ResultSet rs;
+        List<Mark> markList = new ArrayList();
+        try {
+
+            String sql = "select m.semseterid,s.studentid,s.lastname,s.firstname,m.progress_mark,m.middle,m.final,m.total,su.majorname,se.semester,se.year\n"
+                    + "from mark m inner join student s on m.studentid = s.studentid \n"
+                    + "inner join subject su on m.majorid=su.majorid inner join semester se on m.semseterid = se.semesterid\n"
+                    + "where s.indentify\n"
+                    + "is not null and m.semseterid =? and m.majorid =?";
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, semester);
+            stm.setString(2, major);
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                markList.add(new Mark(rs.getString("studentid"),
+                        rs.getString("lastname"), rs.getString("firstname"),
+                        rs.getBigDecimal("progress_mark"), rs.getBigDecimal("middle"),
+                        rs.getBigDecimal("final"), rs.getBigDecimal("total"), rs.getString("majorname"), rs.getInt("semester"),
+                        rs.getInt("year"), rs.getString("semseterid")));
+
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return markList;
+
+    }
+
+    public void updateMarkV2(BigDecimal p, BigDecimal m, BigDecimal f, BigDecimal t, String studentid, String semesterid, String majorid) {
+        PreparedStatement stm;
+
+        try {
+            String sql = "update mark set progress_mark=?, middle=?,final=?,total=? "
+                    + "where semseterid = ? and studentid=? and majorid =?";
+            stm = conn.prepareStatement(sql);
+            stm.setBigDecimal(1, p);
+            stm.setBigDecimal(2, m);
+            stm.setBigDecimal(3, f);
+            stm.setBigDecimal(4, t);
+            stm.setString(5, semesterid);
+            stm.setString(6, studentid);
+            stm.setString(7, majorid);
+
+            stm.executeUpdate();
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public List<Mark> getListMarkOfAStudentV2(String semesterid,int identify) {
+        PreparedStatement stm;
+        ResultSet rs;
+        List<Mark> markList = new ArrayList();
+        try {
+
+            String sql = "select  s.studentid,s.lastname,s.firstname,m.progress_mark,m.middle,m.final,m.total,su.majorname from mark m left join student s on m.studentid = s.studentid join subject su\n"
+                    + " on m.majorid=su.majorid where s.indentify\n"
+                    + "is not null and m.semseterid =? and s.indentify =? ";
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, semesterid);
+            stm.setInt(2, identify);
+
+            rs = stm.executeQuery();
+            while (rs.next()) {
+                markList.add(new Mark(rs.getString("studentid"),
+                        rs.getString("lastname"), rs.getString("firstname"),
+                        rs.getBigDecimal("progress_mark"), rs.getBigDecimal("middle"), rs.getBigDecimal("final"), rs.getBigDecimal("total"), rs.getString("majorname") ));
+
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Dao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return markList;
+
+    }
+
     public static void main(String[] args) {
-//        Dao dao =  Dao.getInstance();
-//        Account acc = dao.getAccountByEmail("student2@gmail.com");
-//        System.out.println(acc.toString());
-//
-//        Dao dao = Dao.getInstance();
-//        List<Mark> list = dao.getListMarkByClasses(1);
-//        for (Mark item : list) {
-//            System.out.println(item.toString());
-//        }
+        Dao dao = Dao.getInstance();
+        Student a = dao.getAStudentByEmail("student121@gmail.com");
+        System.out.println(a);
     }
 
 }
