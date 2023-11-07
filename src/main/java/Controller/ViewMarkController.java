@@ -7,6 +7,7 @@ package Controller;
 
 import DAO.Dao;
 import Model.Mark;
+import Model.Semester;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -56,11 +57,15 @@ public class ViewMarkController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-       String studentid = request.getParameter("studentid");
-        Dao dao = Dao.getInstance();
-        List<Mark> list = dao.getListMarkOfAStudent(studentid);
-            
-        request.setAttribute("studentmarks", list);
+        String studentid = request.getParameter("studentid");
+      Dao dao = Dao.getInstance();
+//        List<Mark> list = dao.getListMarkOfAStudent(studentid);
+//            
+//        request.setAttribute("studentmarks", list);
+
+        List<Semester> lists = dao.getAllSemester();
+
+        request.setAttribute("semester", lists);
         request.getRequestDispatcher("studentMarkReport.jsp").forward(request, response);
     } 
 
@@ -74,7 +79,24 @@ public class ViewMarkController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+        Dao dao = Dao.getInstance();
+        String semesterid = request.getParameter("semester");
+        String identify_raw = request.getParameter("identify");
+        try {
+            int identify = Integer.parseInt(identify_raw);
+            List<Mark> list = dao.getListMarkOfAStudentV2(semesterid, identify);
+            List<Semester> lists = dao.getAllSemester();
+
+            request.setAttribute("sid", semesterid);
+            request.setAttribute("semester", lists);
+            request.setAttribute("studentmarks", list);
+            request.getRequestDispatcher("studentMarkReport.jsp").forward(request, response);
+        } catch (Exception e) {
+            response.sendRedirect("login.jsp");
+        }
+
+
+    }
     }
 
     /** 
