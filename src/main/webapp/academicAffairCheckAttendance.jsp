@@ -44,7 +44,7 @@
                         <div class="app-home__body m-5">
                             <div class="row">
                                 <div class="col">
-                                    <form action="check-attendance">
+                                    <form id="myForm" action="check-attendance"">
                                         <!-- Student List details  -->
                                         <table class="table table-bordered table-striped">
                                             <thead class="background-primary">
@@ -86,10 +86,11 @@
                                             </tbody>
                                         </table>
                                         <div class="row d-flex flex-row-reverse">
-                                            <button class="acaAff-btn">Lưu</button>
+                                            <button type="submit" class="acaAff-btn">Lưu</button>
+                                            
                                         </div>
                                     </form>
-                                </div>
+                                </div>                               
                             </div>
                         </div>
                     </div>
@@ -117,6 +118,13 @@ checkboxes.forEach(function (checkbox) {
     checkbox.value = checkbox.checked ? "false" : "true";
   });
 });
+
+
+function showPopup() {
+    swal("Good job!", "You clicked the button!", "success");
+    return true;
+}
+
 </script>
 </body>
 </html>

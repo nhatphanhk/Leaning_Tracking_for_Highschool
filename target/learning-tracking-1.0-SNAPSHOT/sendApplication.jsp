@@ -48,7 +48,7 @@
                                         <form action="insertApplicationStudent" method="post" enctype="multipart/form-data">
                                         <div class="row py-5 px-5 mx-5 mt-5">
                                             <h1 class="mb-4 text-secondary fw-bolder">
-                                                Gửi đơn cho thầy cô giáo chủ nhiệm
+                                                Gửi đơn cho phòng giáo vụ
                                             </h1>
                                         </div><!-- comment -->
                                         <div class="row px-5 mx-5 mb-5 pb-5 ">
@@ -72,7 +72,7 @@
                                                     <div class="drop-down--content" id="subMenu2">
                                                         <select name="categoryid" id="application" class="fs-3" style="font-size: 20px;">
                                                             <option value="1">Đơn xin nghỉ học</option>
-                                                            <option value="2">Đơn rút hồ sơ</option>
+                                                            <!--<option value="2">Đơn rút hồ sơ</option>-->
                                                         </select>
                                                     </div>                         
                                                 </div>
@@ -81,9 +81,9 @@
                                         
                                         <div class="row px-5 mx-5 mb-5 pb-5 ">
                                             <div class="col-2">
-                                                <h2 class="mb-4 text-secondary fw-bolder">
-                                                    Mẫu
-                                                </h2>
+                                                <h1 class="mb-4 text-secondary fw-bolder">
+                                                    Mẫu đơn
+                                                </h1>
                                             </div>
                                             <div class="col-8">
                                                  <a style="font-size: 20px;" href="sendApplicationStudent?value=File.zip" >Tải về</a>
@@ -100,14 +100,14 @@
                                             <div class="col-9">
                                                 <div class="form-group">
                                                     <label  style="font-size: 16px;" for="attachmentFile" class="form-label">File đính kèm:</label>
-                                                    <input  style="font-size: 16px;" type="file" class="form-control" id="attachmentFile" name="attachmentFile" required>
+                                                    <input  style="font-size: 16px;" type="file" class="form-control" id="attachmentFile" name="docxFile" required>
                                                 </div>
                                             </div>
                                             <input type="hidden" name="studentid" value="" />
                                         </div>                                      
                                         <div class="row px-5 mx-5 pt-5 pb-5">
                                             <div class="col-10"></div>
-                                            <button type="submit" class="btn btn-primary col-1 fs-3">Submit</button>
+                                            <button type="submit" class="btn btn-primary col-1 fs-3">NỘP ĐƠN</button>
                                         </div>
                                     </form>
 

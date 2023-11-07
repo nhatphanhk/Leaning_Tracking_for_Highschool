@@ -78,29 +78,7 @@ public class InsertApplicationStudent extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            Part filePart = request.getPart("attachmentFile"); // Retrieves <input type="file" name="attachmentFile">
-            String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
-            InputStream fileContent = filePart.getInputStream();
-
-            // Define the path to the directory where you want to save the file
-            String uploadPath = "/Users/tramy/Documents/Learning Uni/Semester 5/SWP391/Saved File/";
-
-            // Create a new File object
-            File file = new File(uploadPath + File.separator + fileName);
-
-            // Use try-with-resources to ensure that resources are closed properly
-            try ( FileOutputStream fos = new FileOutputStream(file)) {
-                // Create a buffer
-                byte[] buffer = new byte[1024];
-                int bytesRead;
-
-                // Read from the InputStream and write to the FileOutputStream
-                while ((bytesRead = fileContent.read(buffer)) != -1) {
-                    fos.write(buffer, 0, bytesRead);
-                }
-            }
-
+        try {           
             // insert application
             String title = request.getParameter("title");
             String categoryid = request.getParameter("categoryid");
@@ -108,8 +86,14 @@ public class InsertApplicationStudent extends HttpServlet {
             HttpSession session = request.getSession();
             String studentid = (String) session.getAttribute("studentid");
 
+            InputStream inputStream = null;
+            
+            Part filePart = request.getPart("docxFile");
+            if (filePart != null) {
+                inputStream = filePart.getInputStream();
+            }
             Dao noti = Dao.getInstance();
-            noti.insertApplicationStudent(title, categoryid, currentDate, studentid);
+            noti.insertApplicationStudent(title, categoryid, currentDate, studentid,inputStream);
         }   catch (SQLException ex) {
             Logger.getLogger(InsertApplicationStudent.class.getName()).log(Level.SEVERE, null, ex);
         }

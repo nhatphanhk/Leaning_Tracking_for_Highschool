@@ -13,6 +13,7 @@ import Model.Class;
 import Model.Major;
 import Model.Mark;
 import Model.Notification;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Connection;
@@ -66,7 +67,7 @@ public class Dao implements Serializable {
     private static final String SELECT_NOTI_TEACHER_BY_ID = "SELECT n.notificationid, n.title, n.content, n.date, n.categoryid,n.teacherid, c.classname \n"
             + "FROM [dbo].[notification] n JOIN [dbo].[class] c ON c.classid = n.classid \n"
             + "WHERE notificationid = ?";
-    private static final String INSERT_APPLICATION_STUDENT = "INSERT INTO [dbo].[application] (title, categoryid, date, studentid) VALUES (?, ?, ?, ?)";
+    private static final String INSERT_APPLICATION_STUDENT = "INSERT INTO [dbo].[application] (title, categoryid, date, studentid, fileContent) VALUES (?, ?, ?, ?,?)";
     private static final String SELECT_APPLICATION_STUDENT = "SELECT n.applicationid, n.title, n.categoryid, n.date, n.teacherid, n.studentid, c.category FROM [dbo].[application] n JOIN [dbo].[application_category] c ON c.categoryid = n.categoryid WHERE studentid = ? ORDER BY applicationid Desc";
     private static final String SELECT_APPLICATION_TEACHER = "SELECT n.applicationid, n.title, n.categoryid, n.date, n.teacherid, n.studentid, c.firstname, c.lastname FROM [dbo].[application] n JOIN [dbo].[student] c ON c.studentid = n.studentid WHERE teacherid = ? ORDER BY applicationid Desc";
     private static final String INSERT_TIMETABLE = "INSERT INTO timetable (day, hour, classid, majorid, teacherid, semesterid) VALUES (?,?,?,?,?,?)";
@@ -330,7 +331,7 @@ public class Dao implements Serializable {
         return app;
     }
 
-    public void insertApplicationStudent(String title, String categoryid, LocalDate date, String studentid) throws SQLException {
+    public void insertApplicationStudent(String title, String categoryid, LocalDate date, String studentid, InputStream fileContent) throws SQLException {
         PreparedStatement stm;
         try {
             String sql = INSERT_APPLICATION_STUDENT;
@@ -339,6 +340,9 @@ public class Dao implements Serializable {
             stm.setString(2, categoryid);
             stm.setDate(3, java.sql.Date.valueOf(date));
             stm.setString(4, studentid);
+            if(fileContent != null) {
+                stm.setBlob(5, fileContent);
+            }
 
             stm.executeUpdate(); // không trả dữ liệu thì dùng executeUpdate
         } catch (Exception e) {

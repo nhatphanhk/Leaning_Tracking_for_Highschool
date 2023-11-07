@@ -49,12 +49,12 @@
                                             <c:forEach var="x" items="${notification}">
                                                 <div class="notificaiton-item p-4" data-bs-toggle="modal" data-bs-target="#">
                                                     <a href="viewDetailsNotiFromSchool?notificationid=${x.notificationid}" class="text-decoration-none">
-                                                        <div class="notifi-heading">
+                                                        <div class="notifi-heading" style="color: black;">
                                                             <div class="notifi-header fs-1">${x.title}</div>
                                                             <div class="notifi-date fs-3">${x.date}</div>
                                                         </div>
                                                     
-                                                    <div class="ps-3 pt-2 notifi-short-content fs-3 " style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap; max-width: 500px">
+                                                    <div class="ps-3 pt-2 notifi-short-content fs-3 " style=" color: black; text-overflow: ellipsis;overflow: hidden;white-space: nowrap; max-width: 500px">
                                                         ${x.content}
                                                     </div>
                                                     </a>
@@ -68,25 +68,6 @@
                     </div>
                 </div>
             </div>
-<!--           Modal
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-scrollable">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title" id="staticBackdropLabel">THÔNG BÁO</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <h3>Tiêu Đề: </h3>
-                            <h3>Nội dung: </h3>
-                            <div></div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>-->
 
       <!-- Modal Header -->
             <div class="modal-header m-2">

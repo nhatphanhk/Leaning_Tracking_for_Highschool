@@ -51,61 +51,7 @@
                                     <div class="app-home__body">
                                         <div class="p-5 info-container">
                                             <div class="row">
-                                                <!--                    <div class="col-3">
-                                                                      <div class="box-section h-100 w-75">
-                                                                        <div class="app-home__heading">
-                                                                          <div class="header-name">
-                                                                            <i class="fa-solid fa-calendar-days pe-2 ps-2"></i>
-                                                                            Lớp
-                                                                          </div>
-                                                                        </div>
-                                                                        
-                                                                          <div class="dropdown mt-5">
-                                                                            <div class="drop-down--header" onclick="toggleMenu1()">
-                                                                              <span class="drop-down--title">Lớp 10</span>
-                                                                              <i class="fa-solid fa-caret-down dropdown--icon"></i>
-                                                                            </div>
-                                                                              <div class="drop-down-content" id="subMenu1">
-                                                                                <ul class="drop-down-link">
-                                                                                  <li><a href="#">Kỳ 1</a></li>
-                                                                                  <li><a href="#">Kỳ 2</a></li>
-                                                                                </ul>
-                                                                              </div>
-                                                                          </div>
-                                                                        
-                                                                    
-                                                                        
-                                                                          <div class="dropdown mt-5">
-                                                                            <div class="drop-down--header" onclick="toggleMenu2()">
-                                                                              <span class="drop-down--title">Lớp 10</span>
-                                                                              <i class="fa-solid fa-caret-down dropdown--icon"></i>
-                                                                            </div>
-                                                                              <div class="drop-down-content" id="subMenu2">
-                                                                                <ul class="drop-down-link">
-                                                                                  <li><a href="#">Kỳ 1</a></li>
-                                                                                  <li><a href="#">Kỳ 2</a></li>
-                                                                                </ul>
-                                                                              </div>
-                                                                          </div>
-                                                                      
-                                                                       
-                                                                        <div class="dropdown my-5">
-                                                                          <div class="drop-down--header" onclick="toggleMenu3()">
-                                                                            <span class="drop-down--title">Lớp 10</span>
-                                                                            <i class="fa-solid fa-caret-down dropdown--icon"></i>
-                                                                          </div>
-                                                                            <div class="drop-down-content" id="subMenu3">
-                                                                              <ul class="drop-down-link">
-                                                                                <li><a href="#">Kỳ 1</a></li>
-                                                                                <li><a href="#">Kỳ 2</a></li>
-                                                                              </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                      </div>
                                                 
-                                                                      
-                                                                    </div>-->
-
                                                 <div class="col">
                                                     <div class="box-section" style="height: 100%">
                                                         <table class="table table-bordered text-center " >
@@ -126,7 +72,7 @@
                                                                         <fmt:formatDate value="${x.date}" pattern="dd/MM/yyyy" var="formattedDate" />
                                                                         <td>${formattedDate}</td>
                                                                         <td>${x.semesterid}</td>
-                                                                        <td style="text-align: start;"> Nghỉ học ${x.note} ngày ${formattedDate}</td>
+                                                                        <td style="text-align: start;"> ${x.note}</td>
                                                                     </tr>  
                                                                 </c:forEach>
                                                             </tbody>

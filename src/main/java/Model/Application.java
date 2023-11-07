@@ -1,5 +1,6 @@
 package Model;
 
+import java.io.InputStream;
 import java.sql.Date;
 
 /**
@@ -16,6 +17,7 @@ public class Application {
     private String category;
     private String firstname;
     private String lastname;
+    private InputStream fileContent;
 
 
     //SELECT APPLICATION STUDENT
@@ -40,6 +42,14 @@ public class Application {
         this.teacherid = teacherid;
         this.firstname = firstname;
         this.lastname = lastname;
+    }
+
+    public InputStream getFileContent() {
+        return fileContent;
+    }
+
+    public void setFileContent(InputStream fileContent) {
+        this.fileContent = fileContent;
     }
 
 
