@@ -19,8 +19,9 @@ public class AttendanceList {
     private Date dob;
     private String phoneNumber;
     private Boolean status;
+    private String note;
 
-    public AttendanceList(String studentid, String lastName, String firstName, boolean gender, Date dob, String phoneNumber, Boolean status) {
+    public AttendanceList(String studentid, String lastName, String firstName, Boolean gender, Date dob, String phoneNumber, Boolean status, String note) {
         this.studentid = studentid;
         this.lastName = lastName;
         this.firstName = firstName;
@@ -28,6 +29,7 @@ public class AttendanceList {
         this.dob = dob;
         this.phoneNumber = phoneNumber;
         this.status = status;
+        this.note = note;
     }
 
     public String getStudentid() {
@@ -54,11 +56,11 @@ public class AttendanceList {
         this.firstName = firstName;
     }
 
-    public boolean isGender() {
+    public Boolean getGender() {
         return gender;
     }
 
-    public void setGender(boolean gender) {
+    public void setGender(Boolean gender) {
         this.gender = gender;
     }
 
@@ -86,10 +88,20 @@ public class AttendanceList {
         this.status = status;
     }
 
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
     @Override
     public String toString() {
-        return "AttendanceList{" + "studentid=" + studentid + ", lastName=" + lastName + ", firstName=" + firstName + ", gender=" + gender + ", dob=" + dob + ", phoneNumber=" + phoneNumber + ", status=" + status + '}';
+        return "AttendanceList{" + "studentid=" + studentid + ", lastName=" + lastName + ", firstName=" + firstName + ", gender=" + gender + ", dob=" + dob + ", phoneNumber=" + phoneNumber + ", status=" + status + ", note=" + note + '}';
     }
+
+    
 
    
     

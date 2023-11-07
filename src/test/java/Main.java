@@ -1,5 +1,6 @@
 
 import DAO.Dao;
+import Model.AttendanceList;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Date;
@@ -38,8 +39,12 @@ public class Main {
 //            e.printStackTrace();
 //
 //        }
-        studentDAO.deleteNoti(notificationid);
-        System.out.println("Suceess");
+        LocalDate currentDate = LocalDate.now();
+        List<AttendanceList> students = studentDAO.getAttendanceStudentByDate(java.sql.Date.valueOf(currentDate),"1");
+        for (AttendanceList st : students){
+            System.out.println(st);
+        }
+               
     }
 }
 

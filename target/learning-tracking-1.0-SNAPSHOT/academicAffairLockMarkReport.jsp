@@ -137,7 +137,7 @@
                                         </c:if>
                                         <c:if test = "${isLockedMark}">
                                             <div class="row acaAff-files d-flex flex-row-reverse m-4">
-                                                <button type="submit" class="acaAff-btn btn-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Nhấn để mở sổ điểm">MỞ</button>
+                                                <button type="button" class="acaAff-btn " data-bs-toggle="modal" data-bs-target="#exampleModal">Đã khóa sổ điểm</button>
                                             </div>
                                         </c:if>
                                     </div>
@@ -185,6 +185,11 @@
                                                     </c:forEach>
                                                 </tbody>
                                             </table>
+                                        <c:if test = "${isLockedMark}">
+                                            <div class="row acaAff-files d-flex flex-row-reverse m-4">
+                                                <button type="submit" class="acaAff-btn btn-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Nhấn để mở quyền chỉnh sửa điểm của lớp ${className}">MỞ</button>
+                                            </div>
+                                        </c:if>
                                         </div>
                                     </c:forEach>
                                 </div>

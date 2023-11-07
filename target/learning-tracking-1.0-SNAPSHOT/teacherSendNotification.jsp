@@ -35,28 +35,34 @@
                     <div class="app-home__heading">
                         <div class="header-name d-flex">
                             <a href="teacherHomePage.jsp"><i class="fa-solid fa-arrow-left me-3"></i></a>
-                            THÔNG BÁO
+                            <div style="margin-top: 5px">THÔNG BÁO</div>
                             <a href="sendNotificationFromTeacher?teacherid=${sessionScope.teacher.teacherid}" class="btn btn-outline-primary ms-auto add-noti">+</a>
                         </div>
 
                     </div>
-                    <div class="app-home__content">
+                        <div class="app-home__content" style="padding: 20px 0px 20px 30px">
                         <div class="grid-container grid-header">
-                            <div class="grid-item">STT</div>
-                            <div class="grid-item">Đến</div>
-                            <div class="grid-item">Tiêu Đề</div>
-                            <div class="grid-item">Ngày Gửi</div>
+                            <div class="grid-container2">
+                                <div class="grid-item">STT</div>
+                                <div class="grid-item">Đến</div>
+                                <div class="grid-item">Tiêu Đề</div>
+                                <div class="grid-item">Ngày Gửi</div>
+                            </div>
+                            <div class="grid-item text-center">Xóa</div>
+                            <div class="grid-item">Sửa</div>
                         </div>
                         <c:forEach items="${notificationHistory}" var="noti" varStatus="loopStatus">
-                            <a href="viewDetailsNotiFromTeacher?notificationid=${noti.notificationid}" class="text-decoration-none">
-                                <div class="grid-container">                                 
+                            
+                                <div class="grid-container"> 
+                                    <a href="viewDetailsNotiFromTeacher?notificationid=${noti.notificationid}" class="text-decoration-none grid-container2">
                                     <div class="grid-item">${loopStatus.index + 1}</div>
                                     <div class="grid-item">${noti.classname}</div>
                                     <div class="grid-item">${noti.title}</div>
                                     <div class="grid-item">${noti.date}</div> 
+                                    </a>
                                     <div class="grid-item">
                                         <a role="button" class="btn btn-block nav-link" href="viewDetailNotiTeacherUpdate?notificationid=${noti.notificationid}"
-                                           ><i data-toggle="tooltip" class="fa-solid fa-square-pen"></i>
+                                           ><i data-toggle="tooltip" class="fa-solid fa-square-pen" style="font-size: 20px"></i>
                                         </a>
                                     </div>
                                     <div class="grid-item">
@@ -66,10 +72,10 @@
                                     </div>
 
                                 </div>  
-                            </a>
+                           
                         </c:forEach>
                     </div>
-                    <div class="navigation me-5">
+<!--                    <div class="navigation me-5">
                         <nav aria-label="Page navigation example">
                             <ul class="pagination justify-content-end pagination-lg mt-3">
                                 <li class="page-item disabled">
@@ -83,7 +89,7 @@
                                 </li>
                             </ul>
                         </nav>
-                    </div>
+                    </div>-->
                 </div>
             </div>            
         </div>
