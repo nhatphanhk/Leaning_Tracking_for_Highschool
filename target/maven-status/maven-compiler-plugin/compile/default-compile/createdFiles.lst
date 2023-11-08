@@ -11,6 +11,7 @@ Controller/StudentList.class
 Controller/ViewDetailNotificationManager.class
 Controller/StudentProfileController.class
 Controller/ChangeForgotPasswordController.class
+Controller/ViewFeeController.class
 Controller/UpdateMarkController.class
 Controller/TeacherListController.class
 Controller/NotificationTeacherPage.class
@@ -26,6 +27,7 @@ Controller/CheckAttendanceController.class
 Controller/ajaxServlet.class
 jakarta/servlet/http/Cokkiee.class
 Model/Admin.class
+Model/PayFee.class
 Model/Class.class
 Controller/ViewDetailNotiSchoolUpdate.class
 Controller/AddAccountController.class
@@ -37,6 +39,7 @@ Controller/AddTeacherController.class
 Controller/ManageTimetableClass.class
 Controller/ViewApplicationHistoryStudent.class
 Controller/ViewDetailsNotiFromTeacher.class
+Model/payment_category.class
 Controller/InsertApplicationStudent.class
 Controller/UpdateStudentController.class
 Model/Student.class
@@ -52,6 +55,7 @@ Controller/DetailsNotification.class
 Controller/ViewTimetableStudent.class
 Controller/SendEmailController$1.class
 Controller/LoadTimetable.class
+Controller/payServlet.class
 Controller/CRUDMarkController.class
 Model/AttendanceList.class
 Controller/CheckAttendanceController$1.class
@@ -69,6 +73,7 @@ Controller/SchoolNotificationHistory.class
 Controller/DownloadFileServlet.class
 Model/Semester.class
 Controller/TeacherListTimetable.class
+Controller/AddFeeController.class
 Controller/test.class
 Model/Timetable.class
 Controller/SendEmailController.class

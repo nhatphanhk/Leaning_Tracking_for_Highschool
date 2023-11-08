@@ -56,34 +56,39 @@
                                     </h1>
                                 </div>
 
-                                <div class="row px-5 mx-5 mb-5 pb-5 ">
-                                    <div class="col-3">
-                                        <h1 class="mt-2 text-secondary fw-bolder align-middle">
-                                            Học Phí theo Kỳ :
-                                        </h1>
-                                    </div>
-                                    <div class="col-5">
-                                        <input class="fs-2" type="checkbox" id="hoc-phi" required/>
-                                        <label for="hoc-phi">7.499.000VNĐ</label>
-                                    </div>
+                               <div class="row px-5 mx-5 mb-5 pb-5">
+                                <div class="col-3">
+                                    <h1 class="mt-2 text-secondary fw-bolder align-middle">
+                                        Học Phí theo Kỳ :
+                                    </h1>
                                 </div>
+                                <div class="col-5">
+                                    <input class="fs-2" type="checkbox" id="hoc-phi" onchange="LinkVPN()"/>
+                                    <label for="hoc-phi">7.499.000</label>
+                                </div>
+                            </div>
 
-                                <div class="row px-5 mx-5 mb-5 pb-5 ">
-                                    <div class="col-3">
-                                        <h1 class="mt-2 text-secondary fw-bolder align-middle">
-                                            Các khoản phí khác :
-                                        </h1>
-                                    </div>
-                                    <div class="col-5">
-                                        <input class="fs-2" type="checkbox" id="khoan-phi" />
-                                        <label for="khoan-phi">2.000.000</label>
-                                    </div>
+                            <div class="row px-5 mx-5 mb-5 pb-5">
+                                <div class="col-3">
+                                    <h1 class="mt-2 text-secondary fw-bolder align-middle">
+                                        Các khoản phí khác :
+                                    </h1>
                                 </div>
+                                <div class="col-5">
+                                    <input class="fs-2" type="checkbox" id="khoan-phi" onchange="LinkVPN()"/>
+                                    <label for="khoan-phi">2.000.000</label>
+                                </div>
+                            </div>
+
+                            <input type="hidden" id="hoc-phi-amount" name="hoc-phi-amount" value="0">
+                            <input type="hidden" id="khoan-phi-amount" name="khoan-phi-amount" value="0">
+
                                 
                                 <div class="row px-5 mx-5 mb-5 pb-5 collapse" id="LinkVPN" style="font-size: 20px">
                                     <div class="col-8">
-                                        Hãy tới nhấn vào đường link để tới trang thanh toán. <a class="text-color-green" href="https://sandbox.vnpayment.vn/tryitnow/Home/CreateOrder" target="_blank">Link</a>
+                                        Hãy tới nhấn vào đường link để tới trang thanh toán. <a id="payLink" class="text-color-green" target="_blank" href="#" >Link</a>
                                     </div>
+
                                 </div>
 
                                 <div class="row px-5 mx-5 pt-5 pb-5">
@@ -105,20 +110,42 @@
 
 
     <%@ include file="./includes/linkJS.jsp" %>
-    <script src="assets/js/scripts.js"></script>
     <script>
-    function showLinkVPN() {
-        // Kiểm tra xem checkbox có được chọn hay không
-        var checkbox = document.getElementById("hoc-phi");
-        var checkbox2 =document.getElementById("khoan-phi");
-                    var collapsible = document.getElementById("LinkVPN");
+            
+                function LinkVPN() {
+                    var checkbox1 = document.getElementById("hoc-phi");
+                    var checkbox2 = document.getElementById("khoan-phi");
+                    var hocPhiAmount = parseFloat(checkbox1.checked ? checkbox1.nextElementSibling.textContent : 0);
+                    var khoanPhiAmount = parseFloat(checkbox2.checked ? checkbox2.nextElementSibling.textContent : 0);
 
-        if (checkbox.checked || checkbox2.checked) {
-            collapsible.classList.add("show");
-        } else {
-            collapsible.classList.remove("show");
-        }
-    }
-    </script>
-  </body>
+                    var totalAmount = (hocPhiAmount + khoanPhiAmount)*1000000;
+
+                    if (totalAmount > 0) {
+                        var payLink = document.getElementById("payLink");
+                        payLink.href = "payServlet?totalAmount=" + totalAmount;
+                    }
+                }
+
+
+   
+
+
+            function showLinkVPN() {
+                var checkbox1 = document.getElementById("hoc-phi");
+                var checkbox2 = document.getElementById("khoan-phi");
+                var collapsible = document.getElementById("LinkVPN");
+
+                if (checkbox1.checked || checkbox2.checked) {
+                    collapsible.classList.add("show");
+                } else {
+                    collapsible.classList.remove("show");
+                }
+            }
+</script>
+    <script src="assets/js/scripts.js"></script>
+
+
+
+
+      </body>
 </html>

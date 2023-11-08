@@ -13,6 +13,8 @@ import Model.Class;
 import Model.Major;
 import Model.Mark;
 import Model.Notification;
+import Model.payment_category;
+import Model.PayFee;
 import java.io.InputStream;
 import Model.Semester;
 import java.io.Serializable;
@@ -115,7 +117,9 @@ public class Dao implements Serializable {
         }
         return student;
     }
+    private static final String SELECT_ALL_FEE = "SELECT [transactionid], [studentid], [date], [totalbill], [categoryid] FROM payment_history";
 
+    
     public void deleteNoti(String notificationid) throws SQLException {
         PreparedStatement stm;
         ResultSet rs;
@@ -1527,6 +1531,52 @@ public class Dao implements Serializable {
         }
 
     }
+            public List<PayFee> getPayFeeList() throws SQLException {
+
+              List<PayFee> payFeeList = new ArrayList<>();
+
+              try (PreparedStatement stm = conn.prepareStatement(SELECT_ALL_FEE)) {
+
+                ResultSet rs = stm.executeQuery();
+
+                while (rs.next()) {
+                  PayFee payFee = mapResultSetToPayFee(rs);
+                  payFeeList.add(payFee);
+                }
+
+              } catch (SQLException e) {
+                Logger logger = Logger.getLogger(PayFee.class.getName());
+                logger.log(Level.SEVERE, "Lỗi lấy danh sách phí", e);
+                throw e;
+              }
+
+               return payFeeList;
+
+
+            }
+            public void addPayFee(payment_category newFee) throws SQLException {
+
+                String sql = "INSERT INTO payment_category (categoryid,payment_category, Amount) VALUES (?,?, ?)";
+
+                PreparedStatement stmt = conn.prepareStatement(sql);
+
+                stmt.setInt(1, newFee.getCategoryid()); 
+                stmt.setString(2,newFee.getPayment_category());
+                stmt.setString(3, newFee.getAmount());
+
+                stmt.executeUpdate();
+              }
+            
+              private PayFee mapResultSetToPayFee(ResultSet rs) throws SQLException {
+                return new PayFee(
+                   rs.getInt("transactionid"),
+                   rs.getString("studentid"),
+                   rs.getDate("date"),
+                              rs.getInt("totalbill"),
+                              rs.getInt("categoryid")
+                );
+              }
+    
 
     public List<Semester> getAllSemester() {
         PreparedStatement stm;

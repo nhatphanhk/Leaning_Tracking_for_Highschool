@@ -1,7 +1,6 @@
 <%@page import="Controller.Config"%>
 <%@page import="java.net.URLEncoder"%>
 <%@page import="java.nio.charset.StandardCharsets"%>
-<%@page import="com.vnpay.common.Config"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -25,9 +24,44 @@
         <title>KẾT QUẢ THANH TOÁN</title>
         <!-- Bootstrap core CSS -->
         <link href="/vnpay_jsp/assets/bootstrap.min.css" rel="stylesheet"/>
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
         <!-- Custom styles for this template -->
         <link href="/vnpay_jsp/assets/jumbotron-narrow.css" rel="stylesheet"> 
         <script src="/vnpay_jsp/assets/jquery-1.11.3.min.js"></script>
+        <style>
+      body {
+        padding: 2rem 1rem;
+        background: #f5f5f5; 
+      }
+
+      .card {
+        margin-bottom: 1.5rem;
+        border: none;
+        box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.2);
+      }
+
+      .card-header {
+        background-color: #007bff;
+        color: #fff;
+      }
+
+      footer {
+        background: #eee;
+        padding: 1rem;
+        text-align: center; 
+      }
+
+      .badge-success {
+        color: #fff;
+        background-color: #28a745;
+      }
+
+      .badge-danger {
+        color: #fff;
+        background-color: #dc3545;
+      }
+    </style>
     </head>
     <body>
         <%

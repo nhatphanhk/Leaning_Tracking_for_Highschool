@@ -124,6 +124,14 @@
         <url-pattern>/deleteNotification</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>AddFeeController</servlet-name>
+        <servlet-class>Controller.AddFeeController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddFeeController</servlet-name>
+        <url-pattern>/AddFeeController</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>AddAccountController</servlet-name>
         <servlet-class>Controller.AddAccountController</servlet-class>
     </servlet>
@@ -347,6 +355,16 @@
         <servlet-name>vnpayRefund</servlet-name>
         <servlet-class>com.vnpay.common.vnpayRefund</servlet-class>
     </servlet>
+    <servlet>
+     <servlet-name>ViewFeeController</servlet-name>
+     <servlet-class>Controller.ViewFeeController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+    <servlet-name>ViewFeeController</servlet-name>
+    <url-pattern>/ViewFeeController</url-pattern> 
+    </servlet-mapping>
+    
     <servlet-mapping>
         <servlet-name>ajaxServlet</servlet-name>
         <url-pattern>/vnpayajax/*</url-pattern>

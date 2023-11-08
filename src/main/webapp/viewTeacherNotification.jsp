@@ -46,14 +46,14 @@
                                     <div class="row m">
                                         <div class="notification-list">
                                             <c:forEach var="x" items="${notifications}">
-                                                <div class="notificaiton-item p-4">
-                                                    <a href="viewDetailsNotiFromSchool?notificationid=${x.notificationid}" class="text-decoration-none">
+                                                <div class="notificaiton-item p-4" >
+                                                    <a href="viewDetailsNotiFromTeacher?notificationid=${x.notificationid}" class="text-decoration-none">
                                                     <div class="notifi-heading">
-                                                        <div class="notifi-header fs-1">${x.title}</div>
-                                                        <div class="notifi-date fs-3">${x.date}</div>
+                                                        <div class="notifi-header fs-1" style="color:black;">${x.title}</div>
+                                                        <div class="notifi-date fs-3" style="color:black;">${x.date}</div>
                                                     </div>
                                                     <div class="d-flex">
-                                                        <p class="ps-3 pt-2 notifi-short-content fs-3 " style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap; max-width: 500px">
+                                                        <p class="ps-3 pt-2 notifi-short-content fs-3 " style="color: black;text-overflow: ellipsis;overflow: hidden;white-space: nowrap; max-width: 500px">
                                                             ${x.content}
                                                         </p>
                                                         <div class="ms-auto ps-3 pt-2 notifi-teacher-name fs-3">${x.teacher.firstname} ${x.teacher.lastname}</div>
