@@ -15,12 +15,15 @@
                     <div class="box-section">
                         <div class="app-home__heading">
                             <div class="header-name d-flex justify-content-between">
-                                <a href="academicAffairProfile.jsp"><i class="fa-solid fa-arrow-left pe-2 ps-2"></i></a>
-                                <span>Điểm danh</span>
+                                <div>
+                                    <a href="academicAffairProfile.jsp"><i class="fa-solid fa-arrow-left pe-2 ps-2"></i></a>
+                                Điểm danh
+                                </div>
+                                
                                 <h3>${msg}</h3>
-                                <form action="list-attendance" method="get">
-                                    <div class="search">
-                                        <div class="search-btn-contain" style="right:80px;">
+                                <form action="list-attendance " method="get">
+                                    <div class="search d-flex justify-content-between">
+                                        <div class="search-btn-contain" style="right:90px;">
                                             <select id="classid" name="classid" class="form-select" aria-label="Default select example" onchange="changeClassName()">
                                                 <option selected>Chọn Lớp</option>
                                                 <option value="1">10A1</option>
@@ -63,7 +66,7 @@
                                                 <tr>
                                                     <td>${status.index+1}</td>
                                                     <td>${x.studentid}</td>
-                                                    <td>${x.lastName} ${x.firstName}</td>
+                                                    <td class="text-start">${x.lastName} ${x.firstName}</td>
                                                     <td>
                                                 <c:choose>
                                                     <c:when test="${x.gender}">

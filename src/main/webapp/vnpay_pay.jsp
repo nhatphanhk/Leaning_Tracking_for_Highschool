@@ -55,7 +55,7 @@
                          <label for="language">Tiếng anh</label><br>
                          
                     </div>
-                    <button type="submit" class="btn btn-default" href>Thanh toán</button>
+                    <button type="submit" class="btn btn-default" href=" https://sandbox.vnpayment.vn/paymentv2/vpcpay.html">Thanh toán</button>
                 </form>
             </div>
             <p>

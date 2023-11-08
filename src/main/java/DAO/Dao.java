@@ -13,6 +13,8 @@ import Model.Class;
 import Model.Major;
 import Model.Mark;
 import Model.Notification;
+import Model.PayFee;
+import Model.payment_category;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Connection;
@@ -78,7 +80,9 @@ public class Dao implements Serializable {
     private static final String SELECT_TIMETABLE_TEACHER = "SELECT n.activityid, n.[day], n.[hour], n.classid, n.majorid, n.teacherid, n.semesterid, c.classname, m.majorname FROM [dbo].[timetable] n JOIN [dbo].[class] c ON c.classid = n.classid JOIN [dbo].[subject] m ON m.majorid = n.majorid WHERE hour = ? AND teacherid = ?";
     private static final String SELECT_TEACHER_BY_CLASSID = "select teacher.teacherid, lastname, firstname, major, email, address, phonenumber, dob, gender from teacher inner join class_assign on teacher.teacherid = class_assign.teacherid where class_assign.classid= ?";
     private static final String DELETE_NOTI = "DELETE FROM notification WHERE notificationid = ?";
+    private static final String SELECT_ALL_FEE = "SELECT [transactionid], [studentid], [date], [totalbill], [categoryid] FROM payment_history";
 
+    
     public void deleteNoti(String notificationid) throws SQLException {
         PreparedStatement stm;
         ResultSet rs;
@@ -1480,6 +1484,52 @@ public class Dao implements Serializable {
         }
 
     }
+            public List<PayFee> getPayFeeList() throws SQLException {
+
+              List<PayFee> payFeeList = new ArrayList<>();
+
+              try (PreparedStatement stm = conn.prepareStatement(SELECT_ALL_FEE)) {
+
+                ResultSet rs = stm.executeQuery();
+
+                while (rs.next()) {
+                  PayFee payFee = mapResultSetToPayFee(rs);
+                  payFeeList.add(payFee);
+                }
+
+              } catch (SQLException e) {
+                Logger logger = Logger.getLogger(PayFee.class.getName());
+                logger.log(Level.SEVERE, "Lỗi lấy danh sách phí", e);
+                throw e;
+              }
+
+               return payFeeList;
+
+
+            }
+            public void addPayFee(payment_category newFee) throws SQLException {
+
+                String sql = "INSERT INTO payment_category (categoryid,payment_category, Amount) VALUES (?,?, ?)";
+
+                PreparedStatement stmt = conn.prepareStatement(sql);
+
+                stmt.setInt(1, newFee.getCategoryid()); 
+                stmt.setString(2,newFee.getPayment_category());
+                stmt.setString(3, newFee.getAmount());
+
+                stmt.executeUpdate();
+              }
+            
+              private PayFee mapResultSetToPayFee(ResultSet rs) throws SQLException {
+                return new PayFee(
+                   rs.getInt("transactionid"),
+                   rs.getString("studentid"),
+                   rs.getDate("date"),
+                              rs.getInt("totalbill"),
+                              rs.getInt("categoryid")
+                );
+              }
+    
 
     public static void main(String[] args) {
 //        Dao dao =  Dao.getInstance();

@@ -347,6 +347,16 @@
         <servlet-name>vnpayRefund</servlet-name>
         <servlet-class>com.vnpay.common.vnpayRefund</servlet-class>
     </servlet>
+    <servlet>
+     <servlet-name>ViewFeeController</servlet-name>
+     <servlet-class>Controller.ViewFeeController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+    <servlet-name>ViewFeeController</servlet-name>
+    <url-pattern>/ViewFeeController</url-pattern> 
+    </servlet-mapping>
+    
     <servlet-mapping>
         <servlet-name>ajaxServlet</servlet-name>
         <url-pattern>/vnpayajax/*</url-pattern>

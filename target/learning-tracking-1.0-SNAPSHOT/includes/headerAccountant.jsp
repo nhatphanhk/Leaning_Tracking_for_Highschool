@@ -41,13 +41,14 @@
                     </button>
                     <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNavDropdown">
                         <ul class="navbar-nav ms-3">
+                            <li class="nav-item">
+                                <a class="nav-link" href="accountantProfile.jsp">Kế toán</a>
+                            </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Quản lý phí</a>
+                                <a class="nav-link" href="ViewFeeController">Quản lý phí</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Báo cáo chưa thanh toán</a>
-                            </li>
+                           
                         </ul>
                         <!--                         User DropDown  
                                                 <div class="dropdown user-dropdown">
