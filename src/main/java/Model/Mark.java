@@ -21,6 +21,32 @@ public class Mark {
     private String major;
     private int semester;
     private int year;
+    private String semesterid;
+
+    public Mark(String studentid, String lastname, String firstname, BigDecimal progress_mark, BigDecimal middle_mark, BigDecimal final_mark, BigDecimal total_mark, String major) {
+        this.studentid = studentid;
+        this.lastname = lastname;
+        this.firstname = firstname;
+        this.progress_mark = progress_mark;
+        this.middle_mark = middle_mark;
+        this.final_mark = final_mark;
+        this.total_mark = total_mark;
+        this.major = major;
+    }
+
+    public Mark(String studentid, String lastname, String firstname, BigDecimal progress_mark, BigDecimal middle_mark, BigDecimal final_mark, BigDecimal total_mark, String major, int semester, int year, String semesterid) {
+        this.studentid = studentid;
+        this.lastname = lastname;
+        this.firstname = firstname;
+        this.progress_mark = progress_mark;
+        this.middle_mark = middle_mark;
+        this.final_mark = final_mark;
+        this.total_mark = total_mark;
+        this.major = major;
+        this.semester = semester;
+        this.year = year;
+        this.semesterid = semesterid;
+    }
 
     public Mark() {
     }
@@ -36,6 +62,14 @@ public class Mark {
         this.major = major;
         this.semester = semester;
         this.year = year;
+    }
+
+    public String getSemesterid() {
+        return semesterid;
+    }
+
+    public void setSemesterid(String semesterid) {
+        this.semesterid = semesterid;
     }
     
     public Mark(String studentid, String lastname, String firstname, BigDecimal progress_mark, BigDecimal middle_mark, BigDecimal final_mark, BigDecimal total_mark, int semester, int year) {
@@ -132,8 +166,10 @@ public class Mark {
 
     @Override
     public String toString() {
-        return "Mark{" + "studentid=" + studentid + ", lastname=" + lastname + ", firstname=" + firstname + ", progress_mark=" + progress_mark + ", middle_mark=" + middle_mark + ", final_mark=" + final_mark + ", total_mark=" + total_mark + ", major=" + major + ", semester=" + semester + ", year=" + year + '}';
+        return "Mark{" + "studentid=" + studentid + ", lastname=" + lastname + ", firstname=" + firstname + ", progress_mark=" + progress_mark + ", middle_mark=" + middle_mark + ", final_mark=" + final_mark + ", total_mark=" + total_mark + ", major=" + major + ", semester=" + semester + ", year=" + year + ", semesterid=" + semesterid + '}';
     }
+
+    
     
     
     

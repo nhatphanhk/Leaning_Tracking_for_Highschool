@@ -48,8 +48,8 @@
                                 <div class="grid-item">Tiêu Đề</div>
                                 <div class="grid-item">Ngày Gửi</div>
                             </div>
-                            <div class="grid-item text-center">Xóa</div>
-                            <div class="grid-item">Sửa</div>
+                            <div class="grid-item text-center">Sửa</div>
+                            <div class="grid-item">Xoá</div>
                         </div>
                         <c:forEach items="${notificationHistory}" var="noti" varStatus="loopStatus">
                             

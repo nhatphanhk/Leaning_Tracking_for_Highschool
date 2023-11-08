@@ -76,10 +76,10 @@ public class LoginController extends HttpServlet {
         if (email.startsWith("teacher")) {
             response.sendRedirect("teacherHomePage.jsp");
         }
-        if (email.startsWith("academicAffair")) {
+        if (email.startsWith("academicaffair")) {
             response.sendRedirect("academicAffairProfile.jsp");
         }
-        if (email.startsWith("accountManager")) {
+        if (email.startsWith("accountmanager")) {
             response.sendRedirect("accountManagementProfile.jsp");
         }
         if (email.startsWith("accountant")) {
@@ -138,7 +138,6 @@ public class LoginController extends HttpServlet {
                     session.setAttribute("teacher", tc);
                     String teacherid = tc.getTeacherid();
                     session.setAttribute("teacherid", teacherid);
-        
 
                     request.getRequestDispatcher("teacherHomePage.jsp").forward(request, response);
                     break;

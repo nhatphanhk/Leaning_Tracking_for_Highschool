@@ -33,6 +33,31 @@ public class Student {
     public void setNote(String note) {
         this.note = note;
     }
+    private int identify;
+
+    public Student(String studentid, String lastName, String firstName, String email, String address, String phoneNumber, int classid, boolean gender, Date dob, String className, int identify) {
+        this.studentid = studentid;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.email = email;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.classid = classid;
+        this.gender = gender;
+        this.dob = dob;
+        this.className = className;
+        
+        this.identify = identify;
+    }
+
+    public int getIdentify() {
+        return identify;
+    }
+
+    public void setIdentify(int identify) {
+        this.identify = identify;
+    }
+    
 
     public Boolean getStatus() {
         return status;
@@ -98,6 +123,7 @@ public class Student {
         this.gender = gender;
         this.dob = dob;
         this.className = className;
+        
     }
 
     
@@ -199,8 +225,10 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" + "studentid=" + studentid + ", lastName=" + lastName + ", firstName=" + firstName + ", email=" + email + ", address=" + address + ", phoneNumber=" + phoneNumber + ", gender=" + gender + ", dob=" + dob + ", className=" + className + ", semester=" + semester + ", year=" + year + '}';
+        return "Student{" + "studentid=" + studentid + ", lastName=" + lastName + ", firstName=" + firstName + ", email=" + email + ", address=" + address + ", phoneNumber=" + phoneNumber + ", classid=" + classid + ", gender=" + gender + ", dob=" + dob + ", className=" + className + ", semester=" + semester + ", year=" + year + ", status=" + status + ", identify=" + identify + '}';
     }
+
+    
 
  
 }

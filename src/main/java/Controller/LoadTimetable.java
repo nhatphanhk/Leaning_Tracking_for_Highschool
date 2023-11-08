@@ -133,7 +133,7 @@ public class LoadTimetable extends HttpServlet {
         }
 
         fileContent.close();
-        response.sendRedirect("academicAffairTimetableStudent.jsp");
+        response.sendRedirect("teacherListTimetable");
     }
 
     /**

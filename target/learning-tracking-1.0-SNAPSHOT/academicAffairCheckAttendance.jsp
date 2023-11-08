@@ -20,8 +20,8 @@
                                 <h3 style="top: 11px; left: 100px; position: relative;">${msg}</h3>
                                 <form action="list-attendance" method="get">
                                     <div class="search">
-                                        <div class="search-btn-contain" style="top: 10px; right: 115px;;">
-                                            <select id="classid" name="classid" class="form-select" aria-label="Default select example" onchange="changeClassName()">
+                                        <div class="search-btn-contain" style="top: 9px; right: 115px;;">
+                                            <select id="classid" style="font-size: 15px;" name="classid" class="form-select" aria-label="Default select example" onchange="changeClassName()">
                                                 <option selected>Chọn Lớp</option>
                                                 <option value="1">10A1</option>
                                                 <option value="2">10A2</option>
@@ -121,7 +121,7 @@ checkboxes.forEach(function (checkbox) {
 
 
 function showPopup() {
-    swal("Good job!", "You clicked the button!", "success");
+    swal("Thành Công!");
     return true;
 }
 

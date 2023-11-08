@@ -36,7 +36,7 @@ Author     : htk09
                             Chỉnh sửa thông báo
                         </div>
                     </div>
-                    <form action="updateNotiFromteacher" method="post">
+                    <form action="updateNotiFromTeacher" method="post">
                         <input type="hidden" name="notificationid" value="${detailTeacherNoti.notificationid}" />
                         <div class="send-notification mx-4">
                             <div class="mb-3 d-flex mt-4">

@@ -67,6 +67,7 @@ DAO/Dao.class
 Controller/SendNotificationFromSchool.class
 Controller/SchoolNotificationHistory.class
 Controller/DownloadFileServlet.class
+Model/Semester.class
 Controller/TeacherListTimetable.class
 Controller/test.class
 Model/Timetable.class

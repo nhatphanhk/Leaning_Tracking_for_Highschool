@@ -27,7 +27,7 @@
                                         <input type="file" id="attachmentFile" name="attachmentFile">
                                     </div>
                                     <div>
-                                        <input class="ps-2 pe-2" type="submit" value="Import">
+                                        <input onclick="showPopup()" class="ps-2 pe-2" type="submit" value="Import">
                                     </div>                                
                                 </form>
                             </div>
@@ -313,6 +313,11 @@
 
 <%@ include file="./includes/linkJS.jsp" %>
 <script src="./assets/js/mycode.js"></script>
+<script>
+    function showPopup() {
+    swal("Good job!", "You clicked the button!", "success");
+    return true;
+}
 </script>
 </body>
 </html>
